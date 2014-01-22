@@ -1,5 +1,6 @@
 ---
 title: Column
+meta_title: Column Series
 slug: chart-series-column
 tags: Chart, iOS, column, series
 publish: true

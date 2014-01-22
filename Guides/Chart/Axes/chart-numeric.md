@@ -1,5 +1,6 @@
 ---
 title: Numeric
+meta_title: Numeric Axis
 slug: chart-axes-numeric
 tags: Chart, iOS, axes, axis, numeric
 publish: true

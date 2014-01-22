@@ -1,5 +1,6 @@
 ---
 title: Axes
+meta_title: Axes Overview
 slug: chart-axes-axes
 tags: Chart, iOS, axes
 publish: true

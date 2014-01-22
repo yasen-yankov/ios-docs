@@ -1,5 +1,6 @@
 ---
 title: Scatter
+meta_title: Scatter Series
 slug: chart-series-scatter
 tags: Chart, iOS, scatter, series
 publish: true

@@ -1,5 +1,6 @@
 ---
 title: Bar
+meta_title: Bar Series
 slug: chart-series-bar
 tags: Chart, iOS, bar, series
 publish: true

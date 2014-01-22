@@ -1,5 +1,6 @@
 ---
 title: Datetime
+meta_title: Datetime Axis
 slug: chart-axes-datetime
 tags: Chart, iOS, axis, axes, datetime
 publish: true

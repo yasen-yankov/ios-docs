@@ -1,5 +1,6 @@
 ---
 title: Point Customization
+meta_title: Point Customization
 slug: chart-series-point-customization
 tags: Chart, iOS
 publish: true
