@@ -6,9 +6,6 @@ publish: true
 ordinal: 7
 ---
 
-Customization of data point appearance
-======================================
-
 ##Overview
 
 The TKChartSeries can draw a point in particular shape. You can customize the appearance and shape of this point by accessing and altering the styling properties and palette items for shapePallete.

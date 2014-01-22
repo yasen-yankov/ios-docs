@@ -6,9 +6,6 @@ publish: true
 ordinal: 1
 ---
 
-Working with TKChartAreaSeries
-==============================
-
 ##Overview
 
 As a derivative of TKLineSeries series, TKAreaSeries plots its data points in line (spline). Once positioned on a plane the points are connected to form a line (spline). Further, the area enclosed between this line and the axis is filled. Below is a sample snippet that demonstrates how to set up two AreaSeries:

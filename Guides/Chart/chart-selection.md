@@ -6,9 +6,6 @@ publish: true
 ordinal: 6
 ---
 
-Selection
-=========
-
 ##Overview##
 
 This help topic demonstrates how you can make your charts more interactive by enabling a selection behavior. 

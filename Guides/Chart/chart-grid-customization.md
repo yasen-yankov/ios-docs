@@ -6,9 +6,6 @@ publish: true
 ordinal: 2
 ---
 
-Working with chart grid
-==============================
-
 ##Overview
 
 TKChart series, which support axes, can render a grid that facilitates the process of determining the values of points afar from the axes. Since Pie area does not use axes, the grid is valid only in the context of Cartesian series. Grid consists of horizontal and vertical lines matching axes major ticks and fills between them. You can alternate fills to create zebra like effect both horizontally and vertically.

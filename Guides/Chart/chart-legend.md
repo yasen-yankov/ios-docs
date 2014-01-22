@@ -6,9 +6,6 @@ publish: true
 ordinal: 2
 ---
 
-Legend
-======
-
 ##Overview##
 
 TKChart has built-in support for legends – descriptions about the charts on the plot. The items displayed in the legend are series specific i.e. for the pie chart the data points are shown in the legend, whereas for line series only one item is shown for each series.
