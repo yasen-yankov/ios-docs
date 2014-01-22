@@ -1,5 +1,6 @@
 ---
 title: Pie
+meta_title: Pie Series
 slug: chart-series-pie
 tags: Chart, iOS, pie, series
 publish: true

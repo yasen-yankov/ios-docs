@@ -1,5 +1,6 @@
 ---
 title: Categoric
+meta_title: Category Axis
 slug: chart-axes-categoric
 tags: Chart, iOS, categoric, axis, axes
 publish: true
