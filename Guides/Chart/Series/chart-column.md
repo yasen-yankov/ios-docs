@@ -1,3 +1,11 @@
+---
+title: Bar Series
+slug: chart-series-bar
+tags: Chart, iOS, bar, series
+publish: true
+ordinal: 3
+---
+
 Working with TKChartColumnSeries
 ==============================
 

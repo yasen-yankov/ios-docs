@@ -1,3 +1,11 @@
+---
+title: UIKit Dynamics Animations
+slug: chart-animations-custom-uikit-dynamics
+tags: Chart, iOS, UIKit
+publish: true
+ordinal: 2
+---
+
 Custom Animations with UIKit Dynamics
 ======================================
 

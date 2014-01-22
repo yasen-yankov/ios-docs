@@ -1,3 +1,11 @@
+---
+title: Area Series
+slug: chart-series-area
+tags: Chart, iOS, area, series
+publish: true
+ordinal: 1
+---
+
 Working with TKChartAreaSeries
 ==============================
 

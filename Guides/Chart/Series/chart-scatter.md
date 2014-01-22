@@ -1,3 +1,11 @@
+---
+title: Scatter Series
+slug: chart-series-scatter
+tags: Chart, iOS, scatter, series
+publish: true
+ordinal: 6
+---
+
 Working with TKChartScatterSeries
 =================================
 
