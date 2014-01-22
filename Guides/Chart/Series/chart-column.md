@@ -1,7 +1,7 @@
 ---
-title: Bar Series
-slug: chart-series-bar
-tags: Chart, iOS, bar, series
+title: Column
+slug: chart-series-column
+tags: Chart, iOS, column, series
 publish: true
 ordinal: 3
 ---

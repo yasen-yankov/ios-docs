@@ -1,5 +1,5 @@
 ---
-title: Line Series
+title: Line
 slug: chart-series-line
 tags: Chart, iOS, line, series
 publish: true
