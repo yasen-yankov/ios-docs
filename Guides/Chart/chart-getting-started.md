@@ -1,6 +1,6 @@
 ---
-title: Overview
-slug: chart-overview
+title: Getting Started
+slug: chart-getting-started
 tags: Chart, iOS
 publish: true
 ordinal: 2
