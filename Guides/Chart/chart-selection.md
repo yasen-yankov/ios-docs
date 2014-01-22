@@ -1,3 +1,11 @@
+---
+title: Selection
+slug: chart-selection
+tags: Chart, iOS, selection
+publish: true
+ordinal: 6
+---
+
 Selection
 =========
 
