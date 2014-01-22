@@ -1,5 +1,5 @@
 ---
-title: Area Series
+title: Area
 slug: chart-series-area
 tags: Chart, iOS, area, series
 publish: true

@@ -1,5 +1,5 @@
 ---
-title: Area Series
+title: Point Customization
 slug: chart-series-point-customization
 tags: Chart, iOS
 publish: true
