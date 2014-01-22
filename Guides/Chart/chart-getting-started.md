@@ -68,7 +68,7 @@ Now let's add this random data to the chart and present it. This is done by the 
     [chart addSeries:[TKChartLineSeries alloc] withItems:randomData];
 
 For more information about populating TKChart with data, please refer to the following article:
-- [Populating with Data](chart-populatingwithdata.html)
+- [Populating with Data](chart-populating-wit-hdata.html)
 
 The TKChartLineSeries tells the chart to present its data as a line chart and initializes it with the already created points. 
 

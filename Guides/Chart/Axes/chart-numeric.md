@@ -29,7 +29,7 @@ You can configure a numeric axis by initializing it and setting it as the main x
    gdpInPoundsYAxis.majorTickInterval = @50;
    chart.yAxis = gdpInPoundsYAxis;
 
-You can specify the axis range by setting the minumum and maximum indexes of categories:
+You can specify the axis range by setting the minimum and maximum indexes of categories:
 
     [gdpInPoundsYAxis setRangeWithMinimum:@1050 andMaximum:@1400];
 

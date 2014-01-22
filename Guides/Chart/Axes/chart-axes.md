@@ -45,7 +45,7 @@ There are several important properties which allow customization of the behavior
 
 - **labelFormatter** - defines a label formatter for axis labels.
 
-- **tickCount** - retunrs the count of axis labels.
+- **tickCount** - returns the count of axis labels.
 
 ##Configure Axes Position##
 
@@ -126,9 +126,9 @@ You can change the label fitting mode in the following manner:
 
 <img src="../images/chart-axes-types006.png"/>
 
-#Configure Axes Title Appereance#
+#Configure Axes Title Appearance#
 
-In order to change the change the axis title font, text color, shadow color, alignment and offset, you should modify the coressponding properties:
+In order to change the change the axis title font, text color, shadow color, alignment and offset, you should modify the corresponding properties:
 
     xAxis.title = @"X-Axis";
     xAxis.style.titleStyle.textColor = [UIColor blueColor];
@@ -141,7 +141,7 @@ In order to change the change the axis title font, text color, shadow color, ali
 
 ##Axes Types##
 
-Any cartesian series supports the following axes: 
+Any Cartesian series supports the following axes: 
 
 - [TKChartNumericAxis](chart-axes-types-numeric-axis)
 - [TKChartCategoryAxis](chart-axes-types-category-axis)
