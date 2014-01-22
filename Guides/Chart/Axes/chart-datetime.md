@@ -11,7 +11,7 @@ TKChartDateTimeAxis
 
 ##Overview##
 
-The TKChartDateTimeAxis Categorical axis is an axis with NSDate values sorted chronologically. It also allows definitions of categories based on specific date time components – year, month, day etc. For example, if data values fall in the range of one year, the points can be plotted in categories for each month. If data values fall in the range of one month, the values can be categorized by days. It also introduces several important properties:
+The TKChartDateTimeAxis Categoric axis is an axis with NSDate values sorted chronologically. It also allows definitions of categories based on specific date time components – year, month, day etc. For example, if data values fall in the range of one year, the points can be plotted in categories for each month. If data values fall in the range of one month, the values can be categorized by days. It also introduces several important properties:
 
 - **majorTickInterval** - defines an interval between major axis ticks.
 
