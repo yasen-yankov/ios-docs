@@ -1,3 +1,11 @@
+---
+title: Categorical Axis
+slug: chart-axes-categorical
+tags: Chart, iOS, categorical, axis, axes
+publish: true
+ordinal: 2
+---
+
 TKChartCategoryAxis
 ===================
 

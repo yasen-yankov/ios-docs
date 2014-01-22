@@ -1,4 +1,12 @@
-Customization of data point appereance
+---
+title: Area Series
+slug: chart-series-point-customization
+tags: Chart, iOS
+publish: true
+ordinal: 7
+---
+
+Customization of data point appearance
 ======================================
 
 ##Overview

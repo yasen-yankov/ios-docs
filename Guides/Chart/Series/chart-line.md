@@ -1,3 +1,11 @@
+---
+title: Line Series
+slug: chart-series-line
+tags: Chart, iOS, line, series
+publish: true
+ordinal: 4
+---
+
 Working with TKChartLineSeries
 ==============================
 

@@ -3,7 +3,7 @@ title: Overview
 slug: chart-overview
 tags: Chart, iOS
 publish: true
-ordinal: 2
+ordinal: 1
 ---
 
 Overview

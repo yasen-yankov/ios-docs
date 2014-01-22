@@ -1,3 +1,11 @@
+---
+title: Pie Series
+slug: chart-series-pie
+tags: Chart, iOS, pie, series
+publish: true
+ordinal: 4
+---
+
 Working with TKChartPieSeries
 ==============================
 

@@ -1,3 +1,11 @@
+---
+title: Axes
+slug: chart-axes-axes
+tags: Chart, iOS, axes
+publish: true
+ordinal: 2
+---
+
 Axes
 ====
 

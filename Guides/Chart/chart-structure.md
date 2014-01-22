@@ -3,7 +3,7 @@ title: Structure
 slug: chart-structure
 tags: Tutorial
 publish: true
-ordinal: 2
+ordinal: 3
 ---
 
 ## Chart structure ##
