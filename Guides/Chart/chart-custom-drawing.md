@@ -1,6 +1,6 @@
 ---
 title: Custom Drawing
-slug: chart-customdrawing
+slug: chart-custom-drawing
 tags: Chart, Drawing
 publish: true
 ordinal: 2
