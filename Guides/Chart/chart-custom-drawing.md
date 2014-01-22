@@ -43,7 +43,7 @@ This results in columns looking like this:
 
 <img src="../images/chart-custom-drawing002.png"/>
 
-All fills and strokes allow you to specify not only corner raduis, but also which corners to round. Semi-transparent red fill with only two corners rounded can be defined like this:
+All fills and strokes allow you to specify not only corner radius, but also which corners to round. Semi-transparent red fill with only two corners rounded can be defined like this:
 
     TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.5f] cornerRadius:8.f];
     fill.corners = UIRectCornerTopLeft | UIRectCornerBottomRight;
@@ -272,4 +272,4 @@ series.style.pointShape also applies to line and area series in case you need to
 TKChartPieSeries always use series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex; If you have strokes with insets, only insets.top value will be used and will be applied relatively to the outer radius of the pie chart slices.
 
 
-@warning Customization is a very powerful feature of TKChart. However, we recomend using that feature at an acceptable rate. Using too many fills and strokes may affect performance. Combining all features like a dashed stroke with gradient plus several semi transparent fills will draw much slower than a simple solid color fill.
+@warning Customization is a very powerful feature of TKChart. However, we recommend using that feature at an acceptable rate. Using too many fills and strokes may affect performance. Combining all features like a dashed stroke with gradient plus several semi transparent fills will draw much slower than a simple solid color fill.

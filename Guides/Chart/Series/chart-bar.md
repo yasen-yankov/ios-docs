@@ -11,7 +11,7 @@ Working with TKChartBarSeries
 
 ##Overview
 
-TKChartBarSeries are used to visualize data points as bar blocks where the width of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one BarSeries:
+TKChartBarSeries are used to visualize data points as bar blocks where the width of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one Bar series:
 
 	TKChartBarSeries *series = [[TKChartBarSeries alloc] initWithItems:array];
 	[chart addSeries:series];
