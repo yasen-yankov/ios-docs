@@ -6,8 +6,7 @@ publish: true
 ordinal: 2
 ---
 
-Getting Started
-===============
+#Getting Started2
 
 ##Overview
 

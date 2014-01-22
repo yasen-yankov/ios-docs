@@ -6,9 +6,6 @@ publish: true
 ordinal: 2
 ---
 
-Customizing TKChart data appearance
-===================
-
 ##Overview##
 
 TKChart has a powerful drawing engine to help you customize your chart appearance. It allows you to:

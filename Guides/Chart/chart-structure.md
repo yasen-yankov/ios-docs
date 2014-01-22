@@ -6,8 +6,6 @@ publish: true
 ordinal: 3
 ---
 
-## Chart structure ##
-
 TKChart consists of the following elements:
 
 <img src="../images/chart-overview006.png"/>

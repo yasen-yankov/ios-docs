@@ -6,9 +6,6 @@ publish: true
 ordinal: 2
 ---
 
-Working with TKChartBarSeries
-==============================
-
 ##Overview
 
 TKChartBarSeries are used to visualize data points as bar blocks where the width of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one Bar series:

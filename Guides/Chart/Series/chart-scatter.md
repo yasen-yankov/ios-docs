@@ -6,9 +6,6 @@ publish: true
 ordinal: 6
 ---
 
-Working with TKChartScatterSeries
-=================================
-
 ##Overview##
 
 TKChartScatterSeries plots its data along two axes. Scatter series identify the position of each point using two dimentional values - XValue and YValue for the horizontal and vertical axes respectively, just like in the typical Cartesian coordinate system. Here is how to create a TKChartScatterSeries and populate them manually:

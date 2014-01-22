@@ -6,8 +6,6 @@ publish: true
 ordinal: 6
 ---
 
-#Managing the data source
-
 ##Overview
 
 In order for TKChart to represents data, we should supply this data to it. Following the Model-View-Controller design pattern, the data source mediates between the application's data model (that is, its model objects) and the chart view. The data source provides the chart-view object with the information it needs to construct visualization using different chart types.
