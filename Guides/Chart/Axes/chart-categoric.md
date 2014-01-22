@@ -1,13 +1,10 @@
 ---
-title: Categoric Axis
+title: Categoric
 slug: chart-axes-categoric
 tags: Chart, iOS, categoric, axis, axes
 publish: true
 ordinal: 2
 ---
-
-TKChartCategoryAxis
-===================
 
 ##Overview##
 
