@@ -3,7 +3,7 @@ title: Datetime
 slug: chart-axes-datetime
 tags: Chart, iOS, axis, axes, datetime
 publish: true
-ordinal: 2
+ordinal: 3
 ---
 
 ##Overview##

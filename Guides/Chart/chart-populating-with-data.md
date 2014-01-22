@@ -3,7 +3,7 @@ title: Populating with Data
 slug: chart-populating-with-data
 tags: Chart, iOS, data, binding
 publish: true
-ordinal: 6
+ordinal: 4
 ---
 
 ##Overview

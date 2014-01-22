@@ -3,7 +3,7 @@ title: Numeric
 slug: chart-axes-numeric
 tags: Chart, iOS, axes, axis, numeric
 publish: true
-ordinal: 2
+ordinal: 4
 ---
 
 ##Overview##

@@ -3,7 +3,7 @@ title: Legend
 slug: chart-legend
 tags: Chart, Legend
 publish: true
-ordinal: 2
+ordinal: 5
 ---
 
 ##Overview##
