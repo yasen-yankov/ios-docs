@@ -3,11 +3,8 @@ title: Custom Animations
 slug: chart-animations-custom
 tags: Chart, iOS, animations
 publish: true
-ordinal: 2
+ordinal: 1
 ---
-
-Custom Animations
-=================
 
 ##Overview##
 

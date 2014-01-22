@@ -3,7 +3,7 @@ title: Custom Drawing
 slug: chart-custom-drawing
 tags: Chart, Drawing
 publish: true
-ordinal: 2
+ordinal: 9
 ---
 
 ##Overview##

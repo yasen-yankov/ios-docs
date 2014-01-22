@@ -1,9 +1,9 @@
 ---
 title: Grid Customization
-slug: chart-gridcustomization
+slug: chart-grid-customization
 tags: Chart, iOS, Grid
 publish: true
-ordinal: 2
+ordinal: 8
 ---
 
 ##Overview
