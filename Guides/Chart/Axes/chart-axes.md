@@ -11,11 +11,11 @@ Axes
 
 ##Overview##
 
-TKChart renders its points in a coordinate system defined by its axes. To do this, axes specify the minimum and maximum values that can be presented on the plot area. There are a few different types of axes that can be used with TKChart. They include: numeric, date/time and categorical. You can assign each axis to different series and you can show multiple axes in chart. Axes contain various properties to control their position, style and behavior. All chart axes subclass from TKChartAxis.
+TKChart renders its points in a coordinate system defined by its axes. To do this, axes specify the minimum and maximum values that can be presented on the plot area. There are a few different types of axes that can be used with TKChart. They include: numeric, date/time and categoric. You can assign each axis to different series and you can show multiple axes in chart. Axes contain various properties to control their position, style and behavior. All chart axes subclass from TKChartAxis.
 
 - Use TKChartNumericAxis to present numeric values.
 - Use TKChartDateTimeAxis to present date/time values.
-- Use TKChartCategoryAxis to present categorical values.
+- Use TKChartCategoryAxis to present categoric values.
 
 This article discusses the common characteristics of the abstract class TKChartAxis, which is the single class all TKChart axes derive from. The axes automatically calculate its maximum and minimum properties, based on the incoming data. 
 

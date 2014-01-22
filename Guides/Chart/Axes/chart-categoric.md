@@ -1,7 +1,7 @@
 ---
-title: Categorical Axis
-slug: chart-axes-categorical
-tags: Chart, iOS, categorical, axis, axes
+title: Categoric Axis
+slug: chart-axes-categoric
+tags: Chart, iOS, categoric, axis, axes
 publish: true
 ordinal: 2
 ---
@@ -11,7 +11,7 @@ TKChartCategoryAxis
 
 ##Overview##
 
-TKChart uses Categorical axes to plot data that contains categorical values. The axis is valid only in the context of Cartesian series. It also introduces several important properties:
+TKChart uses Categoric axes to plot data that contains categoric values. The axis is valid only in the context of Cartesian series. It also introduces several important properties:
 
 - **majorTickInterval** - defines an interval among major axis ticks.
 
