@@ -7,8 +7,6 @@ publish: true
 ordinal: 4
 ---
 
-##Overview
-
 TKChartLineSeries plot their data points on Cartesian Area. Points are connected with either straight lines or large smooth curves (Spline). Here is how to set up two line series:
 
 	TKChartLineSeries* seriesForExpenses = [[TKChartLineSeries alloc] initWithItems:expensesData];

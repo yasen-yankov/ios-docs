@@ -6,8 +6,6 @@ publish: true
 ordinal: 2
 ---
 
-##Overview
-
 This quick start tutorial demonstrates how to create a simple iOS application with TKChart. 
 
 <img src="../images/chart-overview002.png"/>

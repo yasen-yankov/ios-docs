@@ -7,8 +7,6 @@ publish: true
 ordinal: 7
 ---
 
-##Overview
-
 The TKChartSeries can draw a point in particular shape. You can customize the appearance and shape of this point by accessing and altering the styling properties and palette items for shapePallete.
 
 Note that the approach above is applicable to any series (except TKChartPieSeries, TKChartBarSeries and TKChartColumnSeries). If you want to change the shape of each point, you should use the following code snippet:

@@ -7,8 +7,6 @@ publish: true
 ordinal: 5
 ---
 
-##Overview
-
 Unlike all other series, TKChartPieSeries do not require axes. They visualize each data point as pie slices with arc size directly proportional to the magnitude of the raw data point's value. Pie slices represent data in one direction contrasting with the other series which represent data in two dimensions. Here is an example of how to create a pie chart with pie series populated with data:
 
     NSMutableArray *array = [[NSMutableArray alloc] init];

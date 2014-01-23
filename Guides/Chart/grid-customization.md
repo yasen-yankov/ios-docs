@@ -6,8 +6,6 @@ publish: true
 ordinal: 8
 ---
 
-##Overview
-
 TKChart series, which support axes, can render a grid that facilitates the process of determining the values of points afar from the axes. Since Pie area does not use axes, the grid is valid only in the context of Cartesian series. Grid consists of horizontal and vertical lines matching axes major ticks and fills between them. You can alternate fills to create zebra like effect both horizontally and vertically.
 
 The essential properties of TKChartGridStyle are the following:
@@ -132,7 +130,7 @@ You can also use grid's background to set an image:
 
 ##Using zPosition
 
-zPosition propery specifies the Z order of the grid. Grid is drawn below series by default. However you can change it so grid is above series:
+zPosition property specifies the Z order of the grid. Grid is drawn below series by default. However you can change it so grid is above series:
 
     TKChartGridStyle* gridStyle = chart.gridStyle;
     

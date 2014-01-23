@@ -7,8 +7,6 @@ publish: true
 ordinal: 1
 ---
 
-##Overview##
-
 TKChart renders its points in a coordinate system defined by its axes. To do this, axes specify the minimum and maximum values that can be presented on the plot area. There are a few different types of axes that can be used with TKChart. They include: numeric, date/time and categoric. You can assign each axis to different series and you can show multiple axes in chart. Axes contain various properties to control their position, style and behavior. All chart axes subclass from TKChartAxis.
 
 - Use TKChartNumericAxis to present numeric values.
@@ -62,7 +60,7 @@ The following lines of code demonstrate how you can create multiple axes at diff
 
 <img src="../images/chart-axes-types009.png"/>
 
-##Configure Axes Appereance##
+##Configure Axes Appearance##
 
 You can customize any feature of the axis appearance. If you want to hide its line or change its line stroke or background, you can use the following peace of code:
 
@@ -71,7 +69,7 @@ You can customize any feature of the axis appearance. If you want to hide its li
 
 <img src="../images/chart-axes-types001.png"/>
 
-#Configure Axes Ticks Appereance#
+#Configure Axes Ticks Appearance#
 
 You can specify the interval between axis ticks by setting the **majorTickInterval** and **minorTickInterval** properties:
 
@@ -96,7 +94,7 @@ In addition to the common tick style customizations, you can specify the first a
 
 <img src="../images/chart-axes-types003.png"/>
 
-#Configure Axes Label Appereance#
+#Configure Axes Label Appearance#
 
 You can configure the axis label appearance by manipulating the **labelStyle** property of the axis style object. If you want to change the font, text color, shadow color and offset, you should modify the corresponding properties:
 

@@ -7,8 +7,6 @@ publish: true
 ordinal: 4
 ---
 
-##Overview##
-
 TKChart uses Linear axes to plot data containing numerical values. It is valid only in the context of Cartesian Area, this axis is created by default when you add Bar, Line, Area and Scatter series. It also introduces several important properties:
 
 - **majorTickInterval** - defines the interval between major axis ticks.
