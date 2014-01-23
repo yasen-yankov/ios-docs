@@ -65,12 +65,12 @@ Find further details about chart axes in [this article](chart-axes-axes.html).
 
 Series define how data should be visually presented on the plot area. Each series has a collection of data points, which it displays according to the series type. TKChart supports several series out of the box. These include: bar, column, line, area, scatter and pie. The base class for all series in TKChart is TKChartSeries.
 
-- [TKChartColumnSeries](chart-series-column.html) is used to present points as columns (vertical rectangles).
-- [TKChartBarSeries](chart-series-bar.html) is used to present points as bars (horizontal rectangles).
-- [TKChartLineSeries](chart-series-line.html) is used to present points as line/spline.
-- [TKChartAreaSeries](chart-series-area.html) is used to present points in filled areas.
-- [TKChartPieSeries](chart-series-pie.html) is used to present data as pie or donut.
-- [TKChartScatterSeries](chart-series-scatter.html) is used to present data as separate points.
+- [TKChartColumnSeries](series/chart-column) is used to present points as columns (vertical rectangles).
+- [TKChartBarSeries](series/chart-bar) is used to present points as bars (horizontal rectangles).
+- [TKChartLineSeries](series/chart-line) is used to present points as line/spline.
+- [TKChartAreaSeries](series/chart-area) is used to present points in filled areas.
+- [TKChartPieSeries](series/chart-pie) is used to present data as pie or donut.
+- [TKChartScatterSeries](series/chart-scatter) is used to present data as separate points.
 
 When TKChart contains more than one series of type bar or column, it clusters the series in groups. You can choose also to show the same information as stacked bars/columns. This is done by setting the **stackInfo** property of the series:
 
