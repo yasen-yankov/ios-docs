@@ -65,7 +65,7 @@ Now let's add this random data to the chart and present it. This is done by the 
     [chart addSeries:[TKChartLineSeries alloc] withItems:randomData];
 
 For more information about populating TKChart with data, please refer to the following article:
-- [Populating with Data](chart-populating-wit-hdata.html)
+- [Populating with Data](populating-with-data)
 
 The TKChartLineSeries tells the chart to present its data as a line chart and initializes it with the already created points. 
 
@@ -80,8 +80,8 @@ Finally, we can easily employ the built-in animations support to create some fan
     chart.allowAnimations = YES;
 
 For more information about cusomizing animations, please refer to the following articles:
-- [Custom Animations](chart-animations-custom.html)
-- [Custom UIKit Dynamics Animations](chart-animations-customuikitdynamics.html)
+- [Custom Animations](animations/custom)
+- [Custom UIKit Dynamics Animations](animations/custom-uikit-dynamics)
 
 Here is the full code of this example:
 
@@ -121,10 +121,10 @@ You can easily change the way data is presented in chart by changing the series 
 	[chart addSeries:[TKChartColumnSeries alloc] withItems:randomData];
 
 For more information about series types, please refer to the following articles:
-- [Area](chart-series-area.html)
-- [Bar](chart-series-bar.html)
-- [Column](chart-series-column.html)
-- [Line](chart-series-line.html)
-- [Pie](chart-series-pie.html)
-- [Scatter](chart-series-scatter.html)
-- [Point Customization](chart-series-pointcustomization.html)
+- [Area](series/area)
+- [Bar](series/bar)
+- [Column](series/column)
+- [Line](series/line)
+- [Pie](series/pie)
+- [Scatter](series/scatter)
+- [Point Customization](series/point-customization)

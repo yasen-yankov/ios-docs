@@ -59,18 +59,18 @@ The result from this setup is:
  
 <img src="../images/chart-overview007.png"/>
 
-Find further details about chart axes in [this article](chart-axes-axes.html).
+Find further details about chart axes in [this article](axes/axes).
 
 ## Series ##
 
 Series define how data should be visually presented on the plot area. Each series has a collection of data points, which it displays according to the series type. TKChart supports several series out of the box. These include: bar, column, line, area, scatter and pie. The base class for all series in TKChart is TKChartSeries.
 
-- [TKChartColumnSeries](series/chart-column) is used to present points as columns (vertical rectangles).
-- [TKChartBarSeries](series/chart-bar) is used to present points as bars (horizontal rectangles).
-- [TKChartLineSeries](series/chart-line) is used to present points as line/spline.
-- [TKChartAreaSeries](series/chart-area) is used to present points in filled areas.
-- [TKChartPieSeries](series/chart-pie) is used to present data as pie or donut.
-- [TKChartScatterSeries](series/chart-scatter) is used to present data as separate points.
+- [TKChartColumnSeries](series/column) is used to present points as columns (vertical rectangles).
+- [TKChartBarSeries](series/bar) is used to present points as bars (horizontal rectangles).
+- [TKChartLineSeries](series/line) is used to present points as line/spline.
+- [TKChartAreaSeries](series/area) is used to present points in filled areas.
+- [TKChartPieSeries](series/pie) is used to present data as pie or donut.
+- [TKChartScatterSeries](series/scatter) is used to present data as separate points.
 
 When TKChart contains more than one series of type bar or column, it clusters the series in groups. You can choose also to show the same information as stacked bars/columns. This is done by setting the **stackInfo** property of the series:
 
@@ -100,7 +100,7 @@ TKChart is an interactive component that supports gestures like touch, pan and r
 
 The **allowPan** and **allowZoom** properties of TKChartSeries should be set to **YES** in order to allow pan/zoom functionality.
 
-The **selectionMode** property of TKChartSeries should be set to TKChartSelectionModeSeries or TKChartSelectionModeDataPoint in order to allow selection for the sepcified series.
+The **selectionMode** property of TKChartSeries should be set to TKChartSelectionModeSeries or TKChartSelectionModeDataPoint in order to allow selection for the specified series.
 
 Find further details about selection and pan/zoom functionality in the corresponding articles.
 
@@ -137,5 +137,5 @@ The **allowAnimations** property of TKChart should be set to **YES** in order to
 
 This method returns a single animation, therefore if you create multiple animations, you should group them inside CAAnimationGroup.
 
-Besides the CoreAnimation framework, TKChart allows animating its points by adding real world physics by using the new UIKitDynamics framework introduced in iOS 7. With this framework you can add different behaviors like gravity, elasticity and forces. Read further details about this advanced topic in [this article](chart-animations-customuikitdynamics.html).
+Besides the CoreAnimation framework, TKChart allows animating its points by adding real world physics by using the new UIKitDynamics framework introduced in iOS 7. With this framework you can add different behaviors like gravity, elasticity and forces. Read further details about this advanced topic in [this article](animations/custom-uikit-dynamics).
 
