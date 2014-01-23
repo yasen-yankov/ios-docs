@@ -34,6 +34,10 @@ After installing TKChart, you can proceed with the following steps:
     <li>This is it, now you are ready to start working with Telerik Chart.</li>
 </ol>
 
+1. Open
+2. Close
+3. Restart
+
 ##Setting up TKChart
 
 Now that our project is created and the TelerikUI.framework is added, we can start referencing and using the TelerikUI types:
