@@ -115,11 +115,13 @@ Here is the full code of this example:
 	@end
 
 
+	
 
 You can easily change the way data is presented in chart by changing the series type:
 
 	[chart addSeries:[TKChartColumnSeries alloc] withItems:randomData];
 
+	
 For more information about series types, please refer to the following articles:
 
 - [Area](series/area)
