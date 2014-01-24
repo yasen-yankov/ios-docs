@@ -12,7 +12,7 @@ This quick start tutorial demonstrates how to create a simple iOS application wi
 
 ##Prerequisites
 
-In order to start using TKChart, you have first to install the latest version RadControls for iOS. You can download it from: [www.telerik.com](http://www.telerik.com). The dmg file that you will download contains a ReadMe.txt file and the installation package - TelerikUI.pkg. Just double click the package icon and the installer will guide you trough the installation process. When done it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using TKChart.
+In order to start using TKChart, you have first to install the latest version Telerik UI for iOS. You can download it from: [www.telerik.com](http://www.telerik.com). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you trough the installation process. When done it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using TKChart.
 
 <img src="../images/chart-overview003.png"/>
 
