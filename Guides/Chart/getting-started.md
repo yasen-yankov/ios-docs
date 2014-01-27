@@ -3,7 +3,7 @@ title: Getting Started
 slug: chart-getting-started
 tags: Chart, iOS
 publish: true
-ordinal: 2
+ordinal: .2
 ---
 
 This quick start tutorial demonstrates how to create a simple iOS application with TKChart. 

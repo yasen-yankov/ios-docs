@@ -3,7 +3,7 @@ title: Structure
 slug: chart-structure
 tags: Tutorial
 publish: true
-ordinal: 3
+ordinal: .3
 ---
 
 TKChart consists of the following elements:

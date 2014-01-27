@@ -3,7 +3,7 @@ title: Overview
 slug: chart-overview
 tags: Chart, iOS
 publish: true
-ordinal: 1
+ordinal: .1
 ---
 
 TKChart is a versatile charting component that offers full customization, great performance and intuitive object model. Its API allows creating complex charts with stunning animations and appearance. 
