@@ -7,6 +7,8 @@ publish: true
 ordinal: 2
 ---
 
+# Chart Axes: Categoric
+
 TKChart uses Categoric axes to plot data that contains categoric values. The axis is valid only in the context of Cartesian series. It also introduces several important properties:
 
 - **majorTickInterval** - defines an interval among major axis ticks.

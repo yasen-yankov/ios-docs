@@ -6,6 +6,8 @@ publish: true
 ordinal: 2
 ---
 
+# Chart Animations: UIKit Dynamics Animations
+
 TKChart can uses the UIKit Dynamics physics engine integrated in iOS 7.0 to animate the points in series. It allows you to create interfaces that feel real by adding behaviors such as gravity, attachments (springs) and forces. You define the physical traits that you would like your interface elements to adopt, and the dynamics engine takes care of the rest.
 
 You should set the **allowAnimations** property to *YES* to enable UIKit Dynamics animations.

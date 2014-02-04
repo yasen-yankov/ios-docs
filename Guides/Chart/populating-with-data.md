@@ -6,6 +6,8 @@ publish: true
 ordinal: 4
 ---
 
+Chart: Populating with Data
+
 In order for TKChart to represents data, we should supply this data to it. Following the Model-View-Controller design pattern, the data source mediates between the application's data model (that is, its model objects) and the chart view. The data source provides the chart-view object with the information it needs to construct visualization using different chart types.
 
 TKChart can be bound to a wide variety of data sources. The common way to work with chart-view' data source is to subclass the UIViewController and adopt the TKChartDataSource protocol or subclass the built-in TKChartViewController to manage the data source. Another way is to automate this task using the binding mechanism of TKChart to setup the data source.

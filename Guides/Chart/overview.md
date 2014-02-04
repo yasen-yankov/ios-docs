@@ -6,6 +6,8 @@ publish: true
 ordinal: .1
 ---
 
+# Chart: Overview
+
 TKChart is a versatile charting component that offers full customization, great performance and intuitive object model. Its API allows creating complex charts with stunning animations and appearance. 
 
 TKChart main features include:

@@ -6,6 +6,8 @@ publish: true
 ordinal: 9
 ---
 
+# Chart: Custom Drawing
+
 TKChart has a powerful drawing engine to help you customize your chart appearance. It allows you to:
 
 - define different kinds of fills. Solid color, Linear gradient, Radial gradient, fill with image content.

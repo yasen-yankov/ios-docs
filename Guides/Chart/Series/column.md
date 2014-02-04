@@ -7,6 +7,8 @@ publish: true
 ordinal: 3
 ---
 
+# Chart Series: Column
+
 TKColumnSeries are used to visualize data points as column blocks where the height of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one ColumnSeries:
 
 	NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
