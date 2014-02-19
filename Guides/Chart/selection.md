@@ -16,7 +16,9 @@ You can alter the selection mode for each series by altering its <code>selection
 
 - *TKChartSelectionModeNone* - No selection
 - *TKChartSelectionModeSeries* - Select a whole series
-- *TKChartSelectionModeDataPoint* - Select a data point
+- <code>TKChartSelectionModeDataPoint</code> - Select a data point
+
+    TKChartSelectionModeDataPoint
 
 You can determine whether a selection is changed by implementing **TKChartDelegate** protocol:
 
