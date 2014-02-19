@@ -141,9 +141,9 @@ In order to change the change the axis title font, text color, shadow color, ali
 
 Any Cartesian series supports the following axes: 
 
-- [TKChartNumericAxis](axes/numeric)
-- [TKChartCategoryAxis](axes/categoric)
-- [TKChartDateTimeAxis](axes/datetime)
+- [TKChartNumericAxis](numeric)
+- [TKChartCategoryAxis](categoric)
+- [TKChartDateTimeAxis](datetime)
 
 @warning Note that Pie area does not support axes
 
