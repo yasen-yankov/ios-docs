@@ -73,4 +73,4 @@ In order to select the second pie segment, call the select method of TKChart:
 
  	[chart select:[[TKChartSelectionInfo alloc] initWithSeries:chart.series[0] dataPointIndex:1]];
  	
-Further information about selection in chart is available in this [help article](selection).
+Further information about selection in chart is available in this [help article](../selection).
