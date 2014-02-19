@@ -12,7 +12,7 @@ This help topic demonstrates how you can make your charts more interactive by en
 
 ##Configure##
 
-You can alter the selection mode for each series by altering its <code>selectionMode<code> property with the following value:
+You can alter the selection mode for each series by altering its <code>selectionMode</code> property with the following value:
 
 - *TKChartSelectionModeNone* - No selection
 - *TKChartSelectionModeSeries* - Select a whole series
