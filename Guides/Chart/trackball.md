@@ -14,7 +14,7 @@ TKChart provides a trackball behavior through the TKChartTrackball class. The tr
 
 The last capability of the trackball is to display a small tooltip, in order to provide more detailed information about the closest points to the trackball line's cross section, as can be seen in the screenshot above.
 
-The trackball behavior is activated by setting the **allowTrackball** property of TKChart to **YES**. The trackball is accessible by using the **trackball** property of TKChart. It activates automatically when you touch the chart for a few seconds, however it can be shown/hidden programmatically by calling its **showAtPoint:** and **hide** methdos.
+The trackball behavior is activated by setting the **allowTrackball** property of TKChart to **YES**. The trackball is accessible by using the **trackball** property of TKChart. It activates automatically when you touch the chart for a few seconds, however it can be shown/hidden programmatically by calling its **showAtPoint:** and **hide** methods.
 
 The trackball exposes four properties that could be used to control its appearance and behavior. These are:
 
@@ -32,7 +32,7 @@ The **snapMode** property determines how the trackball line will be snapped to t
 
 **orientation**
 
-The **orientation** property determines whether the trackball will track points horizontally or vertically. Wheh the orientation is set to **TKChartTrackballOrientationVertical**, which is the default option, it will search within the touched area for points with similar x coordinates by different y coordinate and the trackball line will be vertical. If the property is set to **TKChartTrackballOrientationVertical** the trackball will compare y coordinates instead and the trackball line will be horizontal.
+The **orientation** property determines whether the trackball will track points horizontally or vertically. When the orientation is set to **TKChartTrackballOrientationVertical**, which is the default option, it will search within the touched area for points with similar x-coordinates by different y-coordinate and the trackball line will be vertical. If the property is set to **TKChartTrackballOrientationVertical**, the trackball will compare y-coordinates instead and the trackball line will be horizontal.
 
 **line** 
 
@@ -52,7 +52,7 @@ The result is the following:
 
 The **tooltip** property represents the tooltip that shows information about the crossing points. As usual its **style** property could be used to customize its appearance. The **pinPosition** property determines where the trackball tooltip should be located. The available pin positions are specified below:
  
-- **TKChartTrackballPinPositionNone** - The tooltip will appear around the selected point.
+- **TKChartTrackballPinPositionNone** - The tooltip will appear next to the selected point.
 - **TKChartTrackballPinPositionLeft** - The tooltip will appear on the left side of the plot area.
 - **TKChartTrackballPinPositionRight** - The tooltip will appear on the right side of the plot area.
 - **TKChartTrackballPinPositionTop** - The tooltip will appear on the top side of the plot area.

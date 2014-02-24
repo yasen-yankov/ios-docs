@@ -25,12 +25,12 @@ TKChart contains an **annotations** collection and annotations can be added to t
 
     [chart addAnnotation:[[TKChartGridLineAnnotation alloc] initWithValue:@80 forAxis:yAxis]];
 
-The anotation visibility can be controlled by setting its **hidden** property. 
+The annotation visibility can be controlled by setting its **hidden** property. 
 The annotation visual appearance can be changed by using its **style** property.
 
 ##Annotation types##
 
-Conceptualy there are three types of annotations - grid line, band and point annotations. Below is comparison for each one depending on the scenario.
+Conceptually, there are three types of annotations - grid line, band and point annotations. Below is a comparison for each one depending on the scenario.
 
 ###Grid line###
 
@@ -47,7 +47,7 @@ The line color can be customized by using the annotation initializer:
 
 ###Plot band###
 
-The TKChartBandAnnotation is either horizontal or vertical stripe, crossing its corresponding axis, specified by its **range** property. 
+The TKChartBandAnnotation is either horizontal or vertical strip, crossing its corresponding axis, specified by its **range** property. 
 
     TKRange *range = [[TKRange alloc] initWithMinimum:@10 andMaximum:@40];
     UIColor *color = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.4];
@@ -74,7 +74,7 @@ The TKChartCrossLineAnnotation is a point annotation which represents two crossi
 
 ###Balloon annotation###
 
-The TKChartBalloonAnnotation displays a balloon like shape around the position specified by its arguments. The **verticalAlign** and **horizontalAlign** properties allow to position the annotation precisely. The balloon will correct its position automatically if there is no enough space at the specified coordinates.
+The TKChartBalloonAnnotation displays a balloon-like shape next to the position specified by its arguments. The **verticalAlign** and **horizontalAlign** properties allow to position the annotation precisely. The balloon will correct its position automatically if there is not enough space at the specified coordinates.
 
 The following example demonstrates different balloon positions based on the horizontal and vertical alignment:
 
@@ -107,7 +107,7 @@ The **attributedText** property can be used to present formatted text with NSAtt
     [_chart addAnnotation:balloon];
 
 
-Almost every aspect of the balloon can be controled by accessing the **style** property of the annotation. For example the **arrowSize** and the **cornerRadius**:
+Almost every aspect of the balloon can be controlled by accessing the **style** property of the annotation. For example, the **arrowSize** and the **cornerRadius**:
 
     balloon.style.arrowSize = CGSizeMake(20, 20);
     balloon.style.cornerRadius = 0;

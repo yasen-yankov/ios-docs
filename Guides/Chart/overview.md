@@ -17,5 +17,7 @@ TKChart main features include:
 - Pan/Zoom and selection functionality.
 - Animations that use the CoreAnimations and UIKit dynamics.
 - Multiple axes.
+- Annotations.
+- Trackball.
 
 <img src="../images/chart-overview001.png"/>
