@@ -6,13 +6,13 @@ publish: true
 ordinal: 1
 ---
 
-TKChart uses the Core Animation infrastructure available on iOS that you use to animate the visual points in series. In order to enable the animations, you should set **allowAnimations** property to *YES*. In that case the default animations are performed for each series. If you handle the TKChartDelegate protocol and implement the **chart:animationForSeries:withState:inRect:**. method, you can perform custom animations. With Core Animation, most of the work required to draw each frame of an animation is done for you. All you have to do is configure a few animation parameters (such as the start and end points).
+<code>TKChart</code> uses the Core Animation infrastructure available on iOS that you use to animate the visual points in series. In order to enable the animations, you should set <code>allowAnimations</code> property to *YES*. In that case the default animations are performed for each series. If you handle the <code>TKChartDelegate</code> protocol and implement the <code>chart:animationForSeries:withState:inRect:</code> method, you can perform custom animations. With Core Animation, most of the work required to draw each frame of an animation is done for you. All you have to do is configure a few animation parameters (such as the start and end points).
 
 You can use most of the Core Animation framework to customize the visual points animation. You can read more about Core Animation at [Apple Developer website](https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html).
 
 ##Configuration Prerequisites###
 
-You should handle the TKChartDelegate's method **chart:animationForSeries:withState:inRect:** to create a custom animation. In addition, you should group the animation created for each point in CAAnimationGroup to apply animation sequentially. You can access old and new points collection by using the TKChartSeriesRenderState properties **oldPoints** and **points**. It allows generation for value key path property for point at a specified index by calling the **animationKeyPathForPointAtIndex** method.
+You should handle the <code>TKChartDelegate</code>'s method <code>chart:animationForSeries:withState:inRect:</code> to create a custom animation. In addition, you should group the animation created for each point in CAAnimationGroup to apply animation sequentially. You can access old and new points collection by using the <code>TKChartSeriesRenderState</code> properties <code>oldPoints</code> and <code>points</code>. It allows generation for value key path property for point at a specified index by calling the <code>animationKeyPathForPointAtIndex</code> method.
 
 ##Animating Line Series##
 

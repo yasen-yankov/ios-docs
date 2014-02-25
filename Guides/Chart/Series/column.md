@@ -9,7 +9,7 @@ ordinal: 3
 
 # Chart Series: Column
 
-TKChartColumnSeries are used to visualize data points as column blocks where the height of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one ColumnSeries:
+<code>TKChartColumnSeries</code> are used to visualize data points as column blocks where the height of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one Column series:
 
 	NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
 	NSArray *values = @[ @55, @75, @85, @50, @93 ];
@@ -61,7 +61,7 @@ If you want to cluster multiple column series side by side, they should use a sh
 
 ##Configure stacking of column series
 
-The TKChartColumnSeries can be combined by using different stack modes.
+The <code>TKChartColumnSeries</code> can be combined by using different stack modes.
 
 The Stack plots the points on top of each other:
 
@@ -89,7 +89,7 @@ The Stack100 displays the value as percent:
 
 ##Configure visual appearance of column series
 
-If you want to customize the appearance of a column series, you should change its **style** properties.
+If you want to customize the appearance of a column series, you should change its <code>style</code> properties.
 
 You can change the fill and stroke in the following manner:
 

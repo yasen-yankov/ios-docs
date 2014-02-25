@@ -8,7 +8,7 @@ ordinal: 9
 
 # Chart: Custom Drawing
 
-TKChart has a powerful drawing engine to help you customize your chart appearance. It allows you to:
+<code>TKChart</code> has a powerful drawing engine to help you customize your chart appearance. It allows you to:
 
 - define different kinds of fills. Solid color, Linear gradient, Radial gradient, fill with image content.
 - define strokes which contain information about stroke fill, dash pattern, line width etc.
@@ -20,7 +20,7 @@ There are several kinds of fills:
 
 ###Solid fill###
 
-TKSolidFill is the simplest of all fills. It paints chart items with a single color. Here is how you define it:
+<code>TKSolidFill</code> is the simplest of all fills. It paints chart items with a single color. Here is how you define it:
 
     TKSolidFill *fill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
     
@@ -51,7 +51,7 @@ There you get:
 
 ###Linear gradient fill###
 
-TKLinearGradientFill allows you to fill an item with color gradients. You can specify which colors to use and relative to the size positions of gradient stops.
+<code>TKLinearGradientFill</code> allows you to fill an item with color gradients. You can specify which colors to use and relative to the size positions of gradient stops.
 
 Here is how you define linear gradient with 3 colors (green to red to blue) with transparency:
 
@@ -78,7 +78,7 @@ Warning: All coordinates for locations, startPoint and endPoint parameters are r
 
 ###Radial gradient fill###
 
-TKRadialGradientFill draws a fill with two colors using centers relative to the drawing size. Radius is set in different measures depending on radiusType parameter. It is hard to master and most of the time you can achieve the same functionality with linear gradient. Here is a possible usage:
+<code>TKRadialGradientFill</code> draws a fill with two colors using centers relative to the drawing size. Radius is set in different measures depending on radiusType parameter. It is hard to master and most of the time you can achieve the same functionality with linear gradient. Here is a possible usage:
 
     TKRadialGradientFill *fill = [[TKRadialGradientFill alloc] 
         initWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.7f],
@@ -95,7 +95,7 @@ The resulting ghost column chart looks like this:
 
 ###Image fill###
 
-TKImageFill fills the drawing area with the content of an image. There is also a **resizingMode** which specify how to draw image. Here is an example usage of tiled image:
+<code>TKImageFill</code> fills the drawing area with the content of an image. There is also a <code>resizingMode</code> which specify how to draw image. Here is an example usage of tiled image:
 
     TKImageFill *fill = [TKImageFill imageFillWithImage:[UIImage imageNamed:@"pattern1"] cornerRadius:4.f];
     fill.resizingMode = TKImageFillResizingModeTile;
@@ -123,7 +123,7 @@ Sometimes you like to specify your own stretchable image. Stretching this <img s
 
 ##Adding stroke##
 
-TKStroke is a powerful tool which allows you to customize how you apply strokes to your charts.
+<code>TKStroke</code> is a powerful tool which allows you to customize how you apply strokes to your charts.
 
 You can create a simple stroke like this:
 
@@ -166,11 +166,11 @@ or with line chart using strokes with width = 2
 
 ##Customizing TKChart##
 
-Customizing TKChart can be done using TKChartPalette. You can access the palette from TKChartSeries using series.style.palette variable. By default, palette is nil which means that TKChart will use its default theme. To specify your own, you need to create it:
+Customizing <code>TKChart</code> can be done using <code>TKChartPalette</code>. You can access the palette from <code>TKChartSeries</code> using series.style.palette variable. By default, palette is nil which means that <code>TKChart</code> will use its default theme. To specify your own, you need to create it:
 
     series.style.palette = [TKChartPalette new];
     
-TKChartPalette is a collection of TKChartPaletteItem instances. Every item contains information about drawing the item at its index. By default, a palette item index addresses the order in which you add series. For example, you may have a palette with red and blue fills and two TKChartColumnSeries using this palette. The first series you add will be red and the second blue. However, TKChartPieSeries by default uses another mode when every palette item is used to display a data point at its index. You can explicitly set how you distribute a palette items using:
+</code>TKChartPalette</code> is a collection of <code>TKChartPaletteItem</code> instances. Every item contains information about drawing the item at its index. By default, a palette item index addresses the order in which you add series. For example, you may have a palette with red and blue fills and two <code>TKChartColumnSeries</code> using this palette. The first series you add will be red and the second blue. However, <code>TKChartPieSeries</code> by default uses another mode when every palette item is used to display a data point at its index. You can explicitly set how you distribute a palette items using:
 
     series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
     
@@ -178,7 +178,7 @@ or
 
     series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex; // this is the default
     
-Whenever TKChartPalette runs out of colors (because there are more series or more data points than TKChartPaletteItem items inside) it starts over effectively cycling through its items.
+Whenever <code>TKChartPalette</code> runs out of colors (because there are more series or more data points than <code>TKChartPaletteItem</code> items inside) it starts over effectively cycling through its items.
 
 To illustrate the difference between palette modes, consider the following setup:
 
@@ -197,7 +197,7 @@ To illustrate the difference between palette modes, consider the following setup
 
     [_chart addSeries:series withItems:array];
 
-As you see we are using TKChartSeriesStylePaletteModeUseItemIndex palette mode and the result is:
+As you see we are using <code>TKChartSeriesStylePaletteModeUseItemIndex</code> palette mode and the result is:
 
 <img src="../images/chart-custom-drawing014.png"/>
 
@@ -217,7 +217,7 @@ This is because you have added only one series. Adding a second series with the 
 
 ###Palette items###
 
-TKChartPaletteItem is the building block of TKChartPalette and contains information about how to draw items. The simple way to use it is to specify a fill and/or stroke. Consider one of the following constructors:
+<code>TKChartPaletteItem</code> is the building block of <code>TKChartPalette</code> and contains information about how to draw items. The simple way to use it is to specify a fill and/or stroke. Consider one of the following constructors:
 
     TKChartPaletteItem *paletteItem1 = [TKChartPaletteItem paletteItemWithFill:
     	[TKSolidFill solidFillWithColor:[UIColor redColor]]];
@@ -250,15 +250,15 @@ here you create a palette item with red fill and two borders. The sample also sh
 
 ###Customizing line series###
 
-TKChartLineSeries uses only TKStroke instances of TKChartPaletteItem and ignores any fills. You can specify a wide first stroke and thin second stroke if you need more than one stroke.
+<code>TKChartLineSeries</code> uses only TKStroke instances of <code>TKChartPaletteItem</code> and ignores any fills. You can specify a wide first stroke and thin second stroke if you need more than one stroke.
 
 ###Customizing area series###
 
-TKChartAreaSeries uses TKStroke instances of TKChartPaletteItem for the line and fills for area part.
+<code>TKChartAreaSeries</code> uses TKStroke instances of <code>TKChartPaletteItem</code> for the line and fills for area part.
 
 ###Customizing scatter series###
 
-TKChartScatterSeries uses palette items to draw its shapes. However you might also change shape's type using code like:
+<code>TKChartScatterSeries</code> uses palette items to draw its shapes. However you might also change shape's type using code like:
 
     series.style.pointShape = [TKShape shapeWithType:TKShapeTypeDiamond andSize:15.f];
 
@@ -266,7 +266,7 @@ series.style.pointShape also applies to line and area series in case you need to
 
 ###Customizing pie series###
 
-TKChartPieSeries always use series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex; If you have strokes with insets, only insets.top value will be used and will be applied relatively to the outer radius of the pie chart slices.
+TKChartPieSeries always use <code>series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;</code> If you have strokes with insets, only insets.top value will be used and will be applied relatively to the outer radius of the pie chart slices.
 
 
 @warning Customization is a very powerful feature of TKChart. However, we recommend using that feature at an acceptable rate. Using too many fills and strokes may affect performance. Combining all features like a dashed stroke with gradient plus several semi transparent fills will draw much slower than a simple solid color fill.

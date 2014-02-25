@@ -12,21 +12,21 @@ Annotations are visual elements that can be used to highlight certain areas on t
 
 TKChart provides the following types of annotations: 
 
-- TKChartGridLineAnnotation
-- TKChartBandAnnotation
-- TKChartCrossLineAnnotation
-- TKChartBalloonAnnotation
-- TKChartLayerAnnotation
-- TKChartViewAnnotation
+- <code>TKChartGridLineAnnotation</code>
+- <code>TKChartBandAnnotation</code>
+- <code>TKChartCrossLineAnnotation</code>
+- <code>TKChartBalloonAnnotation</code>
+- <code>TKChartLayerAnnotation</code>
+- <code>TKChartViewAnnotation</code>
 
 ##Adding annotations to the chart##
 
-TKChart contains an **annotations** collection and annotations can be added to the chart by calling the **addAnnotation** method. The following code adds a horizontal grid line annotation in TKChart. The annotation requires an axis and a value in order to be initialized correctly.
+<code>TKChart</code> contains an <code>annotations</code> collection and annotations can be added to the chart by calling the <code>addAnnotation</code> method. The following code adds a horizontal grid line annotation in TKChart. The annotation requires an axis and a value in order to be initialized correctly.
 
     [chart addAnnotation:[[TKChartGridLineAnnotation alloc] initWithValue:@80 forAxis:yAxis]];
 
-The annotation visibility can be controlled by setting its **hidden** property. 
-The annotation visual appearance can be changed by using its **style** property.
+The annotation visibility can be controlled by setting its <code>hidden</code> property. 
+The annotation visual appearance can be changed by using its <code>style</code> property.
 
 ##Annotation types##
 
@@ -34,7 +34,7 @@ Conceptually, there are three types of annotations - grid line, band and point a
 
 ###Grid line###
 
-The grid line annotation represents a vertical or horizontal line which crosses the entire plot area. It is specified by using the TKChartGridLineAnnotation. 
+The grid line annotation represents a vertical or horizontal line which crosses the entire plot area. It is specified by using the <code>TKChartGridLineAnnotation</code>. 
 
 The line color can be customized by using the annotation initializer:
 
@@ -47,7 +47,7 @@ The line color can be customized by using the annotation initializer:
 
 ###Plot band###
 
-The TKChartBandAnnotation is either horizontal or vertical strip, crossing its corresponding axis, specified by its **range** property. 
+The <code>TKChartBandAnnotation</code> is either horizontal or vertical strip, crossing its corresponding axis, specified by its <code>range</code> property. 
 
     TKRange *range = [[TKRange alloc] initWithMinimum:@10 andMaximum:@40];
     UIColor *color = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.4];
@@ -61,7 +61,7 @@ The TKChartBandAnnotation is either horizontal or vertical strip, crossing its c
 
 ###Point annotations###
 
-Point annotations render their content starting at specific position. Besides the position, a pixel based offset could be added to the point annotation by specifying the **offset** property.
+Point annotations render their content starting at specific position. Besides the position, a pixel based offset could be added to the point annotation by specifying the <code>offset</code> property.
 
 ###Cross line annotation###
 
@@ -74,7 +74,7 @@ The TKChartCrossLineAnnotation is a point annotation which represents two crossi
 
 ###Balloon annotation###
 
-The TKChartBalloonAnnotation displays a balloon-like shape next to the position specified by its arguments. The **verticalAlign** and **horizontalAlign** properties allow to position the annotation precisely. The balloon will correct its position automatically if there is not enough space at the specified coordinates.
+The <code>TKChartBalloonAnnotation</code> displays a balloon-like shape next to the position specified by its arguments. The <code>verticalAlign</code> and <code>horizontalAlign</code> properties allow to position the annotation precisely. The balloon will correct its position automatically if there is not enough space at the specified coordinates.
 
 The following example demonstrates different balloon positions based on the horizontal and vertical alignment:
 
@@ -92,7 +92,7 @@ The following example demonstrates different balloon positions based on the hori
 
 <img src="../images/chart-annotations004.png"/>
  
-The **attributedText** property can be used to present formatted text with NSAttributedString. The following code demonstrates this:
+The <code>attributedText</code> property can be used to present formatted text with NSAttributedString. The following code demonstrates this:
 
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -107,7 +107,7 @@ The **attributedText** property can be used to present formatted text with NSAtt
     [_chart addAnnotation:balloon];
 
 
-Almost every aspect of the balloon can be controlled by accessing the **style** property of the annotation. For example, the **arrowSize** and the **cornerRadius**:
+Almost every aspect of the balloon can be controlled by accessing the <code>style</code> property of the annotation. For example, the <code>arrowSize</code> and the <code>cornerRadius</code>:
 
     balloon.style.arrowSize = CGSizeMake(20, 20);
     balloon.style.cornerRadius = 0;
@@ -117,7 +117,7 @@ Almost every aspect of the balloon can be controlled by accessing the **style** 
 	
 ###Layer and view annotations###
 	
-The TKChartLayerAnnotation and TKChartViewAnnotations are also point annotations. Those allow positioning a layer or a view inside the chart. The following code will position an image named *img* at the center of the chart:
+The <code>TKChartLayerAnnotation</code> and <code>TKChartViewAnnotations</code> are also point annotations. Those allow positioning a layer or a view inside the chart. The following code will position an image named *img* at the center of the chart:
 
 	UIImage *image = [UIImage imageNamed:@"logo"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];

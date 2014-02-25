@@ -9,7 +9,7 @@ ordinal: 2
 
 # Chart Series: Bar
 
-TKChartBarSeries are used to visualize data points as bar blocks where the width of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one Bar series:
+<code>TKChartBarSeries</code> are used to visualize data points as bar blocks where the width of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one Bar series:
 
 	TKChartBarSeries *series = [[TKChartBarSeries alloc] initWithItems:array];
 	[chart addSeries:series];
@@ -53,7 +53,7 @@ If you want to cluster multiple bar series side by side, they should use a share
 
 ##Configure stacking of bar series
 
-The TKChartBarSeries can be combined by using different stack modes.
+The <code>TKChartBarSeries</code> can be combined by using different stack modes.
 
 The Stack plots the points on top of each other:
 
@@ -91,7 +91,7 @@ The Stack100 displays the value as percent:
 
 ##Configure visual appearance of bar series
 
-If you would like to customize the appearance of bar series, you should change its **style** properties.
+If you would like to customize the appearance of bar series, you should change its <code>style</code> properties.
 
 You can change the fill and stroke in the following manner:
 

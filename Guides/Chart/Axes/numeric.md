@@ -9,15 +9,15 @@ ordinal: 4
 
 # Chart Animations: Custom Animations
 
-TKChart uses Linear axes to plot data containing numerical values. It is valid only in the context of Cartesian Area, this axis is created by default when you add Bar, Line, Area and Scatter series. It also introduces several important properties:
+<code>TKChart</code> uses Linear axes to plot data containing numerical values. It is valid only in the context of Cartesian Area, this axis is created by default when you add Bar, Line, Area and Scatter series. It also introduces several important properties:
 
-- **majorTickInterval** - defines the interval between major axis ticks.
+- <code>majorTickInterval</code> - defines the interval between major axis ticks.
 
-- **minorTickInterval** - defines the interval between minor axis ticks.
+- <code>minorTickInterval</code> - defines the interval between minor axis ticks.
 
-- **baseline** - defines how the series data should be aligned. For example, The TKChartBarSeries might render its bars up and down side depending on whether its value is greater or less than the baseline value.
+- <code>baseline</code> - defines how the series data should be aligned. For example, The TKChartBarSeries might render its bars up and down side depending on whether its value is greater or less than the baseline value.
 
-- **offset** - Determines an axis value where the axis is crossed with another axis.
+- <code>offset</code> - Determines an axis value where the axis is crossed with another axis.
 
 ##Configure a TKChartNumericAxis##
 
@@ -35,7 +35,7 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 
 ##Formatting a TKChartNumericAxis##
 
-You can format the axis labels in percentage by setting the **formatTicksAsPercents** property: 
+You can format the axis labels in percentage by setting the <code>formatTicksAsPercents</code> property: 
 
     gdpInPoundsYAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayModePercentage;
 

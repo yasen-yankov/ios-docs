@@ -9,7 +9,7 @@ ordinal: 1
 
 # Chart Series: Area
 
-As a derivative of TKLineSeries series, TKAreaSeries plots its data points in line (spline). Once positioned on a plane the points are connected to form a line (spline). Further, the area enclosed between this line and the axis is filled. Below is a sample snippet that demonstrates how to set up two AreaSeries:
+As a derivative of <code>TKLineSeries</code> series, <code>TKAreaSeries</code> plots its data points in line (spline). Once positioned on a plane the points are connected to form a line (spline). Further, the area enclosed between this line and the axis is filled. Below is a sample snippet that demonstrates how to set up two Area series:
 
 	TKChartAreaSeries* seriesForIncomes = [[TKChartAreaSeries alloc] initWithItems:array1];
 	[chart addSeries:seriesForIncomes];
@@ -21,7 +21,7 @@ As a derivative of TKLineSeries series, TKAreaSeries plots its data points in li
 
 ##Configure stacking of line series
 
-The TKChartAreaSeries can be combined by using different stack modes.
+The <code>TKChartAreaSeries</code> can be combined by using different stack modes.
 
 The Stack plots the points on top of each other:
 
@@ -59,7 +59,7 @@ The Stack100 displays the value as percent:
 
 ##Configure visual appearance of area series
 
-If you want to change series to draw a spline instead of a line, you should set the **spline** property to YES:
+If you want to change series to draw a spline instead of a line, you should set the <code>spline</code> property to *YES*:
 
 	TKChartAreaSeries* seriesForAnnualRevenue = [[TKChartAreaSeries alloc] initWithItems:annualRevenueData];
 	seriesForAnnualRevenue.title = @"Annual Revenue";

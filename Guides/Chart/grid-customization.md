@@ -10,21 +10,21 @@ ordinal: 8
 
 TKChart series, which support axes, can render a grid that facilitates the process of determining the values of points afar from the axes. Since Pie area does not use axes, the grid is valid only in the context of Cartesian series. Grid consists of horizontal and vertical lines matching axes major ticks and fills between them. You can alternate fills to create zebra like effect both horizontally and vertically.
 
-The essential properties of TKChartGridStyle are the following:
+The essential properties of <code>TKChartGridStyle</code> are the following:
 
-- **verticalLineStroke** - defines the vertical line stroke.
-- **verticalLineAlternateStroke** - defines the vertical alternate line stroke.
-- **verticalLinesHidden** - determines whether the vertical line is hidden.
-- **verticalFill** - defines the background pattern of fill among vertical lines.
-- **verticalAlternateFill** - defines the background pattern of alternate fill among vertical lines.
-- **horizontalLineStroke** - defines the horizontal line stroke.
-- **horizontalLineAlternateStroke** - defines the horizontal alternate line stroke
-- **horizontalLinesHidden** - determines whether the hidden line is hidden.
-- **horizontalFill** - defines the background pattern of fill among horizontal lines
-- **horizontalAlternateFill** - defines the background pattern of alternate fill among horizontal lines
-- **backgroundFill** - sets the background fill color. By default, it is nil (no background color is drawn).
-- **drawOrder** - sets the draw order. By default, it is TKGridDrawModeHorizontalFirst.
-- **zPosition** - defines the grid position according to the series.
+- <code>verticalLineStroke</code> - defines the vertical line stroke.
+- <code>verticalLineAlternateStroke</code> - defines the vertical alternate line stroke.
+- <code>verticalLinesHidden</code> - determines whether the vertical line is hidden.
+- <code>verticalFill</code> - defines the background pattern of fill among vertical lines.
+- <code>verticalAlternateFill</code> - defines the background pattern of alternate fill among vertical lines.
+- <code>horizontalLineStroke</code> - defines the horizontal line stroke.
+- <code>horizontalLineAlternateStroke</code> - defines the horizontal alternate line stroke
+- <code>horizontalLinesHidden</code> - determines whether the hidden line is hidden.
+- <code>horizontalFill</code> - defines the background pattern of fill among horizontal lines
+- <code>horizontalAlternateFill</code> - defines the background pattern of alternate fill among horizontal lines
+- <code>backgroundFill</code> - sets the background fill color. By default, it is nil (no background color is drawn).
+- <code>drawOrder</code> - sets the draw order. By default, it is TKGridDrawModeHorizontalFirst.
+- <code>zPosition</code> - defines the grid position according to the series.
 
 ##Customizing grid appearance
 
