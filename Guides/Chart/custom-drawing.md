@@ -183,7 +183,7 @@ Whenever <code>TKChartPalette</code> runs out of colors (because there are more 
 To illustrate the difference between palette modes, consider the following setup:
 
     // … there is more setup code above creating TKChart, settings up axes and preparing the data points
-    TKChartSeries *series = [[TKChartColumnSeries alloc] init];
+    TKChartSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
     series.style.palette = [TKChartPalette new];
     
     TKSolidFill *redFill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
@@ -195,7 +195,7 @@ To illustrate the difference between palette modes, consider the following setup
 
     series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
 
-    [_chart addSeries:series withItems:array];
+    [_chart addSeries:series];
 
 As you see we are using <code>TKChartSeriesStylePaletteModeUseItemIndex</code> palette mode and the result is:
 
@@ -260,7 +260,7 @@ here you create a palette item with red fill and two borders. The sample also sh
 
 <code>TKChartScatterSeries</code> uses palette items to draw its shapes. However you might also change shape's type using code like:
 
-    series.style.pointShape = [TKShape shapeWithType:TKShapeTypeDiamond andSize:15.f];
+    series.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeRhombus andSize:CGSizeMake(15.f, 15.f)];
 
 series.style.pointShape also applies to line and area series in case you need to show shapes on data points.
 

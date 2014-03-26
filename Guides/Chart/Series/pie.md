@@ -18,8 +18,8 @@ Unlike all other series, <code>TKChartPieSeries</code> do not require axes. They
     [array addObject:[[TKChartDataPoint alloc] initWithValue:@5 name:@"IBM"]];
     [array addObject:[[TKChartDataPoint alloc] initWithValue:@8 name:@"Oracle"]];
     
-    TKChartPieSeries *series = [[TKChartPieSeries alloc] init];
-    [chart addSeries:series withItems:array];
+    TKChartPieSeries *series = [[TKChartPieSeries alloc] initWithItems:array];
+    [chart addSeries:series];
 
 <img src="../images/chart-series-pie001.png"/>
 
@@ -63,7 +63,7 @@ The following code sets the startAngle and endAngle properties to show a half ci
     series.endAngle = M_PI + M_PI_4/2;
     series.rotationAngle = M_PI;
 	
-<img src="../images/chart-series-pie004.png"/>
+<img src="../images/chart-series-pie003.png"/>
 
 By default, the pie chart starts drawing its segments from 0 radians. You can customize this angle and rotate the chart. This is done by setting the <code>rotationAngle</code> property.
 

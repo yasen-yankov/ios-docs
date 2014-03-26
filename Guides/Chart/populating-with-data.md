@@ -114,14 +114,10 @@ Binding to an array of custom object is quite easy with TKChart. Once your array
     }
 
     [chart beginUpdates];
-    [chart addSeries:[[TKChartLineSeries alloc] init] withItems:data forKeys:@{ @"dataXValue": @"objectID",
-                                                                                  @"dataYValue": @"value1"}];
-    
-    [chart addSeries:[[TKChartAreaSeries alloc] init] withItems:data forKeys:@{ @"dataXValue": @"objectID",
-                                                                                  @"dataYValue": @"value2"}];
-    
-    [chart addSeries:[[TKChartScatterSeries alloc] init] withItems:data forKeys:@{ @"dataXValue": @"objectID",
-                                                                                  @"dataYValue": @"value3"}];
+
+    [chart addSeries:[[TKChartLineSeries alloc] initWithItems:data forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value1"}]];
+    [chart addSeries:[[TKChartAreaSeries alloc] initWithItems:data forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value2"}]];
+    [chart addSeries:[[TKChartScatterSeries alloc] initWithItems:data forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value3"}]];
     
     [chart endUpdates];
     

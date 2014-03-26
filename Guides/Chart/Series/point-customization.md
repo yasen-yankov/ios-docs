@@ -13,7 +13,7 @@ The <code>TKChartSeries</code> can draw a point in particular shape. You can cus
 
 Note that the approach above is applicable to any series (except <code>TKChartPieSeries</code>, <code>TKChartBarSeries</code> and <code>TKChartColumnSeries</code>). If you want to change the shape of each point, you should use the following code snippet:
 
-series.style.pointShape = [TKShape shapeWithType:TKShapeTypeStar andSize:16];
+    series.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeStar andSize:CGSizeMake(16, 16)];
 
 <img src="../images/chart-series-point001.png"/>
 
@@ -32,7 +32,7 @@ You can specify many predefined shapes by using the following enum:
 
 In addition, you can change a point background color by using the following lines of code:
 
-    series.style.pointShape = [[TKShape alloc] initWithType:TKShapeTypeCircle andSize:8];
+    series.style.pointShape = [[TKPredefinedShape alloc] initWithType:TKShapeTypeCircle andSize:CGSizeMake(8, 8)];
     TKChartPaletteItem *palleteItem = [[TKChartPaletteItem alloc] init];
     palleteItem.fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
     series.style.shapePalette = [[TKChartPalette alloc] init];

@@ -9,7 +9,7 @@ ordinal: 1
 
 # Chart Series: Area
 
-As a derivative of <code>TKLineSeries</code> series, <code>TKAreaSeries</code> plots its data points in line (spline). Once positioned on a plane the points are connected to form a line (spline). Further, the area enclosed between this line and the axis is filled. Below is a sample snippet that demonstrates how to set up two Area series:
+As a derivative of <code>TKLineSeries</code> series, <code>TKAreaSeries</code> plots its data points in line. Once positioned on a plane the points are connected to form a line. Further, the area enclosed between this line and the axis is filled. Below is a sample snippet that demonstrates how to set up two Area series:
 
 	TKChartAreaSeries* seriesForIncomes = [[TKChartAreaSeries alloc] initWithItems:array1];
 	[chart addSeries:seriesForIncomes];
@@ -59,15 +59,6 @@ The Stack100 displays the value as percent:
 
 ##Configure visual appearance of area series
 
-If you want to change series to draw a spline instead of a line, you should set the <code>spline</code> property to *YES*:
-
-	TKChartAreaSeries* seriesForAnnualRevenue = [[TKChartAreaSeries alloc] initWithItems:annualRevenueData];
-	seriesForAnnualRevenue.title = @"Annual Revenue";
-	seriesForAnnualRevenue.spline = YES;
-	[chart addSeries:seriesForAnnualRevenue];
-
-<img src="../images/chart-series-area002.png"/>
-
 If you want to change the series' fill and stroke, you should use the following code snippet:
 
 	TKChartAreaSeries* seriesForAnnualRevenue = [[TKChartAreaSeries alloc] initWithItems:array1];
@@ -77,4 +68,4 @@ If you want to change the series' fill and stroke, you should use the following 
 	palleteItem.fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
 	[chart addSeries:seriesForAnnualRevenue];
 
-<img src="../images/chart-series-area003.png"/>
+<img src="../images/chart-series-area002.png"/>

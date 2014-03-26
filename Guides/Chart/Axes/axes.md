@@ -77,6 +77,8 @@ You can specify the interval between axis ticks by setting the <code>majorTickIn
 
     yAxis.majorTickInterval = @20;
     yAxis.minorTickInterval = @3;
+    yAxis.style.majorTickStyle.ticksHidden = NO;
+    yAxis.style.minorTickStyle.ticksHidden = NO;
 
 <img src="../images/chart-axes-types008.png"/>
 

@@ -62,7 +62,7 @@ In this case we use the *i* variable as an x value, and we generate a random num
 
 Now let's add this random data to the chart and present it. This is done by the following code:
 
-    [chart addSeries:[TKChartLineSeries alloc] withItems:randomData];
+    [chart addSeries:[[TKChartLineSeries alloc] initWithItems:randomData]];
 
 For more information about populating TKChart with data, please refer to the following article:
 
@@ -92,33 +92,35 @@ Here is the full code of this example:
 
 	@implementation ViewController
 
-	- (void)viewDidLoad
-	{
-    	[super viewDidLoad];
-
-    	TKChart *chart = [[TKChart alloc] initWithFrame:CGRectInset(self.view.bounds, 15, 15)];
-    	chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    	[self.view addSubview:chart];
+    - (void)viewDidLoad
+    {
+        [super viewDidLoad];
     
-	    NSMutableArray *randomData = [[NSMutableArray alloc] init];
-    	for (int i=0; i<10; i++) {
-       		[randomData addObject:[[TKChartDataPoint alloc] initWithX:@(i) Y:@(arc4random()%100)]];
-    	}
+        TKChart *chart = [[TKChart alloc] initWithFrame:CGRectInset(self.view.bounds, 15, 15)];
+        chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.view addSubview:chart];
     
-    	[chart addSeries:[TKChartLineSeries alloc] withItems:randomData];
-
+        NSMutableArray *randomData = [[NSMutableArray alloc] init];
+        for (int i=0; i<10; i++) {
+            [randomData addObject:[[TKChartDataPoint alloc] initWithX:@(i) Y:@(arc4random()%100)]];
+        }
+    
+        [chart addSeries:[[TKChartLineSeries alloc] initWithItems:randomData]];
+    
         chart.title.hidden = NO;
         chart.title.text = @"This is a chart demo";
         chart.legend.hidden = NO;
-
+    
         chart.allowAnimations = YES;
-	}
+    
+        [chart addSeries:[[TKChartColumnSeries alloc] initWithItems:randomData]];
+    }
 
 	@end
 	
 You can easily change the way data is presented in chart by changing the series type:
 
-	[chart addSeries:[TKChartColumnSeries alloc] withItems:randomData];
+	[chart addSeries:[[TKChartColumnSeries alloc] initWithItems:randomData]];
 
 	
 For more information about series types, please refer to the following articles:
