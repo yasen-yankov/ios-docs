@@ -47,12 +47,6 @@ The same can be done also with the labelFormat property:
 
 The <code>outerRadius</code> property can increase and decrease the diameter of the series. By default, it occupies the whole plot area and is equal to 1. Setting the outerRadius to 0.9 will decrease the radius of the series by 10 percent. Similarly, the value 1.1 will increase it. Leaving the property with value 1 will make the donut fill the available space.
 
-The <code>innerRadius</code> property is measured in the same way a the <code>outerRadius</code> By default, its value is 0. Setting a 0.5 value will produce a donut.
-
-    series.innerRadius = 0.5;
-	
-<img src="../images/chart-series-pie003.png"/>
-
 The <code>expandRadius</code> property is used when selecting a pie segment. It defines the extent to which the selected pie segment is shifted. Again, this property is measured in percents. A value of 1.1 defines that the selected segment will expand by 10% of the pie radius.
 
 The <code>startAngle</code> and <code>endAngle</code> properties are used to define the pie range. The <code>startAngle</code> sets the angle in radians from which the drawing of the pie segments will begin. Its default value is 0. The <code>endAngle</code> determines whether the chart will appear as a full circle or a partial circle. Its default value is Pi*2.
