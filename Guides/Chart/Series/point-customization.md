@@ -18,6 +18,7 @@ Note that the approach above is applicable to any series (except <code>TKChartPi
 <img src="../images/chart-series-point001.png"/>
 
 You can specify many predefined shapes by using the following enum:
+
     - <code>TKShapeTypeNone</code> - No shape
     - <code>TKShapeTypeSquare</code> - Square shape
     - <code>TKShapeTypeCircle</code> - Circle shape
@@ -32,10 +33,12 @@ You can specify many predefined shapes by using the following enum:
 
 In addition, you can change a point background color by using the following lines of code:
 
-    series.style.pointShape = [[TKPredefinedShape alloc] initWithType:TKShapeTypeCircle andSize:CGSizeMake(8, 8)];
-    TKChartPaletteItem *palleteItem = [[TKChartPaletteItem alloc] init];
-    palleteItem.fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
-    series.style.shapePalette = [[TKChartPalette alloc] init];
+    areaSeries.style.pointShape = [[TKPredefinedShape alloc] initWithType:TKShapeTypeCircle andSize:CGSizeMake(8, 8)];
+    TKChartPaletteItem *paletteItem = [[TKChartPaletteItem alloc] init];
+    paletteItem.fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
+    TKChartPalette *palette = [[TKChartPalette alloc] init];
+    [palette addPaletteItem:paletteItem];
+    areaSeries.style.shapePalette = palette;
 
 <img src="../images/chart-series-point002.png"/>
 

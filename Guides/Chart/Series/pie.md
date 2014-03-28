@@ -29,7 +29,7 @@ Pie series can be customized using the following properties:
 
 The <code>labelDisplayMode</code> property controls whether to show labels and the label style. The possible choices are: 
 
-- <code>TKChartPieSeriesLabelDisplayModeName</code> - labels show the slice value.
+- <code>TKChartPieSeriesLabelDisplayModeValue</code> - labels show the slice value.
 - <code>TKChartPieSeriesLabelDisplayModePercentage</code> - labels show the slice value in percentage.
 - <code>TKChartPieSeriesLabelDisplayModeName</code> - labels show the slice name.
 

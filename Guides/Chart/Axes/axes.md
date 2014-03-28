@@ -98,7 +98,7 @@ In addition to the common tick style customizations, you can specify the first a
 
 <img src="../images/chart-axes-types003.png"/>
 
-#Configure Axes Label Appearance#
+##Configure Axes Label Appearance##
 
 You can configure the axis label appearance by manipulating the <code>labelStyle</code> property of the axis style object. If you want to change the font, text color, shadow color and offset, you should modify the corresponding properties:
 
@@ -126,7 +126,7 @@ You can change the label fitting mode in the following manner:
 
 <img src="../images/chart-axes-types006.png"/>
 
-#Configure Axes Title Appearance#
+##Configure Axes Title Appearance##
 
 In order to change the change the axis title font, text color, shadow color, alignment and offset, you should modify the corresponding properties:
 

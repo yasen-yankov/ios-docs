@@ -25,17 +25,6 @@ ordinal: 4
 
 <img src="../images/chart-series-line001.png"/>
 
-##Configure visual appearance of line series
-
-If you would like to change series to draw a spline instead of a line, you should set the <code>spline</code> property to *YES*:
-
-	TKChartLineSeries* seriesForAnnualRevenue = [[TKChartLineSeries alloc] initWithItems:annualRevenueData];
-	seriesForAnnualRevenue.title = @"Annual Revenue";
-	seriesForAnnualRevenue.spline = YES;
-	[chart addSeries:seriesForAnnualRevenue];
-
-<img src="../images/chart-series-line002.png"/>
-
 ##Configure input and selection of line series
 
 If you would like to configure the distance between finger touch and line to perform selection:
