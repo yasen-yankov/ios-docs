@@ -1,6 +1,6 @@
 ---
 title: Donut
-meta_title: Column Series
+meta_title: Donut Series
 slug: chart-series-donut
 tags: Chart, iOS, donut, series
 publish: true
