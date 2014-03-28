@@ -9,7 +9,7 @@ ordinal: 3
 
 #Chart Series: Spline
 
-TKChartSpineSeries is similar to the line series, but instead of straight line segments, the spline series connects its data points with smooth curves which represent rough approximations of the missing data points. Here is an example of a chart with a spline series:
+<code>TKChartSpineSeries</code> is similar to the line series, but instead of straight line segments, the spline series connects its data points with smooth curves which represent rough approximations of the missing data points. Here is an example of a chart with a spline series:
 
 	TKChartSplineSeries* seriesForAnnualRevenue = [[TKChartSplineSeries alloc] initWithItems:annualRevenueData];
 	[chart addSeries:seriesForAnnualRevenue];
