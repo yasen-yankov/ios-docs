@@ -21,7 +21,7 @@ Unlike all other series, <code>TKChartPieSeries</code> do not require axes. They
     TKChartPieSeries *series = [[TKChartPieSeries alloc] initWithItems:array];
     [chart addSeries:series];
 
-<img src="../images/chart-series-pie001.png"/>
+<img src="../../images/chart-series-pie001.png"/>
 
 ##Configure visual appearance of pie series
 
@@ -43,7 +43,7 @@ The same can be done also with the labelFormat property:
 
     series.labelFormat = @"%.0f %%";
 
-<img src="../images/chart-series-pie002.png"/>
+<img src="../../images/chart-series-pie002.png"/>
 
 The <code>outerRadius</code> property can increase and decrease the diameter of the series. By default, it occupies the whole plot area and is equal to 1. Setting the outerRadius to 0.9 will decrease the radius of the series by 10 percent. Similarly, the value 1.1 will increase it. Leaving the property with value 1 will make the donut fill the available space.
 
@@ -57,7 +57,7 @@ The following code sets the startAngle and endAngle properties to show a half ci
     series.endAngle = M_PI + M_PI_4/2;
     series.rotationAngle = M_PI;
 	
-<img src="../images/chart-series-pie003.png"/>
+<img src="../../images/chart-series-pie003.png"/>
 
 By default, the pie chart starts drawing its segments from 0 radians. You can customize this angle and rotate the chart. This is done by setting the <code>rotationAngle</code> property.
 

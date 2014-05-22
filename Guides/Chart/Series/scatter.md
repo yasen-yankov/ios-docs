@@ -22,7 +22,7 @@ TKChartScatterSeries plots its data along two axes. Scatter series identify the 
     TKChartScatterSeries *series = [[TKChartScatterSeries alloc] initWithItems:array];
     [chart addSeries:series];
 
-<img src="../images/chart-series-scatter001.png"/>
+<img src="../../images/chart-series-scatter001.png"/>
 
 ##Customizing the visual appearance##
 
@@ -35,7 +35,7 @@ In addition, you can change a point background color by using the following line
     [series.style.palette addPaletteItem:palleteItem];
     [chart addSeries:series];
 
-<img src="../images/chart-series-scatter003.png"/>
+<img src="../../images/chart-series-scatter003.png"/>
 
 ##Configure input and selection of line series##
 

@@ -14,5 +14,5 @@ ordinal: 3
 	TKChartAreaSeries* seriesForAnnualRevenue = [[TKChartAreaSeries alloc] initWithItems:annualRevenueData];
 	[chart addSeries:seriesForAnnualRevenue];
 
-<img src="../images/chart-series-spline-area001.png"/>
+<img src="../../images/chart-series-spline-area001.png"/>
 

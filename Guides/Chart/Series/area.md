@@ -17,7 +17,7 @@ As a derivative of <code>TKLineSeries</code> series, <code>TKAreaSeries</code> p
 	TKChartAreaSeries *seriesForExpenses = [[TKChartAreaSeries alloc] initWithItems:array2];
 	[chart addSeries:seriesForExpenses];
 
-<img src="../images/chart-series-area001.png"/>
+<img src="../../images/chart-series-area001.png"/>
 
 ##Configure stacking of line series
 
@@ -38,7 +38,7 @@ The Stack plots the points on top of each other:
 	[chart addSeries:series2];
 	[chart endUpdates];
 
-<img src="../images/chart-series-area004.png"/>
+<img src="../../images/chart-series-area004.png"/>
 
 The Stack100 displays the value as percent:
 
@@ -55,7 +55,7 @@ The Stack100 displays the value as percent:
 	[chart addSeries:series2];
 	[chart endUpdates];
 
-<img src="../images/chart-series-area005.png"/>
+<img src="../../images/chart-series-area005.png"/>
 
 ##Configure visual appearance of area series
 
@@ -68,4 +68,4 @@ If you want to change the series' fill and stroke, you should use the following 
 	palleteItem.fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
 	[chart addSeries:seriesForAnnualRevenue];
 
-<img src="../images/chart-series-area002.png"/>
+<img src="../../images/chart-series-area002.png"/>

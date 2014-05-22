@@ -15,7 +15,7 @@ Note that the approach above is applicable to any series (except <code>TKChartPi
 
     series.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeStar andSize:CGSizeMake(16, 16)];
 
-<img src="../images/chart-series-point001.png"/>
+<img src="../../images/chart-series-point001.png"/>
 
 You can specify many predefined shapes by using the following enum:
 
@@ -40,7 +40,7 @@ In addition, you can change a point background color by using the following line
     [palette addPaletteItem:paletteItem];
     areaSeries.style.shapePalette = palette;
 
-<img src="../images/chart-series-point002.png"/>
+<img src="../../images/chart-series-point002.png"/>
 
 
 

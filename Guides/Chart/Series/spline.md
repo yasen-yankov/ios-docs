@@ -14,6 +14,6 @@ ordinal: 3
 	TKChartSplineSeries* seriesForAnnualRevenue = [[TKChartSplineSeries alloc] initWithItems:annualRevenueData];
 	[chart addSeries:seriesForAnnualRevenue];
 
-<img src="../images/chart-series-spline001.png"/>
+<img src="../../images/chart-series-spline001.png"/>
 
 As TKChartSplineSeries derives from TKChartLineSeries, it shares the same functionality.

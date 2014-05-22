@@ -23,7 +23,7 @@ ordinal: 3
 	TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
 	[chart addSeries:series];
 
-<img src="../images/chart-series-column001.png"/>
+<img src="../../images/chart-series-column001.png"/>
 
 ##Configure clustering of column series
 
@@ -57,7 +57,7 @@ If you want to cluster multiple column series side by side, they should use a sh
 	[chart addSeries:series2];
 	[chart endUpdates];
 
-<img src="../images/chart-series-column002.png"/>
+<img src="../../images/chart-series-column002.png"/>
 
 ##Configure stacking of column series
 
@@ -73,7 +73,7 @@ The Stack plots the points on top of each other:
 	TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:dataPoints2];
 	series2.stackInfo = stackInfo;
 
-<img src="../images/chart-series-column003.png"/>
+<img src="../../images/chart-series-column003.png"/>
 
 The Stack100 displays the value as percent:
 
@@ -85,7 +85,7 @@ The Stack100 displays the value as percent:
 	TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:dataPoints2];
 	series2.stackInfo = stackInfo;
 
-<img src="../images/chart-series-column004.png"/>
+<img src="../../images/chart-series-column004.png"/>
 
 ##Configure visual appearance of column series
 
@@ -101,7 +101,7 @@ You can change the fill and stroke in the following manner:
 	[series.style.palette addPaletteItem:palleteItem];
 	[chart addSeries:series];
 
-<img src="../images/chart-series-column005.png"/>
+<img src="../../images/chart-series-column005.png"/>
 
 You can change the gap between columns with the following code snippet:
 
@@ -111,4 +111,4 @@ You can change the gap between columns with the following code snippet:
 
 Note that the value should be between 0 and 1, where a value of 0 means that a bar would take the entire space between two ticks, while a value of 1 means the bar will have zero width as all the space should appear as a gap.
 
-<img src="../images/chart-series-column006.png"/>
+<img src="../../images/chart-series-column006.png"/>

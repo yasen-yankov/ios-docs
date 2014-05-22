@@ -15,5 +15,5 @@ Here is an example of a donut chart:
 
     series.innerRadius = 0.5;
     
-<img src="../images/chart-series-donut001.png"/>
+<img src="../../images/chart-series-donut001.png"/>
 

@@ -23,7 +23,7 @@ ordinal: 4
 	seriesForProfit.title = @"Profit";
 	[chart addSeries:seriesForProfit];
 
-<img src="../images/chart-series-line001.png"/>
+<img src="../../images/chart-series-line001.png"/>
 
 ##Configure input and selection of line series
 
@@ -41,5 +41,5 @@ If you would like to change the series' stroke, you should use the following cod
 	palleteItem.stroke = [TKStroke strokeWithColor:[UIColor greenColor]];
 	[chart addSeries:seriesForSales];
 
-<img src="../images/chart-series-line003.png"/>
+<img src="../../images/chart-series-line003.png"/>
 

@@ -14,7 +14,7 @@ ordinal: 2
 	TKChartBarSeries *series = [[TKChartBarSeries alloc] initWithItems:array];
 	[chart addSeries:series];
 
-<img src="../images/chart-series-bar001.png"/>
+<img src="../../images/chart-series-bar001.png"/>
 
 ##Configure clustering of bar series
 
@@ -49,7 +49,7 @@ If you want to cluster multiple bar series side by side, they should use a share
 	[chart addSeries:series2];
 	[chart endUpdates];
 
-<img src="../images/chart-series-bar002.png"/>
+<img src="../../images/chart-series-bar002.png"/>
 
 ##Configure stacking of bar series
 
@@ -70,7 +70,7 @@ The Stack plots the points on top of each other:
 	[chart addSeries:series2];
 	[chart endUpdates];
 
-<img src="../images/chart-series-bar003.png"/>
+<img src="../../images/chart-series-bar003.png"/>
 
 The Stack100 displays the value as percent:
 
@@ -87,7 +87,7 @@ The Stack100 displays the value as percent:
 	[chart addSeries:series2];
 	[chart endUpdates];
 
-<img src="../images/chart-series-bar004.png"/>
+<img src="../../images/chart-series-bar004.png"/>
 
 ##Configure visual appearance of bar series
 
@@ -103,7 +103,7 @@ You can change the fill and stroke in the following manner:
 	[series.style.palette addPaletteItem:palleteItem];
 	[chart addSeries:series];
 
-<img src="../images/chart-series-bar005.png"/>
+<img src="../../images/chart-series-bar005.png"/>
 
 You can change the gap between columns with the following code snippet:
 
@@ -113,4 +113,4 @@ You can change the gap between columns with the following code snippet:
 
 Note that the value should be between 0 and 1, where a value of 0 means that a bar would take the entire space between two ticks, while a value of 1 means the bar will have zero width as all the space should appear as a gap.
 
-<img src="../images/chart-series-bar006.png"/>
+<img src="../../images/chart-series-bar006.png"/>
