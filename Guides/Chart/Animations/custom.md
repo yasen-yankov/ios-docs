@@ -6,6 +6,8 @@ publish: true
 ordinal: 1
 ---
 
+# Chart Animations: Custom
+
 <code>TKChart</code> uses the Core Animation infrastructure available on iOS that you use to animate the visual points in series. In order to enable the animations, you should set <code>allowAnimations</code> property to *YES*. In that case the default animations are performed for each series. If you handle the <code>TKChartDelegate</code> protocol and implement the <code>chart:animationForSeries:withState:inRect:</code> method, you can perform custom animations. With Core Animation, most of the work required to draw each frame of an animation is done for you. All you have to do is configure a few animation parameters (such as the start and end points).
 
 You can use most of the Core Animation framework to customize the visual points animation. You can read more about Core Animation at [Apple Developer website](https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html).
