@@ -60,7 +60,7 @@ The following lines of code demonstrate how you can create multiple axes at diff
     gdpInvestmentYAxis.position = TKChartAxisPositionRight;
     [chart addAxis:gdpInvestmentYAxis];
 
-<img src="../images/chart-axes-types009.png"/>
+<img src="../../images/chart-axes-types009.png"/>
 
 ##Configure Axes Appearance##
 
@@ -69,7 +69,7 @@ You can customize any feature of the axis appearance. If you want to hide its li
     xAxis.style.lineStroke = [TKStroke strokeWithColor:[UIColor blueColor]];
     xAxis.style.backgroundFill = [TKSolidFill solidFillWithColor:[UIColor lightGrayColor]];
 
-<img src="../images/chart-axes-types001.png"/>
+<img src="../../images/chart-axes-types001.png"/>
 
 #Configure Axes Ticks Appearance#
 
@@ -80,7 +80,7 @@ You can specify the interval between axis ticks by setting the <code>majorTickIn
     yAxis.style.majorTickStyle.ticksHidden = NO;
     yAxis.style.minorTickStyle.ticksHidden = NO;
 
-<img src="../images/chart-axes-types008.png"/>
+<img src="../../images/chart-axes-types008.png"/>
 
 You can customize the major and minor ticks of axis by manipulating the <code>majorTickStyle</code> and <code>minorTickStyle</code> properties. 
 
@@ -89,14 +89,14 @@ You can customize the major and minor ticks of axis by manipulating the <code>ma
     xAxis.style.majorTickStyle.ticksWidth = 2;
     xAxis.style.majorTickStyle.ticksOffset = 5;
 
-<img src="../images/chart-axes-types002.png"/>
+<img src="../../images/chart-axes-types002.png"/>
 
 In addition to the common tick style customizations, you can specify the first and last ticks visibility by setting <code>minTickClippingMode</code> and <code>maxTickClippingMode</code> properties:
 
 	xAxis.style.majorTickStyle.minTickClippingMode = TKChartAxisClippingModeHidden;
 	xAxis.style.majorTickStyle.maxTickClippingMode = TKChartAxisClippingModeVisible;
 
-<img src="../images/chart-axes-types003.png"/>
+<img src="../../images/chart-axes-types003.png"/>
 
 ##Configure Axes Label Appearance##
 
@@ -114,17 +114,17 @@ You can define the label offset and alignment by setting the <code>textOffset</c
     xAxis.style.labelStyle.textOffset = UIOffsetMake(10, 50);
     xAxis.style.labelStyle.firstLabelTextOffset = UIOffsetMake(10, 50);
 
-<img src="../images/chart-axes-types004.png"/>
+<img src="../../images/chart-axes-types004.png"/>
 
 You can change the label fitting mode in the following manner:
 
     xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeNone;
 
-<img src="../images/chart-axes-types005.png"/>
+<img src="../../images/chart-axes-types005.png"/>
 
     xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeMultiline;
 
-<img src="../images/chart-axes-types006.png"/>
+<img src="../../images/chart-axes-types006.png"/>
 
 ##Configure Axes Title Appearance##
 
@@ -137,7 +137,7 @@ In order to change the change the axis title font, text color, shadow color, ali
     xAxis.style.titleStyle.shadowOffset = CGSizeMake(2, 2);
     xAxis.style.titleStyle.alignment = TKChartAxisTitleAlignmentRightOrBottom;
 
-<img src="../images/chart-axes-types007.png"/>
+<img src="../../images/chart-axes-types007.png"/>
 
 ##Axes Types##
 

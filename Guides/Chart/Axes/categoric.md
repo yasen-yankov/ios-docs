@@ -39,7 +39,7 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 
     [xAxis setRangeWithMinimum:@0 andMaximum:@2];
 
- <img src="../images/chart-axes-category003.png"/>
+ <img src="../../images/chart-axes-category003.png"/>
 
 ##Setting the plot mode of axis##
 
@@ -49,8 +49,8 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 
 	xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
 
-<img src="../images/chart-axes-category001.png"/>
+<img src="../../images/chart-axes-category001.png"/>
 
 	xAxis.plotMode = TKChartAxisPlotModeOnTicks;
 
-<img src="../images/chart-axes-category002.png"/>
+<img src="../../images/chart-axes-category002.png"/>

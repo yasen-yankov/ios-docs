@@ -31,7 +31,7 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 
     [gdpInPoundsYAxis setRangeWithMinimum:@1050 andMaximum:@1400];
 
-<img src="../images/chart-axes-numeric001.png">
+<img src="../../images/chart-axes-numeric001.png">
 
 ##Formatting a TKChartNumericAxis##
 
@@ -39,4 +39,4 @@ You can format the axis labels in percentage by setting the <code>formatTicksAsP
 
     gdpInPoundsYAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayModePercentage;
 
-<img src="../images/chart-axes-numeric002.png">
+<img src="../../images/chart-axes-numeric002.png">

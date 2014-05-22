@@ -44,7 +44,7 @@ You can define the axis categories to be years by changing the interval unit pro
 
      periodXAxis.interval.unit = TKChartDateTimeAxisIntervalUnitYears;
 
-<img src="../images/chart-axes-datetime001.png">
+<img src="../../images/chart-axes-datetime001.png">
 
 ##Setting a plotting mode of axis##
 
@@ -54,8 +54,8 @@ You can define the axis categories to be years by changing the interval unit pro
 
 	xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
 
-<img src="../images/chart-axes-datetime002.png"/>
+<img src="../../images/chart-axes-datetime002.png"/>
 
 	xAxis.plotMode = TKChartAxisPlotModeOnTicks;
 
-<img src="../images/chart-axes-datetime003.png"/>
+<img src="../../images/chart-axes-datetime003.png"/>
