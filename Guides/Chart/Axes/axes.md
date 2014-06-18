@@ -75,8 +75,8 @@ You can customize any feature of the axis appearance. If you want to hide its li
 
 You can specify the interval between axis ticks by setting the <code>majorTickInterval</code> and <code>minorTickInterval</code> properties:
 
-    yAxis.majorTickInterval = @20;
-    yAxis.minorTickInterval = @3;
+    yAxis.majorTickInterval = 20;
+    yAxis.minorTickInterval = 3;
     yAxis.style.majorTickStyle.ticksHidden = NO;
     yAxis.style.minorTickStyle.ticksHidden = NO;
 
