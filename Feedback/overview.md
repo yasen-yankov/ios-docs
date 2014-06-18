@@ -1,6 +1,6 @@
 ---
 title: Overview
-slug: overview
+slug: feedback-overview
 tags: UI, iOS
 publish: true
 ordinal: .1

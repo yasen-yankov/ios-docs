@@ -1,6 +1,6 @@
 ---
 title: Overview
-slug: overview
+slug: calendar-overview
 tags: UI, iOS
 publish: true
 ordinal: .1
