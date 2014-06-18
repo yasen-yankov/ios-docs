@@ -20,4 +20,4 @@ TKChart main features include:
 - Annotations.
 - Trackball.
 
-<img src="../images/chart-overview001.png"/>
+<img src="images/chart-overview001.png"/>
