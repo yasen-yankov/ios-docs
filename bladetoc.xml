@@ -3,9 +3,9 @@
 	<Section Title="Calendar" URL="calendar" />
 	<Section Title="Chart" URL="chart" >
 		<Section Title="Axes" URL="axes" />
-			<Section Title="Series" URL="series" />
-			<Section Title="Animations" URL="animations" />
-		</Section>
+		<Section Title="Series" URL="series" />
+		<Section Title="Animations" URL="animations" />
+	</Section>
 	<Section Title="DataSync" URL="datasync" />
 	<Section Title="Feedback" URL="feedback" />
 </Contents>
