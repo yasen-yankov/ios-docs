@@ -94,7 +94,7 @@ Here, the predicate is used to filter the events array by date. Do not forget to
 
 	calendarView.dataSource = self;
 
-For information about populating <code>TKCalendar</code> with EventKit events, please refer to the following article: [Populating with data](calendar-populating-with-data.html)
+For information about populating <code>TKCalendar</code> with EventKit events, please refer to the following article: [Populating with data](populating-with-data)
 
 As a next step you may want to tune up the calendar more precisely by specifying minimum and maximum allowed dates. This can be done by setting the <code>minDate</code> and <code>maxDate</code> properties:
 	
@@ -118,9 +118,9 @@ By default, <code>TKCalendar</code> displays the current date, use the <code>nav
     	NSLog(@"%@", date);
 	}
 	
-Note that <code>TKCalendar</code> supports single, multiple and range date selection. Selection modes are described in detail in the article about [Selection](calendar-selection.html).
+Note that <code>TKCalendar</code> supports single, multiple and range date selection. Selection modes are described in detail in the article about [Selection](selection).
 
-Along with selection notifications <code>TKCalendar</code> supports navigation and customization notifications by adopting the <code>TKCalendarDelegate</code> protocol. These notifications are described in the articles about: [Navigation](calendar-navigation.html) and [Customization](calendar-customization.html).
+Along with selection notifications <code>TKCalendar</code> supports navigation and customization notifications by adopting the <code>TKCalendarDelegate</code> protocol. These notifications are described in the articles about: [Navigation](navigation) and [Customizations](customizations).
 
 Here is the full code of this example:
 
@@ -198,5 +198,5 @@ You can easily change the way data is presented in chart by changing the view mo
 	calendarView.viewMode = TKCalendarViewModeYear;
 
 All view modes are desctibed in the following article: 
-[View modes](calendar-view-modes.html)
+[View modes](view-modes)
 
