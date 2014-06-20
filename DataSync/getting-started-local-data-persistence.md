@@ -1,7 +1,7 @@
 ---
 title: Getting Started - Local Data Persistence
 meta_title: DataSync Getting Started with Local Data Persistence
-slug: datasync-getting-the-access-token-for-apikey
+slug: datasync-getting-started-local-data-persistence
 tags: datasync, persistence, local, orm
 publish: true
 ordinal: 1

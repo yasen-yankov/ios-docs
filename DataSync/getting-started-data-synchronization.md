@@ -1,7 +1,7 @@
 ---
 title: Getting Started - Data Synchronization
 meta_title: DataSync Getting Started with Data Synchronization
-slug: datasync-getting-the-access-token-for-apikey
+slug: datasync-getting-started-data-synchronization
 tags: datasync, synchronization, backend
 publish: true
 ordinal: 1

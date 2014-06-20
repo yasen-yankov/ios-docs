@@ -1,7 +1,7 @@
 ---
 title: Customizations
 meta_title: Calendar Customizations
-slug: calendar-overview
+slug: calendar-customizations
 tags: calendar, customizations
 publish: true
 ordinal: 1
