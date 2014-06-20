@@ -30,7 +30,7 @@ ordinal: 1
     xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
     xAxis.majorTickInterval = 1;
     
-<img src="../images/chart-series-ohlc001.png"/>
+<img src="../../images/chart-series-ohlc001.png"/>
 
 
 ##Configure visual appearance of ohlc series
@@ -51,4 +51,4 @@ If you want to customize the appearance of ohlc series, you should implement the
     	return paletteItem;
 	}
 	
-<img src="../images/chart-series-ohlc002.png"/>
+<img src="../../images/chart-series-ohlc002.png"/>
