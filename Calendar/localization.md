@@ -4,7 +4,7 @@ meta_title: Calendar Customizations
 slug: calendar-localization
 tags: calendar, localization
 publish: true
-ordinal: 1
+ordinal: 7
 ---
 
 #Calendar: Localization

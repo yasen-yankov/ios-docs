@@ -4,7 +4,7 @@ meta_title: Calendar View Modes
 slug: calendar-view-modes
 tags: calendar, view
 publish: true
-ordinal: 1
+ordinal: 4
 ---
 
 #Calendar: View Modes

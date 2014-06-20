@@ -4,7 +4,7 @@ meta_title: DataSync Getting Started with Local Data Persistence
 slug: datasync-getting-started-local-data-persistence
 tags: datasync, persistence, local, orm
 publish: true
-ordinal: 1
+ordinal: 2
 ---
 
 #DataSync: Getting Started with Local Data Persistence

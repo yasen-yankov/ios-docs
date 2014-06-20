@@ -4,7 +4,7 @@ meta_title: Calendar Navigation
 slug: calendar-navigation
 tags: calendar, navigation
 publish: true
-ordinal: 1
+ordinal: 6
 ---
 
 #Calendar: Navigation

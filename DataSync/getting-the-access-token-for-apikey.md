@@ -4,7 +4,7 @@ meta_title: DataSync Getting the Access Token for ApiKey
 slug: datasync-getting-the-access-token-for-apikey
 tags: datasync, token, apikey
 publish: true
-ordinal: 1
+ordinal: 4
 ---
 
 #DataSync: Getting the Access Token for ApiKey

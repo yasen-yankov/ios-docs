@@ -4,7 +4,7 @@ meta_title: Calendar Selection
 slug: calendar-selection
 tags: calendar, selection
 publish: true
-ordinal: 1
+ordinal: 6
 ---
 
 #Calendar: Selection

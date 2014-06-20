@@ -4,7 +4,7 @@ meta_title: Calendar Getting Started
 slug: calendar-getting-started
 tags: calendar
 publish: true
-ordinal: 1
+ordinal: 2
 ---
 
 #Calendar: Getting Started

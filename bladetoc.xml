@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <Contents>
+	<Section Title="AppFeedback" URL="appfeedback" />
 	<Section Title="Calendar" URL="calendar" />
 	<Section Title="Chart" URL="chart" >
 		<Section Title="Axes" URL="axes" />
@@ -7,5 +8,4 @@
 		<Section Title="Animations" URL="animations" />
 	</Section>
 	<Section Title="DataSync" URL="datasync" />
-	<Section Title="AppFeedback" URL="appfeedback" />
 </Contents>

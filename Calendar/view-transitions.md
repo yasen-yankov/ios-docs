@@ -4,7 +4,7 @@ meta_title: Calendar View Transitions
 slug: calendar-view-transitions
 tags: calendar, transitions
 publish: true
-ordinal: 1
+ordinal: 5
 ---
 
 #Calendar: View Transitions

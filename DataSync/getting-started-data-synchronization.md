@@ -4,7 +4,7 @@ meta_title: DataSync Getting Started with Data Synchronization
 slug: datasync-getting-started-data-synchronization
 tags: datasync, synchronization, backend
 publish: true
-ordinal: 1
+ordinal: 3
 ---
 
 #DataSync: Getting Started with Data Synchronization

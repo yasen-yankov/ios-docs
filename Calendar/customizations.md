@@ -4,7 +4,7 @@ meta_title: Calendar Customizations
 slug: calendar-customizations
 tags: calendar, customizations
 publish: true
-ordinal: 1
+ordinal: 8
 ---
 
 #Calendar: Customizations
