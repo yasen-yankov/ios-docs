@@ -1,22 +1,23 @@
 ---
 title: Overview
+meta_title: Calendar Overview
 slug: calendar-overview
-tags: UI, iOS
+tags: calendar
 publish: true
-ordinal: .1
+ordinal: 1
 ---
 
-# Calendar for iOS: Overview
+# Chart Series: Area
 
-TKChart is a versatile charting component that offers full customization, great performance and intuitive object model. Its API allows creating complex charts with stunning animations and appearance. 
+<code>TKCalendar</code> is a highly customizable calendar component that offers different view modes, animations, great performance and customization options. Its EventKit data source helper allows for easy importing of events from the device.
 
-TKChart main features include:
+<code>TKCalendar</code> main features include:
 
-- Various series types: bar, column, line, spline, area, pie, donut, scatter.
-- Stacking of bar, column, line and area series including stack 100 mode.
-- Pan/Zoom and selection functionality.
-- Animations that use the CoreAnimations and UIKit dynamics.
-- Multiple axes.
-- Annotations.
-- Trackball.
+- Different view modes: week, month, year, month names, year numbers, flow.
+- Easy way to import device events by using the EventKit framework.
+- Transition effects when switching between calendar pages.
+- Different selection modes: single, multiple, and range selection.
+- Overriding the default calendar appearance with themes and custom cells.
+- Localization.
 
+<img src="../images/calendar-overview001.png"/>

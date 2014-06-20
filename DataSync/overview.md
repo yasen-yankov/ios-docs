@@ -1,23 +1,18 @@
 ---
 title: Overview
+meta_title: DataSync Overview
 slug: datasync-overview
-tags: UI, iOS
+tags: datasync, offline, storage, persistence
 publish: true
-ordinal: .1
+ordinal: 1
 ---
 
-# DataSync for iOS: Overview
+The Data Sync component (Beta) is a powerful solution for persisting application data locally and/or synchronizing it with across all devices and the cloud. Its smart syncing algorithms that take place on the device ensure that the changes made to data while offline, are synced with the cloud once your app is connected again. Here are the features at a glance:
 
-TKChart is a versatile charting component that offers full customization, great performance and intuitive object model. Its API allows creating complex charts with stunning animations and appearance. 
+- **Local data persistence with SQLite**. The Data Sync component embeds a lightweight ORM that allows you to easily transform your data classes into tables in SQLite, thus saving you a lot of time to create the appropriate schema in SQLite on your own. You can use the **DataSync** component for a complex combination of data persistence and synchronization between different instances of your application or for local storage only.
+- **Smart synching algorithm**. The synchronization algorithm of the Data-sync component allows for determining if the data should be synced over 3G or WiFi connection. You can also determine whether the cloud or the client data should prevail if a conflict appears. Or, you may decide to use your own custom logic for conflict resolving by handling a method from the TKDataSyncDelegate.
+- **Integrated with Telerik Backend Services**. On the cloud side, the Data Sync component is backed up by Telerik BaaS completing your data user story from the start to the end.*
 
-TKChart main features include:
+*UI for iOS does not grant you a license for the Telerik Backend Services. You need to obtain such separately.
 
-- Various series types: bar, column, line, spline, area, pie, donut, scatter.
-- Stacking of bar, column, line and area series including stack 100 mode.
-- Pan/Zoom and selection functionality.
-- Animations that use the CoreAnimations and UIKit dynamics.
-- Multiple axes.
-- Annotations.
-- Trackball.
-
-<img src="../images/chart-overview001.png"/>
+<img src="../images/datasync-overview001.jpg"/>

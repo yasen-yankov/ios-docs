@@ -7,5 +7,5 @@
 		<Section Title="Animations" URL="animations" />
 	</Section>
 	<Section Title="DataSync" URL="datasync" />
-	<Section Title="Feedback" URL="feedback" />
+	<Section Title="AppFeedback" URL="appfeedback" />
 </Contents>
