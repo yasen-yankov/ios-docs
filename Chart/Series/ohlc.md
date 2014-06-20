@@ -1,4 +1,3 @@
-
 ---
 title: OHLC
 meta_title: OHLC Series
