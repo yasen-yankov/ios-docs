@@ -7,5 +7,5 @@
 		<Section Title="Series" URL="series" />
 		<Section Title="Animations" URL="animations" />
 	</Section>
-	<Section Title="DataSync" URL="datasync" />
+	<Section Title="DataSync (Beta)" URL="datasync" />
 </Contents>
