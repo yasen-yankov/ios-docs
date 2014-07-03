@@ -1,10 +1,7 @@
 ---
 title: Overview
-meta_title: Calendar Overview
-slug: calendar-overview
-tags: calendar
-publish: true
-ordinal: 1
+page_title: Calendar Overview
+position: 1
 ---
 
 # Chart Series: Area

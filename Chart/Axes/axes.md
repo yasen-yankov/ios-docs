@@ -1,10 +1,7 @@
 ---
 title: Axes
-meta_title: Axes Overview
-slug: chart-axes-axes
-tags: Chart, iOS, axes
-publish: true
-ordinal: 1
+page_title: Axes Overview
+position: 1
 ---
 
 # Chart Axes: Overview
@@ -15,9 +12,9 @@ ordinal: 1
 - Use <code>TKChartDateTimeAxis</code> to present date/time values.
 - Use <code>TKChartCategoryAxis</code> to present categoric values.
 
-This article discusses the common characteristics of the abstract class <code>TKChartAxis</code>, which is the single class all <code>TKChart</code> axes derive from. The axes automatically calculate its maximum and minimum properties, based on the incoming data. 
+This article discusses the common characteristics of the abstract class <code>TKChartAxis</code>, which is the single class all <code>TKChart</code> axes derive from. The axes automatically calculate its maximum and minimum properties, based on the incoming data.
 
-##Axes Common Properties##
+## Axes Common Properties##
 
 There are several important properties which allow customization of the behavior and appearance of each axis:
 
@@ -25,7 +22,7 @@ There are several important properties which allow customization of the behavior
 
 - <code>position</code> - defines where the axis is positioned in relation to the plot area.
 
-- <code>plotMode</code> - defines how the associated series is rendered in relation to the axis. 
+- <code>plotMode</code> - defines how the associated series is rendered in relation to the axis.
 
 - <code>allowZoom</code> - allows zooming by this axis.
 
@@ -45,7 +42,7 @@ There are several important properties which allow customization of the behavior
 
 - <code>tickCount</code> - returns the count of axis labels.
 
-##Configure Axes Position##
+## Configure Axes Position##
 
 You can change the axis position by setting its position property to one of the following values:
 <code>TKChartAxisPositionLeft</code>, <code>TKChartAxisPositionRight</code>, <code>TKChartAxisPositionTop</code> and <code>TKChartAxisPositionBottom</code>.
@@ -62,7 +59,7 @@ The following lines of code demonstrate how you can create multiple axes at diff
 
 <img src="../../images/chart-axes-types009.png"/>
 
-##Configure Axes Appearance##
+## Configure Axes Appearance##
 
 You can customize any feature of the axis appearance. If you want to hide its line or change its line stroke or background, you can use the following peace of code:
 
@@ -71,7 +68,7 @@ You can customize any feature of the axis appearance. If you want to hide its li
 
 <img src="../../images/chart-axes-types001.png"/>
 
-#Configure Axes Ticks Appearance#
+# Configure Axes Ticks Appearance#
 
 You can specify the interval between axis ticks by setting the <code>majorTickInterval</code> and <code>minorTickInterval</code> properties:
 
@@ -82,7 +79,7 @@ You can specify the interval between axis ticks by setting the <code>majorTickIn
 
 <img src="../../images/chart-axes-types008.png"/>
 
-You can customize the major and minor ticks of axis by manipulating the <code>majorTickStyle</code> and <code>minorTickStyle</code> properties. 
+You can customize the major and minor ticks of axis by manipulating the <code>majorTickStyle</code> and <code>minorTickStyle</code> properties.
 
     xAxis.style.majorTickStyle.ticksFill = [TKSolidFill solidFillWithColor:[UIColor blueColor]];
     xAxis.style.majorTickStyle.ticksLength = 10;
@@ -98,7 +95,7 @@ In addition to the common tick style customizations, you can specify the first a
 
 <img src="../../images/chart-axes-types003.png"/>
 
-##Configure Axes Label Appearance##
+## Configure Axes Label Appearance##
 
 You can configure the axis label appearance by manipulating the <code>labelStyle</code> property of the axis style object. If you want to change the font, text color, shadow color and offset, you should modify the corresponding properties:
 
@@ -126,7 +123,7 @@ You can change the label fitting mode in the following manner:
 
 <img src="../../images/chart-axes-types006.png"/>
 
-##Configure Axes Title Appearance##
+## Configure Axes Title Appearance##
 
 In order to change the change the axis title font, text color, shadow color, alignment and offset, you should modify the corresponding properties:
 
@@ -139,9 +136,9 @@ In order to change the change the axis title font, text color, shadow color, ali
 
 <img src="../../images/chart-axes-types007.png"/>
 
-##Axes Types##
+## Axes Types##
 
-Any Cartesian series supports the following axes: 
+Any Cartesian series supports the following axes:
 
 - [TKChartNumericAxis](numeric)
 - [TKChartCategoryAxis](categoric)

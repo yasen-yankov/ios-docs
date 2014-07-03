@@ -1,6 +1,6 @@
 ---
 slug: read-me
-title: the-read-me
+page_title: the-read-me
 publish: false
 ---
 

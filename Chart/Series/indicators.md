@@ -1,17 +1,14 @@
 ---
 title: Financial Indicators
-meta_title: Financial Indicators Series
-slug: chart-series-indicators
-tags: Chart, iOS, financial, indicators, series
-publish: true
-ordinal: 1
+page_title: Financial Indicators Series
+position: 1
 ---
 
 # Chart Series: Financial Indicators
-
+==================================
 This article provides a brief description and a list of the impotant properties of each indicator supported by TKChart. The indicators are divided in two groups - Technical Overlays and Technical Indicators. To set up a financial indicator, you have to initialize it with <code>TKChartCandlestickSeries</code> or <code>TKChartOhlcSeries</code> containing financial data.
 
-##Technical Overlays##
+## Technical Overlays##
 
 Here is an example how to create a **Bollinger Band** indicator:
 
@@ -19,7 +16,7 @@ Here is an example how to create a **Bollinger Band** indicator:
     TKChartBollingerBandIndicator *bollingerBands = [[TKChartBollingerBandIndicator alloc] initWithSeries:candlesticks];
     [financialChart addSeries:candlesticks];
     [financialChart addSeries:bollingerBands];
-    
+
 <img src="../../images/chart-series-indicators001.png" />
 
 And here are the rest of the available Technical Overlays
@@ -36,7 +33,7 @@ And here are the rest of the available Technical Overlays
 - Weighted Close
 - Median Price
 
-##Technical Indicators##
+## Technical Indicators##
 Here is an example how to set up **Moving Average Convergence Divergence** indicator:
 
 	TKChartCandlestickSeries *candlesticks = [[TKChartCandlestickSeries alloc] initWithItems:_financialData];
@@ -44,9 +41,9 @@ Here is an example how to set up **Moving Average Convergence Divergence** indic
     macdIndicator.longPeriod = 26;
     macdIndicator.shortPeriod = 12;
     macdIndicator.signalPeriod = 9;
-    
+
     [financialChart addSeries:macdIndicator];
-    
+
 <img src="../../images/chart-series-indicators002.png"/>
 
 And here are the rest of the available Technical Indicators
@@ -77,8 +74,8 @@ And here are the rest of the available Technical Indicators
 - Positive Volume Index
 - Negative Volume Index
 - Money Flow Index
-- Ultimate Oscillator 
+- Ultimate Oscillator
 - Market Facilitation Index
-- Chaikin Oscillator 
+- Chaikin Oscillator
 
 

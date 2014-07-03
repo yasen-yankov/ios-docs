@@ -1,16 +1,13 @@
 ---
 title: Selection
-slug: chart-selection
-tags: Chart, iOS, selection
-publish: true
-ordinal: 7
+position: 7
 ---
 
 # Chart: Selection
 
-This help topic demonstrates how you can make your charts more interactive by enabling a selection behavior. 
+This help topic demonstrates how you can make your charts more interactive by enabling a selection behavior.
 
-##Configure##
+## Configure##
 
 You can alter the selection mode for each series by altering its <code>selectionMode</code> property with the following value:
 

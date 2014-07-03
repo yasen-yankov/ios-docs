@@ -1,7 +1,7 @@
 ---
 layout: index
 ---
-<div id="page-inner-content">
+<div id="nav-wrapper">
     <div id="page-nav">
         <div id="page-tree"></div>
         <script>
@@ -26,19 +26,19 @@ layout: index
             dataBound: expandNavigation("{{page.url | remove_first: '/' }}")
         });
         </script>
-    </div>
-    <div id="page-article">
-        <div id="page-top">
-            <div id="page-breadcrumb">
-                {% breadcrumb %}
-            </div>
-            <div id="page-search">
-                {% include search.html %}
-            </div>
+        <div id="page-api" class="k-treeview">
+            <ul class="k-group">
+                <li class="k-item"><span class="k-in"><a href="{{site.baseurl}}/api/" target="_blank">API Reference</a></span></li>
+            </ul>
         </div>
-    {% if page.category == "api" %}<div id="markdown-toc"></div>{% endif %}
-    {{ content }}
     </div>
+</div>  
+<div id="page-inner-content">
+   
+    <div id="page-article">
+        {% if page.category == "api" %}<div id="markdown-toc"></div>{% endif %}
+        {{ content }}
 
-    {% include footer.html %}
+        {% include footer.html %}
+    </div>    
 </div>

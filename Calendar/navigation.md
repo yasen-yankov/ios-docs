@@ -1,13 +1,10 @@
 ---
 title: Navigation
-meta_title: Calendar Navigation
-slug: calendar-navigation
-tags: calendar, navigation
-publish: true
-ordinal: 6
+page_title: Calendar Navigation
+position: 6
 ---
 
-#Calendar: Navigation
+# Calendar: Navigation
 
 This document describes the options to navigate between dates in <code>TKCalendar</code> and the related notifications.
 
@@ -23,14 +20,14 @@ The calendar will not allow navigating to a date outside of the allowed period, 
 The <code>navigateToDate:animated:</code> method is used to navigate to specific date within the allowed period:
 
 	[calendarView navigateToDate:[NSDate date] animated:YES];
-	
+
 You can determine whether a navigation occurred by implementing <code>TKCalendarDelegate</code> protocol:
 
 	- (void)calendar:(TKCalendar*)calendar didNavigateToDate:(NSDate*)date;
 	{
 		// Here you can perform the desired action when navigation occured
 	}
-	
+
 You should implement the <code>calendar:willNavigateToDate:</code> method if you want to be notified before this action occurs:
 
 	- (void)calendar:(TKCalendar *)calendar willNavigateToDate:(NSDate *)date

@@ -99,3 +99,27 @@ $(function(){
         ul.appendTo(this);
     });
 });
+
+function resizeContainers() {
+    var headerHeight = $("#page-header").height(),
+        htmlHeight = $('html').height();
+    navHeight = htmlHeight - headerHeight;
+    $("#nav-wrapper").height(navHeight - 1);
+    $("#page-inner-content").height(navHeight - 1);
+};
+
+
+$(document).ready(resizeContainers);
+$(window).resize(resizeContainers);
+
+$(function () {
+    $('#table_of_contents').click(function (e) {
+        $(this).toggleClass('open');
+        if($(this).hasClass("open")){
+            $("#nav-wrapper").css("display", "block");
+        }
+        else {
+             $("#nav-wrapper").css("display", "none");
+        }
+    });
+});

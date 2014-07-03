@@ -1,19 +1,16 @@
 ---
 title: Customizations
-meta_title: Calendar Customizations
-slug: calendar-customizations
-tags: calendar, customizations
-publish: true
-ordinal: 8
+page_title: Calendar Customizations
+position: 8
 ---
 
-#Calendar: Customizations
+# Calendar: Customizations
 
 <img src="../images/calendar-customization001.png"/>
 
 <code>TKCalendar</code> allows customizing almost evety aspect of its visual appearance. This article demonstrates some of the customization techniques that can be used with it.
 
-<code>TKCalendar</code> comes with two predefined themes: 
+<code>TKCalendar</code> comes with two predefined themes:
 - <code>TKCalendarDefaultTheme</code> - a default theme
 - <code>TKCalendarIPadTheme</code> - a theme designed for iPad
 
@@ -49,9 +46,9 @@ The cell can be replaced with a custom one for more complex scenarios. This can 
         	CustomCell *cell = [CustomCell new];
         	return cell;
     	}
-    	return nil;	
+    	return nil;
 	}
-	
+
 The following is the implementation of the <code>CustomCell</code> class:
 
 	@interface CustomCell : TKCalendarDayCell
@@ -70,17 +67,17 @@ The following is the implementation of the <code>CustomCell</code> class:
 	- (void)updateVisuals
 	{
     	[super updateVisuals];
-    
+
   	    if (self.state & TKCalendarDayStateToday) {
     	    self.label.textColor = [UIColor redColor];
-   	    }	
+   	    }
    	    else {
    	    	self.label.textColor = [UIColor blueColor];
    	    }
 	}
 
 	@end
-	
+
 The result is presented below:
 
 <img src="../images/calendar-customization002.png"/>

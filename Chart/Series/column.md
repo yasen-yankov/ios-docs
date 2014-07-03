@@ -1,10 +1,7 @@
 ---
 title: Column
-meta_title: Column Series
-slug: chart-series-column
-tags: Chart, iOS, column, series
-publish: true
-ordinal: 3
+page_title: Column Series
+position: 3
 ---
 
 # Chart Series: Column
@@ -19,13 +16,13 @@ ordinal: 3
 	for (int i = 0; i<values.count; i++) {
     	[array addObject:[[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]]];
 	}
-    
+
 	TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
 	[chart addSeries:series];
 
 <img src="../../images/chart-series-column001.png"/>
 
-##Configure clustering of column series
+## Configure clustering of column series
 
 If you want to cluster multiple column series side by side, they should use a shared x-axis:
 
@@ -59,17 +56,17 @@ If you want to cluster multiple column series side by side, they should use a sh
 
 <img src="../../images/chart-series-column002.png"/>
 
-##Configure stacking of column series
+## Configure stacking of column series
 
 The <code>TKChartColumnSeries</code> can be combined by using different stack modes.
 
 The Stack plots the points on top of each other:
 
 	TKChartStackInfo *stackInfo = [[TKChartStackInfo alloc] initWithID:@(1) withStackMode:TKChartStackModeStack];
-    
+
 	TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:dataPoints1];
 	series1.stackInfo = stackInfo;
-    
+
 	TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:dataPoints2];
 	series2.stackInfo = stackInfo;
 
@@ -78,16 +75,16 @@ The Stack plots the points on top of each other:
 The Stack100 displays the value as percent:
 
 	TKChartStackInfo *stackInfo = [[TKChartStackInfo alloc] initWithID:@(1) withStackMode:TKChartStackModeStack100];
-    
+
 	TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:dataPoints1];
 	series1.stackInfo = stackInfo;
-    
+
 	TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:dataPoints2];
 	series2.stackInfo = stackInfo;
 
 <img src="../../images/chart-series-column004.png"/>
 
-##Configure visual appearance of column series
+## Configure visual appearance of column series
 
 If you want to customize the appearance of a column series, you should change its <code>style</code> properties.
 

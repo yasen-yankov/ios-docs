@@ -1,9 +1,6 @@
 ---
 title: Trackball
-slug: chart-trackball
-tags: Chart, Trackball, Crosshair
-publish: true
-ordinal: 9
+position: 9
 ---
 
 # Chart: Trackball
@@ -18,7 +15,7 @@ The trackball behavior is activated by setting the <code>allowTrackball</code> p
 
 The trackball exposes four properties that could be used to control its appearance and behavior. These are:
 
-<code>snapMode</code> 
+<code>snapMode</code>
 
 The <code>snapMode</code> property determines how the trackball line will be snapped to the chart's data points. Valid property values are <code>TKChartTrackballSnapModeClosestPoint</code> and <code>TKChartTrackballSnapModeAllClosestPoints</code> with <code>TKChartTrackballSnapModeClosestPoint</code> snapping to the closest point of all data points in the chart and <code>TKChartTrackballSnapModeAllClosestPoints</code> snapping to the closest point from each series object in the chart, that is, it snaps to multiple data points at once. Again, a few screenshots will best describe the different values of <code>snapMode</code>:
 
@@ -34,7 +31,7 @@ The <code>snapMode</code> property determines how the trackball line will be sna
 
 The <code>orientation</code> property determines whether the trackball will track points horizontally or vertically. When the orientation is set to <code>TKChartTrackballOrientationVertical</code>, which is the default option, it will search within the touched area for points with similar x-coordinates by different y-coordinate and the trackball line will be vertical. If the property is set to <code>TKChartTrackballOrientationVertical</code>, the trackball will compare y-coordinates instead and the trackball line will be horizontal.
 
-<code>line</code> 
+<code>line</code>
 
 The <code>line</code> property represents the trackball line. Its <code>style</code> property could be used to customize the line appearance. For example, its color and crossing point shape:
 
@@ -51,7 +48,7 @@ The result is the following:
 <code>tooltip</code>
 
 The <code>tooltip</code> property represents the tooltip that shows information about the crossing points. As usual its <code>style</code> property could be used to customize its appearance. The <code>pinPosition</code> property determines where the trackball tooltip should be located. The available pin positions are specified below:
- 
+
 - <code>TKChartTrackballPinPositionNone</code> - The tooltip will appear next to the selected point.
 - <code>TKChartTrackballPinPositionLeft</code> - The tooltip will appear on the left side of the plot area.
 - <code>TKChartTrackballPinPositionRight</code> - The tooltip will appear on the right side of the plot area.

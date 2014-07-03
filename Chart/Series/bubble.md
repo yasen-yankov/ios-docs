@@ -1,10 +1,7 @@
 ---
 title: Bubble
-meta_title: Bubble Series
-slug: chart-series-bubble
-tags: Chart, iOS, bubble, series
-publish: true
-ordinal: 1
+page_title: Bubble Series
+position: 1
 ---
 
 # Chart Series: Bubble
@@ -17,14 +14,14 @@ Here is an example of a bubble chart:
 	NSArray *xValues = @[ @460, @510, @600, @640, @700, @760, @800, @890, @920, @1000, @1060, @1120, @1200, @1342, @1440];
     NSArray *yValues = @[ @7, @22, @12, @17, @32, @25, @75, @42, @50, @16, @56, @77, @24, @80, @90 ];
     NSArray *areaValues = @[@800, @100, @122, @10, @82, @623, @715, @269, @311, @38, @762, @29, @623, @72, @199];
-    
+
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i = 0; i<xValues.count; i++) {
         [array addObject:[TKChartBubbleDataPoint dataPointWithX:xValues[i] Y:yValues[i] area:areaValues[i]]];
     }
-    
+
     TKChartBubbleSeries *bubbleSeries = [[TKChartBubbleSeries alloc] initWithItems:array];
     bubbleSeries.biggestBubbleDiameterForAutoscale = @30;
     [_chart addSeries:bubbleSeries];
-    
+
 <img src="../../images/chart-series-bubble001.png"/>

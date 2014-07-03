@@ -1,10 +1,7 @@
 ---
 title: Datetime
-meta_title: Datetime Axis
-slug: chart-axes-datetime
-tags: Chart, iOS, axis, axes, datetime
-publish: true
-ordinal: 3
+page_title: Datetime Axis
+position: 3
 ---
 
 # Chart Axes: Datetime
@@ -17,7 +14,7 @@ The <code>TKChartDateTimeAxis</code> Categoric axis is an axis with NSDate value
 
 - <code>offset</code> - determines an axis value where the axis is crossed with another axis.
 
-##Configure a TKChartDateTimeAxis##
+## Configure a TKChartDateTimeAxis##
 
 You can configure a date-time axis by initializing it and setting it as the main x-axis or y-axis of the chart:
 
@@ -46,9 +43,9 @@ You can define the axis categories to be years by changing the interval unit pro
 
 <img src="../../images/chart-axes-datetime001.png">
 
-##Setting a plotting mode of axis##
+## Setting a plotting mode of axis##
 
- The <code>TKChartAxisPlotMode</code> is used by the axis to plot the data. Possible values are <code>TKChartAxisPlotModeBetweenTicks</code> and <code>TKChartAxisPlotModeOnTicks</code>. <code>TKChartAxisPlotModeBetweenTicks</code> plots points in the middle of the range, defined by two ticks. <code>OnTicks</code> plots the points over each tick. 
+ The <code>TKChartAxisPlotMode</code> is used by the axis to plot the data. Possible values are <code>TKChartAxisPlotModeBetweenTicks</code> and <code>TKChartAxisPlotModeOnTicks</code>. <code>TKChartAxisPlotModeBetweenTicks</code> plots points in the middle of the range, defined by two ticks. <code>OnTicks</code> plots the points over each tick.
 
  You should use the following lines of code to alter this behavior:
 

@@ -1,13 +1,10 @@
 ---
 title: Populating with Data
-meta_title: Calendar Populating with Data
-slug: calendar-populating-with-data
-tags: calendar, data
-publish: true
-ordinal: 3
+page_title: Calendar Populating with Data
+position: 3
 ---
 
-#Calendar: Populating with Data
+# Calendar: Populating with Data
 
 Following the Model-View-Controller design pattern, the data source mediates between the application's data model (that is, its model objects) and the calendar view. The data source provides the calendar view object with the information it needs to display events.
 
@@ -26,7 +23,7 @@ Following this approach, the <code>TKCalendarDataSource</code> protocol should b
     	return [self.events filteredArrayUsingPredicate:predicate];
 	}
 
-In most cases <code>TKCalendar</code> accesses events stored on the device where the application executes. In this scenario the *EventKit* framework should be used. <code>TKCalendar</code> provides a helper data source class which loads the events from device by using the *EventKit API*. 
+In most cases <code>TKCalendar</code> accesses events stored on the device where the application executes. In this scenario the *EventKit* framework should be used. <code>TKCalendar</code> provides a helper data source class which loads the events from device by using the *EventKit API*.
 
 As a prerequisite, the *EventKit* and *EventKitUI* frameworks should be added to the application. Now, you are ready to use the *EventKit* data source helper class for <code>TKCalendar</code>.
 
@@ -44,7 +41,7 @@ However, <code>TKCalendarEventKitDataSource</code> supports event filtering. Ado
 	@interface ViewController () <TKCalendarEventKitDataSourceDelegate>
 	//..
 	dataSource.delegate = self;
-	
+
 In order to import only events from calendars local for the device, handle the <code>shouldImportEventsFromCalendar:</code> method:
 
 	- (BOOL)shouldImportEventsFromCalendar:(EKCalendar *)calendar
@@ -53,5 +50,5 @@ In order to import only events from calendars local for the device, handle the <
         	return YES;
 	    return NO;
 	}
-	
+
 In the cases when you want to filter only specific events, use the <code>shouldImportEvent:</code> method.

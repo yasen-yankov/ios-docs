@@ -1,18 +1,21 @@
 # The public documentation URL, used for sitemap.xml
-url: "http://docs.telerik.com/product"
+url: "http://docs.telerik.com/devtools/ios"
 
 # Exclude files which should not be in the output
 exclude: [README.md,Gemfile,Gemfile.lock]
 navigation:
 ## List your directory names and order here, like this:
-    getting-started:
-        position: 2
-        title: Getting Started
-    "*foo":
-        title: Foo
+    DataSync:
+        title: "DataSync (Beta)"
+    Chart/Axes:
+        position: 3
+    Chart/Series:
+        position: 4
+    Chart/Animations:
+        position: 5
 
 ## The application virtual path
-baseurl: /product
+baseurl: /devtools/ios
 
 ## Assign layout and category per different paths
 defaults:
@@ -34,8 +37,3 @@ google_custom_search: '001595215763381649090:eblhnfskwrk'
 ## Do not edit below this line
 safe: false
 markdown: MarkdownProcessor
-kramdown:
-    toc_levels: 2..3
-    smart_quotes: ["quot", "quot", "quot", "quot"]
-    input: GFM
-

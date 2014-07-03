@@ -1,16 +1,13 @@
 ---
 title: Legend
-slug: chart-legend
-tags: Chart, Legend
-publish: true
-ordinal: 5
+position: 6
 ---
 
 # Chart: Legend
 
 <code>TKChart</code> has built-in support for legends – descriptions about the charts on the plot. The items displayed in the legend are series specific i.e. for the pie chart the data points are shown in the legend, whereas for line series only one item is shown for each series.
 
-##Configure legend##
+## Configure legend##
 
 If you would like to show the legend in <code>TKChart</code>, you should set its hidden property to NO. The default value is YES. The legend supports showing a series title.
 
@@ -22,7 +19,7 @@ You can alter the position and offset origin of legend by setting its position:
 
 <img src="../images/chart-legend001.png"/>
 
-The legend can be anchored to concrete side by using the following values <code>TKChartLegendPositionLeft</code>, <code>TKChartLegendPositionRight</code>, <code>TKChartLegendPositionTop</code> and <code>TKChartLegendPositionBottom</code>. 
+The legend can be anchored to concrete side by using the following values <code>TKChartLegendPositionLeft</code>, <code>TKChartLegendPositionRight</code>, <code>TKChartLegendPositionTop</code> and <code>TKChartLegendPositionBottom</code>.
 
 It can float by using <code>TKChartLegendPositionFloat</code> value. In this case, you can offset its origin manually by setting its <code>offset</code> and <code>offsetOrigin</code> properties:
 
@@ -32,7 +29,7 @@ It can float by using <code>TKChartLegendPositionFloat</code> value. In this cas
 
 <img src="../images/chart-legend002.png"/>
 
-##Customize legend##
+## Customize legend##
 
 You can alter visibility of the legend's title by changing <code>showTitle</code> property.
 
@@ -50,7 +47,7 @@ The legend can be customized by using its style object. It contains the followin
 - <code>fill</code> - Gets or sets the fill color to be used as a background.
 - <code>stroke</code> -  Gets or sets stroke color to be used for the legend frame.
 
-##Embeding legend outside TKChart##
+## Embeding legend outside TKChart##
 
 You can use the legend outside the chart view. You should create an instance of <code>TKChartLegendView</code> and add it as subview to desired view.
 
