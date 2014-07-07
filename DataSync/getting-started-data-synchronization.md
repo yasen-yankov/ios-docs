@@ -65,7 +65,7 @@ Next step is to initialize the synchronization policy object as follows:
 **TKSyncPolicy** instance determines the behavior of synchronization algorithm and defines the conflict resolution mode for entities that should be merged. In the example above we used the **TKPreferLocalInstance** value and this gives priority to the locally changed data during the conflict resolution. In other words, if the client has changed a record and wants to synchronize it with data on the cloud, but the same record has been changed by another client and already synchronized to the cloud the local changes will override the changes in the cloud. From this moment on, all other users will get this value as a result of synchronization. The cloud changes are of higher importance if the **TKPreferCloudInstance** value is set.
 The most interesting case is if there is a more complicated merging procedure that developer wants to implement. Then the **TKCustomResolution** value should be used. This allows to the developer to handle all conflicts and implement his own merging algorithm. To achieve this, you should implement the **TKDataSyncDelegate** protocol and set its implementation as a conflict resolver using the setter of the delegate property of the context:
 
-- (void)setDelegate:(id<TKDataSyncDelegate>) delegate;
+	- (void)setDelegate:(id<TKDataSyncDelegate>) delegate;
 
 The **TKDataSyncDelegate** protocol provides callbacks that will be called during the synchronization process.
 
