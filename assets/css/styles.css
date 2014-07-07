@@ -43,7 +43,7 @@ a img {
     background: url("../images/library_background.png") repeat-x 0 0 #485E78;
     background-color: #ccc;
     height: 35px;
-    line-height: 35px;
+    line-height: 37px;
     font-size: 115%;
 }
 
@@ -248,8 +248,8 @@ a img {
 
 #page-nav {
     float: left;
-    width: 229px;
-    padding: 0 0 30px;   
+    width: 100%;
+    padding: 12px 0 30px;   
 }
 
 #page-tree {
@@ -458,8 +458,8 @@ a img {
 
 #nav-wrapper {
     width: 229px;
-    border-top: 1px solid #e2e4e7;
-    border-right: 1px solid #e2e4e7;
+    border-top: 1px solid #ACACAC;
+    border-right: 1px solid #ACACAC;
     overflow-x: hidden;
     overflow-y: auto;
     float: left;
@@ -497,20 +497,29 @@ a img {
 
 #page-article {
     background-color: #fff;
-    border-left: 1px solid #ACACAC;
-    line-height: 1.5;
     white-space: normal;
     overflow-x: hidden;
-    margin-right: 16px; 
+    padding: 13px 26px 0 26px; 
+}
+
+#page-article a {
+    color: #36C;
+    text-decoration: none;
+}
+
+#page-article a:hover {
+    text-decoration: underline;
 }
 
 #page-article h1 {
-    margin-top: 0;
+    margin-top: 0;  
+    margin-bottom: 1.15em;
 }
 
-#page-article > h1,
-#page-article > p {
-   padding: 1px 0 0 26px; 
+#page-article h1 a,
+#page-article h2 a,
+#page-article h3 a  {
+    color: #000;
 }
 
 #page-article h2 {
@@ -521,12 +530,22 @@ a img {
 }
 
 #page-article h2 a {
-    margin-left: 0;
-    color: #3c4c6c;
+    color: #3c4c6c; 
 }
 
-#page-article h2 a:hover {
+#page-article h1 a:hover,
+#page-article h2 a:hover,
+#page-article h3 a:hover {
     color: #036c9c;
+    text-decoration: none;
+}
+
+#page-article h3 {
+    margin-top: 1.5em;
+    margin-bottom: .25em;
+    font-size: 145%;
+    font-weight: 400;
+    color: #000;
 }
 
 #page-article p {
@@ -625,8 +644,8 @@ blockquote th, blockquote td {
     border: 1px solid #C7CFD5;
     background-color: #F1F5F9;
     color: #666;
-    padding: 0.3em 1em .7em 1em;
-    margin-left: 2em;
+    padding: 0.3em 1em .7em 1em; 
+    overflow: auto;
 }
 
 code {
@@ -648,21 +667,19 @@ pre .nocode { background-color: transparent; color: #000; }
     bottom: 0;
     width: 100%;
     clear: both;
-    border-top: 1px solid #000;
-    margin: 0 2em;
+    border-top: 1px solid #000;  
 }
 
 #page-article #footer {
     position: relative;
-    border-top: 1px solid #000;
-    margin: 0 2em;
+    border-top: 1px solid #000;  
 }
 
 #introduction{
     padding-bottom: 140px; /* footer height */
 }
 
-.footer-links {
+#footer .footer-links {
     display: inline-block;
     color: #000;
     font-size: 11px;
@@ -671,20 +688,19 @@ pre .nocode { background-color: transparent; color: #000; }
     border-left: 1px solid #47494c;
 }
 
-.footer-links:first-child {
+#footer .footer-links:first-child {
     border-left: 0;
     padding-left: 0;
 }
 
-a.footer-links:hover {
+#footer a.footer-links:hover {
     color: #036c9c;
     text-decoration: underline;
 }
 
 .quick-links {
-     padding-top: 1.917em;
-     padding-bottom: 1em;
-     padding-left: 36px;
+    padding-top: 1.917em;
+    padding-bottom: 1em;
 }
 
 #logo-bar ul {
@@ -753,8 +769,6 @@ a.footer-links:hover {
 }
 
 .copyright {
-
-    padding-left: 36px;
     padding-bottom: 24px;
 }
 
