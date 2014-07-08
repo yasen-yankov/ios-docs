@@ -15,63 +15,59 @@ The following snippets demonstrate how to prepare this request and process the r
 
 Let us now define a property for required access token:
 
-
-@property (nonatomic, strong) NSString* accessToken;
-
+	@property (nonatomic, strong) NSString* accessToken;
 
 Then we can lazy load it in getter:
 
+	-(NSString*) accessToken {
+   	    if (_accessToken) {
+   	         return _accessToken;
+   	    }
 
--(NSString*) accessToken{
-    if (_accessToken) {
+        [self obtainAccessTokenForApiKey:@"bdRwVIeRfgZpsJyABCD"]; //Use your ApiKey as a parameter
         return _accessToken;
-    }
-
-    [self obtainAccessTokenForApiKey:@"bdRwVIeRfgZpsJyTcPR"]; //Use your ApiKey as parameter
-    return _accessToken;
-}
-
+	}
 
 Now we will define a method that will get the access token synchronously. You can reuse this code for asynchronous approaches, skipping the sendSyncrhonousRequest: call of course:
 
--(void)obtainAccessTokenForApiKey:(NSString*) apiKey
-{
-    //Use appropriate username & password here
-    NSDictionary* userInfo= @{  @"username": @"andy", @"password": @"1", @"grant_type": @"password"};
-    NSError *error;
-    NSData* body  = [NSJSONSerialization dataWithJSONObject:userInfo
-                                                    options:NSJSONWritingPrettyPrinted
-                                                      error:&error];
+    -(void)obtainAccessTokenForApiKey:(NSString*) apiKey
+    {
+        //Use appropriate username & password here
+        NSDictionary* userInfo= @{  @"username": @"andy", @"password": @"1", @"grant_type": @"password"};
+        NSError *error;
+        NSData* body  = [NSJSONSerialization dataWithJSONObject:userInfo
+                                                        options:NSJSONWritingPrettyPrinted
+                                                          error:&error];
 
-    NSString* strUrl = [NSString stringWithFormat:@"http://api.everlive.com/v1/%@/oauth/token", apiKey];
-    NSURL* url = [NSURL URLWithString:strUrl];
+        NSString* strUrl = [NSString stringWithFormat:@"http://api.everlive.com/v1/%@/oauth/token", apiKey];
+        NSURL* url = [NSURL URLWithString:strUrl];
 
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url
-                                                          cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                                       timeoutInterval:30];
+        NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url
+                                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                           timeoutInterval:30];
 
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:body];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:body];
 
-    NSURLResponse* response = nil;
-    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        NSURLResponse* response = nil;
+        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+        NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
 
-    // show all values , just for debug purposes
-    for(id key in res){
-        id value = [res objectForKey:key];
+        // show all values , just for debug purposes
+        for(id key in res){
+            id value = [res objectForKey:key];
 
-        NSString *strKey = (NSString *)key;
-        NSString *strValue = (NSString *)value;
-        NSLog(@"key: %@ \nvalue: %@", strKey, strValue);
+            NSString *strKey = (NSString *)key;
+            NSString *strValue = (NSString *)value;
+            NSLog(@"key: %@ \nvalue: %@", strKey, strValue);
+        }
+
+        // extract access token value only
+        NSDictionary* resDict = [res objectForKey:@"Result"];
+        NSString *token = [resDict objectForKey:@"access_token"];
+        NSLog(@"Access token: %@", token);
+
+        _accessToken = token;
     }
-
-    // extract access token value only
-    NSDictionary* resDict = [res objectForKey:@"Result"];
-    NSString *token = [resDict objectForKey:@"access_token"];
-    NSLog(@"Access token: %@", token);
-
-    _accessToken = token;
-}

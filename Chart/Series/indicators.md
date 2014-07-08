@@ -8,7 +8,7 @@ ordinal: 1
 ---
 
 # Chart Series: Financial Indicators
-==================================
+
 This article provides a brief description and a list of the impotant properties of each indicator supported by TKChart. The indicators are divided in two groups - Technical Overlays and Technical Indicators. To set up a financial indicator, you have to initialize it with <code>TKChartCandlestickSeries</code> or <code>TKChartOhlcSeries</code> containing financial data.
 
 ##Technical Overlays##

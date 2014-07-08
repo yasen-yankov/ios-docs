@@ -7,7 +7,7 @@ publish: true
 ordinal: 4
 ---
 
-# Chart Animations: Custom Animations
+# Chart Axes: Numeric
 
 <code>TKChart</code> uses Linear axes to plot data containing numerical values. It is valid only in the context of Cartesian Area, this axis is created by default when you add Bar, Line, Area and Scatter series. It also introduces several important properties:
 
@@ -20,10 +20,9 @@ ordinal: 4
 
 You can configure a numeric axis by initializing it and setting it as the main x-axis or y-axis of the chart:
 
-
-   TKChartNumericAxis *gdpInPoundsYAxis = [[TKChartNumericAxis alloc] init];
-   gdpInPoundsYAxis.majorTickInterval = @50;
-   chart.yAxis = gdpInPoundsYAxis;
+	TKChartNumericAxis *gdpInPoundsYAxis = [[TKChartNumericAxis alloc] init];
+	gdpInPoundsYAxis.majorTickInterval = @50;
+	chart.yAxis = gdpInPoundsYAxis;
 
 You can specify the axis range by setting the minimum and maximum indexes of categories:
 
