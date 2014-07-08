@@ -125,6 +125,8 @@ a img {
     display: inline-block;
     position: relative;
     vertical-align: middle;
+    *display: inline;
+    zoom: 1;
 }
 
 #table_of_contents {
@@ -134,9 +136,10 @@ a img {
     border-width: 0 1px 0 0;
     height: 100%;
     margin: 0;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
     width: 100%;
-     background-color: #EBEEF1;
+    background-color: #EBEEF1;
     width: 230px;
     height: 100%;
 }
@@ -585,7 +588,6 @@ h2 {
 }
 
 h3 {
-    border-top: 2px solid #ebecee;
     padding-top: 20px;
     margin-top: 40px;
 }
