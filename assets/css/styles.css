@@ -43,7 +43,6 @@ a img {
     background: url("../images/library_background.png") repeat-x 0 0 #485E78;
     background-color: #ccc;
     height: 35px;
-    line-height: 37px;
     font-size: 115%;
 }
 
@@ -747,6 +746,8 @@ pre .nocode { background-color: transparent; color: #000; }
     margin-left: 29px;
     width: 131px;
     height: 15px;
+    float: left;
+    margin-top: 9px;
 }
 
 .logo em {
