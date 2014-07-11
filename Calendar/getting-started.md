@@ -1,26 +1,22 @@
 ---
 title: Getting Started
-meta_title: Calendar Getting Started
-slug: calendar-getting-started
-tags: calendar
-publish: true
-ordinal: 2
+page_title: Calendar Getting Started
+position: 2
 ---
 
-#Calendar: Getting Started
+# Calendar: Getting Started
 
-
-This quick start tutorial demonstrates how to create a simple iOS application with <code>TKCalendar</code>. 
+This quick start tutorial demonstrates how to create a simple iOS application with <code>TKCalendar</code>.
 
 <img src="../images/calendar-gettingstarted001.png"/>
 
-##Prerequisites
+## Prerequisites
 
 In order to start using <code>TKCalendar</code>, you have first to install the latest version Telerik UI for iOS. You can download it from: [http://www.telerik.com/download/ios-ui](http://www.telerik.com/download/ios-ui). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you trough the installation process. When done, it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using <code>TKCalendar</code>.
 
 <img src="../images/chart-overview003.png"/>
 
-##Setting up the project
+## Setting up the project
 
 After installing Telerik UI, you can proceed with the following steps:
 
@@ -36,7 +32,7 @@ After installing Telerik UI, you can proceed with the following steps:
     <li>This is it, now you are ready to start working with Telerik Chart.</li>
 </ol>
 
-##Setting up TKCalendar
+## Setting up TKCalendar
 
 Now that our project is created and the TelerikUI.framework is added, we can start referencing and using the TelerikUI types:
 
@@ -51,7 +47,7 @@ Type the following code in <code>viewDidLoad</code> method:
     calendarView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:calendarView];
 
-This code creates a new instance of <code>TKCalendar</code> and adds it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the calendar when the device is rotated in landscape mode. 
+This code creates a new instance of <code>TKCalendar</code> and adds it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the calendar when the device is rotated in landscape mode.
 
 The next step is to create some random data that will be consumed by the calendar. You can use the following code:
 
@@ -89,7 +85,7 @@ And we should implement its <code>calendar:eventsForDate:</code> method:
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(startDate <= %@) AND (endDate >= %@)", endDate, date];
         return [self.events filteredArrayUsingPredicate:predicate];
     }
-    
+
 Here, the predicate is used to filter the events array by date. Do not forget to assign the <code>dataSource</code> property of <code>TKCalendar</code>:
 
 	calendarView.dataSource = self;
@@ -97,10 +93,10 @@ Here, the predicate is used to filter the events array by date. Do not forget to
 For information about populating <code>TKCalendar</code> with EventKit events, please refer to the following article: [Populating with data](populating-with-data)
 
 As a next step you may want to tune up the calendar more precisely by specifying minimum and maximum allowed dates. This can be done by setting the <code>minDate</code> and <code>maxDate</code> properties:
-	
+
 	calendarView.minDate = [TKCalendar dateWithYear:2010 month:1 day:1 withCalendar:nil];
 	calendarView.maxDate = [TKCalendar dateWithYear:2016 month:12 day:31 withCalendar:nil];
-	
+
 By default, <code>TKCalendar</code> displays the current date, use the <code>navigateToDate:animated</code> method to display a different date:
 
     NSDateComponents *components = [NSDateComponents new];
@@ -117,7 +113,7 @@ By default, <code>TKCalendar</code> displays the current date, use the <code>nav
 	{
     	NSLog(@"%@", date);
 	}
-	
+
 Note that <code>TKCalendar</code> supports single, multiple and range date selection. Selection modes are described in detail in the article about [Selection](selection).
 
 Along with selection notifications <code>TKCalendar</code> supports navigation and customization notifications by adopting the <code>TKCalendarDelegate</code> protocol. These notifications are described in the articles about: [Navigation](navigation) and [Customizations](customizations).
@@ -130,14 +126,14 @@ Here is the full code of this example:
     @interface ViewController () <TKCalendarDataSource, TKCalendarDelegate>
 	@property (nonatomic, strong) NSMutableArray *events;
     @end
-    
+
 	@implementation ViewController
 
 	- (void)viewDidLoad
 	{
     	[super viewDidLoad];
     	// Do any additional setup after loading the view.
-    
+
 	    TKCalendar *calendarView = [[TKCalendar alloc] initWithFrame:self.view.bounds];
     	calendarView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     	calendarView.dataSource = self;
@@ -146,7 +142,7 @@ Here is the full code of this example:
 		calendarView.maxDate = [TKCalendar dateWithYear:2016 month:12 day:31 withCalendar:nil];
     	[self.view addSubview:calendarView];
     	self.calendarView = calendarView;
-    
+
     	self.events = [NSMutableArray new];
     	NSCalendar *calendar = [NSCalendar currentCalendar];
    		NSDate *date = [NSDate date];
@@ -162,7 +158,7 @@ Here is the full code of this example:
         	event.eventColor = [UIColor redColor];
         	[self.events addObject:event];
     	}
-    
+
     	NSDateComponents *components = [NSDateComponents new];
     	components.year = 2015;
     	components.month = 5;
@@ -170,9 +166,9 @@ Here is the full code of this example:
     	NSDate *newDate = [self.calendarView.calendar dateFromComponents:components];
     	[self.calendarView navigateToDate:newDate animated:YES];
 	}
-    
+
     #pragma mark TKCalendarDataSource
-    
+
     - (NSArray *)calendar:(TKCalendar *)calendar eventsForDate:(NSDate *)date
     {
         NSDateComponents *components = [self.calendarView.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
@@ -197,6 +193,6 @@ You can easily change the way data is presented in chart by changing the view mo
 
 	calendarView.viewMode = TKCalendarViewModeYear;
 
-All view modes are desctibed in the following article: 
+All view modes are desctibed in the following article:
 [View modes](view-modes)
 

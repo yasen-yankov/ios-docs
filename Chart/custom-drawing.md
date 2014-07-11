@@ -1,9 +1,6 @@
 ---
 title: Custom Drawing
-slug: chart-custom-drawing
-tags: Chart, Drawing
-publish: true
-ordinal: 9
+position: 9
 ---
 
 # Chart: Custom Drawing
@@ -14,20 +11,20 @@ ordinal: 9
 - define strokes which contain information about stroke fill, dash pattern, line width etc.
 - define fill & stroke's corner radius, which corners to apply that radius to. It also supports drawing insets.
 
-##Working with fills##
+## Working with fills##
 
 There are several kinds of fills:
 
-###Solid fill###
+### Solid fill###
 
 <code>TKSolidFill</code> is the simplest of all fills. It paints chart items with a single color. Here is how you define it:
 
     TKSolidFill *fill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
-    
+
 or a shorter form
 
     TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
-    
+
 After you set it to a palette (discussed later) you get result like this:
 
 <img src="../images/chart-custom-drawing001.png"/>
@@ -49,13 +46,13 @@ There you get:
 
 <img src="../images/chart-custom-drawing003.png"/>
 
-###Linear gradient fill###
+### Linear gradient fill###
 
 <code>TKLinearGradientFill</code> allows you to fill an item with color gradients. You can specify which colors to use and relative to the size positions of gradient stops.
 
 Here is how you define linear gradient with 3 colors (green to red to blue) with transparency:
 
-    TKLinearGradientFill *fill = [TKLinearGradientFill 
+    TKLinearGradientFill *fill = [TKLinearGradientFill
         linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
                                        [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
                                        [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
@@ -71,29 +68,29 @@ If we wish to distribute those colors unevenly and change gradient direction her
         locations:@[@(0.6f), @(0.8f), @(1.0f)]
         startPoint:CGPointMake(0.f, 0.f)
         endPoint:CGPointMak0e(1.f, 1.f)];
-       
+
 Warning: All coordinates for locations, startPoint and endPoint parameters are relative to the size of drawing surface. The values of locations array must be monotonically increasing.
 
 <img src="../images/chart-custom-drawing005.png"/>
 
-###Radial gradient fill###
+### Radial gradient fill###
 
 <code>TKRadialGradientFill</code> draws a fill with two colors using centers relative to the drawing size. Radius is set in different measures depending on radiusType parameter. It is hard to master and most of the time you can achieve the same functionality with linear gradient. Here is a possible usage:
 
-    TKRadialGradientFill *fill = [[TKRadialGradientFill alloc] 
+    TKRadialGradientFill *fill = [[TKRadialGradientFill alloc]
         initWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.7f],
-                         [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.0f]] 
+                         [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.0f]]
            startCenter:CGPointMake(0.5f, 0.5f)
-           startRadius:0.7f 
-             endCenter:CGPointMake(0.f, 1.f) 
-             endRadius:0.3f 
+           startRadius:0.7f
+             endCenter:CGPointMake(0.f, 1.f)
+             endRadius:0.3f
              radiusType:TKGradientRadiusTypeRectMax];
 
 The resulting ghost column chart looks like this:
 
 <img src="../images/chart-custom-drawing006.png"/>
 
-###Image fill###
+### Image fill###
 
 <code>TKImageFill</code> fills the drawing area with the content of an image. There is also a <code>resizingMode</code> which specify how to draw image. Here is an example usage of tiled image:
 
@@ -120,15 +117,14 @@ Sometimes you like to specify your own stretchable image. Stretching this <img s
     fill.resizingMode = TKImageFillResizingModeNone;
 
 <img src="../images/chart-custom-drawing010.png"/>
-
-##Adding stroke##
+## Adding stroke##
 
 <code>TKStroke</code> is a powerful tool which allows you to customize how you apply strokes to your charts.
 
 You can create a simple stroke like this:
 
     TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor]];
-    
+
 With rounded corners:
 
     TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor] width:1.f cornerRadius:5.0f];
@@ -145,7 +141,7 @@ You can fill a stroke with a gradient:
                                         [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
                                         [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
     TKStroke *stroke = [TKStroke strokeWithFill:fill width:1.f cornerRadius:5.0f];
-    
+
 Or combine most of it in one place:
 
     TKLinearGradientFill *fill = [TKLinearGradientFill
@@ -164,20 +160,20 @@ or with line chart using strokes with width = 2
 
 <img src="../images/chart-custom-drawing013.png"/>
 
-##Customizing TKChart##
+## Customizing TKChart##
 
 Customizing <code>TKChart</code> can be done using <code>TKChartPalette</code>. You can access the palette from <code>TKChartSeries</code> using series.style.palette variable. By default, palette is nil which means that <code>TKChart</code> will use its default theme. To specify your own, you need to create it:
 
     series.style.palette = [TKChartPalette new];
-    
+
 </code>TKChartPalette</code> is a collection of <code>TKChartPaletteItem</code> instances. Every item contains information about drawing the item at its index. By default, a palette item index addresses the order in which you add series. For example, you may have a palette with red and blue fills and two <code>TKChartColumnSeries</code> using this palette. The first series you add will be red and the second blue. However, <code>TKChartPieSeries</code> by default uses another mode when every palette item is used to display a data point at its index. You can explicitly set how you distribute a palette items using:
 
     series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
-    
-or 
+
+or
 
     series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex; // this is the default
-    
+
 Whenever <code>TKChartPalette</code> runs out of colors (because there are more series or more data points than <code>TKChartPaletteItem</code> items inside) it starts over effectively cycling through its items.
 
 To illustrate the difference between palette modes, consider the following setup:
@@ -185,7 +181,7 @@ To illustrate the difference between palette modes, consider the following setup
     // … there is more setup code above creating TKChart, settings up axes and preparing the data points
     TKChartSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
     series.style.palette = [TKChartPalette new];
-    
+
     TKSolidFill *redFill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
     [series.style.palette addPaletteItem:[[TKChartPaletteItem alloc] initWithDrawables:@[redFill]]];
     TKSolidFill *blueFill = [[TKSolidFill alloc] initWithColor:[UIColor blueColor]];
@@ -215,25 +211,25 @@ you will get:
 
 This is because you have added only one series. Adding a second series with the same palette will make its data points blue. Adding a third series will make its data points green and fourth would be red again.
 
-###Palette items###
+### Palette items###
 
 <code>TKChartPaletteItem</code> is the building block of <code>TKChartPalette</code> and contains information about how to draw items. The simple way to use it is to specify a fill and/or stroke. Consider one of the following constructors:
 
     TKChartPaletteItem *paletteItem1 = [TKChartPaletteItem paletteItemWithFill:
     	[TKSolidFill solidFillWithColor:[UIColor redColor]]];
-    	
+
     TKChartPaletteItem *paletteItem2 = [TKChartPaletteItem paletteItemWithStroke:
     	[TKStroke strokeWithColor:[UIColor blueColor]]];
-    	
-    TKChartPaletteItem *paletteItem3 = [TKChartPaletteItem 
-    	paletteItemWithStroke:[TKStroke strokeWithColor:[UIColor blueColor]] 
+
+    TKChartPaletteItem *paletteItem3 = [TKChartPaletteItem
+    	paletteItemWithStroke:[TKStroke strokeWithColor:[UIColor blueColor]]
     	              andFill:[TKSolidFill solidFillWithColor:[UIColor redColor]]];
 
 then you can add an item to a palette using code like:
 
     [series.style.palette addPaletteItem:paletteItem1];
 
-When you initialize a palette item with stroke and fill the stroke is always drawn last.    
+When you initialize a palette item with stroke and fill the stroke is always drawn last.
 
 There is also an alternative and a more flexible way to create a palette item by specifying an array of fills and strokes in the order you would like them to be drawn:
 
@@ -248,15 +244,15 @@ here you create a palette item with red fill and two borders. The sample also sh
 
 <img src="../images/chart-custom-drawing016.png"/>
 
-###Customizing line series###
+### Customizing line series###
 
 <code>TKChartLineSeries</code> uses only TKStroke instances of <code>TKChartPaletteItem</code> and ignores any fills. You can specify a wide first stroke and thin second stroke if you need more than one stroke.
 
-###Customizing area series###
+### Customizing area series###
 
 <code>TKChartAreaSeries</code> uses TKStroke instances of <code>TKChartPaletteItem</code> for the line and fills for area part.
 
-###Customizing scatter series###
+### Customizing scatter series###
 
 <code>TKChartScatterSeries</code> uses palette items to draw its shapes. However you might also change shape's type using code like:
 
@@ -264,7 +260,7 @@ here you create a palette item with red fill and two borders. The sample also sh
 
 series.style.pointShape also applies to line and area series in case you need to show shapes on data points.
 
-###Customizing pie series###
+### Customizing pie series###
 
 TKChartPieSeries always use <code>series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;</code> If you have strokes with insets, only insets.top value will be used and will be applied relatively to the outer radius of the pie chart slices.
 

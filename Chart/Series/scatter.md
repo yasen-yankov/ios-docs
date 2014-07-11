@@ -1,10 +1,7 @@
 ---
 title: Scatter
-meta_title: Scatter Series
-slug: chart-series-scatter
-tags: Chart, iOS, scatter, series
-publish: true
-ordinal: 6
+page_title: Scatter Series
+position: 6
 ---
 
 # Chart Series: Scatter
@@ -24,7 +21,7 @@ TKChartScatterSeries plots its data along two axes. Scatter series identify the 
 
 <img src="../../images/chart-series-scatter001.png"/>
 
-##Customizing the visual appearance##
+## Customizing the visual appearance##
 
 In addition, you can change a point background color by using the following lines of code:
 
@@ -37,7 +34,7 @@ In addition, you can change a point background color by using the following line
 
 <img src="../../images/chart-series-scatter003.png"/>
 
-##Configure input and selection of line series##
+## Configure input and selection of line series##
 
 Here is how to configure the distance between finger touch and line to perform selection:
 

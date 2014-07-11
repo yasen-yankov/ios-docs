@@ -1,10 +1,7 @@
 ---
 title: Overview
-meta_title: DataSync Overview
-slug: datasync-overview
-tags: datasync, offline, storage, persistence
-publish: true
-ordinal: 1
+page_title: DataSync Overview
+position: 1
 ---
 
 The Data Sync component (Beta) is a powerful solution for persisting application data locally and/or synchronizing it with across all devices and the cloud. Its smart syncing algorithms that take place on the device ensure that the changes made to data while offline, are synced with the cloud once your app is connected again. Here are the features at a glance:

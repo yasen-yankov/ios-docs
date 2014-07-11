@@ -1,16 +1,13 @@
 ---
 title: Selection
-meta_title: Calendar Selection
-slug: calendar-selection
-tags: calendar, selection
-publish: true
-ordinal: 6
+page_title: Calendar Selection
+position: 6
 ---
 
-#Calendar: Selection
+# Calendar: Selection
 
 This article describes the different selection modes available in <code>TKCalendar</code>.
- 
+
 The selection mode in <code>TKCalendar</code> can be altered by using the <code>selectionMode</code> property. The available options are:
 
 - <code>TKCalendarSelectionModeNode</code> - No selection is allowed.
@@ -32,7 +29,7 @@ You can determine whether a selection is changed by adopting <code>TKCalendarDel
 	{
 		// Here you can perform the desired action when the selection is changed.
 	}
-	
+
 You can prevent <code>TKCalendar</code> from selecting specific date by handling the <code>calendar:shouldSelectDate:</code>
 
 	- (BOOL)calendar:(TKCalendar *)calendar shouldSelectDate:(NSDate *)date
@@ -42,7 +39,7 @@ You can prevent <code>TKCalendar</code> from selecting specific date by handling
             	   withComponents:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
                 	 withCalendar:self.calendarView.calendar];
 	}
-	
+
 Furthermore, the <code>calendar:didDeselectDate:</code> is called when using multiple selection to notify for unselected dates:
 
 	- (void)calendar:(TKCalendar *)calendar didDeselectedDate:(NSDate *)date

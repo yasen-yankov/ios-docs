@@ -1,9 +1,6 @@
 ---
 title: Structure
-slug: chart-structure
-tags: Tutorial
-publish: true
-ordinal: .3
+position: .3
 ---
 
 # Chart: Structure
@@ -12,9 +9,9 @@ ordinal: .3
 
 <img src="../images/chart-overview006.png"/>
 
-- <code>plot area</code> - this is the area where chart data is drawn. 
+- <code>plot area</code> - this is the area where chart data is drawn.
 
-- <code>series</code> - chart data is represented by series objects. Each series object defines the chart type and contains a set of points to be drawn. The chart can display different series object simultaneously. 
+- <code>series</code> - chart data is represented by series objects. Each series object defines the chart type and contains a set of points to be drawn. The chart can display different series object simultaneously.
 
 - <code>axes</code> - there are four axes areas that surround the plot area. The axes define the dimensions in which data is drawn inside the plot area. Each axis can be attached to a single or many series.
 
@@ -41,24 +38,24 @@ In order to show multiple axes in <code>TKChart</code>, create several axes and 
     TKChartNumericAxis *xAxis = [[TKChartNumericAxis alloc] init];
     xAxis.position = TKChartAxisPositionBottom;
     [chart addAxis:xAxis];
-    
+
     TKChartNumericAxis *yAxis1 = [[TKChartNumericAxis alloc] initWithMinimum:@0 andMaximum:@100];
     yAxis1.majorTickInterval = @50;
     yAxis1.position = TKChartAxisPositionLeft;
     [chart addAxis:yAxis1];
-    
+
     TKChartNumericAxis *yAxis2 = [[TKChartNumericAxis alloc] initWithMinimum:@0 andMaximum:@200];
     yAxis2.majorTickInterval = @50;
     yAxis2.position = TKChartAxisPositionRight;
     [chart addAxis:yAxis2];
-    
+
     TKChartLineSeries *series = [[TKChartLineSeries alloc] initWithItems:randomData];
     [chart addSeries:series];
     series.xAxis = xAxis;
     series.yAxis = yAxis1;
-   
+
 The result from this setup is:
- 
+
 <img src="../images/chart-overview007.png"/>
 
 Find further details about chart axes in [this article](axes/axes).
@@ -94,11 +91,11 @@ The result from this setup is:
 
 Line and area series also allow stacking by using the <code>stackInfo</code> property.
 
-Series appearance can be changed by using the <code>style</code> property. 
+Series appearance can be changed by using the <code>style</code> property.
 
 ## Interaction ##
 
-<code>TKChart</code> is an interactive component that supports gestures like touch, pan and rotate. The main actions that are supported are selection and pan/zoom interaction. 
+<code>TKChart</code> is an interactive component that supports gestures like touch, pan and rotate. The main actions that are supported are selection and pan/zoom interaction.
 
 The <code>allowPan</code> and <code>allowZoom</code> properties of TKChartSeries should be set to *YES* in order to allow pan/zoom functionality.
 
@@ -108,7 +105,7 @@ Find further details about selection and pan/zoom functionality in the correspon
 
 ## Animations ##
 
-<code>TKChart</code> allows animating chart points by using the CoreAnimation framework. There are built-in animations specific for every series type and you can define your own animations by implementing methods in the chart delegate. 
+<code>TKChart</code> allows animating chart points by using the CoreAnimation framework. There are built-in animations specific for every series type and you can define your own animations by implementing methods in the chart delegate.
 
 You can customize the default animation by implementing the TKChartDelegate interface and overriding its <code>chart:animationForSeries:withState:inRect:</code> method:
 
@@ -118,7 +115,7 @@ The <code>allowAnimations</code> property of TKChart should be set to *YES* in o
     {
         CFTimeInterval duration = 0;
         NSMutableArray *animations = [[NSMutableArray alloc] init];
-        
+
         for (int i = 0; i<state.points.count; i++) {
             NSString *keyPath = [NSString stringWithFormat:@"%@.x", [state animationKeyPathForPointAtIndex:i]];
             TKChartVisualPoint *point = [state.points objectAtIndex:i];
@@ -129,11 +126,11 @@ The <code>allowAnimations</code> property of TKChart should be set to *YES* in o
             [animations addObject:animation];
             duration = MAX(animation.duration, duration);
         }
-        
+
         CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
         group.duration = duration;
         group.animations = animations;
-        
+
         return group;
     }
 

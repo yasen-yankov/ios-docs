@@ -1,13 +1,10 @@
 ---
 title: View Modes
-meta_title: Calendar View Modes
-slug: calendar-view-modes
-tags: calendar, view
-publish: true
-ordinal: 4
+page_title: Calendar View Modes
+position: 4
 ---
 
-#Calendar: View Modes
+# Calendar: View Modes
 
 TKCalendar is able to present its contents in different ways. Those include:
 
@@ -76,7 +73,7 @@ Set the <code>viewMode</code> property to <code>TKCalendarViewModeYear</code> to
 
 	calendarView.viewMode = TKCalendarViewModeYear;
 
-This view mode displays a list of years with their months and dates. The user can select months by tapping on them. 
+This view mode displays a list of years with their months and dates. The user can select months by tapping on them.
 
 The presenter class for this view mode is <code>TKCalendarYearPresenter</code>.
 
@@ -100,7 +97,7 @@ Set the <code>viewMode</code> property to <code>TKCalendarViewModeYearNumbers</c
 
 	calendarView.viewMode = TKCalendarViewModeYearNumbers;
 
-The year numbers view is used together with the month view mode when the <code>allowPinchZoom</code> option is turned on. It allows for selecting a different year faster. 
+The year numbers view is used together with the month view mode when the <code>allowPinchZoom</code> option is turned on. It allows for selecting a different year faster.
 
 The presenter class for this view mode is <code>TKCalendarYearNumbersPresenter</code>, it inherits from <code>TKCalendarMonthPresenter</code> and allows the same customization and behavior features.
 
@@ -112,7 +109,7 @@ Set the <code>viewMode</code> property to <code>TKCalendarViewModeFlow</code> to
 
 	calendarView.viewMode = TKCalendarViewModeFlow;
 
-The flow view displays months with single dates. Single cells are represented by the <code>TKCalendarCell</code> class and allow customization by handling the <code>calendar:viewForCellOfKind</code> method. 
+The flow view displays months with single dates. Single cells are represented by the <code>TKCalendarCell</code> class and allow customization by handling the <code>calendar:viewForCellOfKind</code> method.
 
 Only the single selection mode is available when selecting cells in flow view.
 

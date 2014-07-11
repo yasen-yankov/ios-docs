@@ -1,10 +1,7 @@
 ---
 title: OHLC
-meta_title: OHLC Series
-slug: chart-series-ohlc
-tags: Chart, iOS, ohlc, series
-publish: true
-ordinal: 1
+page_title: OHLC Series
+position: 1
 ---
 
 # Chart Series: OHLC
@@ -22,18 +19,18 @@ ordinal: 1
         TKChartFinancialDataPoint *dataPoint = [TKChartFinancialDataPoint dataPointWithX:date open:openPrices[i] high:highPrices[i] low:lowPrices[i] close:closePrices[i]];
         [dataPoints addObject:dataPoint];
     }
-    
+
     TKChartOhlcSeries *ohlcSeries = [[TKChartOhlcSeries alloc] initWithItems:dataPoints];
     [chart addSeries:ohlcSeries];
     TKChartDateTimeAxis *xAxis = (TKChartDateTimeAxis *)chart.xAxis;
     xAxis.minorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitDays;
     xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
     xAxis.majorTickInterval = 1;
-    
+
 <img src="../../images/chart-series-ohlc001.png"/>
 
 
-##Configure visual appearance of ohlc series
+## Configure visual appearance of ohlc series
 
 If you want to customize the appearance of ohlc series, you should implement the **TKChartDelegate** protocol as shown below::
 
@@ -46,9 +43,9 @@ If you want to customize the appearance of ohlc series, you should implement the
     	} else {
         	stroke = [TKStroke strokeWithColor:[UIColor greenColor]];
     	}
-    
+
     	TKChartPaletteItem *paletteItem = [TKChartPaletteItem paletteItemWithStroke:stroke];
     	return paletteItem;
 	}
-	
+
 <img src="../../images/chart-series-ohlc002.png"/>

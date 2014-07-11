@@ -1,10 +1,7 @@
 ---
 title: Categoric
-meta_title: Category Axis
-slug: chart-axes-categoric
-tags: Chart, iOS, categoric, axis, axes
-publish: true
-ordinal: 2
+page_title: Category Axis
+position: 2
 ---
 
 # Chart Axes: Categoric
@@ -19,19 +16,19 @@ ordinal: 2
 
 - <code>offset</code> - determines an axis value where the axis is crossed with another axis.
 
-##Configure a TKChartCategoryAxis##
+## Configure a TKChartCategoryAxis##
 
 You can configure a category axis by settings its categories property. You should use the following code snippet as a sample:
 
     NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Grocery" ];
     NSArray *values = @[ @70, @75, @58, @59, @88 ];
-    
+
     NSMutableArray *array = [[NSMutableArray alloc] init];
 
     for (int i = 0; i<values.count; i++) {
         [array addObject:[[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]]];
     }
-    
+
     TKChartCategoryAxis *xAxis = [[TKChartCategoryAxis alloc] initWithCategories:categories];
     chart.xAxis = xAxis;
 
@@ -41,9 +38,9 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 
  <img src="../../images/chart-axes-category003.png"/>
 
-##Setting the plot mode of axis##
+## Setting the plot mode of axis##
 
- The <code>TKChartAxisPlotMode</code> is used by the axis to plot the data. Possible values are <code>TKChartAxisPlotModeBetweenTicks</code> and <code>TKChartAxisPlotModeOnTicks</code>. <code>TKChartAxisPlotModeBetweenTicks</code> plots points in the middle of the range, defined by two ticks. <code>OnTicks</code> plots the points over each tick. 
+ The <code>TKChartAxisPlotMode</code> is used by the axis to plot the data. Possible values are <code>TKChartAxisPlotModeBetweenTicks</code> and <code>TKChartAxisPlotModeOnTicks</code>. <code>TKChartAxisPlotModeBetweenTicks</code> plots points in the middle of the range, defined by two ticks. <code>OnTicks</code> plots the points over each tick.
 
  You should use the following lines of code to alter this behavior:
 

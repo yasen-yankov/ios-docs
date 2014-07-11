@@ -1,9 +1,6 @@
 ---
 title: Custom Animations
-slug: chart-animations-custom
-tags: Chart, iOS, animations
-publish: true
-ordinal: 1
+position: 1
 ---
 
 # Chart Animations: Custom
@@ -12,11 +9,11 @@ ordinal: 1
 
 You can use most of the Core Animation framework to customize the visual points animation. You can read more about Core Animation at [Apple Developer website](https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html).
 
-##Configuration Prerequisites###
+## Configuration Prerequisites###
 
 You should handle the <code>TKChartDelegate</code>'s method <code>chart:animationForSeries:withState:inRect:</code> to create a custom animation. In addition, you should group the animation created for each point in CAAnimationGroup to apply animation sequentially. You can access old and new points collection by using the <code>TKChartSeriesRenderState</code> properties <code>oldPoints</code> and <code>points</code>. It allows generation for value key path property for point at a specified index by calling the <code>animationKeyPathForPointAtIndex</code> method.
 
-##Animating Line Series##
+## Animating Line Series##
 
 The code below animates the line series points by moving them from bottom to top.
 
@@ -24,21 +21,21 @@ The code below animates the line series points by moving them from bottom to top
 	{
     	CFTimeInterval duration = 0;
     	NSMutableArray *animations = [[NSMutableArray alloc] init];
-    
+
     	for (int i = 0; i<state.points.count; i++) {
         	NSString *pointKeyPath = [state animationKeyPathForPointAtIndex:i];
-        
+
         	NSString *keyPath = [NSString stringWithFormat:@"%@.y", pointKeyPath];
         	TKChartVisualPoint *point = [state.points objectAtIndex:i];
         	CGFloat oldY = rect.size.height;
-            
+
         	if (i > 0) {
             	CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
             	animation.duration = 0.1* (i + 1);
             	animation.values = @[ @(oldY), @(oldY), @(point.y) ];
             	animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
             	[animations addObject:animation];
-                
+
             	duration = animation.duration;
         	}
         	else {
@@ -49,15 +46,15 @@ The code below animates the line series points by moving them from bottom to top
             	[animations addObject:animation];
         	}
     	}
-    
+
     	CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
     	group.duration = duration;
     	group.animations = animations;
-    
+
     	return group;
 	}
 
-##Animating Pie Series##
+## Animating Pie Series##
 
 The following lines of code animate the pie's segments by moving them to the pie center together with changing their opacity.
 
@@ -65,24 +62,24 @@ The following lines of code animate the pie's segments by moving them to the pie
 	{
     	CFTimeInterval duration = 0;
     	NSMutableArray *animations = [[NSMutableArray alloc] init];
-    
+
     	for (int i = 0; i<state.points.count; i++) {
         	NSString *pointKeyPath = [state animationKeyPathForPointAtIndex:i];
-        
+
         	NSString *keyPath = [NSString stringWithFormat:@"%@.distanceFromCenter", pointKeyPath];
         	CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
         	animation.values = @[ @50, @50, @0 ];
         	animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
         	animation.duration = 0.5 * (i+1.);
         	[animations addObject:animation];
-        
+
         	keyPath = [NSString stringWithFormat:@"%@.opacity", pointKeyPath];
         	animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
         	animation.values = @[ @0, @0, @1 ];
         	animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
         	animation.duration = 0.5 * (i+1.);
         	[animations addObject:animation];
-        
+
         	duration = animation.duration;
     	}
 
