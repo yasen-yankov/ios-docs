@@ -33,9 +33,9 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 	}
 
 	NSDate *date2001 = [MultipleAxes dateWithYear:2001 month:12 day:31];
-    NSDate *date2003 = [MultipleAxes dateWithYear:2003 month:12 day:31];
+  NSDate *date2003 = [MultipleAxes dateWithYear:2003 month:12 day:31];
 
-    [periodXAxis setRangeWithMinimum:date2001 andMaximum:date2003];
+  periodXAxis.range = [TKRange rangeWithMinimum:date2001 andMaximum:date2003];
 
 You can define the axis categories to be years by changing the interval unit property:
 
