@@ -1,0 +1,39 @@
+# The public documentation URL, used for sitemap.xml
+url: "http://docs.telerik.com/devtools/ios"
+
+# Exclude files which should not be in the output
+exclude: [README.md,Gemfile,Gemfile.lock]
+navigation:
+## List your directory names and order here, like this:
+    DataSync:
+        title: "DataSync (Beta)"
+    Chart/Axes:
+        position: 3
+    Chart/Series:
+        position: 4
+    Chart/Animations:
+        position: 5
+
+## The application virtual path
+baseurl: /devtools/ios
+
+## Assign layout and category per different paths
+defaults:
+-
+    scope:
+        path: ""
+    values:
+        layout: "page"
+        category: "default"
+
+# Aliases available in the markdown template. The below will expand {{site.foo}} to Bar in the output
+# "foo": "Bar"
+
+# The google services configuration
+google_analytics: UA-111455-1
+google_tag_manager: GTM-6X92
+google_custom_search: '001595215763381649090:l43ipyqf8co'
+
+## Do not edit below this line
+safe: false
+markdown: MarkdownProcessor

@@ -1,10 +1,7 @@
 ---
 title: Area
-meta_title: Area Series
-slug: chart-series-area
-tags: Chart, iOS, area, series
-publish: true
-ordinal: 1
+page_title: Area Series
+position: 1
 ---
 
 # Chart Series: Area
@@ -13,13 +10,13 @@ As a derivative of <code>TKLineSeries</code> series, <code>TKAreaSeries</code> p
 
 	TKChartAreaSeries* seriesForIncomes = [[TKChartAreaSeries alloc] initWithItems:array1];
 	[chart addSeries:seriesForIncomes];
-    
+
 	TKChartAreaSeries *seriesForExpenses = [[TKChartAreaSeries alloc] initWithItems:array2];
 	[chart addSeries:seriesForExpenses];
 
 <img src="../../images/chart-series-area001.png"/>
 
-##Configure stacking of line series
+## Configure stacking of line series
 
 The <code>TKChartAreaSeries</code> can be combined by using different stack modes.
 
@@ -57,7 +54,7 @@ The Stack100 displays the value as percent:
 
 <img src="../../images/chart-series-area005.png"/>
 
-##Configure visual appearance of area series
+## Configure visual appearance of area series
 
 If you want to change the series' fill and stroke, you should use the following code snippet:
 

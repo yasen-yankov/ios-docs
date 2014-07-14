@@ -1,24 +1,22 @@
 ---
 title: Getting Started
-slug: chart-getting-started
-tags: Chart, iOS
-publish: true
-ordinal: .2
+position: .2
 ---
 
 # Chart: Getting Started
 
-This quick start tutorial demonstrates how to create a simple iOS application with TKChart. 
+=======
+This quick start tutorial demonstrates how to create a simple iOS application with TKChart.
 
 <img src="../images/chart-overview002.png"/>
 
-##Prerequisites
+## Prerequisites
 
 In order to start using <code>TKChart</code>, you have first to install the latest version Telerik UI for iOS. You can download it from: [www.telerik.com](http://www.telerik.com). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you trough the installation process. When done it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using TKChart.
 
 <img src="../images/chart-overview003.png"/>
 
-##Setting up the project
+## Setting up the project
 
 After installing <code>TKChart</code>, you can proceed with the following steps:
 
@@ -34,7 +32,7 @@ After installing <code>TKChart</code>, you can proceed with the following steps:
     <li>This is it, now you are ready to start working with Telerik Chart.</li>
 </ol>
 
-##Setting up TKChart
+## Setting up TKChart
 
 Now that our project is created and the TelerikUI.framework is added, we can start referencing and using the TelerikUI types:
 
@@ -49,7 +47,7 @@ Type the following code in <code>viewDidLoad</code> method:
     chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:chart];
 
-This code creates a new instance of TKChart and adds it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the chart when the device is rotated in landscape mode. 
+This code creates a new instance of TKChart and adds it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the chart when the device is rotated in landscape mode.
 
 The next step is to create some random data that will be consumed by the chart. You can use the following code:
 
@@ -68,7 +66,7 @@ For more information about populating TKChart with data, please refer to the fol
 
 - [Populating with Data](populating-with-data)
 
-The TKChartLineSeries tells the chart to present its data as a line chart and initializes it with the already created points. 
+The TKChartLineSeries tells the chart to present its data as a line chart and initializes it with the already created points.
 
 Let's add a title and a legend to our chart. We can do so by setting the corresponding properties to NO:
 
@@ -95,32 +93,31 @@ Here is the full code of this example:
     - (void)viewDidLoad
     {
         [super viewDidLoad];
-    
+
         TKChart *chart = [[TKChart alloc] initWithFrame:CGRectInset(self.view.bounds, 15, 15)];
         chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.view addSubview:chart];
-    
+
         NSMutableArray *randomNumericData = [[NSMutableArray alloc] init];
         for (int i=0; i<10; i++) {
             [randomNumericData addObject:[[TKChartDataPoint alloc] initWithX:@(i) Y:@(arc4random()%100)]];
         }
-    
+
         [chart addSeries:[[TKChartLineSeries alloc] initWithItems:randomNumericData]];
-    
+
         chart.title.hidden = NO;
         chart.title.text = @"This is a chart demo";
         chart.legend.hidden = NO;
-    
+
         chart.allowAnimations = YES;
     }
 
 	@end
-	
+
 You can easily change the way data is presented in chart by changing the series type:
 
 	[chart addSeries:[[TKChartColumnSeries alloc] initWithItems:randomNumericData]];
 
-	
 For more information about series types, please refer to the following articles:
 
 - [Area](series/area)

@@ -1,9 +1,6 @@
 ---
 title: UIKit Dynamics Animations
-slug: chart-animations-custom-uikit-dynamics
-tags: Chart, iOS, UIKit
-publish: true
-ordinal: 2
+position: 2
 ---
 
 # Chart Animations: UIKit Dynamics Animations
@@ -12,27 +9,27 @@ ordinal: 2
 
 You should set the <code>allowAnimations</code> property to *YES* to enable UIKit Dynamics animations.
 
-##Configuration###
+## Configuration###
 
 The approach below shows how you can apply a fall down animation to the visual points in line series.
 
     - (void)viewDidAppear:(BOOL)animated
     {
         [super viewDidAppear:animated];
-    
+
         _animator = [[UIDynamicAnimator alloc] initWithReferenceView:_chart];
-    
+
         NSArray *points = [_chart visualPointsForSeries:_chart.series[0]];
-    
+
         UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:points];
         collision.translatesReferenceBoundsIntoBoundary = YES;
-    
+
         UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:points];
         gravity.gravityDirection = CGVectorMake(0.f, 2.f);
-    
+
         UIDynamicItemBehavior *dynamic = [[UIDynamicItemBehavior alloc] initWithItems:points];
         dynamic.elasticity = 0.5f;
-    
+
         [_animator addBehavior:dynamic];
         [_animator addBehavior:gravity];
         [_animator addBehavior:collision];

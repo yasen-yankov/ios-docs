@@ -1,13 +1,10 @@
 ---
 title: Workflow
-meta_title: AppFeedback Workflow
-slug: appfeedback-workflow
-tags: appfeedback, feedback
-publish: true
-ordinal: 1
+page_title: AppFeedback Workflow
+position: 1
 ---
 
-#AppFeedback: Workflow
+# AppFeedback: Workflow
 
 The feedback functionality is triggered on the device shake gesture. This gesture provides an easy and unobtrusive way to incorporate feedback into your application. After you shake the device, a popup with actionable items is shown on the screen.
 
@@ -61,7 +58,7 @@ View Feedback Details
 ===
 This screen is opened by tapping an item from the **Your Feedback** view and allows the user to examine further details about a specific feedback thread. Such details include a screenshot and a list of comments left from users within Telerik Platform, replying to that thread. The user can also add another comment to the feedback thread.
 
-<img src="../images/feedback-details-comments-list-ios.png" /> 
+<img src="../images/feedback-details-comments-list-ios.png" />
 
 Settings
 ===

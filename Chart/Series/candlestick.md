@@ -1,10 +1,7 @@
 ---
 title: Candlestick
-meta_title: Candlestick Series
-slug: chart-series-candlestick
-tags: Chart, iOS, candlestick, series
-publish: true
-ordinal: 1
+page_title: Candlestick Series
+position: 1
 ---
 
 # Chart Series: Candlestick
@@ -22,18 +19,18 @@ ordinal: 1
         TKChartFinancialDataPoint *dataPoint = [TKChartFinancialDataPoint dataPointWithX:date open:openPrices[i] 											high:highPrices[i] low:lowPrices[i] close:closePrices[i]];
         [dataPoints addObject:dataPoint];
     }
-    
+
     TKChartCandlestickSeries *candlestickSeries = [[TKChartCandlestickSeries alloc] initWithItems:dataPoints];
     [chart addSeries:candlestickSeries];
     TKChartDateTimeAxis *xAxis = (TKChartDateTimeAxis *)chart.xAxis;
     xAxis.minorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitDays;
     xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
     xAxis.majorTickInterval = 1;
-    
+
 <img src="../../images/chart-series-candlestick001.png"/>
 
 
-##Configure visual appearance of candlestick series
+## Configure visual appearance of candlestick series
 
 If you want to customize the appearance of cthe andlestick series, you should implement the**TKChartDelegate** protocol as shown below:
 
@@ -47,7 +44,7 @@ If you want to customize the appearance of cthe andlestick series, you should im
     	} else {
      	   fill = [TKSolidFill solidFillWithColor:[UIColor greenColor]];
     	}
-    
+
    		TKChartPaletteItem *paletteItem = [TKChartPaletteItem paletteItemWithStroke:stroke andFill:fill];
     	return paletteItem;
 	}

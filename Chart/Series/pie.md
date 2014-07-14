@@ -1,10 +1,7 @@
 ---
 title: Pie
-meta_title: Pie Series
-slug: chart-series-pie
-tags: Chart, iOS, pie, series
-publish: true
-ordinal: 5
+page_title: Pie Series
+position: 5
 ---
 
 # Chart Series: Pie
@@ -17,17 +14,17 @@ Unlike all other series, <code>TKChartPieSeries</code> do not require axes. They
     [array addObject:[[TKChartDataPoint alloc] initWithValue:@10 name:@"Microsoft"]];
     [array addObject:[[TKChartDataPoint alloc] initWithValue:@5 name:@"IBM"]];
     [array addObject:[[TKChartDataPoint alloc] initWithValue:@8 name:@"Oracle"]];
-    
+
     TKChartPieSeries *series = [[TKChartPieSeries alloc] initWithItems:array];
     [chart addSeries:series];
 
 <img src="../../images/chart-series-pie001.png"/>
 
-##Configure visual appearance of pie series
+## Configure visual appearance of pie series
 
 Pie series can be customized using the following properties:
 
-The <code>labelDisplayMode</code> property controls whether to show labels and the label style. The possible choices are: 
+The <code>labelDisplayMode</code> property controls whether to show labels and the label style. The possible choices are:
 
 - <code>TKChartPieSeriesLabelDisplayModeValue</code> - labels show the slice value.
 - <code>TKChartPieSeriesLabelDisplayModePercentage</code> - labels show the slice value in percentage.
@@ -38,7 +35,7 @@ Another interesting options that can be used to customize pie labels are <code>l
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setPositiveFormat:@"0.%;0.%;-0.%"];
     series.labelFormatter = numberFormatter;
-    
+
 The same can be done also with the labelFormat property:
 
     series.labelFormat = @"%.0f %%";
@@ -56,7 +53,7 @@ The following code sets the startAngle and endAngle properties to show a half ci
     series.startAngle = - M_PI_4/2;
     series.endAngle = M_PI + M_PI_4/2;
     series.rotationAngle = M_PI;
-	
+
 <img src="../../images/chart-series-pie003.png"/>
 
 By default, the pie chart starts drawing its segments from 0 radians. You can customize this angle and rotate the chart. This is done by setting the <code>rotationAngle</code> property.
@@ -66,5 +63,5 @@ The <code>selectionAngle</code> property is used to rotate the chart when select
 In order to select the second pie segment, call the select method of TKChart:
 
  	[chart select:[[TKChartSelectionInfo alloc] initWithSeries:chart.series[0] dataPointIndex:1]];
- 	
+
 Further information about selection in chart is available in this [help article](../selection).

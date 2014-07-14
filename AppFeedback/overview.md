@@ -1,13 +1,10 @@
 ---
 title: Overview
-meta_title: AppFeedback Overview
-slug: appfeedback-overview
-tags: appfeedback, feedback
-publish: true
-ordinal: 1
+page_title: AppFeedback Overview
+position: 1
 ---
 
-#AppFeedback: Overview
+# AppFeedback: Overview
 
 With the <code>TKFeedbackController</code> implemented in your app you can gain invaluable insights into the users experience with it. Sending feedback on the users’ side is very easy. They can simply shake the device or navigate to the feedback option. The control takes a screenshot automatically and prompts the users to provide comments. The control is seamlessly integrated with Telerik Baas enabling developers to easily monitor and track all their users’ feedback in one place, rather than get it scattered across your mail, chat, spreadsheets or other ways of communicating with your users.
 
@@ -24,11 +21,11 @@ To use Feedback component, you need to create a TKFeedbackController as a root U
 	ViewController *mainViewController = [[ViewController alloc] initWithExample:[self createExamples]];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     navigationController.navigationBar.translucent = NO;
-    
+
     TKFeedbackController *feedbackController = [[TKFeedbackController alloc] init];
     feedbackController.dataSource = [[TKPlatformFeedbackSource alloc] initWithKey:@"58cb0070-f612-11e3-b9fc-1234567890" uid:@"developer@telerik.com"];
     feedbackController.contentController = navigationController;
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = feedbackController;
     [self.window makeKeyAndVisible];

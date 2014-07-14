@@ -1,13 +1,10 @@
 ---
 title: Getting Started - Data Synchronization
-meta_title: DataSync Getting Started with Data Synchronization
-slug: datasync-getting-started-data-synchronization
-tags: datasync, synchronization, backend
-publish: true
-ordinal: 3
+page_title: DataSync Getting Started with Data Synchronization
+position: 3
 ---
 
-#DataSync: Getting Started with Data Synchronization
+# DataSync: Getting Started with Data Synchronization
 
 The most advanced and important part of the DataSync component is of course its data-sync functionality. The DataSync components synchronizes the locally stored data with the Telerik Backend Services. Thanks to the flexible API, the DataSync component allows you to have control over the synching strategy in terms of whether the local or the cloud data will win in case of a conflict, or in case a custom conflict resolving logic is required, you can implement your own in s specified method.
 
@@ -22,7 +19,7 @@ The next step when you are ready with your business model is to define the backe
 	//declaration
 	@property(nonatomic,strong)NSString* productID;
 	...
-	//initialization 
+	//initialization
 	self.productID = [[NSUUID UUID] UUIDString];
 
 
@@ -34,22 +31,22 @@ The real values will look like this:
 
 <img src="../images/datasync-getting-started-data-synchronization003.png"/>
 
-You will see that every backend type has some additional system fields related to the creation/modification time of records. These fields are not an object of interest, so left them as is. When you are ready with duplication of business model, you should create a system table that is required for synchronization algorithm. The name of this table must be “**SyncLock**” and it has only one additional field “**TableName**” of type “**Text**”. 
- 
+You will see that every backend type has some additional system fields related to the creation/modification time of records. These fields are not an object of interest, so left them as is. When you are ready with duplication of business model, you should create a system table that is required for synchronization algorithm. The name of this table must be “**SyncLock**” and it has only one additional field “**TableName**” of type “**Text**”.
+
 <img src="../images/datasync-getting-started-data-synchronization004.png"/>
- 
-This is everything you should prepare at the backend in order to allow your native iOS application to be able to use the synchronization engine of **DataSync** component. 
+
+This is everything you should prepare at the backend in order to allow your native iOS application to be able to use the synchronization engine of **DataSync** component.
 Now, you should initialize the backend data services provider with obtained strings of ApiKey and access token as follows:
-	
+
 	NSString* apiKey =  @"bsRwVIZpABCDEFG"; 	// unique per application
-	NSString* accessToken =				//obtained from Auth request's response @"FBqO1Uj4wDIejjjgBt7mCgjNcYAYs1gf6aUBZVt8oLyS6h9riy3YHB8IR0fSeJUYcdZ9q7j0QvTTpe6FzUetL5an4yR4mR8v8DSXPjrBAxObinr3uFt6VpVI1NMLYZPVUZwES9fFWD3LqgG4cQVjQlzF5qzpzdsRfZ9kTBLQHwWtLYi49ABCDEFGH"; 	
-    
+	NSString* accessToken =				//obtained from Auth request's response @"FBqO1Uj4wDIejjjgBt7mCgjNcYAYs1gf6aUBZVt8oLyS6h9riy3YHB8IR0fSeJUYcdZ9q7j0QvTTpe6FzUetL5an4yR4mR8v8DSXPjrBAxObinr3uFt6VpVI1NMLYZPVUZwES9fFWD3LqgG4cQVjQlzF5qzpzdsRfZ9kTBLQHwWtLYi49ABCDEFGH";
+
 	TKEverliveClient*  everlive = [TKEverliveClient clientWithApiKey:apiKey
     					                                  accessToken:accessToken
                        						           serviceVersion:@1];
 
 
-This client object can be defined as static and lazy created on demand after the user logs in. 
+This client object can be defined as static and lazy created on demand after the user logs in.
 
 Next step is to initialize the synchronization policy object as follows:
 
@@ -65,7 +62,7 @@ Next step is to initialize the synchronization policy object as follows:
 **TKSyncPolicy** instance determines the behavior of synchronization algorithm and defines the conflict resolution mode for entities that should be merged. In the example above we used the **TKPreferLocalInstance** value and this gives priority to the locally changed data during the conflict resolution. In other words, if the client has changed a record and wants to synchronize it with data on the cloud, but the same record has been changed by another client and already synchronized to the cloud the local changes will override the changes in the cloud. From this moment on, all other users will get this value as a result of synchronization. The cloud changes are of higher importance if the **TKPreferCloudInstance** value is set.
 The most interesting case is if there is a more complicated merging procedure that developer wants to implement. Then the **TKCustomResolution** value should be used. This allows to the developer to handle all conflicts and implement his own merging algorithm. To achieve this, you should implement the **TKDataSyncDelegate** protocol and set its implementation as a conflict resolver using the setter of the delegate property of the context:
 
-	- (void)setDelegate:(id<TKDataSyncDelegate>) delegate;
+- (void)setDelegate:(id<TKDataSyncDelegate>) delegate;
 
 The **TKDataSyncDelegate** protocol provides callbacks that will be called during the synchronization process.
 

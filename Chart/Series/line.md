@@ -1,10 +1,7 @@
 ---
 title: Line
-meta_title: Line Series
-slug: chart-series-line
-tags: Chart, iOS, line, series
-publish: true
-ordinal: 4
+page_title: Line Series
+position: 4
 ---
 
 # Chart Series: Line
@@ -25,7 +22,7 @@ ordinal: 4
 
 <img src="../../images/chart-series-line001.png"/>
 
-##Configure input and selection of line series
+## Configure input and selection of line series
 
 If you would like to configure the distance between finger touch and line to perform selection:
 
