@@ -8,4 +8,5 @@
 		<Section Title="Animations" URL="animations" />
 	</Section>
 	<Section Title="DataSync (Beta)" URL="datasync" />
+	<Section Title="Overview" URL="index" />
 </Contents>
