@@ -56,6 +56,26 @@ function preventParentSelection(e) {
 }
 
 $(function(){
+
+    $("pre[lang=Objective-C]").each(function() {
+       var langs = $(this).nextUntil(":not(pre)", "pre").add(this);
+
+       var tabs = $.map(langs, function(item) {
+          return $("<li>").text($(item).attr("lang"));
+       });
+
+       tabs[0].addClass("k-state-active");
+
+       var tabstrip = $("<div>")
+                       .insertBefore(this)
+                       .append($("<ul>").append(tabs))
+                       .append(langs);
+
+       langs.wrap("<div>");
+
+       tabstrip.kendoTabStrip();
+    });
+
     $("pre").addClass("prettyprint");
 
     prettyPrint();

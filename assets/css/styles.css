@@ -251,7 +251,7 @@ a img {
 #page-nav {
     float: left;
     width: 100%;
-    padding: 12px 0 30px;   
+    padding: 12px 0 30px;
 }
 
 #page-tree {
@@ -501,7 +501,7 @@ a img {
     background-color: #fff;
     white-space: normal;
     overflow-x: hidden;
-    padding: 13px 26px 0 26px; 
+    padding: 13px 26px 0 26px;
 }
 
 #page-article a {
@@ -514,7 +514,7 @@ a img {
 }
 
 #page-article h1 {
-    margin-top: 0;  
+    margin-top: 0;
     margin-bottom: 1.15em;
 }
 
@@ -527,12 +527,12 @@ a img {
 #page-article h2 {
     margin-top: 1.75em;
     font-size: 187%;
-    font-weight: 400;    
+    font-weight: 400;
     padding-bottom: 10px;
 }
 
 #page-article h2 a {
-    color: #3c4c6c; 
+    color: #3c4c6c;
 }
 
 #page-article h1 a:hover,
@@ -645,7 +645,7 @@ blockquote th, blockquote td {
     border: 1px solid #C7CFD5;
     background-color: #F1F5F9;
     color: #666;
-    padding: 0.3em 1em .7em 1em; 
+    padding: 0.3em 1em .7em 1em;
     overflow: auto;
 }
 
@@ -668,12 +668,12 @@ pre .nocode { background-color: transparent; color: #000; }
     bottom: 0;
     width: 100%;
     clear: both;
-    border-top: 1px solid #000;  
+    border-top: 1px solid #000;
 }
 
 #page-article #footer {
     position: relative;
-    border-top: 1px solid #000;  
+    border-top: 1px solid #000;
 }
 
 #introduction{
@@ -778,4 +778,29 @@ pre .nocode { background-color: transparent; color: #000; }
 .copyright p {
     font-size: 11px;
     margin-left: 35px;
+}
+
+.k-tabstrip {
+    border: 0;
+}
+
+.k-tabstrip .k-item {
+    border-width: 0 1px 0;
+    border-color: #acacac;
+}
+
+.k-tabstrip .k-content {
+    border-color: #acacac;
+    background: #F1F5F9;
+}
+.k-tabstrip .k-content pre {
+    border: 0;
+}
+
+.k-tabstrip .k-tabstrip-items .k-state-active {
+    border-bottom-width: 0;
+    margin-bottom: -1px;
+    padding-bottom: -1px;
+    z-index: 1;
+    background: #F1F5F9;
 }

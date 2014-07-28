@@ -38,7 +38,12 @@ Now that our project is created and the TelerikUI.framework is added, we can sta
 
 Open your <code>ViewController.m</code> file and add a reference to Telerik UI header file:
 
-    #import <TelerikUI/TelerikUI.h>
+```Objective-C
+#import <TelerikUI/TelerikUI.h>
+```
+```Swift
+#import <TelerikUI/TelerikUI.h>
+```
 
 
 Type the following code in <code>viewDidLoad</code> method:
