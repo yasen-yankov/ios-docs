@@ -6,23 +6,11 @@
         <link rel="shortcut icon" href="{{site.baseurl}}/assets/images/favicon.ico"/>
         {% if page.description %}<meta name="description" content="{{page.description}}">{% endif %}
         <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.common.min.css" rel="stylesheet" />
-        <link href="{{site.baseurl}}/assets/css/styles.css" rel="stylesheet" />
+        {% stylesheet styles %}
         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="http://cdn.kendostatic.com/2014.1.528/js/kendo.web.min.js"></script>
-        <script src="{{site.baseurl}}/assets/js/prettify.js"></script>
-        <script src="{{site.baseurl}}/assets/js/app.js"></script>
-        <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', '{{site.google_analytics}}'],
-        ['_setDomainName', '.telerik.com'],
-        ['_addIgnoredRef', 'telerik.com'],
-        ['_trackPageview']);
-        (function () {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+        {% javascript prettify %}
+        {% javascript app %}
     </head>
     {% if page.category %}
     <body class="faux-columns">
@@ -38,7 +26,7 @@
          <div id="page-header">
             <div id="logo-bar">
                 <a href="{{site.baseurl}}/">
-                    <img alt="Kendo UI logo" class="logo" src="{{site.baseurl}}/assets/images/logo.png">
+                    <img alt="Kendo UI logo" class="logo" src="{{site.baseurl}}/images/logo.png">
                 </a>
                 <a id="try-kendo-ios" href="http://www.telerik.com/download/ios-ui" class="btn btn-primary">Try now</a>
             </div>
