@@ -184,7 +184,7 @@ TKCalendarYearViewController *controller = [TKCalendarYearViewController new];
 ```
 ```Swift
 let controller = TKCalendarYearViewController()
-self.navigationController .pushViewController(controller, animated: true)
+self.navigationController?.pushViewController(controller, animated: true)
 ```
 
 The <code>contentView</code> property of <code>TKCalendarYearViewController</code> contains the presented <code>TKCalendar</code> object instance. Use its properties and methods to customize the calendar. For example, the following code navigates to the current date:
