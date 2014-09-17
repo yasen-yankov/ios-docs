@@ -16,12 +16,12 @@ Let's define our entity classes to prepare a sample business model. This operati
 
 
 	@interface Product : NSObject
-	 @property (nonatomic) int productID;
-	 @property (strong, nonatomic) NSString* name;
- 	 @property (strong, nonatomic) NSString* manufacturer;
- 	 @property (strong, nonatomic) NSDate* dateOfPurchase;
-	 @property (nonatomic) float price;
- 	 @property (nonatomic) long int quantity;
+		@property (nonatomic) int productID;
+		@property (strong, nonatomic) NSString* name;
+		@property (strong, nonatomic) NSString* manufacturer;
+		@property (strong, nonatomic) NSDate* dateOfPurchase;
+		@property (nonatomic) float price;
+		@property (nonatomic) long int quantity;
 	@end
 
 Note: As you can see, there is no requirement for inheriting from a specific base class, which means that your existing model classes can be easily reused.

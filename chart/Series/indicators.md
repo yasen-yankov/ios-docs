@@ -12,10 +12,18 @@ This article provides a brief description and a list of the impotant properties 
 
 Here is an example how to create a **Bollinger Band** indicator:
 
-	TKChartCandlestickSeries *candlesticks = [[TKChartCandlestickSeries alloc] initWithItems:_financialData];
-    TKChartBollingerBandIndicator *bollingerBands = [[TKChartBollingerBandIndicator alloc] initWithSeries:candlesticks];
-    [financialChart addSeries:candlesticks];
-    [financialChart addSeries:bollingerBands];
+```Objectove-C
+TKChartCandlestickSeries *candlesticks = [[TKChartCandlestickSeries alloc] initWithItems:financialData];
+TKChartBollingerBandIndicator *bollingerBands = [[TKChartBollingerBandIndicator alloc] initWithSeries:candlesticks];
+[financialChart addSeries:candlesticks];
+[financialChart addSeries:bollingerBands];
+```
+```Swift
+let candlesticks = TKChartCandlestickSeries(items: financialDataPoints)
+let bollingerBands = TKChartBollingerBandIndicator(series: candlesticks)
+financialChart.addSeries(candlesticks)
+financialChart.addSeries(bollingerBands)
+```
 
 <img src="../../images/chart-series-indicators001.png" />
 
@@ -36,13 +44,22 @@ And here are the rest of the available Technical Overlays
 ## Technical Indicators##
 Here is an example how to set up **Moving Average Convergence Divergence** indicator:
 
-	TKChartCandlestickSeries *candlesticks = [[TKChartCandlestickSeries alloc] initWithItems:_financialData];
-    TKChartMACDIndicator *macdIndicator = [[TKChartMACDIndicator alloc] initWithSeries:candlesticks];
-    macdIndicator.longPeriod = 26;
-    macdIndicator.shortPeriod = 12;
-    macdIndicator.signalPeriod = 9;
-
-    [financialChart addSeries:macdIndicator];
+```Objective-C
+TKChartCandlestickSeries *candlesticks = [[TKChartCandlestickSeries alloc] initWithItems:_financialData];
+TKChartMACDIndicator *macdIndicator = [[TKChartMACDIndicator alloc] initWithSeries:candlesticks];
+macdIndicator.longPeriod = 26;
+macdIndicator.shortPeriod = 12;
+macdIndicator.signalPeriod = 9;
+[financialChart addSeries:macdIndicator];
+```
+```Swift
+let candlesticks = TKChartCandlestickSeries(items: financialDataPoints)
+let macdIndicator = TKChartMACDIndicator(series: candlesticks)
+macdIndicator.longPeriod = 26
+macdIndicator.shortPeriod = 12
+macdIndicator.signalPeriod = 9
+financialChart.addSeries(macdIndicator)
+```
 
 <img src="../../images/chart-series-indicators002.png"/>
 

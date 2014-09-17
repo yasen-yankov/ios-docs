@@ -25,24 +25,45 @@ The <code>selectedDatesRange</code> property is used to store the date range whe
 
 You can determine whether a selection is changed by adopting <code>TKCalendarDelegate</code> protocol:
 
-	- (void)calendar:(TKCalendar *)calendar didSelectDate:(NSDate *)date
-	{
-		// Here you can perform the desired action when the selection is changed.
-	}
+```Objective-C
+- (void)calendar:(TKCalendar *)calendar didSelectDate:(NSDate *)date
+{
+	// Here you can perform the desired action when the selection is changed.
+}
+```
+```Swift
+func calendar(calendar: TKCalendar!, didSelectDate date: NSDate!) {
+    // Here you can perform the desired action when the selection is changed.
+}
+```
 
 You can prevent <code>TKCalendar</code> from selecting specific date by handling the <code>calendar:shouldSelectDate:</code>
 
-	- (BOOL)calendar:(TKCalendar *)calendar shouldSelectDate:(NSDate *)date
-	{
-    	return ![TKCalendar isDate:[NSDate date]
-        	          equalToDate:date
-            	   withComponents:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
-                	 withCalendar:self.calendarView.calendar];
-	}
+```Objective-C
+- (BOOL)calendar:(TKCalendar *)calendar shouldSelectDate:(NSDate *)date
+{
+	return ![TKCalendar isDate:[NSDate date]
+    	          equalToDate:date
+        	   withComponents:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
+            	 withCalendar:self.calendarView.calendar];
+}
+```
+```Swift
+func calendar(calendar: TKCalendar!, shouldSelectDate date: NSDate!) -> Bool {
+    return TKCalendar.isDate(NSDate(), equalToDate: date, withComponents: NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit, withCalendar: self.calendarView.calendar)
+}
+```
 
 Furthermore, the <code>calendar:didDeselectDate:</code> is called when using multiple selection to notify for unselected dates:
 
-	- (void)calendar:(TKCalendar *)calendar didDeselectedDate:(NSDate *)date
-	{
-    	NSLog(@"deselected: %@", date);
-	}
+```Objective-C
+- (void)calendar:(TKCalendar *)calendar didDeselectedDate:(NSDate *)date
+{
+	NSLog(@"deselected: %@", date);
+}
+```
+```Swift
+func calendar(calendar: TKCalendar!, didDeselectedDate date: NSDate!) {
+    NSLog("deselected: %@", date)
+}
+```

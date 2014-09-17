@@ -8,15 +8,32 @@ position: 5
 
 Unlike all other series, <code>TKChartPieSeries</code> do not require axes. They visualize each data point as pie slices with arc size directly proportional to the magnitude of the raw data point's value. Pie slices represent data in one direction contrasting with the other series which represent data in two dimensions. Here is an example of how to create a pie chart with pie series populated with data:
 
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    [array addObject:[[TKChartDataPoint alloc] initWithValue:@20 name:@"Google"]];
-    [array addObject:[[TKChartDataPoint alloc] initWithValue:@30 name:@"Apple"]];
-    [array addObject:[[TKChartDataPoint alloc] initWithValue:@10 name:@"Microsoft"]];
-    [array addObject:[[TKChartDataPoint alloc] initWithValue:@5 name:@"IBM"]];
-    [array addObject:[[TKChartDataPoint alloc] initWithValue:@8 name:@"Oracle"]];
+```Objective-C
+NSMutableArray *pointsWithValueAndName = [[NSMutableArray alloc] init];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@20 name:@"Google"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@30 name:@"Apple"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@10 name:@"Microsoft"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@5 name:@"IBM"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@8 name:@"Oracle"]];
 
-    TKChartPieSeries *series = [[TKChartPieSeries alloc] initWithItems:array];
-    [chart addSeries:series];
+TKChartPieSeries *series = [[TKChartPieSeries alloc] initWithItems:pointsWithValueAndName];
+[chart addSeries:series];
+chart.legend.hidden = NO;
+chart.legend.style.position = TKChartLegendPositionRight;
+```
+```Swift
+var pointsWithValueAndName = [TKChartDataPoint]()
+pointsWithValueAndName.append(TKChartDataPoint(value: 20, name: "Google"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 30, name: "Apple"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 10, name: "Microsoft"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 5, name: "IBM"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 8, name: "Oracle"))
+    
+let series = TKChartPieSeries(items: pointsWithValueAndName)
+chart.addSeries(series)
+chart.legend().hidden = false
+chart.legend().style.position = TKChartLegendPositionRight
+```
 
 <img src="../../images/chart-series-pie001.png"/>
 
@@ -32,13 +49,29 @@ The <code>labelDisplayMode</code> property controls whether to show labels and t
 
 Another interesting options that can be used to customize pie labels are <code>labelFormat</code> and <code>labelFormatter</code> properties. For example, you can use the <code>labelFormatter</code> property in order to format labels as percents:
 
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setPositiveFormat:@"0.%;0.%;-0.%"];
-    series.labelFormatter = numberFormatter;
+```Objective-C
+series.labelDisplayMode = TKChartPieSeriesLabelDisplayModeValue;
+
+NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+[numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
+series.labelFormatter = numberFormatter;
+```
+```Swift
+series.labelDisplayMode = TKChartPieSeriesLabelDisplayModeValue
+    
+var  numberFormatter = NSNumberFormatter()
+numberFormatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
+series.labelFormatter = numberFormatter
+```
 
 The same can be done also with the labelFormat property:
 
-    series.labelFormat = @"%.0f %%";
+```Objective-C
+series.labelFormat = @"%.0f %%";
+``` 
+```Swift
+series.labelFormat = "%.0f %%"
+```
 
 <img src="../../images/chart-series-pie002.png"/>
 
@@ -50,9 +83,16 @@ The <code>startAngle</code> and <code>endAngle</code> properties are used to def
 
 The following code sets the startAngle and endAngle properties to show a half circle:
 
-    series.startAngle = - M_PI_4/2;
-    series.endAngle = M_PI + M_PI_4/2;
-    series.rotationAngle = M_PI;
+```Objective-C
+series.startAngle = - M_PI_4 / 2;
+series.endAngle = M_PI + M_PI_4 / 2;
+series.rotationAngle = M_PI;
+```
+```Swift
+series.startAngle = CGFloat(-M_PI_4 / 2)
+series.endAngle = CGFloat(M_PI + M_PI_4 / 2)
+series.rotationAngle = CGFloat(M_PI)
+```
 
 <img src="../../images/chart-series-pie003.png"/>
 
@@ -62,6 +102,13 @@ The <code>selectionAngle</code> property is used to rotate the chart when select
 
 In order to select the second pie segment, call the select method of TKChart:
 
- 	[chart select:[[TKChartSelectionInfo alloc] initWithSeries:chart.series[0] dataPointIndex:1]];
+```Objective-C
+series.selectionMode = TKChartSeriesSelectionModeDataPoint;
+[chart select:[[TKChartSelectionInfo alloc] initWithSeries:chart.series[0] dataPointIndex:1]];
+```
+```Swift
+series.selectionMode = TKChartSeriesSelectionModeDataPoint
+chart.select(TKChartSelectionInfo(series: series, dataPointIndex: 1))
+```
 
 Further information about selection in chart is available in this [help article](../selection).

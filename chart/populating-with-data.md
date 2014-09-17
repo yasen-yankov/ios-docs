@@ -15,49 +15,91 @@ Following this approach, we supply <code>TKChart</code> with data using a delega
 
 Here is a sample subclass of <code>TKChartViewController</code> which will provide TKChart with data points for one <code>TKChartLineSeries</code>:
 
-    @implementation CustomChartViewController
+```Objective-C
+@implementation DataSourceDelegate
 
-    - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-    {
-        self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-        if (self) {
-            // Custom initialization
-            self.title = @"Subclass ChartViewController";
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    TKChart *chart = [[TKChart alloc] initWithFrame:CGRectInset(self.view.bounds, 10, 10)];
+    [self.view addSubview:chart];
+    chart.dataSource = self;
+    chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+}
+
+- (NSUInteger)numberOfSeriesForChart:(TKChart *)chart
+{
+    return 1;
+}
+
+- (TKChartSeries *)seriesForChart:(TKChart *)chart atIndex:(NSUInteger)index
+{
+    TKChartLineSeries *series = [chart dequeueReusableSeriesWithIdentifier:@"series1"];
+    if (!series) {
+        series = [[TKChartLineSeries alloc] initWithItems:nil reuseIdentifier:@"series1"];
+        series.title = @"Delegate series";
+    }
+
+    return series;
+}
+
+- (NSUInteger)chart:(TKChart *)chart numberOfDataPointsForSeriesAtIndex:(NSUInteger)seriesIndex
+{
+    return 10;
+}
+
+- (id<TKChartData>)chart:(TKChart *)chart dataPointAtIndex:(NSUInteger)dataIndex forSeriesAtIndex:(NSUInteger)seriesIndex
+{
+    TKChartDataPoint *point = [[TKChartDataPoint alloc] initWithX:@(dataIndex) Y:@(arc4random() % 100)];
+    return point;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+@end
+```
+```Swift
+class DataSourceDelegate: UIViewController, TKChartDataSource {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let chart = TKChart(frame: CGRectInset(self.view.bounds, 10, 10))
+        self.view.addSubview(chart)
+        chart.dataSource = self
+        chart.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+    }
+
+    func seriesForChart(chart: TKChart!, atIndex index: UInt) -> TKChartSeries! {
+        var series = chart.dequeueReusableSeriesWithIdentifier("series1") as? TKChartSeries
+        if series == nil {
+            series = TKChartLineSeries(items: nil, reuseIdentifier: "series1")
+            series!.title = "Series title"
         }
-        return self;
+    
+        return series
     }
 
-    - (NSUInteger)numberOfSeriesForChart:(TKChart *)chart
-    {
-        return 1;
+    func numberOfSeriesForChart(chart: TKChart!) -> UInt {
+        return 1
     }
 
-    - (TKChartSeries *)seriesForChart:(TKChart *)chart atIndex:(NSUInteger)index
-    {
-        TKChartLineSeries *series = [chart dequeueReusableSeriesWithIdentifier:@"series1"];
-        if (!series) {
-            series = [[TKChartLineSeries alloc] initWithItems:nil reuseIdentifier:@"series1"];
-            series.spline = YES;
-            series.title = @"Delegate series";
-        }
-        return series;
+    func chart(chart: TKChart!, numberOfDataPointsForSeriesAtIndex seriesIndex: Int) -> Int {
+        return 10
     }
 
-    - (NSUInteger)chart:(TKChart *)chart numberOfDataPointsForSeriesAtIndex:(NSUInteger)seriesIndex
-    {
-        return 10;
+
+    func chart(chart: TKChart!, dataPointAtIndex dataIndex: Int, forSeriesAtIndex seriesIndex: Int) -> TKChartData! {
+        var point = TKChartDataPoint(x: dataIndex, y: Int(arc4random_uniform(100)))
+        return point
+    }   
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-
-    - (id<TKChartData>)chart:(TKChart *)chart dataPointAtIndex:(NSUInteger)dataIndex forSeriesAtIndex:(NSUInteger)seriesIndex
-    {
-        TKChartDataPoint *point = [[TKChartDataPoint alloc] init];
-        point.dataXValue = @(dataIndex);
-        point.dataYValue = @(arc4random() % 100);
-        return point;
-    }
-
-    @end
-
+}
+```
 
  <img src="../images/chart-populating-with-data001.png" />
 
@@ -69,22 +111,37 @@ Another way to configure <code>TKChart</code> data source is to set up data poin
 
 Here is a <code>TKChartColumnSeries</code> with an attached collection of data points:
 
-    TKChart *chart = [[TKChart alloc] initWithFrame:CGRectInset(self.view.bounds, 30, 30)];
-    chart.autoresizingMask = ~UIViewAutoresizingNone;
-    chart.title.text = @"MONTHLY SALES REVENUE, 2013";
-    [self.view addSubview:chart];
+```Objective-C
+TKChart *chart = [[TKChart alloc] initWithFrame:CGRectInset(self.view.bounds, 10, 10)];
+[self.view addSubview:chart];
+chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
-    NSArray *values = @[ @70, @75, @58, @59, @88 ];
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i = 0; i<values.count; i++) {
-        [array addObject:[[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]]];
-    }
+NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
+NSArray *values = @[ @70, @75, @58, @59, @88 ];
+NSMutableArray *dataPoints = [[NSMutableArray alloc] init];
+for (int i = 0; i < categories.count; i++) {
+    TKChartDataPoint *dataPoint = [[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]];
+    [dataPoints addObject:dataPoint];
+}
 
-    TKChartSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
-    [chart addSeries:series];
-
-
+TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:dataPoints];
+[chart addSeries:series];
+```
+```Swift
+let chart = TKChart(frame: CGRectInset(self.view.bounds, 10, 10))
+self.view.addSubview(chart)
+chart.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+    
+let categories = ["Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" ];
+let values = [70, 75, 58, 59, 88]
+var dataPoints = TKChartDataPoint[]()
+for var i = 0; i < categories.count; ++i {
+    dataPoints.append(TKChartDataPoint(x: categories[i], y: values[i]))
+}
+    
+let series = TKChartColumnSeries(items: dataPoints)
+chart.addSeries(series)
+```
 
  <img src="../images/chart-populating-with-data002.png" />
 
@@ -95,30 +152,42 @@ In order to support full binding mechanism and minimize the amount of code used 
 
 Binding to an array of custom object is quite easy with TKChart. Once your array is created, you just need to set the necessary members to the desired field. In the code snippet below we create one application specific custom object and bind its data to three line series:
 
-    TKChart *chart = [[TKChart alloc] initWithFrame:BOUNDS_WITH_MARGIN(self.view.bounds, 15)];
-    chart.autoresizingMask = ~UIViewAutoresizingNone;
-    [self.view addSubview:chart];
+```Objective-C
+TKChart *chart = [[TKChart alloc] initWithFrame:CGRectInset(self.view.bounds, 10, 10)];
+[self.view addSubview:chart];
+chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    NSMutableArray *data = [[NSMutableArray alloc] init];
-    for (int i = 0; i<=5; i++) {
-        CustomObject *obj = [[CustomObject alloc] init];
-        obj.objectID = i;
-        obj.value1 = arc4random() % 100;
-        obj.value2 = arc4random() % 100;
-        obj.value3 = arc4random() % 100;
-        [data addObject:obj];
-    }
+NSMutableArray *dataPoints = [[NSMutableArray alloc] init];
+for (int i = 0; i<=5; i++) {
+    CustomObject *object = [[CustomObject alloc] initWithObjectID:i value1:arc4random() % 100 value2:arc4random() % 100 value3:arc4random() % 100];
+    [dataPoints addObject:object];
+}
 
-    [chart beginUpdates];
+[chart beginUpdates];
+[chart addSeries:[[TKChartLineSeries alloc] initWithItems:dataPoints forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value1"}]];
+[chart addSeries:[[TKChartAreaSeries alloc] initWithItems:dataPoints forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value2"}]];
+[chart addSeries:[[TKChartScatterSeries alloc] initWithItems:dataPoints forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value3"}]];
+[chart endUpdates];
+```
+```Swift
+let chart = TKChart(frame: CGRectInset(self.view.bounds, 10, 10))
+self.view.addSubview(chart)
+chart.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+    
+var dataPoints = CustomObject[]()
+for i in 0...5 {
+    let object = CustomObject(objectID: i, value1: Int(arc4random_uniform(100)), value2: Int(arc4random_uniform(100)), value3: Int(arc4random_uniform(100)))
+    dataPoints.append(object)
+}
+    
+chart.beginUpdates()
+chart.addSeries(TKChartLineSeries(items: dataPoints, forKeys: ["dataXValue": "objectID", "dataYValue": "value1"]))
+chart.addSeries(TKChartAreaSeries(items: dataPoints, forKeys: ["dataXValue": "objectID", "dataYValue": "value2"]))
+chart.addSeries(TKChartScatterSeries(items: dataPoints, forKeys: ["dataXValue": "objectID", "dataYValue": "value3"]))
+chart.endUpdates()
+```
 
-    [chart addSeries:[[TKChartLineSeries alloc] initWithItems:data forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value1"}]];
-    [chart addSeries:[[TKChartAreaSeries alloc] initWithItems:data forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value2"}]];
-    [chart addSeries:[[TKChartScatterSeries alloc] initWithItems:data forKeys:@{ @"dataXValue": @"objectID", @"dataYValue": @"value3"}]];
-
-    [chart endUpdates];
-
-
- <img src="../images/chart-populating-with-data003.png" />
+<img src="../images/chart-populating-with-data003.png" />
 
 
 @warning TKChart by default creates and sets up axes automatically to support this flexible and codeless binding behavior using the data types in the provided data source. You can always change or replace the axis type for TKChartSeries or change it auto-calculated default range.

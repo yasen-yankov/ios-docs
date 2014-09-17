@@ -20,21 +20,38 @@ position: 2
 
 You can configure a category axis by settings its categories property. You should use the following code snippet as a sample:
 
-    NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Grocery" ];
-    NSArray *values = @[ @70, @75, @58, @59, @88 ];
+```Objective-C
+NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
+NSArray *values = @[ @70, @75, @58, @59, @88 ];
+NSMutableArray *pointsWithCategoriesAndValues = [[NSMutableArray alloc] init];
+for (int i = 0; i < categories.count; i++) {
+    TKChartDataPoint *dataPoint = [[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]];
+    [pointsWithCategoriesAndValues addObject:dataPoint];
+}
 
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-
-    for (int i = 0; i<values.count; i++) {
-        [array addObject:[[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]]];
-    }
-
-    TKChartCategoryAxis *xAxis = [[TKChartCategoryAxis alloc] initWithCategories:categories];
-    chart.xAxis = xAxis;
+TKChartCategoryAxis *xAxis = [[TKChartCategoryAxis alloc] initWithCategories:categories];
+chart.xAxis = xAxis;
+```
+```Swift
+let categories = ["Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" ];
+let values = [70, 75, 58, 59, 88]
+var pointsWithCategoriesAndValues = [TKChartDataPoint]()
+for var i = 0; i < categories.count; ++i {
+    pointsWithCategoriesAndValues.append(TKChartDataPoint(x: categories[i], y: values[i]))
+}
+    
+let xAxis = TKChartCategoryAxis(categories: categories)
+chart.xAxis = xAxis
+```
 
 You can specify the axis range by setting the minimum and maximum indexes of categories:
 
-    [xAxis setRangeWithMinimum:@0 andMaximum:@2];
+```Objective-C
+xAxis.range = [TKRange rangeWithMinimum:@0 andMaximum:@2];
+```
+```Swift
+xAxis.range = TKRange(minimum: 0, andMaximum: 2)
+```
 
  <img src="../../images/chart-axes-category003.png"/>
 
@@ -44,10 +61,20 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 
  You should use the following lines of code to alter this behavior:
 
-	xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
+```Objective-C
+xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
+```
+```Swift
+xAxis.setPlotMode(TKChartAxisPlotModeBetweenTicks)
+```
 
 <img src="../../images/chart-axes-category001.png"/>
 
-	xAxis.plotMode = TKChartAxisPlotModeOnTicks;
+```Objective-C
+xAxis.plotMode = TKChartAxisPlotModeOnTicks;
+```
+```Swift
+xAxis.setPlotMode(TKChartAxisPlotModeOnTicks)
+```
 
 <img src="../../images/chart-axes-category002.png"/>

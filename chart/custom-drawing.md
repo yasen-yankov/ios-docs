@@ -19,11 +19,18 @@ There are several kinds of fills:
 
 <code>TKSolidFill</code> is the simplest of all fills. It paints chart items with a single color. Here is how you define it:
 
-    TKSolidFill *fill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
+```Objective-C
+TKSolidFill *fill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
+```
+```Swift
+let fill = TKSolidFill(color: UIColor.redColor())
+```
 
-or a shorter form
+or a shorter form in Objective C:
 
-    TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
+```Objective-C
+TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
+```
 
 After you set it to a palette (discussed later) you get result like this:
 
@@ -31,7 +38,12 @@ After you set it to a palette (discussed later) you get result like this:
 
 You can also specify corner raduis:
 
-    TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor redColor] cornerRadius:5.f];
+```Objective-C
+TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor redColor] cornerRadius:5.f];
+```
+```Swift
+let fill = TKSolidFill(color: UIColor.redColor(), cornerRadius: 5.0)
+```
 
 This results in columns looking like this:
 
@@ -39,8 +51,14 @@ This results in columns looking like this:
 
 All fills and strokes allow you to specify not only corner radius, but also which corners to round. Semi-transparent red fill with only two corners rounded can be defined like this:
 
-    TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.5f] cornerRadius:8.f];
-    fill.corners = UIRectCornerTopLeft | UIRectCornerBottomRight;
+```Objective-C
+TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.5f] cornerRadius:8.f];
+fill.corners = UIRectCornerTopLeft | UIRectCornerBottomRight;
+```
+```Swift
+let fill = TKSolidFill(color: UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.5), cornerRadius: 8.0)
+fill.corners = UIRectCorner.TopLeft | UIRectCorner.BottomRight
+```
 
 There you get:
 
@@ -52,22 +70,39 @@ There you get:
 
 Here is how you define linear gradient with 3 colors (green to red to blue) with transparency:
 
-    TKLinearGradientFill *fill = [TKLinearGradientFill
-        linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
-                                       [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
-                                       [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
+```Objective-C
+TKLinearGradientFill *fill = [TKLinearGradientFill 
+    linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
+                                   [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
+                                   [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
+```
+```Swift
+let fill = TKLinearGradientFill(colors: [UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.6)])
+```
 
 <img src="../images/chart-custom-drawing004.png"/>
 
 If we wish to distribute those colors unevenly and change gradient direction here is how to do it:
 
-    TKLinearGradientFill *fill = [TKLinearGradientFill
-        linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
-                                       [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
-                                       [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]
-        locations:@[@(0.6f), @(0.8f), @(1.0f)]
-        startPoint:CGPointMake(0.f, 0.f)
-        endPoint:CGPointMak0e(1.f, 1.f)];
+```Objective-C
+TKLinearGradientFill *fill = [TKLinearGradientFill
+    linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
+                                   [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
+                                   [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]
+    locations:@[@(0.6f), @(0.8f), @(1.0f)]
+    startPoint:CGPointMake(0.f, 0.f)
+    endPoint:CGPointMake(1.f, 1.f)];
+```
+```Swift
+let fill = TKLinearGradientFill(colors: [UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.6)],
+        locations: [0.6, 0.8, 1.0],
+        startPoint: CGPointMake(0, 0),
+        endPoint: CGPointMake(1, 1))
+```
 
 Warning: All coordinates for locations, startPoint and endPoint parameters are relative to the size of drawing surface. The values of locations array must be monotonically increasing.
 
@@ -77,14 +112,26 @@ Warning: All coordinates for locations, startPoint and endPoint parameters are r
 
 <code>TKRadialGradientFill</code> draws a fill with two colors using centers relative to the drawing size. Radius is set in different measures depending on radiusType parameter. It is hard to master and most of the time you can achieve the same functionality with linear gradient. Here is a possible usage:
 
-    TKRadialGradientFill *fill = [[TKRadialGradientFill alloc]
-        initWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.7f],
-                         [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.0f]]
-           startCenter:CGPointMake(0.5f, 0.5f)
-           startRadius:0.7f
-             endCenter:CGPointMake(0.f, 1.f)
-             endRadius:0.3f
-             radiusType:TKGradientRadiusTypeRectMax];
+```Objective-C
+TKRadialGradientFill *fill = [[TKRadialGradientFill alloc] 
+    initWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.7f],
+                     [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.0f]] 
+       startCenter:CGPointMake(0.5f, 0.5f)
+       startRadius:0.7f 
+         endCenter:CGPointMake(0.f, 1.f) 
+         endRadius:0.3f 
+         radiusType:TKGradientRadiusTypeRectMax];
+```
+```Swift
+let fill = TKRadialGradientFill(
+        colors: [UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.7),
+        UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.0)],
+        startCenter: CGPointMake(0.5, 0.5),
+        startRadius: 0.7,
+        endCenter: CGPointMake(0, 1),
+        endRadius: 0.3,
+        radiusType: TKGradientRadiusTypeRectMax)
+```
 
 The resulting ghost column chart looks like this:
 
@@ -94,8 +141,14 @@ The resulting ghost column chart looks like this:
 
 <code>TKImageFill</code> fills the drawing area with the content of an image. There is also a <code>resizingMode</code> which specify how to draw image. Here is an example usage of tiled image:
 
-    TKImageFill *fill = [TKImageFill imageFillWithImage:[UIImage imageNamed:@"pattern1"] cornerRadius:4.f];
-    fill.resizingMode = TKImageFillResizingModeTile;
+```Objective-C
+TKImageFill *fill = [TKImageFill imageFillWithImage:[UIImage imageNamed:@"pattern1"] cornerRadius:4.f];
+fill.resizingMode = TKImageFillResizingModeTile;
+```
+```Swift
+let fill = TKImageFill(image: UIImage(named: "pattern1"), cornerRadius: 4.0)
+fill.resizingMode = TKImageFillResizingModeTile
+```
 
 <img src="../images/chart-custom-drawing007.png"/>
 
@@ -106,15 +159,26 @@ this is the source (pattern) image to draw:
 
 Filling with images in stretch mode is even easier:
 
-    TKImageFill *fill = [TKImageFill imageFillWithImage:[UIImage imageNamed:@"building1"] cornerRadius:4.f];
+```Objective-C
+TKImageFill *fill = [TKImageFill imageFillWithImage:[UIImage imageNamed:@"building1"] cornerRadius:4.f];
+```
+```Swift
+let fill = TKImageFill(image: UIImage(named: "building1"), cornerRadius: 4.0)
+```
 
 <img src="../images/chart-custom-drawing009.png"/>
 
 Sometimes you like to specify your own stretchable image. Stretching this <img src="../images/chart-custom-drawing011.png"/> image with your own code, leads to the following result:
 
-    TKImageFill *fill = [TKImageFill imageFillWithImage:
-    	[[UIImage imageNamed:@"pattern2"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]];
-    fill.resizingMode = TKImageFillResizingModeNone;
+```Objective-C
+TKImageFill *fill = [TKImageFill imageFillWithImage:
+    [[UIImage imageNamed:@"pattern2"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]];
+fill.resizingMode = TKImageFillResizingModeNone;
+```
+```Swift
+let fill = TKImageFill(image: UIImage(named: "pattern2").resizableImageWithCapInsets(UIEdgeInsetsMake(10, 10, 10, 10)))
+fill.resizingMode = TKImageFillResizingModeNone
+```
 
 <img src="../images/chart-custom-drawing010.png"/>
 ## Adding stroke##
@@ -123,34 +187,69 @@ Sometimes you like to specify your own stretchable image. Stretching this <img s
 
 You can create a simple stroke like this:
 
-    TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor]];
+```Objective-C
+TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor]];
+```
+```Swift
+let stroke = TKStroke(color: UIColor.blueColor())
+```
 
 With rounded corners:
 
-    TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor] width:1.f cornerRadius:5.0f];
+```Objective-C
+TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor] width:1.f cornerRadius:5.0f];
+```
+```Swift
+let stroke = TKStroke(color: UIColor.blueColor(), width: 1.0, cornerRadius: 5.0)
+```
 
 With dash pattern:
 
-    TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor] width:1.f cornerRadius:5.0f];
-    stroke.dashPattern = @[@2, @2, @5, @2];
+```Objective-C
+TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor] width:1.f cornerRadius:5.0f];
+stroke.dashPattern = @[@2, @2, @5, @2];
+```
+```Swift
+let stroke = TKStroke(color: UIColor.blueColor(), width: 1.0, cornerRadius: 5.0)
+stroke.dashPattern = [2, 2, 5, 2]
+```
 
 You can fill a stroke with a gradient:
 
-    TKLinearGradientFill *fill = [TKLinearGradientFill
-         linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
-                                        [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
-                                        [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
-    TKStroke *stroke = [TKStroke strokeWithFill:fill width:1.f cornerRadius:5.0f];
+```Objective-C
+TKLinearGradientFill *fill = [TKLinearGradientFill
+     linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
+                                    [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
+                                    [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
+TKStroke *stroke = [TKStroke strokeWithFill:fill width:1.f cornerRadius:5.0f];
+```
+```Swift
+let fill = TKLinearGradientFill(colors: [UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.6)])
+let stroke = TKStroke(fill: fill, width: 1.0, cornerRadius: 5.0)
+```
 
 Or combine most of it in one place:
 
-    TKLinearGradientFill *fill = [TKLinearGradientFill
-         linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
-                                        [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
-                                        [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
-    TKStroke *stroke = [TKStroke strokeWithFill:fill width:1.f cornerRadius:8.0f];
-    stroke.dashPattern = @[@2, @2, @5, @2];
-    stroke.corners = UIRectCornerTopRight | UIRectCornerBottomLeft;
+```Objective-C
+TKLinearGradientFill *fill = [TKLinearGradientFill
+     linearGradientFillWithColors:@[[UIColor colorWithRed:0.f green:1.f blue:0.f alpha:0.6f],
+                                    [UIColor colorWithRed:1.f green:0.f blue:0.f alpha:0.6f],
+                                    [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:0.6f]]];
+TKStroke *stroke = [TKStroke strokeWithFill:fill width:1.f cornerRadius:8.0f];
+stroke.dashPattern = @[@2, @2, @5, @2];
+stroke.corners = UIRectCornerTopRight | UIRectCornerBottomLeft;
+```
+```Swift
+let fill = TKLinearGradientFill(colors:
+        [UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.6),
+        UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.6)])
+let stroke = TKStroke(fill: fill, width: 1.0, cornerRadius: 5.0)
+stroke.dashPattern = [2, 2, 5, 2]
+stroke.corners = UIRectCorner.TopRight | UIRectCorner.BottomLeft
+```
 
 And here is the result of all samples:
 
@@ -164,34 +263,68 @@ or with line chart using strokes with width = 2
 
 Customizing <code>TKChart</code> can be done using <code>TKChartPalette</code>. You can access the palette from <code>TKChartSeries</code> using series.style.palette variable. By default, palette is nil which means that <code>TKChart</code> will use its default theme. To specify your own, you need to create it:
 
-    series.style.palette = [TKChartPalette new];
+```Objective-C
+series.style.palette = [TKChartPalette new];
+```
+```Swift
+series.style.palette = TKChartPalette()
+```
 
 </code>TKChartPalette</code> is a collection of <code>TKChartPaletteItem</code> instances. Every item contains information about drawing the item at its index. By default, a palette item index addresses the order in which you add series. For example, you may have a palette with red and blue fills and two <code>TKChartColumnSeries</code> using this palette. The first series you add will be red and the second blue. However, <code>TKChartPieSeries</code> by default uses another mode when every palette item is used to display a data point at its index. You can explicitly set how you distribute a palette items using:
 
-    series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
+```Objective-C
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
+```
+```Swift
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex
+```
 
 or
 
-    series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex; // this is the default
+```Objective-C
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex; 
+```
+```Swift
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex
+```
 
 Whenever <code>TKChartPalette</code> runs out of colors (because there are more series or more data points than <code>TKChartPaletteItem</code> items inside) it starts over effectively cycling through its items.
 
 To illustrate the difference between palette modes, consider the following setup:
 
-    // … there is more setup code above creating TKChart, settings up axes and preparing the data points
-    TKChartSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
-    series.style.palette = [TKChartPalette new];
+```Objective-C
+TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:gdpInPoundsPoints];
+series.style.palette = [TKChartPalette new];
 
-    TKSolidFill *redFill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
-    [series.style.palette addPaletteItem:[[TKChartPaletteItem alloc] initWithDrawables:@[redFill]]];
-    TKSolidFill *blueFill = [[TKSolidFill alloc] initWithColor:[UIColor blueColor]];
-    [series.style.palette addPaletteItem:[[TKChartPaletteItem alloc] initWithDrawables:@[blueFill]]];
-    TKSolidFill *greenFill = [[TKSolidFill alloc] initWithColor:[UIColor greenColor]];
-    [series.style.palette addPaletteItem:[[TKChartPaletteItem alloc] initWithDrawables:@[greenFill]]];
+TKSolidFill *redFill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
+[series.style.palette addPaletteItem:[[TKChartPaletteItem alloc] initWithFill:redFill]];
 
-    series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
+TKSolidFill *blueFill = [[TKSolidFill alloc] initWithColor:[UIColor blueColor]];
+[series.style.palette addPaletteItem:[[TKChartPaletteItem alloc] initWithFill:blueFill]];
 
-    [_chart addSeries:series];
+TKSolidFill *greenFill = [[TKSolidFill alloc] initWithColor:[UIColor greenColor]];
+[series.style.palette addPaletteItem:[[TKChartPaletteItem alloc] initWithFill:greenFill]];;
+
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
+
+[chart addSeries:series];
+```
+```Swift
+let series = TKChartColumnSeries(items: gdpInPoundsPoints)
+series.style.palette = TKChartPalette()
+
+let redFill = TKSolidFill(color: UIColor.redColor())
+series.style.palette.addPaletteItem(TKChartPaletteItem(fill: redFill))
+   
+let blueFill = TKSolidFill(color: UIColor.blueColor())
+series.style.palette.addPaletteItem(TKChartPaletteItem(fill: blueFill))
+    
+let greenFill = TKSolidFill(color: UIColor.greenColor())
+series.style.palette.addPaletteItem(TKChartPaletteItem(fill: greenFill))
+
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex
+chart.addSeries(series)
+```
 
 As you see we are using <code>TKChartSeriesStylePaletteModeUseItemIndex</code> palette mode and the result is:
 
@@ -199,11 +332,21 @@ As you see we are using <code>TKChartSeriesStylePaletteModeUseItemIndex</code> p
 
 Here the palette items are used to color the different data points. Since palette items inside are 3 and data points are 5, the palette starts over reusing the items it has. If you remove the line:
 
-    series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
+```Objective-C
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
+```
+```Swift
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex
+```
 
 or change it to:
 
-    series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex;
+```Objective-C
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex;
+```
+```Swift
+series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex
+```
 
 you will get:
 
@@ -215,30 +358,52 @@ This is because you have added only one series. Adding a second series with the 
 
 <code>TKChartPaletteItem</code> is the building block of <code>TKChartPalette</code> and contains information about how to draw items. The simple way to use it is to specify a fill and/or stroke. Consider one of the following constructors:
 
-    TKChartPaletteItem *paletteItem1 = [TKChartPaletteItem paletteItemWithFill:
-    	[TKSolidFill solidFillWithColor:[UIColor redColor]]];
-
-    TKChartPaletteItem *paletteItem2 = [TKChartPaletteItem paletteItemWithStroke:
-    	[TKStroke strokeWithColor:[UIColor blueColor]]];
-
-    TKChartPaletteItem *paletteItem3 = [TKChartPaletteItem
-    	paletteItemWithStroke:[TKStroke strokeWithColor:[UIColor blueColor]]
-    	              andFill:[TKSolidFill solidFillWithColor:[UIColor redColor]]];
+```Objective-C
+TKChartPaletteItem *paletteItem1 = [TKChartPaletteItem paletteItemWithFill:
+    [TKSolidFill solidFillWithColor:[UIColor redColor]]];
+    
+TKChartPaletteItem *paletteItem2 = [TKChartPaletteItem paletteItemWithStroke:
+    [TKStroke strokeWithColor:[UIColor blueColor]]];
+    
+TKChartPaletteItem *paletteItem3 = [TKChartPaletteItem 
+    paletteItemWithStroke:[TKStroke strokeWithColor:[UIColor blueColor]] 
+                  andFill:[TKSolidFill solidFillWithColor:[UIColor redColor]]];
+```
+```Swift
+let paletteItem1 = TKChartPaletteItem(fill: TKSolidFill(color: UIColor.redColor()))
+let paletteItem2 = TKChartPaletteItem(stroke: TKStroke(color: UIColor.blueColor()))
+let plaetteItem3 = TKChartPaletteItem(stroke: TKStroke(color: UIColor.blueColor()), andFill: TKSolidFill(color: UIColor.redColor()))
+```
 
 then you can add an item to a palette using code like:
 
-    [series.style.palette addPaletteItem:paletteItem1];
+```Objective-C
+[series.style.palette addPaletteItem:paletteItem1];
+```
+```Swift
+series.style.palette.addPaletteItem(paletteItem1)
+```
 
 When you initialize a palette item with stroke and fill the stroke is always drawn last.
 
 There is also an alternative and a more flexible way to create a palette item by specifying an array of fills and strokes in the order you would like them to be drawn:
 
-    series.style.palette = [TKChartPalette new];
-    TKSolidFill *redFill = [[TKSolidFill alloc] initWithColor:[UIColor redColor] cornerRadius:2.f];
-    TKStroke *stroke1 = [TKStroke strokeWithColor:[UIColor yellowColor] width:1.f cornerRadius:2.f];
-    stroke1.insets = UIEdgeInsetsMake(1.f, 1.f, 1.f, 1.f);
-    TKStroke *stroke2 = [TKStroke strokeWithColor:[UIColor blackColor] width:1.f cornerRadius:2.f];
-    [series.style.palette addPaletteItem:[TKChartPaletteItem paletteItemWithDrawables:@[redFill, stroke1, stroke2]]];
+```Objective-C
+series.style.palette = [TKChartPalette new];
+TKSolidFill *redFill = [[TKSolidFill alloc] initWithColor:[UIColor redColor] cornerRadius:2.f];
+TKStroke *stroke1 = [TKStroke strokeWithColor:[UIColor yellowColor] width:1.f cornerRadius:2.f];
+stroke1.insets = UIEdgeInsetsMake(1.f, 1.f, 1.f, 1.f);
+TKStroke *stroke2 = [TKStroke strokeWithColor:[UIColor blackColor] width:1.f cornerRadius:2.f];
+[series.style.palette addPaletteItem:[TKChartPaletteItem paletteItemWithDrawables:@[redFill, stroke1, stroke2]]];
+```
+```Swift
+series.style.palette = TKChartPalette()
+let redFill = TKSolidFill(color: UIColor.redColor(), cornerRadius: 2.0)
+let stroke1 = TKStroke(color: UIColor.yellowColor(), width: 1.0, cornerRadius: 2.0)
+stroke1.insets = UIEdgeInsetsMake(1, 1, 1, 1)    
+let stroke2 = TKStroke(color: UIColor.blackColor(), width: 1.0, cornerRadius: 2.0)
+series.style.palette.addPaletteItem(TKChartPaletteItem(drawables: [redFill, stroke1, stroke2]))
+```
 
 here you create a palette item with red fill and two borders. The sample also shows another powerful feature: insets. Insets can be applied to both fills and strokes. Here is the final result:
 
@@ -256,7 +421,12 @@ here you create a palette item with red fill and two borders. The sample also sh
 
 <code>TKChartScatterSeries</code> uses palette items to draw its shapes. However you might also change shape's type using code like:
 
-    series.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeRhombus andSize:CGSizeMake(15.f, 15.f)];
+```Objective-C
+series.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeRhombus andSize:CGSizeMake(15.f, 15.f)];
+```
+```Swift
+series.style.pointShape = TKPredefinedShape(type: TKShapeTypeRhombus, andSize: CGSizeMake(15, 15))
+```
 
 series.style.pointShape also applies to line and area series in case you need to show shapes on data points.
 

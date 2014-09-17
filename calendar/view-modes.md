@@ -20,15 +20,28 @@ This article describes those view modes in detail.
 
 The <code>presenter</code> property of <code>TKCalendar</code> allows customizing settings specific for the current view mode. Every view mode has its dedicated presenter class:
 
-	TKCalendarYearPresenter *presenter = (TKCalendarYearPresenter*)calendarView.presenter;
-	presenter.columns = 3;
+```Objective-C
+TKCalendarYearPresenter *presenter = (TKCalendarYearPresenter*)calendarView.presenter;
+presenter.columns = 3;
+```
+```Swift
+let presenter: TKCalendarYearPresenter = calendarView.presenter() as TKCalendarYearPresenter
+    presenter.columns = 3
+```
 
 You can determine whether a view change occurred by implementing <code>TKCalendarDelegate</code> protocol:
 
-	- (void)calendar:(TKCalendar *)calendar didChangedViewModeFrom:(TKCalendarViewMode)previousViewMode to:(TKCalendarViewMode)viewMode
-	{
-		// Here you can perform the desired action when the selection is changed.
-	}
+```Objective-C
+- (void)calendar:(TKCalendar *)calendar didChangedViewModeFrom:(TKCalendarViewMode)previousViewMode to:(TKCalendarViewMode)viewMode
+{
+	// Here you can perform the desired action when the selection is changed.
+}
+```
+```Swift
+func calendar(calendar: TKCalendar!, didChangedViewModeFrom previousViewMode: TKCalendarViewMode, to viewMode: TKCalendarViewMode) {
+    // Here you can perform the desired action when the selection is changed
+}
+```
 
 ## Single month view mode ##
 
@@ -36,13 +49,23 @@ You can determine whether a view change occurred by implementing <code>TKCalenda
 
 Use the <code>TKCalendarViewModeMonth</code> to enable the single month view:
 
-	calendarView.viewMode = TKCalendarViewModeMonth;
+```Objective-C
+calendarView.viewMode = TKCalendarViewModeMonth;
+```
+```Swift
+calendarView.viewMode = TKCalendarViewModeMonth
+```
 
 In this mode <code>TKCalendar</code> renders a single month and allows switching to a different month with a swipe gesture. This transition can be customized with different transition effects. More about this is available in this help article: [Transition effects](view-transitions)
 
 In addition to selecting a different month with swipe, users can change the view mode to month names when the <code>allowPinchZoom</code> property is set to <code>YES</code>:
 
-	calendarView.allowPinchZoom = YES;
+```Objective-C
+calendarView.allowPinchZoom = YES;
+```
+```Swift
+calendarView.allowPinchZoom = true
+```
 
 Dates can be selected according to the <code>selectionMode</code> property. Details about selection are available in the dedicated help article about selection: [Selection](selection)
 
@@ -50,10 +73,18 @@ Dates in this view mode are represented by the <code>TKCalendarCell</code> class
 
 The presenter class responsible for month view is the <code>TKCalendarMonthPresenter</code> class. It contains a style property where different UI settings can be tuned. For example:
 
-	TKCalendarMonthPresenter *monthPresenter = (TKCalendarMonthPresenter*)calendarView.presenter;
-	monthPresenter.style.rowSpacing = 2;
-	monthPresenter.style.columnSpacing = 2;
-	monthPresenter.titleHidden = YES;
+```Objective-C
+TKCalendarMonthPresenter *monthPresenter = (TKCalendarMonthPresenter*)calendarView.presenter;
+monthPresenter.style.rowSpacing = 2;
+monthPresenter.style.columnSpacing = 2;
+monthPresenter.titleHidden = YES;
+```
+```Swift
+let monthPresenter = calendarView.presenter() as TKCalendarMonthPresenter
+monthPresenter.style().rowSpacing = 2
+monthPresenter.style().columnSpacing = 2
+monthPresenter.titleHidden = true
+```
 
 ## Single week view mode ##
 
@@ -61,7 +92,12 @@ The presenter class responsible for month view is the <code>TKCalendarMonthPrese
 
 Set the <code>viewMode</code> property to <code>TKCalendarViewModeWeek</code> to enable this view:
 
-	calendarView.viewMode = TKCalendarViewModeWeek;
+```Objective-C
+calendarView.viewMode = TKCalendarViewModeWeek;
+```
+```Swift
+calendarView.viewMode = TKCalendarViewModeWeek
+```
 
 This view mode is similar to the previous one, but it displays only one week. The presenter class for this view mode is <code>TKCalendarWeekPresenter</code>, it inherits from <code>TKCalendarMonthPresenter</code> and allows the same customization and behavior features.
 
@@ -71,7 +107,12 @@ This view mode is similar to the previous one, but it displays only one week. Th
 
 Set the <code>viewMode</code> property to <code>TKCalendarViewModeYear</code> to enable this view:
 
-	calendarView.viewMode = TKCalendarViewModeYear;
+```Objective-C
+calendarView.viewMode = TKCalendarViewModeYear;
+```
+```Swift
+calendarView.viewMode = TKCalendarViewModeYear
+```
 
 This view mode displays a list of years with their months and dates. The user can select months by tapping on them.
 
@@ -83,7 +124,12 @@ The presenter class for this view mode is <code>TKCalendarYearPresenter</code>.
 
 Set the <code>viewMode</code> property to <code>TKCalendarViewModeMonthNames</code> to enable this view.
 
-	calendarView.viewMode = TKCalendarViewModeMonthNames;
+```Objective-C
+calendarView.viewMode = TKCalendarViewModeMonthNames;
+```
+```Swift
+calendarView.viewMode = TKCalendarViewModeMonthNames
+```
 
 The month names view is used together with the month view mode when the <code>allowPinchZoom</code> option is turned on. It allows for selecting a different month faster. Use pinch-in/out gesture to switch between single month/year numbers view mode.
 
@@ -95,7 +141,12 @@ The presenter class for this view mode is <code>TKCalendarMonthNamesPresenter</c
 
 Set the <code>viewMode</code> property to <code>TKCalendarViewModeYearNumbers</code> to enable this view.
 
-	calendarView.viewMode = TKCalendarViewModeYearNumbers;
+```Objective-C
+calendarView.viewMode = TKCalendarViewModeYearNumbers;
+```
+```Swift
+calendarView.viewMode = TKCalendarViewModeYearNumbers
+```
 
 The year numbers view is used together with the month view mode when the <code>allowPinchZoom</code> option is turned on. It allows for selecting a different year faster.
 
@@ -107,7 +158,12 @@ The presenter class for this view mode is <code>TKCalendarYearNumbersPresenter</
 
 Set the <code>viewMode</code> property to <code>TKCalendarViewModeFlow</code> to enable this view.
 
-	calendarView.viewMode = TKCalendarViewModeFlow;
+```Objective-C
+calendarView.viewMode = TKCalendarViewModeFlow;
+```
+```Swift
+calendarView.viewMode = TKCalendarViewModeFlow
+```
 
 The flow view displays months with single dates. Single cells are represented by the <code>TKCalendarCell</code> class and allow customization by handling the <code>calendar:viewForCellOfKind</code> method.
 
@@ -122,13 +178,20 @@ The <code>TKCalendarYearViewController</code> class can be used to create an exp
 1. Add a navigation controller
 2. Use this code to show the year view controller in your application:
 
-
-.
-
-
-	TKCalendarYearViewController *controller = [TKCalendarYearViewController new];
-    [self.navigationController pushViewController:controller animated:YES];
+```Objective-C
+TKCalendarYearViewController *controller = [TKCalendarYearViewController new];
+[self.navigationController pushViewController:controller animated:YES];
+```
+```Swift
+let controller = TKCalendarYearViewController()
+self.navigationController .pushViewController(controller, animated: true)
+```
 
 The <code>contentView</code> property of <code>TKCalendarYearViewController</code> contains the presented <code>TKCalendar</code> object instance. Use its properties and methods to customize the calendar. For example, the following code navigates to the current date:
 
-    [controller.contentView navigateToDate:[NSDate date] animated:NO];
+```Objective-C
+[controller.contentView navigateToDate:[NSDate date] animated:NO];
+```
+```Swift
+controller.contentView().navigateToDate(NSDate(), animated: false)
+```

@@ -8,17 +8,29 @@ position: 3
 
 <code>TKChartColumnSeries</code> are used to visualize data points as column blocks where the height of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one Column series:
 
-	NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
-	NSArray *values = @[ @55, @75, @85, @50, @93 ];
-
-	NSMutableArray *array = [[NSMutableArray alloc] init];
-
-	for (int i = 0; i<values.count; i++) {
-    	[array addObject:[[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]]];
-	}
-
-	TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
-	[chart addSeries:series];
+```Objective-C
+	NSMutableArray *pointsWithCategoriesAndValues = [[NSMutableArray alloc] init];
+    NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
+    NSArray *values = @[ @70, @75, @58, @59, @88 ];
+    for (int i = 0; i < categories.count; i++) {
+        TKChartDataPoint *dataPoint = [[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]];
+        [pointsWithCategoriesAndValues addObject:dataPoint];
+    }
+    
+    TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+    [chart addSeries:series];
+```
+```Swift
+	var pointsWithCategoriesAndValues = [TKChartDataPoint]()
+    let categories = ["Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" ];
+    let values = [70, 75, 58, 59, 88]
+    for var i = 0; i < categories.count; ++i {
+        pointsWithCategoriesAndValues.append(TKChartDataPoint(x: categories[i], y: values[i]))
+    }
+        
+    let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+    chart.addSeries(series)
+```
 
 <img src="../../images/chart-series-column001.png"/>
 
@@ -26,33 +38,64 @@ position: 3
 
 If you want to cluster multiple column series side by side, they should use a shared x-axis:
 
-	NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
+```Objective-C
+NSMutableArray *pointsWithCategoriesAndValues = [[NSMutableArray alloc] init];
+NSMutableArray *pointsWithCategoriesAndValues2 = [[NSMutableArray alloc] init];
+NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
+NSArray *values = @[ @70, @75, @58, @59, @88 ];
+for (int i = 0; i < categories.count; i++) {
+    TKChartDataPoint *dataPoint = [[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]];
+    [pointsWithCategoriesAndValues addObject:dataPoint];
+}
 
-	TKChartCategoryAxis *categoryAxis = [[TKChartCategoryAxis alloc] initWithCategories:categories];
-	chart.xAxis = categoryAxis;
+NSArray *values2 = @[ @40, @80, @35, @69, @95 ];
+for (int i = 0; i < categories.count; i++) {
+    TKChartDataPoint *dataPoint = [[TKChartDataPoint alloc] initWithX:categories[i] Y:values2[i]];
+    [pointsWithCategoriesAndValues2 addObject:dataPoint];
+}
 
-	NSArray *values1 = @[ @87, @65, @82, @97, @91 ];
-	NSMutableArray *dataPoints1 = [[NSMutableArray alloc] init];
+TKChartCategoryAxis *categoryAxis = [[TKChartCategoryAxis alloc] initWithCategories:categories];
+chart.xAxis = categoryAxis;
 
-	for (int i = 0; i<values1.count; i++) {
-    	[dataPoints1 addObject:[[TKChartDataPoint alloc] initWithX:categories[i] Y:values1[i]]];
-	}
+TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+series1.xAxis = categoryAxis;
 
-	TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:dataPoints1];
-	series1.xAxis = categoryAxis;
-	NSArray *values2 = @[ @82, @80, @87, @69, @95 ];
-	NSMutableArray *dataPoints2 = [[NSMutableArray alloc] init];
+TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues2];
+series2.xAxis = categoryAxis;
 
-	for (int i = 0; i<values2.count; i++) {
-    	[dataPoints2 addObject:[[TKChartDataPoint alloc] initWithX:categories[i] Y:values2[i]]];
-	}
-
-	TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:dataPoints2];
-	series2.xAxis = categoryAxis;
-	[chart beginUpdates];
-	[chart addSeries:series1];
-	[chart addSeries:series2];
-	[chart endUpdates];
+[chart beginUpdates];
+[chart addSeries:series1];
+[chart addSeries:series2];
+[chart endUpdates];
+```
+```Swift
+var pointsWithCategoriesAndValues = [TKChartDataPoint]()
+var pointsWithCategoriesAndValues2 = [TKChartDataPoint]()
+let categories = ["Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" ];
+let values = [70, 75, 58, 59, 88]
+for var i = 0; i < categories.count; ++i {
+    pointsWithCategoriesAndValues.append(TKChartDataPoint(x: categories[i], y: values[i]))
+}
+    
+let values2 = [40, 80, 32, 69, 95]
+for var i = 0; i < categories.count; ++i {
+    pointsWithCategoriesAndValues2.append(TKChartDataPoint(x: categories[i], y: values[i]))
+}
+    
+let categoryAxis = TKChartCategoryAxis(categories: categories)
+chart.xAxis = categoryAxis
+    
+let series1 = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+series1.xAxis = categoryAxis
+    
+let series2 = TKChartColumnSeries(items: pointsWithCategoriesAndValues2)
+series2.xAxis = categoryAxis
+    
+chart.beginUpdates()
+chart.addSeries(series1)
+chart.addSeries(series2)
+chart.endUpdates()
+```
 
 <img src="../../images/chart-series-column002.png"/>
 
@@ -62,25 +105,55 @@ The <code>TKChartColumnSeries</code> can be combined by using different stack mo
 
 The Stack plots the points on top of each other:
 
-	TKChartStackInfo *stackInfo = [[TKChartStackInfo alloc] initWithID:@(1) withStackMode:TKChartStackModeStack];
+```Objective-C
+TKChartStackInfo *stackInfo = [[TKChartStackInfo alloc] initWithID:@(1) withStackMode:TKChartStackModeStack];
 
-	TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:dataPoints1];
-	series1.stackInfo = stackInfo;
+TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+series1.stackInfo = stackInfo;
+[chart addSeries:series1];
 
-	TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:dataPoints2];
-	series2.stackInfo = stackInfo;
+TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues2];
+series2.stackInfo = stackInfo;
+[chart addSeries:series2];
+```
+```Swift
+let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackModeStack)
+    
+let series1 = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+series1.stackInfo = stackInfo
+chart.addSeries(series1)
+    
+let series2 = TKChartColumnSeries(items: pointsWithCategoriesAndValues2)
+series2.stackInfo = stackInfo
+chart.addSeries(series2)
+```
 
 <img src="../../images/chart-series-column003.png"/>
 
 The Stack100 displays the value as percent:
 
-	TKChartStackInfo *stackInfo = [[TKChartStackInfo alloc] initWithID:@(1) withStackMode:TKChartStackModeStack100];
+```Objectie-C
+TKChartStackInfo *stackInfo = [[TKChartStackInfo alloc] initWithID:@(1) withStackMode:TKChartStackModeStack100];
 
-	TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:dataPoints1];
-	series1.stackInfo = stackInfo;
+TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+series1.stackInfo = stackInfo;
+[chart addSeries:series1];
 
-	TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:dataPoints2];
-	series2.stackInfo = stackInfo;
+TKChartColumnSeries *series2 = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues2];
+series2.stackInfo = stackInfo;
+[chart addSeries:series2];
+```
+```Swift
+let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackModeStack100)
+    
+let series1 = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+series1.stackInfo = stackInfo
+chart.addSeries(series1)
+    
+let series2 = TKChartColumnSeries(items: pointsWithCategoriesAndValues2)
+series2.stackInfo = stackInfo
+chart.addSeries(series2)
+```
 
 <img src="../../images/chart-series-column004.png"/>
 
@@ -90,21 +163,38 @@ If you want to customize the appearance of a column series, you should change it
 
 You can change the fill and stroke in the following manner:
 
-	TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
-	series.style.palette = [[TKChartPalette alloc] init];
-	TKChartPaletteItem *palleteItem = [[TKChartPaletteItem alloc] init];
-	palleteItem.fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
-	palleteItem.stroke = [TKStroke strokeWithColor:[UIColor blackColor]];
-	[series.style.palette addPaletteItem:palleteItem];
-	[chart addSeries:series];
+```Objective-C
+TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+series.style.palette = [[TKChartPalette alloc] init];
+TKChartPaletteItem *palleteItem = [[TKChartPaletteItem alloc] init];
+palleteItem.fill = [TKSolidFill solidFillWithColor:[UIColor redColor]];
+palleteItem.stroke = [TKStroke strokeWithColor:[UIColor blackColor]];
+[series.style.palette addPaletteItem:palleteItem];
+[chart addSeries:series];
+```	
+```Swift
+let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+series.style.palette = TKChartPalette()
+let paletteItem = TKChartPaletteItem()
+paletteItem.fill = TKSolidFill(color: UIColor.redColor())
+paletteItem.stroke = TKStroke(color: UIColor.blackColor())
+series.style.palette.addPa
+```
 
 <img src="../../images/chart-series-column005.png"/>
 
 You can change the gap between columns with the following code snippet:
 
-	TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:array];
-	series.gapLength = 0.5;
-	[chart addSeries:series];
+```Objective-C
+TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+series.gapLength = 0.5;
+[chart addSeries:series];
+```
+```Swift
+let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+series.gapLength = 0.5
+chart.addSeries(series)
+```
 
 Note that the value should be between 0 and 1, where a value of 0 means that a bar would take the entire space between two ticks, while a value of 1 means the bar will have zero width as all the space should appear as a gap.
 

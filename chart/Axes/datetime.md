@@ -18,28 +18,54 @@ The <code>TKChartDateTimeAxis</code> Categoric axis is an axis with NSDate value
 
 You can configure a date-time axis by initializing it and setting it as the main x-axis or y-axis of the chart:
 
-  	TKChartDateTimeAxis *periodXAxis = [[TKChartDateTimeAxis alloc] init];
-  	chart.xAxis = periodXAxis;
+```Objective-C
+  TKChartDateTimeAxis *periodXAxis = [[TKChartDateTimeAxis alloc] init];
+  chart.xAxis = periodXAxis;
+```
+```Swift
+let periodXAxis = TKChartDateTimeAxis()
+  chart.xAxis = periodXAxis
+```
 
 You can specify the axis range by setting the minimum and maximum indexes of categories:
 
-	+ (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
-    	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    	NSDateComponents *components = [[NSDateComponents alloc] init];
-    	[components setYear:year];
-    	[components setMonth:month];
-    	[components setDay:day];
-    	return [calendar dateFromComponents:components];
-	}
+```Objective-C
+  - (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
+      NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+      NSDateComponents *components = [[NSDateComponents alloc] init];
+      [components setYear:year];
+      [components setMonth:month];
+      [components setDay:day];
+      return [calendar dateFromComponents:components];
+  }
 
-	NSDate *date2001 = [MultipleAxes dateWithYear:2001 month:12 day:31];
-  NSDate *date2003 = [MultipleAxes dateWithYear:2003 month:12 day:31];
-
-  periodXAxis.range = [TKRange rangeWithMinimum:date2001 andMaximum:date2003];
+  NSDate *date2001 = [self dateWithYear:2001 month:12 day:31];
+  NSDate *date2003 = [self dateWithYear:2003 month:12 day:31];
+    periodXAxis.range = [TKRange rangeWithMinimum:date2001 andMaximum:date2003];
+```
+```Swift
+  func dateWithYear(year: Int, month: Int, day: Int) -> NSDate{
+        let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        let components = NSDateComponents()
+        components.year = year
+        components.month = month
+        components.day = day
+        return calendar.dateFromComponents(components)
+    }
+    
+    let date2001 = self.dateWithYear(2001, month: 12, day: 31)
+    let date2003 = self.dateWithYear(2003, month: 12, day: 31)
+    periodXAxis.range = TKRange(minimum: date2001, andMaximum: date2003)
+```
 
 You can define the axis categories to be years by changing the interval unit property:
 
-     periodXAxis.interval.unit = TKChartDateTimeAxisIntervalUnitYears;
+```Objective-C
+  periodXAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitYears;
+```
+```Swift
+periodXAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitYears
+```
 
 <img src="../../images/chart-axes-datetime001.png">
 
@@ -49,10 +75,20 @@ You can define the axis categories to be years by changing the interval unit pro
 
  You should use the following lines of code to alter this behavior:
 
-	xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
+```Objective-C
+  xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
+```
+```Swift
+  periodXAxis.setPlotMode(TKChartAxisPlotModeBetweenTicks)
+```
 
 <img src="../../images/chart-axes-datetime002.png"/>
 
-	xAxis.plotMode = TKChartAxisPlotModeOnTicks;
+```Objective-C
+xAxis.plotMode = TKChartAxisPlotModeOnTicks;
+```
+```Swift
+periodXAxis.setPlotMode(TKChartAxisPlotModeOnTicks)
+```
 
 <img src="../../images/chart-axes-datetime003.png"/>

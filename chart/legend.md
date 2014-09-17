@@ -11,11 +11,21 @@ position: 6
 
 If you would like to show the legend in <code>TKChart</code>, you should set its hidden property to NO. The default value is YES. The legend supports showing a series title.
 
-    chart.legend.hidden = NO;
+```Objective-C
+chart.legend.hidden = NO;
+```
+```Swift
+chart.legend().hidden = false
+```
 
 You can alter the position and offset origin of legend by setting its position:
 
-    chart.legend.style.position = TKChartLegendPositionBottom;
+```Objective-C
+chart.legend.style.position = TKChartLegendPositionBottom;
+```
+```Swift
+chart.legend().style.position = TKChartLegendPositionBottom
+```
 
 <img src="../images/chart-legend001.png"/>
 
@@ -23,9 +33,16 @@ The legend can be anchored to concrete side by using the following values <code>
 
 It can float by using <code>TKChartLegendPositionFloat</code> value. In this case, you can offset its origin manually by setting its <code>offset</code> and <code>offsetOrigin</code> properties:
 
-    chart.legend.style.position = TKChartLegendPositionFloating;
-    chart.legend.style.offsetOrigin = TKChartLegendOffsetOriginTopLeft;
-    chart.legend.style.offset = UIOffsetMake(10, 10);
+```Objective-C
+chart.legend.style.position = TKChartLegendPositionFloating;
+chart.legend.style.offsetOrigin = TKChartLegendOffsetOriginTopLeft;
+chart.legend.style.offset = UIOffsetMake(10, 10);
+```
+```Swift
+chart.legend().style.position = TKChartLegendPositionFloating
+chart.legend().style.offsetOrigin = TKChartLegendOffsetOriginTopLeft
+chart.legend().style.offset = UIOffsetMake(10, 10)
+```
 
 <img src="../images/chart-legend002.png"/>
 
@@ -33,7 +50,14 @@ It can float by using <code>TKChartLegendPositionFloat</code> value. In this cas
 
 You can alter visibility of the legend's title by changing <code>showTitle</code> property.
 
-    chart.legend.showTitle = NO;
+```Objective-C
+chart.legend.titleLabel.text = @"Companies"
+chart.legend.showTitle = YES;
+```
+```Swift
+chart.legend().titleLabel.text = "Companies"
+chart.legend().showTitle = true
+```
 
 <img src="../images/chart-legend003.png"/>
 
@@ -51,9 +75,17 @@ The legend can be customized by using its style object. It contains the followin
 
 You can use the legend outside the chart view. You should create an instance of <code>TKChartLegendView</code> and add it as subview to desired view.
 
-    TKChartLegendView *legendView = [[TKChartLegendView alloc] initWithChart:chart];
-    legendView.frame = CGRectMake(0, 0, 320, 100);
-    [self.view addSubview:legendView];
-    [legendView reloadItems];
+```Objective-C
+TKChartLegendView *legendView = [[TKChartLegendView alloc] initWithChart:chart];
+legendView.frame = CGRectMake(20, 20, 320, 100);
+[self.view addSubview:legendView];
+[legendView reloadItems];
+```
+```Swift
+let legendView = TKChartLegendView(chart: chart)
+legendView.frame = CGRectMake(20, 20, 320, 100)
+self.view.addSubview(legendView)
+legendView.reloadItems()
+```
 
 <img src="../images/chart-legend004.png"/>

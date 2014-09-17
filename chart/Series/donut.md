@@ -10,7 +10,36 @@ TKChartDonutSeries derives from <code>TKChartPieSeries</code> and it represents 
 
 Here is an example of a donut chart:
 
-    series.innerRadius = 0.5;
+```Objective-C
+NSMutableArray *pointsWithValueAndName = [[NSMutableArray alloc] init];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@20 name:@"Google"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@30 name:@"Apple"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@10 name:@"Microsoft"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@5 name:@"IBM"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@8 name:@"Oracle"]];
+
+TKChartDonutSeries *series = [[TKChartDonutSeries alloc] initWithItems:pointsWithValueAndName];
+series.innerRadius = 0.5;
+
+[chart addSeries:series];
+chart.legend.hidden = NO;
+chart.legend.style.position = TKChartLegendPositionRight;
+```
+```Swift
+var pointsWithValueAndName = [TKChartDataPoint]()
+pointsWithValueAndName.append(TKChartDataPoint(value: 20, name: "Google"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 30, name: "Apple"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 10, name: "Microsoft"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 5, name: "IBM"))
+pointsWithValueAndName.append(TKChartDataPoint(value: 8, name: "Oracle"))
+   
+let series = TKChartDonutSeries(items: pointsWithValueAndName)
+series.innerRadius = 0.5
+    
+chart.addSeries(series)
+chart.legend().hidden = false
+chart.legend().style.position = TKChartLegendPositionRight
+```
 
 <img src="../../images/chart-series-donut001.png"/>
 

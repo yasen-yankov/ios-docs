@@ -16,27 +16,41 @@ position: 8
 
 You can switch between themes by usig the <code>theme</code> property:
 
-	TKCalendar *calendar = [[TKCalendar alloc] initWithFrame:self.view.bounds];
-	calendar.theme = [TKCalendarIPadTheme new];
+```Objective-C
+TKCalendar *calendar = [[TKCalendar alloc] initWithFrame:self.view.bounds];
+calendar.theme = [TKCalendarIPadTheme new];
+```
+```Swift
+let calendar = TKCalendar(frame: self.view.bounds)
+calendar.theme = TKCalendarIPadTheme()
+```
 
 <code>TKCalendar</code> uses presenter classes to render different view modes. They all inherit from <code>UIView</code> and contain subviews with settings that can be changed. Most useful settings are grouped in a style property in the presenter class:
 
-    TKCalendarMonthPresenter *presenter = (TKCalendarMonthPresenter*)calendar.presenter;
-    presenter.style.titleCellHeight = 40;
-    presenter.style.backgroundColor = [UIColor redColor];
-    presenter.headerIsSticky = YES;
+```Objective-C
+TKCalendarMonthPresenter *presenter = (TKCalendarMonthPresenter*)calendar.presenter;
+presenter.style.titleCellHeight = 40;
+presenter.style.backgroundColor = [UIColor redColor];
+presenter.headerIsSticky = YES;
+```
+```Swift
+let presenter = calendar.presenter() as TKCalendarMonthPresenter
+presenter.style().titleCellHeight = 40
+presenter.style().backgroundColor = UIColor.redColor()
+presenter.headerIsSticky = true
+```
 
 There are cases when specific cells must have custom design based on the cell state (e.g. today, weekend, selected). This can be dobe by adopging the <code>TKCalendarDelegate</code> protocol and implementing its <code>calendar:upateVisualsForCell:</code> method:
 
-	- (void)calendar:(TKCalendar*)calendar updateVisualsForCell:(TKCalendarCell*)cell;
-	{
-    	if ([cell isKindOfClass:[TKCalendarDayCell class]]) {
-        	TKCalendarDayCell *dayCell = (TKCalendarDayCell*)cell;
-        	if (dayCell.state & TKCalendarDayStateToday) {
-            	cell.style.textColor = [UIColor colorWithRed:0.0039 green:0.5843 blue:0.5529 alpha:1.0000];
-        	}
-    	}
-	}
+    - (void)calendar:(TKCalendar*)calendar updateVisualsForCell:(TKCalendarCell*)cell;
+    {
+        if ([cell isKindOfClass:[TKCalendarDayCell class]]) {
+            TKCalendarDayCell *dayCell = (TKCalendarDayCell*)cell;
+            if (dayCell.state & TKCalendarDayStateToday) {
+                cell.style.textColor = [UIColor colorWithRed:0.0039 green:0.5843 blue:0.5529 alpha:1.0000];
+            }
+        }
+    }
 
 The cell can be replaced with a custom one for more complex scenarios. This can be done by implementing the <code>calendar:viewForCellOfKind:</code> method of <code>TKCalendarDelegate</code> protocol:
 

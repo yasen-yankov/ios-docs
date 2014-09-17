@@ -17,14 +17,25 @@ position: 4
 
 You can configure a numeric axis by initializing it and setting it as the main x-axis or y-axis of the chart:
 
-
-   TKChartNumericAxis *gdpInPoundsYAxis = [[TKChartNumericAxis alloc] init];
-   gdpInPoundsYAxis.majorTickInterval = @50;
-   chart.yAxis = gdpInPoundsYAxis;
+```Objective-C
+TKChartNumericAxis *yAxis = [[TKChartNumericAxis alloc] init];
+chart.yAxis = yAxis;
+```
+```Swift
+let yAxis = TKChartNumericAxis()
+chart.yAxis = yAxis;
+```
 
 You can specify the axis range by setting the minimum and maximum indexes of categories:
 
-	gdpInPoundsYAxis.range = [TKRange rangeWithMinimum:@1050 andMaximum:@1400];
+```Objective-C
+yAxis.range = [TKRange rangeWithMinimum:@0 andMaximum:@100];
+yAxis.majorTickInterval = @25;
+```
+```Swift
+yAxis.range = TKRange(minimum: 0, andMaximum: 100)
+yAxis.majorTickInterval = 25
+```
 
 <img src="../../images/chart-axes-numeric001.png">
 
@@ -32,6 +43,11 @@ You can specify the axis range by setting the minimum and maximum indexes of cat
 
 You can format the axis labels in percentage by setting the <code>formatTicksAsPercents</code> property:
 
-    gdpInPoundsYAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayModePercentage;
+```Objective-C
+yAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayModePercentage;
+```
+```Swift
+yAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayModePercentage
+```
 
 <img src="../../images/chart-axes-numeric002.png">

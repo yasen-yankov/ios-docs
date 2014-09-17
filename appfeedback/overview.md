@@ -18,17 +18,32 @@ Features
 
 To use Feedback component, you need to create a TKFeedbackController as a root UIViewController in your application and set the appliction root ViewControler as a content controller
 
-	ViewController *mainViewController = [[ViewController alloc] initWithExample:[self createExamples]];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    navigationController.navigationBar.translucent = NO;
+```Objective-C
+ViewController *mainViewController = [[ViewController alloc] initWithExample:[self createExamples]];
+UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+navigationController.navigationBar.translucent = NO;
 
-    TKFeedbackController *feedbackController = [[TKFeedbackController alloc] init];
-    feedbackController.dataSource = [[TKPlatformFeedbackSource alloc] initWithKey:@"58cb0070-f612-11e3-b9fc-1234567890" uid:@"developer@telerik.com"];
-    feedbackController.contentController = navigationController;
+TKFeedbackController *feedbackController = [[TKFeedbackController alloc] init];
+feedbackController.dataSource = [[TKPlatformFeedbackSource alloc] initWithKey:@"58cb0070-f612-11e3-b9fc-1234567890" uid:@"developer@telerik.com"];
+feedbackController.contentController = navigationController;
 
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = feedbackController;
-    [self.window makeKeyAndVisible];
+self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+self.window.rootViewController = feedbackController;
+[self.window makeKeyAndVisible];
+```
+```Swift
+let mainViewController = ViewController(example: self.createExamples())
+let navigationController = UINavigationController(rootViewController: mainViewController)
+navigationController.navigationBar.translucent = false
+    
+let feedbackController = TKFeedbackController()
+feedbackController.dataSource = TKPlatformFeedbackSource (key: "58cb0070-f612-11e3-b9fc-1234567890", uid: "developer@telerik.com")
+feedbackController.contentController = navigationController
+    
+self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+self.window!.rootViewController = feedbackController
+self.window!.makeKeyAndVisible()
+```
 
 
 Once integrated, the Feedback component offers the following functionality from within the app running on the user’s device:

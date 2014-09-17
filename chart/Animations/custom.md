@@ -17,74 +17,141 @@ You should handle the <code>TKChartDelegate</code>'s method <code>chart:animatio
 
 The code below animates the line series points by moving them from bottom to top.
 
-	- (CAAnimation *)chart:(TKChart *)chart animationForSeries:(TKChartSeries *)series withState:(TKChartSeriesRenderState *)state inRect:(CGRect)rect
-	{
-    	CFTimeInterval duration = 0;
-    	NSMutableArray *animations = [[NSMutableArray alloc] init];
+```Objective-C
+- (CAAnimation *)chart:(TKChart *)chart animationForSeries:(TKChartSeries *)series withState:(TKChartSeriesRenderState *)state inRect:(CGRect)rect
+{
+    CFTimeInterval duration = 0;
+    NSMutableArray *animations = [[NSMutableArray alloc] init];
 
-    	for (int i = 0; i<state.points.count; i++) {
-        	NSString *pointKeyPath = [state animationKeyPathForPointAtIndex:i];
+    for (int i = 0; i<state.points.count; i++) {
+        NSString *pointKeyPath = [state animationKeyPathForPointAtIndex:i];
+    
+        NSString *keyPath = [NSString stringWithFormat:@"%@.y", pointKeyPath];
+        TKChartVisualPoint *point = [state.points objectAtIndex:i];
+        CGFloat oldY = rect.size.height;
+        
+        if (i > 0) {
+            CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
+            animation.duration = 0.1* (i + 1);
+            animation.values = @[ @(oldY), @(oldY), @(point.y) ];
+            animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
+            [animations addObject:animation];
+            
+            duration = animation.duration;
+        }
+        else {
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:keyPath];
+            animation.fromValue = @(oldY);
+            animation.toValue = @(point.y);
+            animation.duration = 0.1f;
+            [animations addObject:animation];
+        }
+    }
 
-        	NSString *keyPath = [NSString stringWithFormat:@"%@.y", pointKeyPath];
-        	TKChartVisualPoint *point = [state.points objectAtIndex:i];
-        	CGFloat oldY = rect.size.height;
+    CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
+    group.duration = duration;
+    group.animations = animations;
 
-        	if (i > 0) {
-            	CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
-            	animation.duration = 0.1* (i + 1);
-            	animation.values = @[ @(oldY), @(oldY), @(point.y) ];
-            	animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
-            	[animations addObject:animation];
-
-            	duration = animation.duration;
-        	}
-        	else {
-            	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:keyPath];
-            	animation.fromValue = @(oldY);
-            	animation.toValue = @(point.y);
-            	animation.duration = 0.1f;
-            	[animations addObject:animation];
-        	}
-    	}
-
-    	CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
-    	group.duration = duration;
-    	group.animations = animations;
-
-    	return group;
-	}
+    return group;
+}
+```
+```Swift
+func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState state: TKChartSeriesRenderState!, inRect rect: CGRect) -> CAAnimation! {
+    var duration = 0.0
+    var animations = [CAAnimation]()
+    for i in 0 ..< state.points.count() {
+        let pointKeyPath = state.animationKeyPathForPointAtIndex(i)
+        let keyPath = pointKeyPath + ".y"
+        let point = state.points[i] as TKChartVisualPoint
+        let oldY = rect.size.height
+        
+        if i > 0 {
+            let animation = CAKeyframeAnimation(keyPath: keyPath)
+            animation.duration = 0.1 * Double(i + 1)
+            animation.values = [oldY, oldY, point.y]
+            animation.keyTimes = [0, Double(i / (i + 1.0)), 1]
+            animations.append(animation)
+            duration = animation.duration
+        }
+        else {
+            let animation = CABasicAnimation(keyPath: keyPath)
+            animation.fromValue = oldY
+            animation.toValue = point.y
+            animation.duration = 0.1
+            animations.append(animation)
+        }
+    }
+    
+    let group = CAAnimationGroup()
+    group.duration = duration
+    group.animations = animations
+    return group
+}
+```
 
 ## Animating Pie Series##
 
 The following lines of code animate the pie's segments by moving them to the pie center together with changing their opacity.
 
-	- (CAAnimation *)chart:(TKChart *)chart animationForSeries:(TKChartSeries *)series withState:(TKChartSeriesRenderState *)state inRect:(CGRect)rect
-	{
-    	CFTimeInterval duration = 0;
-    	NSMutableArray *animations = [[NSMutableArray alloc] init];
+```Objective-C
+- (CAAnimation *)chart:(TKChart *)chart animationForSeries:(TKChartSeries *)series withState:(TKChartSeriesRenderState *)state inRect:(CGRect)rect
+{
+    CFTimeInterval duration = 0;
+    NSMutableArray *animations = [[NSMutableArray alloc] init];
 
-    	for (int i = 0; i<state.points.count; i++) {
-        	NSString *pointKeyPath = [state animationKeyPathForPointAtIndex:i];
+    for (int i = 0; i<state.points.count; i++) {
+        NSString *pointKeyPath = [state animationKeyPathForPointAtIndex:i];
+    
+        NSString *keyPath = [NSString stringWithFormat:@"%@.distanceFromCenter", pointKeyPath];
+        CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
+        animation.values = @[ @50, @50, @0 ];
+        animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
+        animation.duration = 0.5 * (i+1.);
+        [animations addObject:animation];
+    
+        keyPath = keyPath = pointKeyPath + ".opacity"
+        animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
+        animation.values = @[ @0, @0, @1 ];
+        animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
+        animation.duration = 0.5 * (i+1.);
+        [animations addObject:animation];
+    
+        duration = animation.duration;
+    }
 
-        	NSString *keyPath = [NSString stringWithFormat:@"%@.distanceFromCenter", pointKeyPath];
-        	CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
-        	animation.values = @[ @50, @50, @0 ];
-        	animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
-        	animation.duration = 0.5 * (i+1.);
-        	[animations addObject:animation];
-
-        	keyPath = [NSString stringWithFormat:@"%@.opacity", pointKeyPath];
-        	animation = [CAKeyframeAnimation animationWithKeyPath:keyPath];
-        	animation.values = @[ @0, @0, @1 ];
-        	animation.keyTimes = @[ @0, @(i/(i+1.)), @1 ];
-        	animation.duration = 0.5 * (i+1.);
-        	[animations addObject:animation];
-
-        	duration = animation.duration;
-    	}
-
-    	CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
-    	group.duration = duration;
-    	group.animations = animations;
-    	return group;
-	}
+    CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
+    group.duration = duration;
+    group.animations = animations;
+    return group;
+}
+```
+```Swift
+func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState state: TKChartSeriesRenderState!, inRect rect: CGRect) -> CAAnimation! {
+    var duration = 0.0
+    var animations = [CAAnimation]()
+    
+    for i in 0..<state.points.count() {
+        let pointKeyPath = state.animationKeyPathForPointAtIndex(i)
+        var keyPath = pointKeyPath + ".distanceFromCenter"
+        var animation = CAKeyframeAnimation(keyPath: keyPath)
+        animation.values = [50, 50, 0]
+        animation.keyTimes = [0, i / (i + 1.0), 1]
+        animation.duration = 0.5 * Double(i + 1.0)
+        animations.append(animation)
+        
+        keyPath = NSString(format: "%@.opacity", pointKeyPath)
+        animation = CAKeyframeAnimation(keyPath: keyPath)
+        animation.values = [0, 0, 1]
+        animation.keyTimes = [0, i / (i + 1.0), 1]
+        animation.duration = 0.5 * Double(i + 1.0)
+        animations.append(animation)
+        
+        duration = animation.duration
+    }
+    
+    let group = CAAnimationGroup()
+    group.duration = duration
+    group.animations = animations
+    return group
+}
+```

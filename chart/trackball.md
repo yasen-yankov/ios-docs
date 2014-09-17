@@ -35,11 +35,22 @@ The <code>orientation</code> property determines whether the trackball will trac
 
 The <code>line</code> property represents the trackball line. Its <code>style</code> property could be used to customize the line appearance. For example, its color and crossing point shape:
 
-	UIColor *color = [UIColor redColor];
-	CGSize size = CGSizeMake(20, 20);
-	TKPredefinedShape *shape = [[TKPredefinedShape alloc] initWithType:TKShapeTypeRhombus andSize:size];
-	chart.trackball.line.style.verticalLineStroke = [TKStroke strokeWithColor:color width:2];
-	chart.trackball.line.style.pointShape = shape;
+```Objective-C
+UIColor *color = [UIColor redColor];
+CGSize size = CGSizeMake(20, 20);
+TKPredefinedShape *shape = [[TKPredefinedShape alloc] initWithType:TKShapeTypeRhombus andSize:size];
+chart.trackball.line.style.verticalLineStroke = [TKStroke strokeWithColor:color width:2.0];
+chart.trackball.line.style.pointShapeFill = [TKSolidFill solidFillWithColor:color];
+chart.trackball.line.style.pointShape = shape;
+```
+```Swift
+let color = UIColor.redColor()
+let size = CGSizeMake(20, 20)
+let shape = TKPredefinedShape(type: TKShapeTypeRhombus, andSize: size)
+chart.trackball.line.style.verticalLineStroke = TKStroke(color: color, width: 2.0)
+chart.trackball.line.style.pointShapeFill = TKSolidFill(color: color)
+chart.trackball.line.style.pointShape = shape
+```
 
 The result is the following:
 
@@ -57,16 +68,29 @@ The <code>tooltip</code> property represents the tooltip that shows information 
 
 The </code>chart:trackballDidTrackSelection:</code> method of the chart delegate will be called as the users drag their finger across the chart area. The selection argument of this method contains information about the selected points for every touch position. This method could be used to customize the tooltip text, for example:
 
-    chart.delegate = self;
-    //...
-	- (void)chart:(TKChart *)chart trackballDidTrackSelection:(NSArray *)selection
-	{
-    	if (selection.count>0) {
-        	id value = ((TKChartSelectionInfo*)selection[0]).dataPoint.dataXValue;
-        	NSString *str = [NSString stringWithFormat:@"Pos = %@", value];
-	        chart.trackball.tooltip.text = str;
-    	}
+```Objective-C
+chart.delegate = self;
+//...
+- (void)chart:(TKChart *)chart trackballDidTrackSelection:(NSArray *)selection
+{
+	if (selection.count>0) {
+    	id value = ((TKChartSelectionInfo*)selection[0]).dataPoint.dataXValue;
+    	NSString *str = [NSString stringWithFormat:@"Pos = %@", value];
+        chart.trackball.tooltip.text = str;
 	}
+}
+```
+```Swift
+chart.delegate = self
+//...
+func chart(chart: TKChart!, trackballDidTrackSelection selection: [AnyObject]!) {
+    if selection.count > 0 {
+        let value: AnyObject! = (selection[0] as TKChartSelectionInfo).dataPoint().dataXValue()
+        let str = "Pos=\(value)"
+        chart.trackball.tooltip.text = str
+    }
+}
+```
 
 <img src="../images/chart-trackball002.png"/>
 

@@ -13,24 +13,46 @@ You should set the <code>allowAnimations</code> property to *YES* to enable UIKi
 
 The approach below shows how you can apply a fall down animation to the visual points in line series.
 
-    - (void)viewDidAppear:(BOOL)animated
-    {
-        [super viewDidAppear:animated];
+```Objective-C
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 
-        _animator = [[UIDynamicAnimator alloc] initWithReferenceView:_chart];
+    UIDynamicAnimator *animator = [[UIDynamicAnimator alloc] initWithReferenceView:chart];
 
-        NSArray *points = [_chart visualPointsForSeries:_chart.series[0]];
+    NSArray *points = [chart visualPointsForSeries:chart.series[0]];
 
-        UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:points];
-        collision.translatesReferenceBoundsIntoBoundary = YES;
+    UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:points];
+    collision.translatesReferenceBoundsIntoBoundary = YES;
 
-        UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:points];
-        gravity.gravityDirection = CGVectorMake(0.f, 2.f);
+    UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:points];
+    gravity.gravityDirection = CGVectorMake(0.f, 2.f);
 
-        UIDynamicItemBehavior *dynamic = [[UIDynamicItemBehavior alloc] initWithItems:points];
-        dynamic.elasticity = 0.5f;
+    UIDynamicItemBehavior *dynamic = [[UIDynamicItemBehavior alloc] initWithItems:points];
+    dynamic.elasticity = 0.5f;
 
-        [_animator addBehavior:dynamic];
-        [_animator addBehavior:gravity];
-        [_animator addBehavior:collision];
-    }
+    [animator addBehavior:dynamic];
+    [animator addBehavior:gravity];
+    [animator addBehavior:collision];
+
+}
+```
+```Swift
+override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    let animator = UIDynamicAnimator(referenceView: chart)
+    let points = chart.visualPointsForSeries(chart.series()[0] as TKChartSeries)
+    let collisions = UICollisionBehavior(items: points)
+    collisions.translatesReferenceBoundsIntoBoundary = true
+    
+    let gravity = UIGravityBehavior(items: points)
+    gravity.gravityDirection = CGVectorMake(0.0, 2.0)
+    
+    let dynamic = UIDynamicItemBehavior(items: points)
+    dynamic.elasticity = 0.5
+    
+    animator.addBehavior(dynamic)
+    animator.addBehavior(gravity)
+    animator.addBehavior(collisions)
+}
+```

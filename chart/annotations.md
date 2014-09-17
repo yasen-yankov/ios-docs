@@ -20,7 +20,12 @@ TKChart provides the following types of annotations:
 
 <code>TKChart</code> contains an <code>annotations</code> collection and annotations can be added to the chart by calling the <code>addAnnotation</code> method. The following code adds a horizontal grid line annotation in TKChart. The annotation requires an axis and a value in order to be initialized correctly.
 
-    [chart addAnnotation:[[TKChartGridLineAnnotation alloc] initWithValue:@80 forAxis:yAxis]];
+```Objective-C
+  [chart addAnnotation:[[TKChartGridLineAnnotation alloc] initWithValue:@80 forAxis:chart.yAxis]];
+```
+```Swift
+chart.addAnnotation(TKChartGridLineAnnotation(value: 80, forAxis: chart.yAxis))
+```
 
 The annotation visibility can be controlled by setting its <code>hidden</code> property.
 The annotation visual appearance can be changed by using its <code>style</code> property.
@@ -35,10 +40,15 @@ The grid line annotation represents a vertical or horizontal line which crosses 
 
 The line color can be customized by using the annotation initializer:
 
-	TKStroke *stroke = [TKStroke strokeWithColor:[UIColor redColor] width:0.5];
-    [_chart addAnnotation:[[TKChartGridLineAnnotation alloc] initWithValue:@80
-                                                                   forAxis:_chart.yAxis
-                                                                withStroke:stroke]];
+```Objective-C
+TKStroke *stroke = [TKStroke strokeWithColor:[UIColor redColor] width:0.5];
+[chart addAnnotation:[[TKChartGridLineAnnotation alloc] initWithValue:@80 forAxis:chart.yAxis withStroke:stroke]];
+```
+
+```Swift
+let stroke = TKStroke(color: UIColor.redColor(), width:0.5)
+chart.addAnnotation(TKChartGridLineAnnotation(value: 80, forAxis: chart.yAxis, withStroke: stroke))
+```
 
 <img src="../images/chart-annotations001.png"/>
 
@@ -46,13 +56,18 @@ The line color can be customized by using the annotation initializer:
 
 The <code>TKChartBandAnnotation</code> is either horizontal or vertical strip, crossing its corresponding axis, specified by its <code>range</code> property.
 
-    TKRange *range = [[TKRange alloc] initWithMinimum:@10 andMaximum:@40];
-    UIColor *color = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.4];
-    TKFill *fill = [TKSolidFill solidFillWithColor:color];
-    [_chart addAnnotation:[[TKChartBandAnnotation alloc] initWithRange:range
-                                                               forAxis:_chart.yAxis
-                                                              withFill:fill
-                                                            withStroke:nil]];
+```Objective-C
+  TKRange *range = [[TKRange alloc] initWithMinimum:@10 andMaximum:@40];
+  UIColor *color = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.4];
+  TKFill *fill = [TKSolidFill solidFillWithColor:color];
+  [chart addAnnotation:[[TKChartBandAnnotation alloc] initWithRange:range forAxis:chart.yAxis withFill:fill withStroke:nil]];
+```
+```Swift
+let range = TKRange(minimum: 10, andMaximum: 40)
+  let color = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.4)
+  let fill = TKSolidFill(color: color)
+  chart.addAnnotation(TKChartBandAnnotation(range: range, forAxis: chart.yAxis, withFill: fill, withStroke: nil))
+```
 
 <img src="../images/chart-annotations002.png"/>
 
@@ -64,8 +79,13 @@ Point annotations render their content starting at specific position. Besides th
 
 The TKChartCrossLineAnnotation is a point annotation which represents two crossing lines with a point at the crossing position.
 
-    [_chart addAnnotation:[[TKChartCrossLineAnnotation alloc] initWithX:@900 Y:@60
-                                                              forSeries:_chart.series[0]]];
+```Objective-C
+[chart addAnnotation:[[TKChartCrossLineAnnotation alloc] initWithX:@900 Y:@60 forSeries:chart.series[0]]];
+```
+
+```Swift
+chart.addAnnotation(TKChartCrossLineAnnotation(x: 900, y: 60, forSeries: chart.series()[0] as TKChartSeries))
+```
 
 <img src="../images/chart-annotations003.png"/>
 
@@ -75,40 +95,65 @@ The <code>TKChartBalloonAnnotation</code> displays a balloon-like shape next to 
 
 The following example demonstrates different balloon positions based on the horizontal and vertical alignment:
 
-    TKChartBalloonAnnotation *balloon = [[TKChartBalloonAnnotation alloc] initWithX:@"Mar" Y:@55
-                                                                          forSeries:series];
-    balloon.text = @"left aligned";
-    balloon.style.horizontalAlign = TKChartBalloonHorizontalAlignmentLeft;
-    balloon.style.verticalAlign = TKChartBalloonVerticalAlignmentCenter;
-    [_chart addAnnotation:balloon];
+```Objective-C
+TKChartBalloonAnnotation *leftBalloon = [[TKChartBalloonAnnotation alloc] initWithX:@"NearBy" Y:@58 forSeries:chart.series[0]];
+leftBalloon.text = @"left aligned";
+leftBalloon.style.horizontalAlign = TKChartBalloonHorizontalAlignmentLeft;
+leftBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentCenter;
+[chart addAnnotation:leftBalloon];
 
-    balloon = [[TKChartBalloonAnnotation alloc] initWithText:@"bottom aligned" X:@"Apr" Y:@30
-                                                   forSeries:series];
-    balloon.style.verticalAlign = TKChartBalloonVerticalAlignmentBottom;
-    [_chart addAnnotation:balloon];
+TKChartBalloonAnnotation *bottomBalloon = [[TKChartBalloonAnnotation alloc] initWithText:@"bottom aligned" X:@"Family Store" Y:@59 forSeries:chart.series[0]];
+bottomBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentBottom;
+[chart addAnnotation:bottomBalloon];
+```
+```Swift
+let leftBalloon = TKChartBalloonAnnotation(x: "NearBy", y: 58, forSeries: chart.series()[0] as TKChartSeries)
+leftBalloon.text = "left aligned"
+leftBalloon.style.horizontalAlign = TKChartBalloonHorizontalAlignmentLeft
+leftBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentCenter
+chart.addAnnotation(leftBalloon)    
+
+let bottomBalloon = TKChartBalloonAnnotation(text: "bottom aligned", x: "Family Store", y: 59, forSeries: chart.series()[0] as TKChartSeries)
+bottomBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentBottom
+chart.addAnnotation(bottomBalloon)
+```
 
 <img src="../images/chart-annotations004.png"/>
 
 The <code>attributedText</code> property can be used to present formatted text with NSAttributedString. The following code demonstrates this:
 
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc]
-          initWithString:@"Important milestone:\n $55000"
-              attributes:@{ NSForegroundColorAttributeName:[UIColor whiteColor],
-                            NSParagraphStyleAttributeName:paragraphStyle }];
-    [attributedText addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor] range:NSMakeRange(22, 6)];
-
-    TKChartBalloonAnnotation *balloon = [[TKChartBalloonAnnotation alloc] initWithX:@"Mar" Y:@55 forSeries:series];
-    balloon.attributedText = attributedText;
-    [_chart addAnnotation:balloon];
-
+```Objective-C
+NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+paragraphStyle.alignment = NSTextAlignmentCenter;
+NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:@"Important milestone:\n $55000"                                                                                    attributes:@{ NSForegroundColorAttributeName:[UIColor whiteColor],                                                                                              NSParagraphStyleAttributeName:paragraphStyle }];
+[attributedText addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor] range:NSMakeRange(22, 6)];
+TKChartBalloonAnnotation *balloon = [[TKChartBalloonAnnotation alloc] initWithX:@"NearBy" Y:@58 forSeries:chart.series[0]];
+balloon.attributedText = attributedText;
+[chart addAnnotation:balloon];
+```
+```Swift
+var paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+paragraphStyle.alignment = NSTextAlignment.Center
+var attributedText = NSMutableAttributedString(string: "Important milestone:\n $55000",
+        attributes: [NSForegroundColorAttributeName:UIColor.whiteColor(), NSParagraphStyleAttributeName:paragraphStyle,])
+attributedText.addAttribute(NSForegroundColorAttributeName, value: UIColor.yellowColor(), range: NSMakeRange(22, 6))
+let balloon = TKChartBalloonAnnotation(x: "NearBy", y: 58, forSeries: chart.series()[0] as TKChartSeries)
+balloon.attributedText = attributedText
+chart.addAnnotation(balloon)
+```
 
 Almost every aspect of the balloon can be controlled by accessing the <code>style</code> property of the annotation. For example, the <code>arrowSize</code> and the <code>cornerRadius</code>:
 
-    balloon.style.arrowSize = CGSizeMake(20, 20);
-    balloon.style.cornerRadius = 0;
-	balloon.style.fill = [[TKLinearGradientFill alloc] initWithColors:@[[UIColor grayColor], [UIColor blueColor]]];
+```Objective-C
+balloon.style.arrowSize = CGSizeMake(20, 20);
+balloon.style.cornerRadius = 0;
+balloon.style.fill = [[TKLinearGradientFill alloc] initWithColors:@[[UIColor grayColor], [UIColor blueColor]]];
+```
+```Swift
+balloon.style.arrowSize = CGSizeMake(20, 20)
+balloon.style.cornerRadius = 0
+balloon.style.fill = TKLinearGradientFill(colors: [UIColor.grayColor(), UIColor.blueColor()])
+```
 
 <img src="../images/chart-annotations005.png"/>
 
@@ -116,11 +161,20 @@ Almost every aspect of the balloon can be controlled by accessing the <code>styl
 
 The <code>TKChartLayerAnnotation</code> and <code>TKChartViewAnnotations</code> are also point annotations. Those allow positioning a layer or a view inside the chart. The following code will position an image named *img* at the center of the chart:
 
-	UIImage *image = [UIImage imageNamed:@"logo"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-    imageView.alpha = 0.7;
-    [_chart addAnnotation:[[TKChartViewAnnotation alloc] initWithView:imageView X:@550 Y:@90 forSeries:_chart.series[0]]];
+```Objective-C
+UIImage *image = [UIImage imageNamed:@"logo"];
+UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+imageView.alpha = 0.7;
+[chart addAnnotation:[[TKChartViewAnnotation alloc] initWithView:imageView X:@"Perfecto" Y:@55 forSeries:chart.series[0]]];
+```
+```Swift
+let image = UIImage(named: "logo")
+let imageView = UIImageView(image: image)
+imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height)
+imageView.alpha = 0.7
+chart.addAnnotation(TKChartViewAnnotation(view: imageView, x: "Perfecto", y: 55, forSeries: chart.series()[0] as TKChartSeries))
+```
 
 <img src="../images/chart-annotations006.png"/>
 
