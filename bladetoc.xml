@@ -6,6 +6,7 @@
 		<Section Title="Axes" URL="axes" />
 		<Section Title="Series" URL="series" />
 		<Section Title="Animations" URL="animations" />
+		<Section Title="Point Labels" URL="pointlabels" />
 	</Section>
 	<Section Title="DataSync (Beta)" URL="datasync" />
 	<Section Title="Overview" URL="index" />
