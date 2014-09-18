@@ -192,7 +192,7 @@ xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeMultiline
 
 <img src="../../images/chart-axes-types006.png"/>
 
-## Configure Axes Title Appearance##
+## Configure Axes Title Appearance
 
 In order to change the change the axis title font, text color, shadow color, alignment and offset, you should modify the corresponding properties:
 
@@ -217,7 +217,7 @@ chart.reloadData()
 
 <img src="../../images/chart-axes-types007.png"/>
 
-## Axes Types##
+## Axes Types
 
 Any Cartesian series supports the following axes:
 
@@ -226,4 +226,6 @@ Any Cartesian series supports the following axes:
 - [TKChartDateTimeAxis](datetime)
 
 @warning Note that Pie area does not support axes.
+
+
 

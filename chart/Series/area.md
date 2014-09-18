@@ -6,7 +6,7 @@ position: 1
 
 # Chart Series: Area
 
-As a derivative of <code>TKLineSeries</code> series, <code>TKAreaSeries</code> plots its data points in line. Once positioned on a plane the points are connected to form a line. Further, the area enclosed between this line and the axis is filled. Below is a sample snippet that demonstrates how to set up two Area series:
+As a derivative of <code>TKChartLineSeries</code> series, <code>TKChartAreaSeries</code> plots its data points in line. Once positioned on a plane the points are connected to form a line. Further, the area enclosed between this line and the axis is filled. Below is a sample snippet that demonstrates how to set up two Area series:
 
 ```Objective-C
 NSMutableArray *pointsWithCategoriesAndValues = [[NSMutableArray alloc] init];
