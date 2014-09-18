@@ -54,3 +54,13 @@ override func viewDidAppear(animated: Bool) {
 <img src="../images/chart-selection001.png"/>
 
 Note that you can clear the selection by passing *nil* value.
+
+<code>TKChart</code> also provides a method that returns an array containing the selected series. Consider the following code snippet:
+```Objective-C
+NSArray *selectedSeries = [chart selectedSeries];
+```
+```Swift
+var selectedSeries = chart.selectedSeries();
+```
+
+
