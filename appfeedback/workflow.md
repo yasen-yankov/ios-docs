@@ -10,7 +10,7 @@ The feedback functionality is triggered on the device shake gesture. This gestur
 
 The sample application consists of a single screen, displayed below.
 
-<img src="../images/feedback-sample-app-home-screen-ios.png" />
+<img src="../images/appfeedback-sample-app-home-screen-ios.png" />
 
 Selection Popup
 ===
@@ -23,7 +23,7 @@ It contains items for the specific actions you can perform:
 - View feedback
 - Settings
 
-<img src="../images/feedback-sample-app-popup-ios.png" />
+<img src="../images/appfeedback-sample-app-popup-ios.png" />
 
 Submit Feedback
 ===
@@ -36,13 +36,13 @@ After the user has left his comments, tapping the "Send" button will send all th
 
 **Note that every comment is sent as a new feedback thread to the backend.**
 
-<img src="../images/feeddback-send-feedback-ios-entered-text.png" />
+<img src="../images/appfeedback-send-feedback-ios-entered-text.png" />
 
 If a user sends feedback for the first time, a screen prompting for his name is displayed.
 
 The user can also choose to send feedback anonymously.
 
-<img src="../images/feedback-send-feedback-name-entered-ios.png" />
+<img src="../images/appfeedback-send-feedback-name-entered-ios.png" />
 
 View Feedback
 ===
@@ -52,17 +52,17 @@ All feedback left from that device is displayed in the Your Feedback view. It is
 
 Each item in the list has its creation date, description and its status in the lower right corner. Tapping an item leads to a details page, described below.
 
-<img src="../images/feedback-your-feedback-open-ios.png" />
+<img src="../images/appfeedback-your-feedback-open-ios.png" />
 
 View Feedback Details
 ===
 This screen is opened by tapping an item from the **Your Feedback** view and allows the user to examine further details about a specific feedback thread. Such details include a screenshot and a list of comments left from users within Telerik Platform, replying to that thread. The user can also add another comment to the feedback thread.
 
-<img src="../images/feedback-details-comments-list-ios.png" />
+<img src="../images/appfeedback-details-comments-list-ios.png" />
 
 Settings
 ===
 In case the user wants to change or view his name, he can do so by visiting the Settings screen.
 
-<img src="../images/feedback-settings-name-entered-ios.png" />
+<img src="../images/appfeedback-settings-name-entered-ios.png" />
 
