@@ -9,27 +9,27 @@ position: 3
 <code>TKChartColumnSeries</code> are used to visualize data points as column blocks where the height of each bar denotes the magnitude of its value. The following snippet demonstrates how to manually populate one Column series:
 
 ```Objective-C
-	NSMutableArray *pointsWithCategoriesAndValues = [[NSMutableArray alloc] init];
-    NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
-    NSArray *values = @[ @70, @75, @58, @59, @88 ];
-    for (int i = 0; i < categories.count; i++) {
-        TKChartDataPoint *dataPoint = [[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]];
-        [pointsWithCategoriesAndValues addObject:dataPoint];
-    }
-    
-    TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
-    [chart addSeries:series];
+NSMutableArray *pointsWithCategoriesAndValues = [[NSMutableArray alloc] init];
+NSArray *categories = @[ @"Greetings", @"Perfecto", @"NearBy", @"Family Store", @"Fresh & Green" ];
+NSArray *values = @[ @70, @75, @58, @59, @88 ];
+for (int i = 0; i < categories.count; i++) {
+    TKChartDataPoint *dataPoint = [[TKChartDataPoint alloc] initWithX:categories[i] Y:values[i]];
+    [pointsWithCategoriesAndValues addObject:dataPoint];
+}
+
+TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+[chart addSeries:series];
 ```
 ```Swift
-	var pointsWithCategoriesAndValues = [TKChartDataPoint]()
-    let categories = ["Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" ];
-    let values = [70, 75, 58, 59, 88]
-    for var i = 0; i < categories.count; ++i {
-        pointsWithCategoriesAndValues.append(TKChartDataPoint(x: categories[i], y: values[i]))
-    }
-        
-    let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
-    chart.addSeries(series)
+var pointsWithCategoriesAndValues = [TKChartDataPoint]()
+let categories = ["Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" ];
+let values = [70, 75, 58, 59, 88]
+for var i = 0; i < categories.count; ++i {
+    pointsWithCategoriesAndValues.append(TKChartDataPoint(x: categories[i], y: values[i]))
+}
+    
+let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+chart.addSeries(series)
 ```
 
 <img src="../../images/chart-series-column001.png"/>
@@ -132,7 +132,7 @@ chart.addSeries(series2)
 
 The Stack100 displays the value as percent:
 
-```Objectie-C
+```Objective-C
 TKChartStackInfo *stackInfo = [[TKChartStackInfo alloc] initWithID:@(1) withStackMode:TKChartStackModeStack100];
 
 TKChartColumnSeries *series1 = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];

@@ -120,7 +120,7 @@ gridStyle.verticalLinesHidden = true
 
 Here is how to switching to alternative vertical fills:
 
-```Onjective-C
+```Objective-C
 TKChartGridStyle* gridStyle = chart.gridStyle;
 
 gridStyle.verticalLineStroke = [TKStroke strokeWithColor:[UIColor colorWithWhite:215.f/255.f alpha:1.f]];

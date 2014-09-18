@@ -12,7 +12,7 @@ This article provides a brief description and a list of the impotant properties 
 
 Here is an example how to create a **Bollinger Band** indicator:
 
-```Objectove-C
+```Objective-C
 TKChartCandlestickSeries *candlesticks = [[TKChartCandlestickSeries alloc] initWithItems:financialData];
 TKChartBollingerBandIndicator *bollingerBands = [[TKChartBollingerBandIndicator alloc] initWithSeries:candlesticks];
 [financialChart addSeries:candlesticks];

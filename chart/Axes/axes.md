@@ -74,7 +74,7 @@ chart.addAxis(gdpInvestmentYAxis)
 
 You can customize any feature of the axis appearance. If you want to hide its line or change its line stroke or background, you can use the following peace of code:
 
-```Objective-
+```Objective-C
 xAxis.style.lineStroke = [TKStroke strokeWithColor:[UIColor blueColor]];
 xAxis.style.backgroundFill = [TKSolidFill solidFillWithColor:[UIColor lightGrayColor]];
 ```
