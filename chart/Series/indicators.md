@@ -24,6 +24,12 @@ let bollingerBands = TKChartBollingerBandIndicator(series: candlesticks)
 financialChart.addSeries(candlesticks)
 financialChart.addSeries(bollingerBands)
 ```
+```C#
+var candlesticks = new TKChartCandlestickSeries (financialDataPoints.ToArray ());
+var bollingerBands = new TKChartBollingerBandIndicator (candlesticks);
+financialChart.AddSeries (candlesticks);
+financialChart.AddSeries (bollingerBands);
+```
 
 <img src="../../images/chart-series-indicators001.png" />
 
@@ -59,6 +65,14 @@ macdIndicator.longPeriod = 26
 macdIndicator.shortPeriod = 12
 macdIndicator.signalPeriod = 9
 financialChart.addSeries(macdIndicator)
+```
+```C#
+var candlesticks = new TKChartCandlestickSeries (financialDataPoints.ToArray());
+var macdIndicator = new TKChartMACDIndicator (candlesticks);
+macdIndicator.LongPeriod = 26;
+macdIndicator.ShortPeriod = 12;
+macdIndicator.SignalPeriod = 9;
+financialChart.AddSeries (macdIndicator);
 ```
 
 <img src="../../images/chart-series-indicators002.png"/>

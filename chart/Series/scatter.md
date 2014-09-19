@@ -30,6 +30,15 @@ for var i = 0; i < xValues.count; ++i {
 let series = TKChartScatterSeries(items: scatterPoints)
 chart.addSeries(series)
 ```
+```C#
+var xValues = new [] { 460, 510, 600, 640, 700, 760, 800, 890, 920, 1000, 1060, 1120, 1200, 1342, 1440 };
+var yValues = new [] { 7, 9, 12, 17, 19, 25, 32, 42, 50, 16, 56, 77, 24, 80, 90 };
+var scatterPoints = new List<TKChartDataPoint> ();
+for (int i = 0; i < xValues.Length; ++i) {
+	scatterPoints.Add (new TKChartDataPoint (new NSNumber (xValues [i]), new NSNumber (yValues [i])));
+}
+chart.AddSeries (new TKChartScatterSeries (scatterPoints.ToArray ()));
+```
 
 <img src="../../images/chart-series-scatter001.png"/>
 
@@ -53,6 +62,14 @@ series.style.palette = TKChartPalette()
 series.style.palette.addPaletteItem(paletteItem)
 chart.addSeries(series)
 ```
+```C#
+var series = new TKChartScatterSeries (scatterPoints.ToArray());
+var paletteItem = new TKChartPaletteItem();
+paletteItem.Fill = new TKSolidFill (UIColor.Red);
+series.Style.Palette = new TKChartPalette();
+series.Style.Palette.AddPaletteItem (paletteItem);
+chart.AddSeries (series);
+```
 
 <img src="../../images/chart-series-scatter003.png"/>
 
@@ -71,5 +88,11 @@ let series = TKChartScatterSeries(items: scatterPoints)
 series.selectionMode = TKChartSeriesSelectionModeDataPoint
 series.marginForHitDetection = 30.0
 chart.addSeries(series)
+```
+```C#
+var series = new TKChartScatterSeries (scatterPoints.ToArray());
+series.SelectionMode = TKChartSeriesSelectionMode.DataPoint;
+series.MarginForHitDetection = 30.0f;
+chart.AddSeries (series);
 ```
 

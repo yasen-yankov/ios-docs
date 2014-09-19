@@ -39,5 +39,19 @@ var bubbleSeries = TKChartBubbleSeries(items: array)
 bubbleSeries.biggestBubbleDiameterForAutoscale = 30
 chart.addSeries(bubbleSeries)   
 ```
+```C#
+var xValues = new [] { 460, 510, 600, 640, 700, 760, 800, 890, 920, 1000, 1060, 1120, 1200, 1342, 1440 };
+var yValues = new [] { 7, 22, 12, 17, 32, 25, 75, 42, 50, 16, 56, 77, 24, 80, 90 };
+var areaValues = new [] { 800, 100, 122, 10, 82, 623, 715, 269, 311, 38, 762, 29, 623, 72, 199 };
+
+var array = new List<TKChartDataPoint>();
+for (int i = 0; i < xValues.Length; ++i) {
+	array.Add (new TKChartBubbleDataPoint (new NSNumber (xValues [i]), new NSNumber (yValues [i]), new NSNumber (areaValues [i])));
+}
+
+var bubbleSeries = new TKChartBubbleSeries (array.ToArray ());
+bubbleSeries.BiggestBubbleDiameterForAutoscale = 30;
+chart.AddSeries (bubbleSeries);
+```
 
 <img src="../../images/chart-series-bubble001.png"/>

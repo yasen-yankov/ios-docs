@@ -32,7 +32,20 @@ pointsWithValueAndName.append(TKChartDataPoint(value: 8, name: "Oracle"))
 let series = TKChartPieSeries(items: pointsWithValueAndName)
 chart.addSeries(series)
 chart.legend().hidden = false
-chart.legend().style.position = TKChartLegendPositionRight
+chart.legend().style.position = TKChartLegendPosition.Right
+```
+```C#
+var pointsWithValueAndName = new List<TKChartDataPoint> ();
+pointsWithValueAndName.Add (new TKChartDataPoint (new NSNumber (20), NSObject.FromObject ("Google")));
+pointsWithValueAndName.Add(new TKChartDataPoint(new NSNumber(30), NSObject.FromObject("Apple")));
+pointsWithValueAndName.Add (new TKChartDataPoint (new NSNumber (10), NSObject.FromObject ("Microsoft")));
+pointsWithValueAndName.Add (new TKChartDataPoint (new NSNumber (5), NSObject.FromObject ("IBM")));
+pointsWithValueAndName.Add (new TKChartDataPoint (new NSNumber (8), NSObject.FromObject ("Oracle")));
+
+var series = new TKChartPieSeries (pointsWithValueAndName.ToArray());
+chart.AddSeries (series);
+chart.Legend.Hidden = false;
+chart.Legend.Style.Position = TKChartLegendPosition.Right;
 ```
 
 <img src="../../images/chart-series-pie001.png"/>
@@ -57,11 +70,18 @@ NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
 series.labelFormatter = numberFormatter;
 ```
 ```Swift
-series.labelDisplayMode = TKChartPieSeriesLabelDisplayModeValue
+series.labelDisplayMode = TKChartPieSeriesLabelDisplayMode.Value
     
 var  numberFormatter = NSNumberFormatter()
 numberFormatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
 series.labelFormatter = numberFormatter
+```
+```C#
+series.LabelDisplayMode = TKChartPieSeriesLabelDisplayMode.Value;
+
+var numberFormatter = new NSNumberFormatter ();
+numberFormatter.NumberStyle = NSNumberFormatterStyle.SpellOut;
+series.LabelFormatter = numberFormatter;
 ```
 
 The same can be done also with the labelFormat property:
@@ -71,6 +91,9 @@ series.labelFormat = @"%.0f %%";
 ``` 
 ```Swift
 series.labelFormat = "%.0f %%"
+```
+```C#
+	series.LabelFormat = "%.0f %%";
 ```
 
 <img src="../../images/chart-series-pie002.png"/>
@@ -93,6 +116,11 @@ series.startAngle = CGFloat(-M_PI_4 / 2)
 series.endAngle = CGFloat(M_PI + M_PI_4 / 2)
 series.rotationAngle = CGFloat(M_PI)
 ```
+```C#
+series.StartAngle = (float)(-Math.PI/4.0/2.0);
+series.EndAngle = (float)(Math.PI/4.0/2.0);
+series.RotationAngle = (float)Math.PI;
+```
 
 <img src="../../images/chart-series-pie003.png"/>
 
@@ -107,8 +135,12 @@ series.selectionMode = TKChartSeriesSelectionModeDataPoint;
 [chart select:[[TKChartSelectionInfo alloc] initWithSeries:chart.series[0] dataPointIndex:1]];
 ```
 ```Swift
-series.selectionMode = TKChartSeriesSelectionModeDataPoint
+series.selectionMode = TKChartSeriesSelectionMode.DataPoint
 chart.select(TKChartSelectionInfo(series: series, dataPointIndex: 1))
+```
+```C#
+series.SelectionMode = TKChartSeriesSelectionMode.DataPoint;
+chart.Select(new TKChartSelectionInfo(series, 1));
 ```
 
 Further information about selection in chart is available in this [help article](../selection).

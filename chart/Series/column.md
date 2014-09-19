@@ -31,6 +31,15 @@ for var i = 0; i < categories.count; ++i {
 let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
 chart.addSeries(series)
 ```
+```C#
+var pointsWithCategoriesAndValues = new List<TKChartDataPoint> ();
+var categories = new [] { "Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" };
+var values = new [] { 70, 75, 58, 59, 88 };
+for (int i = 0; i < categories.Length; ++i) {
+	pointsWithCategoriesAndValues.Add (new TKChartDataPoint (new NSString(categories [i]), new NSNumber(values [i])));
+}
+chart.AddSeries (new TKChartColumnSeries (pointsWithCategoriesAndValues.ToArray ()));
+```
 
 <img src="../../images/chart-series-column001.png"/>
 
@@ -79,7 +88,7 @@ for var i = 0; i < categories.count; ++i {
     
 let values2 = [40, 80, 32, 69, 95]
 for var i = 0; i < categories.count; ++i {
-    pointsWithCategoriesAndValues2.append(TKChartDataPoint(x: categories[i], y: values[i]))
+    pointsWithCategoriesAndValues2.append(TKChartDataPoint(x: categories[i], y: values2[i]))
 }
     
 let categoryAxis = TKChartCategoryAxis(categories: categories)
@@ -95,6 +104,38 @@ chart.beginUpdates()
 chart.addSeries(series1)
 chart.addSeries(series2)
 chart.endUpdates()
+```
+```C#
+var pointsWithCategoriesAndValues = new List<TKChartDataPoint> ();
+var pointsWithCategoriesAndValues2 = new List<TKChartDataPoint> ();
+var categories = new [] { "Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" };
+var values = new [] { 70, 75, 58, 59, 88 };
+for (int i = 0; i < categories.Length; ++i) {
+	pointsWithCategoriesAndValues.Add (new TKChartDataPoint (new NSString (categories [i]), new NSNumber (values [i])));
+}
+
+var values2 = new [] { 40, 80, 32, 69, 95 };
+for (int i = 0; i < categories.Length; ++i) {
+	pointsWithCategoriesAndValues2.Add (new TKChartDataPoint (new NSString(categories [i]), new NSNumber(values2 [i])));
+}
+
+List<NSObject> objectCategories = new List<NSObject> ();
+for (int i = 0; i < categories.Length; i++) {
+	objectCategories.Add (new NSString (categories [i]));
+}
+var categoryAxis = new TKChartCategoryAxis (objectCategories.ToArray());
+chart.XAxis = categoryAxis;
+
+var series1 = new TKChartColumnSeries(pointsWithCategoriesAndValues.ToArray());
+series1.XAxis = categoryAxis;
+
+var series2 = new TKChartColumnSeries (pointsWithCategoriesAndValues2.ToArray ());
+series2.XAxis = categoryAxis;
+
+chart.BeginUpdates ();
+chart.AddSeries (series1);
+chart.AddSeries (series2);
+chart.EndUpdates ();
 ```
 
 <img src="../../images/chart-series-column002.png"/>
@@ -127,6 +168,17 @@ let series2 = TKChartColumnSeries(items: pointsWithCategoriesAndValues2)
 series2.stackInfo = stackInfo
 chart.addSeries(series2)
 ```
+```C#
+var stackInfo = new TKChartStackInfo (new NSNumber (1), TKChartStackMode.Stack);
+
+var series1 = new TKChartBarSeries(pointsWithCategoriesAndValues.ToArray());
+series1.StackInfo = stackInfo;
+chart.AddSeries(series1);
+
+var series2 = new TKChartBarSeries(pointsWithCategoriesAndValues2.ToArray());
+series2.StackInfo = stackInfo;
+chart.AddSeries(series2);
+```
 
 <img src="../../images/chart-series-column003.png"/>
 
@@ -144,7 +196,7 @@ series2.stackInfo = stackInfo;
 [chart addSeries:series2];
 ```
 ```Swift
-let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackModeStack100)
+let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackMode.Stack100)
     
 let series1 = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
 series1.stackInfo = stackInfo
@@ -153,6 +205,17 @@ chart.addSeries(series1)
 let series2 = TKChartColumnSeries(items: pointsWithCategoriesAndValues2)
 series2.stackInfo = stackInfo
 chart.addSeries(series2)
+```
+```C#
+var stackInfo = new TKChartStackInfo (new NSNumber (1), TKChartStackMode.Stack100);
+
+var series1 = new TKChartBarSeries(pointsWithCategoriesAndValues.ToArray());
+series1.StackInfo = stackInfo;
+chart.AddSeries(series1);
+
+var series2 = new TKChartBarSeries(pointsWithCategoriesAndValues2.ToArray());
+series2.StackInfo = stackInfo;
+chart.AddSeries(series2);
 ```
 
 <img src="../../images/chart-series-column004.png"/>
@@ -178,7 +241,17 @@ series.style.palette = TKChartPalette()
 let paletteItem = TKChartPaletteItem()
 paletteItem.fill = TKSolidFill(color: UIColor.redColor())
 paletteItem.stroke = TKStroke(color: UIColor.blackColor())
-series.style.palette.addPa
+series.style.palette.addPaletteItem(paletteItem)
+chart.addSeries(series)
+```
+```C#
+var series = new TKChartColumnSeries (pointsWithCategoriesAndValues.ToArray());
+series.Style.Palette = new TKChartPalette();
+var paletteItem = new TKChartPaletteItem ();
+paletteItem.Fill = new TKSolidFill (UIColor.Red);
+paletteItem.Stroke = new TKStroke (UIColor.Black);
+series.Style.Palette.AddPaletteItem (paletteItem);
+chart.AddSeries (series);
 ```
 
 <img src="../../images/chart-series-column005.png"/>
@@ -194,6 +267,11 @@ series.gapLength = 0.5;
 let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
 series.gapLength = 0.5
 chart.addSeries(series)
+```
+```C#
+var series = new TKChartColumnSeries (pointsWithCategoriesAndValues.ToArray ());
+series.GapLength = 0.5f;
+chart.AddSeries(series);
 ```
 
 Note that the value should be between 0 and 1, where a value of 0 means that a bar would take the entire space between two ticks, while a value of 1 means the bar will have zero width as all the space should appear as a gap.

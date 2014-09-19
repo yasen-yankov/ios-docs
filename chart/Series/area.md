@@ -43,6 +43,27 @@ let values2 = [40, 80, 32, 69, 95]
 for var i = 0; i < categories.count; ++i {
     pointsWithCategoriesAndValues2.append(TKChartDataPoint(x: categories[i], y: values2[i]))
 }
+
+chart.addSeries(TKChartAreaSeries(pointsWithCategoriesAndValues))
+chart.addSeries(TKChartAreaSeries(pointsWithCategoriesAndValues2))
+```
+```C#
+var pointsWithCategoriesAndValues = new List<TKChartDataPoint> ();
+var pointsWithCategoriesAndValues2 = new List<TKChartDataPoint> ();
+var categories = new [] { "Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" };
+var values = new [] { 70, 75, 58, 59, 88 };
+
+for (int i = 0; i < categories.Length; ++i) {
+	pointsWithCategoriesAndValues.Add (new TKChartDataPoint (new NSString(categories [i]), new NSNumber(values [i])));
+}
+
+var values2 = new [] { 40, 80, 32, 69, 95 };
+for (int i = 0; i < categories.Length; ++i) {
+	pointsWithCategoriesAndValues2.Add (new TKChartDataPoint (new NSString(categories [i]), new NSNumber(values2 [i])));
+}
+
+chart.AddSeries(new TKChartAreaSeries(pointsWithCategoriesAndValues.ToArray()));
+chart.AddSeries(new TKChartAreaSeries(pointsWithCategoriesAndValues2.ToArray()));
 ```
 
 <img src="../../images/chart-series-area001.png"/>
@@ -68,7 +89,7 @@ seriesForExpences.stackInfo = stackInfo;
 [chart endUpdates];
 ```
 ```Swift
-let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackModeStack)
+let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackMode.Stack)
     
 let seriesForIncome = TKChartAreaSeries(items: pointsWithCategoriesAndValues)
 seriesForIncome.stackInfo = stackInfo
@@ -80,6 +101,20 @@ chart.beginUpdates()
 chart.addSeries(seriesForIncome)
 chart.addSeries(seriesForExpenses)
 chart.endUpdates()
+```
+```C#
+var stackInfo = new TKChartStackInfo (new NSNumber(1), TKChartStackMode.Stack);
+
+var seriesForIncome = new TKChartAreaSeries (pointsWithCategoriesAndValues.ToArray());
+seriesForIncome.StackInfo = stackInfo;
+
+var seriesForExpenses = new TKChartAreaSeries(pointsWithCategoriesAndValues2.ToArray());
+seriesForExpenses.StackInfo = stackInfo;
+
+chart.BeginUpdates();
+chart.AddSeries(seriesForIncome);
+chart.AddSeries(seriesForExpenses);
+chart.EndUpdates();
 ```
 
 <img src="../../images/chart-series-area004.png"/>
@@ -101,7 +136,7 @@ seriesForExpences.stackInfo = stackInfo;
 [chart endUpdates];
 ```
 ```Swift
-let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackModeStack100)
+let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackMode.Stack100)
     
 let seriesForIncome = TKChartAreaSeries(items: pointsWithCategoriesAndValues)
 seriesForIncome.stackInfo = stackInfo
@@ -113,6 +148,20 @@ chart.beginUpdates()
 chart.addSeries(seriesForIncome)
 chart.addSeries(seriesForExpenses)
 chart.endUpdates()
+```
+```C#
+var stackInfo = new TKChartStackInfo (new NSNumber (1), TKChartStackMode.Stack100);
+
+var seriesForIncome = new TKChartAreaSeries (pointsWithCategoriesAndValues.ToArray ());
+seriesForIncome.StackInfo = stackInfo;
+
+var seriesForExpenses = new TKChartAreaSeries (pointsWithCategoriesAndValues2.ToArray ());
+seriesForExpenses.StackInfo = stackInfo;
+
+chart.BeginUpdates ();
+chart.AddSeries (seriesForIncome);
+chart.AddSeries (seriesForExpenses);
+chart.EndUpdates ();
 ```
 
 <img src="../../images/chart-series-area005.png"/>
@@ -138,6 +187,15 @@ paletteItem.stroke = TKStroke(color: UIColor.brownColor())
 paletteItem.fill = TKSolidFill(color: UIColor.redColor())
 seriesForAnnualRevenue.style.palette.addPaletteItem(paletteItem)
 chart.addSeries(seriesForAnnualRevenue);
+```
+```C#
+var seriesForAnnualRevenue = new TKChartAreaSeries (pointsWithCategoriesAndValues.ToArray());
+seriesForAnnualRevenue.Style.Palette = new TKChartPalette ();
+var paletteItem = new TKChartPaletteItem ();
+paletteItem.Stroke = new TKStroke (UIColor.Brown);
+paletteItem.Fill = new TKSolidFill(UIColor.Red);
+seriesForAnnualRevenue.Style.Palette.AddPaletteItem(paletteItem);
+chart.AddSeries(seriesForAnnualRevenue);
 ```
 
 <img src="../../images/chart-series-area002.png"/>
