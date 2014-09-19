@@ -2,26 +2,21 @@ function expandNavigation(url) {
     return function() {
         var segments = url.split("/");
         var page = segments[segments.length - 1];
-        var tree = this;
 
-        if (segments.length > 1) {
-            var path = segments.slice();
-            tree.expandPath(segments, function() {
-                var dataSource = tree.dataSource;
-                var node;
+        var treeview = this;
 
-                for (var idx = 0; idx < path.length; idx++) {
-                   node = dataSource.get(path[idx]);
-                   dataSource = node.children;
-                }
+        var dataSource = this.dataSource;
+        var node;
 
-                node.set("selected", true);
-            });
-        } else {
-            tree.dataSource.get(page).set("selected", true);
+        for (var idx = 0; idx < segments.length; idx++) {
+            node = dataSource.get(segments[idx]);
+            node.set("expanded", true);
+            dataSource = node.children;
         }
 
-        tree.unbind("dataBound", arguments.callee);
+        node.set("selected", true);
+
+        this.unbind("dataBound", arguments.callee);
     }
 }
 
@@ -57,7 +52,11 @@ function preventParentSelection(e) {
 
 $(function(){
 
-    $("pre[lang=Objective-C]").each(function() {
+    $("pre[lang]").each(function() {
+       if (this.parentNode.className.indexOf("k-content") >= 0) {
+           return;
+       }
+
        var langs = $(this).nextUntil(":not(pre)", "pre").add(this);
 
        var tabs = $.map(langs, function(item) {
@@ -73,10 +72,27 @@ $(function(){
 
        langs.wrap("<div>");
 
-       tabstrip.kendoTabStrip();
+       tabstrip.kendoTabStrip({
+           animation: false
+       });
     });
 
-    $("pre").addClass("prettyprint");
+    var codeSampleMapper = {
+        'C#': 'cs',
+        'VB.NET' : 'vb',
+        'AppBuilder' : 'js',
+        'JavaScript' : 'js',
+        'C++' : 'cpp',
+        'C' : 'c',
+        'Objective-C' : 'm',
+        'Java' : 'java',
+    }
+
+    // Enable prettyprint support. We need to map lang="JavaScript" to class="lang-js" in order to start proper pretty print lexer.
+    $("pre").each(function(index){
+        var langExtension = codeSampleMapper[$(this).attr('lang')];
+        $(this).addClass('lang-' + langExtension).addClass("prettyprint");
+    });
 
     prettyPrint();
 
@@ -120,26 +136,3 @@ $(function(){
     });
 });
 
-function resizeContainers() {
-    var headerHeight = $("#page-header").height(),
-        htmlHeight = $('html').height();
-    navHeight = htmlHeight - headerHeight;
-    $("#nav-wrapper").height(navHeight - 1);
-    $("#page-inner-content").height(navHeight - 1);
-};
-
-
-$(document).ready(resizeContainers);
-$(window).resize(resizeContainers);
-
-$(function () {
-    $('#table_of_contents').click(function (e) {
-        $(this).toggleClass('open');
-        if($(this).hasClass("open")){
-            $("#nav-wrapper").css("display", "block");
-        }
-        else {
-             $("#nav-wrapper").css("display", "none");
-        }
-    });
-});

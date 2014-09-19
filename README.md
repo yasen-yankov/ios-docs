@@ -1,37 +1,54 @@
-# IOS documentation
 
-## Installation
+# Documentation Base
+
+This repository contains the common infrastructure for building markdown documentation with [Jekyll](http://jekyllrb.com/).
+
+## Set up a new documentation repository
 
 1. Install Ruby 1.9.x (2.x may or may not work).
+2. Install NodeJS (or delete the line ` js_compressor: uglifier` from `_config.yml`).
 1. Open a terminal or "Git Bash" if on Windows.
-1. `cd` to the directory where your markdown documentation repository is.
+1. `cd` to the directory where your markdown documentation github repository is.
 1. Add a new git remote to the docs-base repository. This will be used to merge any new features and fixes from the documentation base repository.
 
          git remote add base git@github.com:telerik/docs-base.git
+1. Fetch the "base" remote. This will retrieve the latest files.
+      
+         git fetch base
+1. Merge the "base/master" branch to your documentation repository branch. 
+         
+         git merge --no-ff base/master
+1. Resolve any conflicts (available via `git status`) and commit `git commit`. Make sure you don't remove any customizations you have made to some of the base files.
+1. Open the "_config.yml" file and set the `baseurl` and `url` attributes. The first is used for resolving the path to images and hyperlinks. The second is the online URL of the documentation and is used for creating `sitemap.xml`.
+         
+         url: "http://docs.telerik.com/devtools/ios"
+         baseurl: "/devtools/ios"
+
+1. Create a Google Custom Search Engine (or ask one to be created for you). Set the `google_custom_search` attribute in "_config.yml". If you forget this step the search results will be from the Kendo UI documentation.
 1. Run `bundle install`. If the `bundle` command is not found run `gem install bundler`. This will install Jekyll and all other required packages.
 1. Run `jekyll serve`. After a while jekyll build the documentation and start a web server at `http://0.0.0.0:4000/<baseurl>` e.g. `http://0.0.0.0:4000/devtools/ios`. You can now view the documentation in your browser.
+1. Exclude the `_site` directory from git by adding `_site` to your `.gitignore`.
+ 
+Jekyll builds a static HTML site in the `_site` directory. This contents of this directory can be deployed on a live server. 
 
-Jekyll builds a static HTML site in the `_site` directory. This contents of this directory can be deployed on a live server (IIS, nginx).
+> Important: Jekyll creates .html pages by default. However the documentation creates links without .html extension. A `web.config` with rewrite rules is included out of the box. 
 
-## Merging changes from the base documentation
-
-1. Fetch the "base" remote. This will retrieve the latest files.
-
-        git fetch base
-1. Merge with the "base/master" branch
-
-        git merge --no-ff base/master
-1. Resolve any conflicts (make sure you don't lose your changes) and commit.
-
-        git commit
+## Getting latest changes from the docs-base repository in your documentation
+1. Open a terminal or "Git Bash" if on Windows.
+1. `cd` to the directory where your markdown documentation github repository is.
+1. Fetch the "base" remote. This will retrieve the latest commits from the base repo. If git complains that there is no "base" remote run `git remote add base git@github.com:telerik/docs-base.git`
+1. Use `git cherry-pick` to get the commit you are interested in. For example to get the last commit run `git cherry-pick base/master`. If there are any conflicts resolve them and run `git cherry-pick --continue`
+1. Push the new commits to github.
 
 ## Some Jekyll info
 
 Jekyll is a tool for creating static html web sites. It supports markdown which makes it a good fit for our needs. It is also highly customizable which makes delivering new documentation features a breeze.
 
-> Important: Jekyll creates .html pages by default. However the documentation creates links without .html extension. A `web.config` with rewrite rules is included out of the box.
-
 ### Jekyll Directory structure
+
+#### _assets
+
+Contains CSS and JavaScript files.
 
 #### _includes
 
@@ -43,14 +60,22 @@ The layout pages used by the documentation site. They define the common HTML whi
 
 #### _plugins
 
-Contains [Jekyll plugins](http://jekyllrb.com/docs/plugins/) (Ruby classes) which are needed for producing the final output. Not included in the final output.
+Contains [Jekyll plugins](http://jekyllrb.com/docs/plugins/) (Ruby classes) which are needed for producing the final output. Not included in the final output. 
+
+#### images
+
+Contains images used in the web site.
+
+#### fonts
+
+Custom fonts used in the web site.
 
 The following plugins are currently available:
 
 * breadcrumb.rb - renders breadcrumb navigation
 * markdown_processor.rb - creates HTML from Markdown using [html-pipeline](https://github.com/jch/html-pipeline). We are not using the default markdown conversion as we need to tweak the output to our needs.
 * navigation_generator.rb - creates a JSON TOC file used for the left-hand treeview navigation.
-* redirect_generator.rb - creates IIS redirect rules in the `web.config` to handle the `previous_url` attribute.
+* redirect_generator.rb - creates IIS redirect rules in the `web.config` to handle the `previous_url` attribute. 
 * sitemap_generator.rb - creates sitemap.xml which is used by search engines for crawling.
 * slug.rb - gets the URL of a help article from its slug.
 
@@ -114,7 +139,7 @@ The previous URL of this page. Used to create IIS redirect rules in `web.config`
 
 ### Customizing the TOC
 
-The TOC displays an entry for all directories and files.
+The TOC displays an entry for all directories and files. 
 
 #### Files
 
