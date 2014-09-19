@@ -31,6 +31,15 @@ for var i = 0; i < categories.count; ++i {
 let series = TKChartSplineAreaSeries(items: pointsWithCategoriesAndValues)
 chart.addSeries(series)
 ```
+```C#
+var categories = new [] { "Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" };
+var values = new [] { 70, 75, 58, 59, 88 };
+var pointsWithCategoriesAndValues = new List<TKChartDataPoint> ();
+for (int i = 0; i < categories.Length; ++i) {
+	pointsWithCategoriesAndValues.Add (new TKChartDataPoint (new NSString (categories [i]), new NSNumber (values [i])));
+}
+chart.AddSeries (new TKChartSplineAreaSeries (pointsWithCategoriesAndValues.ToArray ()));
+```
 
 <img src="../../images/chart-series-spline-area001.png"/>
 

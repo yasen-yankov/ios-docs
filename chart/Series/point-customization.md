@@ -16,6 +16,9 @@ areaSeries.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeStar a
 ```Swift
 areaSeries.style.pointShape = TKPredefinedShape(type: TKShapeTypeCircle, andSize: CGSizeMake(8, 8))
 ```
+```C#
+areaSeries.Style.PointShape = new TKPredefinedShape (TKShapeType.Circle, new SizeF (8, 8));
+```
 
 <img src="../../images/chart-series-point001.png"/>
 
@@ -51,6 +54,15 @@ let palette = TKChartPalette()
 palette.addPaletteItem(paletteItem)
 areaSeries.style.shapePalette = palette
 chart.addSeries(areaSeries)
+```
+```C#
+areaSeries.Style.PointShape = new TKPredefinedShape (TKShapeType.Circle, new SizeF (8, 8));
+var paletteItem = new TKChartPaletteItem ();
+paletteItem.Fill = new TKSolidFill (UIColor.Red);
+var palette = new TKChartPalette ();
+palette.AddPaletteItem (paletteItem);
+areaSeries.Style.ShapePalette = palette;
+chart.AddSeries (areaSeries);
 ```
 
 <img src="../../images/chart-series-point002.png"/>
