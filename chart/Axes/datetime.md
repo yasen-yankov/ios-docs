@@ -26,6 +26,10 @@ chart.xAxis = periodAxis;
 let periodAxis = TKChartDateTimeAxis()
 chart.xAxis = periodAxis
 ```
+```C#
+var periodAxis = new TKChartDateTimeAxis ();
+chart.XAxis = periodAxis;
+```
 
 You can specify the axis range by setting the minimum and maximum indexes of categories:
 
@@ -57,6 +61,21 @@ func dateWithYear(year: Int, month: Int, day: Int) -> NSDate{
   let date2003 = self.dateWithYear(2003, month: 12, day: 31)
   periodXAxis.range = TKRange(minimum: date2001, andMaximum: date2003)
 ```
+```C#
+NSDate DateWithYear(int year, int month, int day)
+{
+  var calendar = new NSCalendar (NSCalendarType.Gregorian);
+  var components = new NSDateComponents ();
+  components.Year = year;
+  components.Month = month;
+  components.Day = day;
+  return calendar.DateFromComponents (components);
+}
+
+var date2001 = this.DateWithYear (2001, 12, 31);
+var date2003 = this.DateWithYear (2003, 12, 31);
+periodXAxis.Range = new TKRange(date2001, date2003);
+```
 
 You can define the axis categories to be years by changing the interval unit property:
 
@@ -64,7 +83,10 @@ You can define the axis categories to be years by changing the interval unit pro
 periodXAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitYears;
 ```
 ```Swift
-periodXAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitYears
+periodXAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.Years
+```
+```C#
+periodXAxis.MajorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.Years;
 ```
 
 <img src="../../images/chart-axes-datetime001.png">
@@ -79,7 +101,10 @@ periodXAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitYears
 xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
 ```
 ```Swift
-periodXAxis.setPlotMode(TKChartAxisPlotModeBetweenTicks)
+periodXAxis.setPlotMode(TKChartAxisPlotMode.BetweenTicks)
+```
+```C#
+periodXAxis.PlotMode = TKChartAxisPlotMode.BetweenTicks;
 ```
 
 <img src="../../images/chart-axes-datetime002.png"/>
@@ -88,7 +113,10 @@ periodXAxis.setPlotMode(TKChartAxisPlotModeBetweenTicks)
 xAxis.plotMode = TKChartAxisPlotModeOnTicks;
 ```
 ```Swift
-periodXAxis.setPlotMode(TKChartAxisPlotModeOnTicks)
+periodXAxis.setPlotMode(TKChartAxisPlotMode.OnTicks)
+```
+```C#
+periodXAxis.PlotMode = TKChartAxisPlotMode.OnTicks;
 ```
 
 <img src="../../images/chart-axes-datetime003.png"/>

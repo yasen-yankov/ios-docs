@@ -65,18 +65,18 @@ In order to show multiple axes in <code>TKChart</code>, create several axes and 
 ```
 ```Swift
     let xAxis = TKChartNumericAxis()
-    xAxis.position = TKChartAxisPositionBottom
+    xAxis.position = TKChartAxisPosition.Bottom
     chart.addAxis(xAxis)
         
     let yAxis1 = TKChartNumericAxis(minimum: 0, andMaximum: 100)
     yAxis1.majorTickInterval = 50
-    yAxis1.position = TKChartAxisPositionLeft
+    yAxis1.position = TKChartAxisPosition.Left
     yAxis1.style.lineHidden = false
     chart.addAxis(yAxis1)
         
     let yAxis2 = TKChartNumericAxis(minimum: 0, andMaximum: 200)
     yAxis2.majorTickInterval = 50
-    yAxis2.position = TKChartAxisPositionRight
+    yAxis2.position = TKChartAxisPosition.Right
     yAxis2.style.lineHidden = false
     chart.addAxis(yAxis2)
         
@@ -90,6 +90,34 @@ In order to show multiple axes in <code>TKChart</code>, create several axes and 
     series.xAxis = xAxis
     series.yAxis = yAxis1
     chart.addSeries(series)
+```
+```C#
+var xAxis = new TKChartNumericAxis ();
+xAxis.Position = TKChartAxisPosition.Bottom;
+chart.AddAxis (xAxis);
+
+var yAxis1 = new TKChartNumericAxis (new NSNumber (0), new NSNumber (100));
+yAxis1.MajorTickInterval = 50;
+yAxis1.Position = TKChartAxisPosition.Left;
+yAxis1.Style.LineHidden = false;
+chart.AddAxis (yAxis1);
+
+var yAxis2 = new TKChartNumericAxis (new NSNumber (0), new NSNumber (200));
+yAxis2.MajorTickInterval = 50;
+yAxis2.Position = TKChartAxisPosition.Right;
+yAxis2.Style.LineHidden = false;
+chart.AddAxis (yAxis2);
+
+var incomesData = new List<TKChartDataPoint> ();
+var values1 = new [] { 12, 10, 98, 64, 11, 27, 85, 72, 43, 39 };
+for (int i=0; i<10; i++) {
+    incomesData.Add (new TKChartDataPoint (new NSNumber(i), new NSNumber(values1 [i])));
+}
+
+var series = new TKChartLineSeries (incomesData.ToArray());
+series.XAxis = xAxis;
+series.YAxis = yAxis1;
+chart.AddSeries (series);
 ```
 
 The result from this setup is:
@@ -142,7 +170,7 @@ for i in 0..<10 {
     incomesData.append(TKChartDataPoint(x: i, y: values1[i]))
 }
     
-let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackModeStack)
+let stackInfo = TKChartStackInfo(ID: 1, withStackMode: TKChartStackMode.Stack)
 let series1 = TKChartColumnSeries(items: expensesData)
 series1.title = "Expenses"
 series1.stackInfo = stackInfo
@@ -152,6 +180,28 @@ let series2 = TKChartColumnSeries(items: incomesData)
 series2.title = "Incomes"
 series2.stackInfo = stackInfo
 chart.addSeries(series2)
+```
+```C#
+var values1 = new [] { 12, 10, 98, 64, 11, 27, 85, 72, 43, 39 };
+var values2 = new [] { 87, 22, 29, 87, 65, 99, 63, 12, 82, 87 };
+var expensesData = new List<TKChartDataPoint>();
+var incomesData = new List<TKChartDataPoint>();
+for (int i=0; i<10; i++) {
+    expensesData.Add(new TKChartDataPoint(new NSNumber(i), new NSNumber(values2[i])));
+    incomesData.Add(new TKChartDataPoint(new NSNumber(i), new NSNumber(values1[i])));
+}
+
+var stackInfo = new TKChartStackInfo(new NSNumber(1), TKChartStackMode.Stack);
+
+var series1 = new TKChartColumnSeries(expensesData.ToArray());
+series1.Title = "Expenses";
+series1.StackInfo = stackInfo;
+chart.AddSeries(series1);
+
+var series2 = new TKChartColumnSeries(incomesData.ToArray());
+series2.Title = "Incomes";
+series2.StackInfo = stackInfo;
+chart.AddSeries(series2);
 ```
 
 The result from this setup is:
@@ -224,6 +274,35 @@ func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState
     group.duration = duration
     group.animations = animations
     return group
+}
+```
+```C#
+class ChartDelegate: TKChartDelegate
+{
+    Random r = new Random ();
+
+    public override MonoTouch.CoreAnimation.CAAnimation AnimationForSeries (TKChart chart, TKChartSeries series, TKChartSeriesRenderState state, RectangleF rect)
+    {
+        var duration = 0.0;
+        var animations = new List<CAAnimation> ();
+        for (int i=0; i<state.Points.Count; i++) {
+            var pointKeyPath = state.AnimationKeyPathForPointAtIndex ((uint)i);
+            var keyPath = pointKeyPath + ".x";
+            var point = state.Points.ObjectAtIndex((uint)i) as TKChartVisualPoint;
+            var animation = new CABasicAnimation ();
+            animation.KeyPath = keyPath;
+            animation.Duration = (double) (r.Next (100)) / 100.0;
+            animation.From = new NSNumber(0);
+            animation.To = new NSNumber(point.X);
+            animations.Add (animation);
+            duration = Math.Max(animation.Duration, duration);
+        }
+
+        var group = new CAAnimationGroup ();
+        group.Duration = duration;
+        group.Animations = animations.ToArray();
+        return group;
+    }
 }
 ```
 

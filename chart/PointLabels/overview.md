@@ -16,6 +16,8 @@ columnSeries.style.pointLabelStyle.labelOffset = UIOffsetMake(0, -15);
 columnSeries.style.pointLabelStyle.textHidden = false
 columnSeries.style.pointLabelStyle.labelOffset = UIOffsetMake(0, -15)
 ```
+```C#
+```
 
 <img src="../../images/chart-point-labels-overview001.png" />
 

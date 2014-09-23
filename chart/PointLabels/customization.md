@@ -41,6 +41,8 @@ lineSeries.style.pointLabelStyle.blurRadius = 1.5
 lineSeries.style.pointLabelStyle.shadowColor = UIColor.blackColor()
 lineSeries.style.pointLabelStyle.shadowOffset = CGSizeMake(2, 1)
 ```
+```C#
+```
 
 <img src="../../images/chart-point-labels-customization001.png" />
 
@@ -66,6 +68,8 @@ func chart(chart: TKChart!, labelForDataPoint dataPoint: TKChartData!, inSeries 
     
     return TKChartPointLabel(point: dataPoint, style: series.style.pointLabelStyle, text: "\(dataPoint.dataYValue())")
 }
+```
+```C#
 ```
 
 <img src="../../images/chart-point-labels-customization002.png" />

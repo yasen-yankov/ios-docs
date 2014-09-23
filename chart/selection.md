@@ -28,6 +28,15 @@ func chart(chart: TKChart!, selectedSeries series: TKChartSeries!, dataPoint: TK
     // Here you can perform the desired action when the selection is changed.
 }
 ```
+```C#
+class ChartDelegate: TKChartDelegate
+{
+	public override void SelectedSeries (TKChart chart, TKChartSeries series, TKChartData dataPoint, int dataIndex)
+	{
+		// Here you can perform the desired action when the selection is changed.
+	}
+}
+```
 
 In addition, you can change the selection programmatically by calling the <code>select</code> method in the following manner:
 
@@ -50,6 +59,16 @@ override func viewDidAppear(animated: Bool) {
     chart.select(TKChartSelectionInfo(series: chart.series()[0] as TKChartSeries, dataPointIndex: 0))
 }
 ```
+```C#
+series.SelectionMode = TKChartSeriesSelectionMode.DataPoint;
+series.ExpandRadius = 1.2f;
+
+public override void ViewDidAppear (bool animated)
+{
+	base.ViewDidAppear (animated);
+	chart.SelectItem (new TKChartSelectionInfo (chart.Series [0], 0));
+}
+```
 
 <img src="../images/chart-selection001.png"/>
 
@@ -61,6 +80,9 @@ NSArray *selectedSeries = [chart selectedSeries];
 ```
 ```Swift
 var selectedSeries = chart.selectedSeries();
+```
+```C#
+var selectedSeries = chart.SelectedSeries();
 ```
 
 

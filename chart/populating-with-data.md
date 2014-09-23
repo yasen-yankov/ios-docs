@@ -100,6 +100,53 @@ class DataSourceDelegate: UIViewController, TKChartDataSource {
     }
 }
 ```
+```C#
+public class PopulatingWithData: UIViewController
+{
+    TKChart chart = new TKChart();
+
+    public override void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -10, -10));
+        this.View.AddSubview (chart);
+        chart.DataSource = new ChartDataSource ();
+        chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+    }
+
+    class ChartDataSource: TKChartDataSource
+    {
+        Random r = new Random();
+
+        public override uint NumberOfSeries (TKChart chart)
+        {
+            return 1;
+        }
+
+        public override uint PointsInSeries (TKChart chart, uint seriesIndex)
+        {
+            return 10;
+        }
+
+        public override TKChartSeries GetSeries (TKChart chart, uint index)
+        {
+            var series = chart.DequeueReusableSeriesWithIdentifier ("series1") as TKChartSeries;
+            if (series == null) {
+                series = new TKChartLineSeries (null, "series1");
+                series.Title = "Series title";
+            }
+            return series;
+        }
+
+        public override TKChartData GetPoint (TKChart chart, uint dataIndex, uint seriesIndex)
+        {
+            var point = new TKChartDataPoint (new NSNumber (dataIndex), new NSNumber(r.Next (100)));
+            return point;
+        }
+    }
+}
+```
 
  <img src="../images/chart-populating-with-data001.png" />
 
@@ -141,6 +188,20 @@ for var i = 0; i < categories.count; ++i {
     
 let series = TKChartColumnSeries(items: dataPoints)
 chart.addSeries(series)
+```
+```C#
+var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -10, -10));
+this.View.AddSubview (chart);
+chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+
+var categories = new [] { "Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" };
+var values = new [] { 70, 75, 58, 59, 88 };
+var dataPoints = new List<TKChartDataPoint> ();
+for (int i = 0; i < categories.Length; ++i) {
+    dataPoints.Add (new TKChartDataPoint (new NSString (categories [i]), new NSNumber (values [i])));
+}
+
+chart.AddSeries (new TKChartColumnSeries (dataPoints.ToArray ()));
 ```
 
  <img src="../images/chart-populating-with-data002.png" />
@@ -185,6 +246,29 @@ chart.addSeries(TKChartLineSeries(items: dataPoints, forKeys: ["dataXValue": "ob
 chart.addSeries(TKChartAreaSeries(items: dataPoints, forKeys: ["dataXValue": "objectID", "dataYValue": "value2"]))
 chart.addSeries(TKChartScatterSeries(items: dataPoints, forKeys: ["dataXValue": "objectID", "dataYValue": "value3"]))
 chart.endUpdates()
+```
+```C#
+var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -10, -10));
+this.View.AddSubview (chart);
+chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+
+Random r = new Random ();
+var dataPoints = new List<CustomObject> ();
+for (int i=0; i<5; i++) {
+    CustomObject obj = new CustomObject () {
+        ObjectID = i,
+        Value1 = r.Next (100),
+        Value2 = r.Next (100),
+        Value3 = r.Next (100)
+    };
+    dataPoints.Add (obj);
+}
+
+chart.BeginUpdates ();
+chart.AddSeries(new TKChartLineSeries(dataPoints.ToArray(), "ObjectID", "Value1"));
+chart.AddSeries(new TKChartAreaSeries(dataPoints.ToArray(), "ObjectID", "Value2"));
+chart.AddSeries(new TKChartScatterSeries(dataPoints.ToArray(), "ObjectID", "Value3"));
+chart.EndUpdates();
 ```
 
 <img src="../images/chart-populating-with-data003.png" />

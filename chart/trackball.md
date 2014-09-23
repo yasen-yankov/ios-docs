@@ -46,10 +46,18 @@ chart.trackball.line.style.pointShape = shape;
 ```Swift
 let color = UIColor.redColor()
 let size = CGSizeMake(20, 20)
-let shape = TKPredefinedShape(type: TKShapeTypeRhombus, andSize: size)
+let shape = TKPredefinedShape(type: TKShapeType.Rhombus, andSize: size)
 chart.trackball.line.style.verticalLineStroke = TKStroke(color: color, width: 2.0)
 chart.trackball.line.style.pointShapeFill = TKSolidFill(color: color)
 chart.trackball.line.style.pointShape = shape
+```
+```C#
+var color = UIColor.Red;
+var size = new SizeF (20, 20);
+var shape = new TKPredefinedShape (TKShapeType.Rhombus, size);
+chart.Trackball.Line.Style.VerticalLineStroke = new TKStroke (color, 2.0f);
+chart.Trackball.Line.Style.PointShapeFill = new TKSolidFill (color);
+chart.Trackball.Line.Style.PointShape = shape;
 ```
 
 The result is the following:
@@ -88,6 +96,21 @@ func chart(chart: TKChart!, trackballDidTrackSelection selection: [AnyObject]!) 
         let value: AnyObject! = (selection[0] as TKChartSelectionInfo).dataPoint().dataXValue()
         let str = "Pos=\(value)"
         chart.trackball.tooltip.text = str
+    }
+}
+```
+```C#
+chart.Delegate = new ChartDelegate();
+            
+class ChartDelegate: TKChartDelegate
+{
+    public override void TrackballDidTrackSelection (TKChart chart, TKChartSelectionInfo[] selection)
+    {
+        if (selection.Length > 0) {
+            var value = (selection [0] as TKChartSelectionInfo).DataPoint.DataXValue;
+            var str = "Pos=" + value;
+            chart.Trackball.Tooltip.Text = str;
+        }
     }
 }
 ```
