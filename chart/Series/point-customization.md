@@ -24,17 +24,17 @@ areaSeries.Style.PointShape = new TKPredefinedShape (TKShapeType.Circle, new Siz
 
 You can specify many predefined shapes by using the following enum:
 
-    - <code>TKShapeTypeNone</code> - No shape
-    - <code>TKShapeTypeSquare</code> - Square shape
-    - <code>TKShapeTypeCircle</code> - Circle shape
-    - <code>TKShapeTypeTriangleUp</code> - Triangle pointing up
-    - <code>TKShapeTypeTriangleDown</code> - Triangle pointing down
-    - <code>TKShapeTypeDiamond</code> - Diamond shape
-    - <code>TKShapeTypeRhombus</code> - Rhombus shape
-    - <code>TKShapeTypePentagon</code> - Pentagon shape
-    - <code>TKShapeTypeHexagon</code> - Hexagon shape
-    - <code>TKShapeTypeStar</code> - Star shape
-    - <code>TKShapeTypeHeart</code> - Heart shape
+- TKShapeTypeNone - No shape
+- TKShapeTypeSquare - Square shape
+- TKShapeTypeCircle - Circle shape
+- TKShapeTypeTriangleUp - Triangle pointing up
+- TKShapeTypeTriangleDown - Triangle pointing down
+- TKShapeTypeDiamond - Diamond shape
+- TKShapeTypeRhombus - Rhombus shape
+- TKShapeTypePentagon - Pentagon shape
+- TKShapeTypeHexagon - Hexagon shape
+- TKShapeTypeStar - Star shape
+- TKShapeTypeHeart - Heart shape
 
 In addition, you can change a point background color by using the following lines of code:
 

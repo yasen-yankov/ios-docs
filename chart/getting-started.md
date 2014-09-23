@@ -42,7 +42,7 @@ Open your **ViewController.m** file and add a reference to the chart header file
 
 If you are writing Swift, add the same line in your bridging header.
 
-If you are using Xamarin, add a reference to the TelerikUI.dll and use the using directive:
+If you are using Xamarin, add a reference to TelerikUI.dll in your project and use the using directive:
 
     using TelerikUI;
 
