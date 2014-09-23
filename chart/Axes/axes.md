@@ -60,12 +60,21 @@ gdpInvestmentYAxis.position = TKChartAxisPositionRight;
 ```
 ```Swift
 let gdpInPoundsYAxis = TKChartNumericAxis(minimum: 1050, andMaximum: 1400)
-gdpInPoundsYAxis.position = TKChartAxisPositionLeft
+gdpInPoundsYAxis.position = TKChartAxisPosition.Left
 chart.addAxis(gdpInPoundsYAxis)
     
 let gdpInvestmentYAxis = TKChartNumericAxis(minimum: 0, andMaximum: 20)
-gdpInvestmentYAxis.position = TKChartAxisPositionRight
+gdpInvestmentYAxis.position = TKChartAxisPosition.Right
 chart.addAxis(gdpInvestmentYAxis)
+```
+```C#
+var gdpInPoundsYAxis = new TKChartNumericAxis (new NSNumber(1050), new NSNumber(1400));
+gdpInPoundsYAxis.Position = TKChartAxisPosition.Left;
+chart.AddAxis (gdpInPoundsYAxis);
+
+var gdpInvestmentYAxis = new TKChartNumericAxis(new NSNumber(0), new NSNumber(20));
+gdpInvestmentYAxis.Position = TKChartAxisPosition.Right;
+chart.AddAxis (gdpInvestmentYAxis);
 ```
 
 <img src="../../images/chart-axes-types009.png"/>
@@ -82,22 +91,34 @@ xAxis.style.backgroundFill = [TKSolidFill solidFillWithColor:[UIColor lightGrayC
 xAxis.style.lineStroke = TKStroke(color: UIColor.blueColor())
 xAxis.style.backgroundFill = TKSolidFill(color: UIColor.lightGrayColor())
 ```
+```C#
+xAxis.Style.LineStroke = new TKStroke (UIColor.Blue);
+xAxis.Style.BackgroundFill = new TKSolidFill (UIColor.LightGray);
+```
 
 <img src="../../images/chart-axes-types001.png"/>
 
 # Configure Axes Ticks Appearance#
 
-You can specify the interval between axis ticks by setting the <code>majorTickInterval</code> and <code>minorTickInterval</code> properties:
+In numeric/date-time axes you can specify the interval between axis ticks by setting the <code>majorTickInterval</code> and <code>minorTickInterval</code> properties:
 
 ```Objective-C
+TKChartNumericAxis *yAxis = (TKChartNumericAxis*)chart.yAxis;
 yAxis.majorTickInterval = 20;
 yAxis.minorTickInterval = 3;
 yAxis.style.majorTickStyle.ticksHidden = NO;
 ```
 ```Swift
+let yAxis = chart.yAxis as TKChartNumericAxis
 yAxis.majorTickInterval = 20
 yAxis.minorTickInterval = 3
 yAxis.style.majorTickStyle.ticksHidden = false
+```
+```C#
+var yAxis = chart.YAxis as TKChartNumericAxis;
+yAxis.MajorTickInterval = 20;
+yAxis.MinorTickInterval = 3;
+yAxis.Style.MajorTickStyle.TicksHidden = false;
 ```
 
 <img src="../../images/chart-axes-types008.png"/>
@@ -118,18 +139,29 @@ xAxis.style.majorTickStyle.ticksLength = 10
 xAxis.style.majorTickStyle.ticksWidth = 1
 xAxis.style.majorTickStyle.ticksOffset = 5
 ```
+```C#
+xAxis.Style.MajorTickStyle.TicksHidden = false;
+xAxis.Style.MajorTickStyle.TicksStroke = new TKStroke (UIColor.Blue);
+xAxis.Style.MajorTickStyle.TicksLength = 10;
+xAxis.Style.MajorTickStyle.TicksWidth = 1;
+xAxis.Style.MajorTickStyle.TicksOffset = 5;
+```
 
 <img src="../../images/chart-axes-types002.png"/>
 
 In addition to the common tick style customizations, you can specify the first and last ticks visibility by setting <code>minTickClippingMode</code> and <code>maxTickClippingMode</code> properties:
 
 ```Objective-C
-xAxis.style.majorTickStyle.minTickClippingMode = TKChartAxisClippingModeHidden;
-xAxis.style.majorTickStyle.maxTickClippingMode = TKChartAxisClippingModeVisible;
+xAxis.style.majorTickStyle.minTickClippingMode = TKChartAxisClippingMode.Hidden;
+xAxis.style.majorTickStyle.maxTickClippingMode = TKChartAxisClippingMode.Visible;
 ```
 ```Swift
 xAxis.style.majorTickStyle.minTickClippingMode = TKChartAxisClippingModeHidden
 xAxis.style.majorTickStyle.maxTickClippingMode = TKChartAxisClippingModeVisible
+```
+```C#
+xAxis.Style.MajorTickStyle.MinTickClippingMode = TKChartAxisClippingMode.Hidden;
+xAxis.Style.MajorTickStyle.MaxTickClippingMode = TKChartAxisClippingMode.Visible;
 ```
 
 <img src="../../images/chart-axes-types003.png"/>
@@ -152,6 +184,13 @@ xAxis.style.labelStyle.shadowColor = UIColor.grayColor()
 xAxis.style.labelStyle.shadowOffset = CGSizeMake(1, 1)
 chart.reloadData()
 ```
+```C#
+xAxis.Style.LabelStyle.Font = UIFont.SystemFontOfSize (10);
+xAxis.Style.LabelStyle.TextColor = UIColor.Blue;
+xAxis.Style.LabelStyle.ShadowColor = UIColor.Gray;
+xAxis.Style.LabelStyle.ShadowOffset = new SizeF (1f, 1f);
+chart.ReloadData ();
+```
 
 You can define the label offset and alignment by setting the <code>textOffset</code> and <code>textAlignment</code> properties:
 
@@ -163,11 +202,18 @@ xAxis.style.labelStyle.firstLabelTextOffset = UIOffsetMake(10, 50);
 [chart reloadData];
 ```
 ```Swift
-xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignmentBottom
-xAxis.style.labelStyle.firstLabelTextAlignment = TKChartAxisLabelAlignmentBottom
+xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment.Bottom
+xAxis.style.labelStyle.firstLabelTextAlignment = TKChartAxisLabelAlignment.Bottom
 xAxis.style.labelStyle.textOffset = UIOffsetMake(10, 50)
 xAxis.style.labelStyle.firstLabelTextOffset = UIOffsetMake(10, 50)
 chart.reloadData()
+```
+```C#
+xAxis.Style.LabelStyle.TextAlignment = TKChartAxisLabelAlignment.Bottom;
+xAxis.Style.LabelStyle.FirstLabelTextAlignment = TKChartAxisLabelAlignment.Bottom;
+xAxis.Style.LabelStyle.TextOffset = new UIOffset(10, 50);
+xAxis.Style.LabelStyle.FirstLabelTextOffset = new UIOffset(10, 50);
+chart.ReloadData();
 ```
 
 <img src="../../images/chart-axes-types004.png"/>
@@ -178,7 +224,10 @@ You can change the label fitting mode in the following manner:
 xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeNone;
 ```
 ```Swift
-xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeNone
+xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitMode.None
+```
+```C#
+xAxis.Style.LabelStyle.FitMode = TKChartAxisLabelFitMode.None;
 ```
 
 <img src="../../images/chart-axes-types005.png"/>
@@ -187,7 +236,10 @@ xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeNone
 xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeMultiline;
 ```
 ```Swift
-xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitModeMultiline
+xAxis.style.labelStyle.fitMode = TKChartAxisLabelFitMode.Multiline
+```
+```C#
+xAxis.Style.LabelStyle.FitMode = TKChartAxisLabelFitMode.Multiline;
 ```
 
 <img src="../../images/chart-axes-types006.png"/>
@@ -211,8 +263,17 @@ xAxis.style.titleStyle.textColor = UIColor.blueColor()
 xAxis.style.titleStyle.font = UIFont.boldSystemFontOfSize(11)
 xAxis.style.titleStyle.shadowColor = UIColor.grayColor()
 xAxis.style.titleStyle.shadowOffset = CGSizeMake(2, 2)
-xAxis.style.titleStyle.alignment = TKChartAxisTitleAlignmentRightOrBottom
+xAxis.style.titleStyle.alignment = TKChartAxisTitleAlignment.RightOrBottom
 chart.reloadData()
+```
+```C#
+xAxis.Title = "X-Axis";
+xAxis.Style.TitleStyle.TextColor = UIColor.Blue;
+xAxis.Style.TitleStyle.Font = UIFont.BoldSystemFontOfSize (11);
+xAxis.Style.TitleStyle.ShadowColor = UIColor.Gray;
+xAxis.Style.TitleStyle.ShadowOffset = new SizeF (2f, 2f);
+xAxis.Style.TitleStyle.Alignment = TKChartAxisTitleAlignment.RightOrBottom;
+chart.ReloadData ();
 ```
 
 <img src="../../images/chart-axes-types007.png"/>

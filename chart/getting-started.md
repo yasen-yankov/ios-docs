@@ -42,6 +42,10 @@ Open your **ViewController.m** file and add a reference to the chart header file
 
 If you are writing Swift, add the same line in your bridging header.
 
+If you are using Xamarin, add a reference to the TelerikUI.dll and use the using directive:
+
+    using TelerikUI;
+
 Type the following code in <code>viewDidLoad</code> method:
 
 ```Objective-C
@@ -53,6 +57,11 @@ chart.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFle
 let chart = TKChart(frame: CGRectInset(self.view.bounds, 15, 15))
 chart.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
 self.view.addSubview(chart)
+```
+```C#
+var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -15, -15));
+chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+this.View.AddSubview (chart);
 ```
 
 This code creates a new instance of TKChart and adds it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the chart when the device is rotated in landscape mode.
@@ -71,6 +80,13 @@ for i in 0..<10 {
     randomNumericData.append(TKChartDataPoint(x: i, y: Double(arc4random() % 100)))
 }
 ```
+```C#
+Random r = new Random ();
+var randomNumericData = new List<TKChartDataPoint> ();
+for (int i=0; i<10; i++) {
+    randomNumericData.Add (new TKChartDataPoint (new NSNumber (i), new NSNumber (r.Next (100))));
+}
+```
 
 In this case we use the *i* variable as an x value, and we generate a random number in the range between 0 and 100 as an y value.
 
@@ -81,6 +97,9 @@ Now let's add this random data to the chart and present it. This is done by the 
 ```
 ```Swift
 chart.addSeries(TKChartLineSeries(items: randomNumericData))
+```
+```C#
+chart.AddSeries (new TKChartLineSeries (randomNumericData.ToArray ()));
 ```
 
 For more information about populating TKChart with data, please refer to the following article:
@@ -96,11 +115,15 @@ chart.title.hidden = NO;
 chart.title.text = @"This is a chart demo";
 chart.legend.hidden = NO;
 ```
-
 ```Swift
 chart.title().hidden = false
 chart.title().text = "This is a chart demo"
 chart.legend().hidden = false
+```
+```C#
+chart.Title.Hidden = false;
+chart.Title.Text = "This is a chart demo";
+chart.Legend.Hidden = false;
 ```
 
 Finally, we can easily employ the built-in animations support to create some fancy animations. To do so, we should set the <code>allowAnimations</code> property to *YES*:
@@ -110,6 +133,9 @@ chart.allowAnimations = YES;
 ```
 ```Swift
 chart.allowAnimations = true
+```
+```C#
+chart.AllowAnimations = true;
 ```
 
 For more information about customizing animations, please refer to the following articles:
@@ -175,6 +201,33 @@ class ViewController: UIViewController {
     }
 }
 ```
+```C#
+public class ChartGettingStarted: UIViewController
+{
+    public override void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -15, -15));
+        chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+        this.View.AddSubview (chart);
+
+        Random r = new Random ();
+        var randomNumericData = new List<TKChartDataPoint> ();
+        for (int i=0; i<10; i++) {
+            randomNumericData.Add (new TKChartDataPoint (new NSNumber (i), new NSNumber (r.Next (100))));
+        }
+
+        chart.AddSeries (new TKChartLineSeries (randomNumericData.ToArray ()));
+
+        chart.Title.Hidden = false;
+        chart.Title.Text = "This is a chart demo";
+        chart.Legend.Hidden = false;
+
+        chart.AllowAnimations = true;
+    }
+}
+```
 
 You can easily change the way data is presented in chart by changing the series type:
 
@@ -183,6 +236,9 @@ You can easily change the way data is presented in chart by changing the series 
 ```
 ```Swift
 chart.addSeries(TKChartColumnSeries(items: randomNumericData))
+```
+```C#
+chart.AddSeries (new TKChartColumnSeries (randomNumericData.ToArray ()));
 ```
 
 For more information about series types, please refer to the following articles:

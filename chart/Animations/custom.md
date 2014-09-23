@@ -88,6 +88,46 @@ func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState
     return group
 }
 ```
+```C#
+class ChartDelegate: TKChartDelegate
+{
+    public override MonoTouch.CoreAnimation.CAAnimation AnimationForSeries (TKChart chart, TKChartSeries series, TKChartSeriesRenderState state, RectangleF rect)
+    {
+        var duration = 0.0;
+        var animations = new List<CAAnimation> ();
+        for (int i=0; i<state.Points.Count; i++) 
+        {
+            var pointKeyPath = state.AnimationKeyPathForPointAtIndex((uint)i);
+            var keyPath = pointKeyPath + ".y";
+            var point = state.Points.ObjectAtIndex((uint)i) as TKChartVisualPoint;
+            var oldY = rect.Size.Height;
+
+            if (i > 0) {
+                var animation = new CAKeyFrameAnimation();
+                animation.KeyPath = keyPath;
+                animation.Duration = (double)(0.1 * i + 1);
+                animation.Values = new NSNumber[] { new NSNumber(oldY), new NSNumber(oldY), new NSNumber(point.Y) };
+                animation.KeyTimes = new NSNumber[] { new NSNumber(0), new NSNumber(i / (i + 1.0)), new NSNumber(1.0) };
+                animations.Add(animation);
+                duration = animation.Duration;
+            }
+            else {
+                var animation = new CABasicAnimation();
+                animation.KeyPath = keyPath;
+                animation.From = new NSNumber(oldY);
+                animation.To = new NSNumber(point.Y);
+                animation.Duration = 0.1;
+                animations.Add(animation);
+            }
+        }
+
+        var group = new CAAnimationGroup();
+        group.Duration = duration;
+        group.Animations = animations.ToArray();
+        return group;
+    }
+}
+```
 
 ## Animating Pie Series##
 
@@ -153,5 +193,40 @@ func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState
     group.duration = duration
     group.animations = animations
     return group
+}
+```
+```C#
+class ChartDelegate2: TKChartDelegate
+{
+    public override CAAnimation AnimationForSeries (TKChart chart, TKChartSeries series, TKChartSeriesRenderState state, RectangleF rect)
+    {
+        var duration = 0.0;
+        var animations = new List<CAAnimation> ();
+
+        for (int i=0; i<state.Points.Count; i++) {
+            var pointKeyPath = state.AnimationKeyPathForPointAtIndex ((uint)i);
+            var animation = new CAKeyFrameAnimation();
+            animation.KeyPath = pointKeyPath + ".distanceFromCenter";
+            animation.Values = new NSNumber[] { new NSNumber(50), new NSNumber(50), new NSNumber(0) };
+            animation.KeyTimes = new NSNumber[] { new NSNumber(0), new NSNumber(i / (i + 1.0)), new NSNumber(1) };
+            animation.Duration = 0.5 * (double)(i + 1.0);
+            animations.Add(animation);
+
+            animation = new CAKeyFrameAnimation();
+            animation.KeyPath =  new NSString(string.Format("{0}.opacity", pointKeyPath));
+            animation.Values = new NSNumber[] { new NSNumber(0), new NSNumber(0), new NSNumber(1) };
+            animation.KeyTimes = new NSNumber [] { new NSNumber(0), new NSNumber(i / (i + 1.0)), new NSNumber(1) };
+            animation.Duration = 0.5 * (double)(i + 1.0);
+            animations.Add(animation);
+
+            duration = animation.Duration;
+        }
+
+        var group = new CAAnimationGroup();
+        group.Duration = duration;
+        group.Animations = animations.ToArray();
+
+        return group;
+    }
 }
 ```

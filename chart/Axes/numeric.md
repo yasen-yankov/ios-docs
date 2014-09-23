@@ -25,6 +25,10 @@ chart.yAxis = yAxis;
 let yAxis = TKChartNumericAxis()
 chart.yAxis = yAxis;
 ```
+```C#
+var yAxis = new TKChartNumericAxis ();
+chart.YAxis = yAxis;
+```
 
 You can specify the axis range by setting the minimum and maximum indexes of categories:
 
@@ -35,6 +39,10 @@ yAxis.majorTickInterval = @25;
 ```Swift
 yAxis.range = TKRange(minimum: 0, andMaximum: 100)
 yAxis.majorTickInterval = 25
+```
+```C#
+yAxis.Range = new TKRange (new NSNumber(0), new NSNumber(100));
+yAxis.MajorTickInterval = 25;
 ```
 
 <img src="../../images/chart-axes-numeric001.png">
@@ -47,7 +55,10 @@ You can format the axis labels in percentage by setting the <code>formatTicksAsP
 yAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayModePercentage;
 ```
 ```Swift
-yAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayModePercentage
+yAxis.labelDisplayMode = TKChartNumericAxisLabelDisplayMode.Percentage
+```
+```C#
+yAxis.LabelDisplayMode = TKChartNumericAxisLabelDisplayMode.Percentage;
 ```
 
 <img src="../../images/chart-axes-numeric002.png">

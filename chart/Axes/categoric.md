@@ -43,6 +43,20 @@ for var i = 0; i < categories.count; ++i {
 let xAxis = TKChartCategoryAxis(categories: categories)
 chart.xAxis = xAxis
 ```
+```C#			
+var categories = new [] { "Greetings", "Perfecto", "NearBy", "Family Store", "Fresh & Green" };
+var values = new [] { 70, 75, 58, 59, 88 };
+var pointsWithCategoriesAndValues = new List<TKChartDataPoint> ();
+for (int i = 0; i < categories.Length; ++i) {
+	pointsWithCategoriesAndValues.Add (new TKChartDataPoint (new NSString (categories [i]), new NSNumber (values [i])));
+}
+
+List<NSString> categoryObjects = new List<NSString> ();
+for (int i = 0; i < categories.Length; i++) {
+	categoryObjects.Add (new NSString(categories[i]));
+}
+chart.XAxis = new TKChartCategoryAxis (categoryObjects.ToArray());
+```
 
 You can specify the axis range by setting the minimum and maximum indexes of categories:
 
@@ -51,6 +65,9 @@ xAxis.range = [TKRange rangeWithMinimum:@0 andMaximum:@2];
 ```
 ```Swift
 xAxis.range = TKRange(minimum: 0, andMaximum: 2)
+```
+```C#
+xAxis.Range = new TKRange (new NSNumber (0), new NSNumber (2));
 ```
 
  <img src="../../images/chart-axes-category003.png"/>
@@ -65,7 +82,10 @@ xAxis.range = TKRange(minimum: 0, andMaximum: 2)
 xAxis.plotMode = TKChartAxisPlotModeBetweenTicks;
 ```
 ```Swift
-xAxis.setPlotMode(TKChartAxisPlotModeBetweenTicks)
+xAxis.setPlotMode(TKChartAxisPlotMode.BetweenTicks)
+```
+```C#
+xAxis.PlotMode = TKChartAxisPlotMode.BetweenTicks;
 ```
 
 <img src="../../images/chart-axes-category001.png"/>
@@ -74,7 +94,10 @@ xAxis.setPlotMode(TKChartAxisPlotModeBetweenTicks)
 xAxis.plotMode = TKChartAxisPlotModeOnTicks;
 ```
 ```Swift
-xAxis.setPlotMode(TKChartAxisPlotModeOnTicks)
+xAxis.setPlotMode(TKChartAxisPlotMode.OnTicks)
+```
+```C#
+xAxis.PlotMode = TKChartAxisPlotMode.OnTicks;
 ```
 
 <img src="../../images/chart-axes-category002.png"/>

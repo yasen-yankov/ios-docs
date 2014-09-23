@@ -29,11 +29,13 @@ Working with grid style properties is easy. Here is a way to make colorful grid 
 
 ```Objective-C
 TKChartGridStyle* gridStyle = chart.gridStyle;
+
 gridStyle.verticalLineStroke = [TKStroke strokeWithColor:[UIColor blackColor]];
 gridStyle.verticalLineAlternateStroke = [TKStroke strokeWithColor:[UIColor blackColor]];
 gridStyle.verticalLinesHidden = NO;
 gridStyle.verticalFill = nil;
 gridStyle.verticalAlternateFill = nil;
+
 gridStyle.horizontalLineStroke = [TKStroke strokeWithColor:[UIColor redColor]];
 gridStyle.horizontalLineAlternateStroke = [TKStroke strokeWithColor:[UIColor blueColor]];
 gridStyle.horizontalFill = nil;
@@ -42,16 +44,33 @@ gridStyle.horizontalLinesHidden = NO;
 ```
 ```Swift
 let gridStyle = chart.gridStyle()
+
 gridStyle.verticalLineStroke = TKStroke(color: UIColor.blackColor())
 gridStyle.verticalLineAlternateStroke = TKStroke(color: UIColor.blackColor())
 gridStyle.verticalLinesHidden = false
 gridStyle.verticalFill = nil
 gridStyle.verticalAlternateFill = nil     
+
 gridStyle.horizontalLineStroke = TKStroke(color: UIColor.redColor())
 gridStyle.horizontalLineAlternateStroke = TKStroke(color: UIColor.blueColor())
 gridStyle.horizontalFill = nil
 gridStyle.horizontalAlternateFill = nil
 gridStyle.horizontalLinesHidden = false
+```
+```C#
+var gridStyle = chart.GridStyle;
+
+gridStyle.VerticalLineStroke = new TKStroke (UIColor.Black);
+gridStyle.VerticalLineAlternateStroke = new TKStroke (UIColor.Black);
+gridStyle.VerticalLinesHidden = false;
+gridStyle.VerticalFill = null;
+gridStyle.VerticalAlternateFill = null; 
+
+gridStyle.HorizontalLineStroke = new TKStroke (UIColor.Red);
+gridStyle.HorizontalLineAlternateStroke =new  TKStroke (UIColor.Blue);
+gridStyle.HorizontalFill = null;
+gridStyle.HorizontalAlternateFill = null;
+gridStyle.HorizontalLinesHidden = false;
 ```
 
 <img src="../images/chart-grid-customization001.png"/>
@@ -84,6 +103,19 @@ gridStyle.horizontalFill = nil
 gridStyle.horizontalAlternateFill = nil
 gridStyle.horizontalLinesHidden = false
 ```
+```C#
+var gridStyle = chart.GridStyle;
+
+gridStyle.VerticalLinesHidden = true;
+gridStyle.VerticalFill = null;
+gridStyle.VerticalAlternateFill = null;  
+
+gridStyle.HorizontalLineStroke = new TKStroke (UIColor.Red);
+gridStyle.HorizontalLineAlternateStroke = new TKStroke (UIColor.Blue);
+gridStyle.HorizontalFill = null;
+gridStyle.HorizontalAlternateFill = null;
+gridStyle.HorizontalLinesHidden = false;
+```
 
 <img src="../images/chart-grid-customization002.png"/>
 
@@ -115,6 +147,19 @@ gridStyle.verticalFill = nil
 gridStyle.verticalAlternateFill = nil
 gridStyle.verticalLinesHidden = true        
 ```
+```C#
+var gridStyle = chart.GridStyle;
+
+gridStyle.HorizontalLineStroke = new TKStroke (UIColor.FromWhiteAlpha(215.0f / 255.0f, 1.0f));
+gridStyle.HorizontalLineAlternateStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.HorizontalLinesHidden = false;
+gridStyle.HorizontalFill = new TKSolidFill (UIColor.FromWhiteAlpha (228.0f / 255.0f, 1.0f));
+gridStyle.HorizontalAlternateFill = new TKSolidFill (UIColor.White);
+
+gridStyle.VerticalFill = null;
+gridStyle.VerticalAlternateFill = null;
+gridStyle.VerticalLinesHidden = true;
+```
 
 <img src="../images/chart-grid-customization003.png"/>
 
@@ -133,7 +178,6 @@ gridStyle.horizontalFill = nil;
 gridStyle.horizontalAlternateFill = nil;
 gridStyle.horizontalLinesHidden = YES;
 ```
-
 ```Swift
 let gridStyle = chart.gridStyle()
 
@@ -146,6 +190,19 @@ gridStyle.verticalAlternateFill = TKSolidFill(color: UIColor.whiteColor())
 gridStyle.horizontalFill = nil
 gridStyle.horizontalAlternateFill = nil
 gridStyle.horizontalLinesHidden = true
+```
+```C#
+var gridStyle = chart.GridStyle;
+
+gridStyle.VerticalLineStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.VerticalLineAlternateStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.VerticalLinesHidden = false;
+gridStyle.VerticalFill = new TKSolidFill (UIColor.FromWhiteAlpha (228.0f / 255.0f, 1.0f));
+gridStyle.VerticalAlternateFill = new TKSolidFill (UIColor.White);
+
+gridStyle.HorizontalFill = null;
+gridStyle.HorizontalAlternateFill = null;
+gridStyle.HorizontalLinesHidden = true;
 ```
 
 <img src="../images/chart-grid-customization004.png"/>
@@ -182,6 +239,21 @@ gridStyle.verticalLinesHidden = false
 gridStyle.verticalFill = TKSolidFill(color: UIColor(red: 1.0, green: 1.0, blue:0.0 , alpha: 0.1))
 gridStyle.verticalAlternateFill = TKSolidFill(color: UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.1))
 ```
+```C#
+var gridStyle = chart.GridStyle;
+
+gridStyle.HorizontalLineStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.HorizontalLineAlternateStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.HorizontalFill = new TKSolidFill(UIColor.FromWhiteAlpha (228.0f / 255.0f, 1.0f));
+gridStyle.HorizontalAlternateFill = new TKSolidFill (UIColor.White);
+gridStyle.HorizontalLinesHidden = false;
+
+gridStyle.VerticalLineStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.VerticalLineAlternateStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.VerticalLinesHidden = false;
+gridStyle.VerticalFill = new TKSolidFill (new UIColor (1.0f, 1.0f, 0.0f, 0.1f));
+gridStyle.VerticalAlternateFill = new TKSolidFill (new UIColor (0.0f, 1.0f, 0.0f, 0.1f));
+```
 
 <img src="../images/chart-grid-customization005.png"/>
 
@@ -191,7 +263,10 @@ Note how vertical fills are transparent. This is because in default mode horizon
 gridStyle.drawOrder = TKGridDrawModeVerticalFirst;
 ```
 ```Swift
-gridStyle.drawOrder = TKChartGridDrawModeVerticalFirst
+gridStyle.drawOrder = TKChartGridDrawMode.VerticalFirst
+```
+```C#
+gridStyle.DrawOrder = TKChartGridDrawMode.VerticalFirst;
 ```
 
 <img src="../images/chart-grid-customization006.png"/>
@@ -204,6 +279,9 @@ gridStyle.backgroundFill = [TKSolidFill solidFillWithColor:[UIColor whiteColor]]
 ```Swift
 gridStyle.backgroundFill = TKSolidFill(color: UIColor.whiteColor())
 ```
+```C#
+gridStyle.BackgroundFill = new TKSolidFill (UIColor.White);
+```
 
 This will create a predictable background for the grid and plot area.
 
@@ -214,6 +292,9 @@ gridStyle.backgroundFill = [TKSolidFill solidFillWithColor:[UIColor colorWithPat
 ```
 ```Swift
 gridStyle.backgroundFill = TKSolidFill(color: UIColor(patternImage: UIImage(named: "telerk_logo")))
+```
+```C#
+gridStyle.BackgroundFill = new TKSolidFill(UIColor.FromPatternImage(new UIImage("telerk_logo.png")));
 ```
 
 <img src="../images/chart-grid-customization007.png"/>
@@ -250,7 +331,22 @@ gridStyle.verticalFill = nil
 gridStyle.verticalAlternateFill = nil
 gridStyle.verticalLinesHidden = true
 
-gridStyle.zPosition = TKChartGridZPositionAboveSeries
+gridStyle.zPosition = TKChartGridZPosition.AboveSeries
+```
+```C#
+var gridStyle = chart.GridStyle;
+
+gridStyle.HorizontalLineStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.HorizontalLineAlternateStroke = new TKStroke (UIColor.FromWhiteAlpha (215.0f / 255.0f, 1.0f));
+gridStyle.HorizontalLinesHidden = false;
+gridStyle.HorizontalFill = new TKSolidFill (UIColor.FromWhiteAlpha (228.0f / 255.0f, 1.0f));
+gridStyle.HorizontalAlternateFill = new TKSolidFill (UIColor.Clear);
+
+gridStyle.VerticalFill = null;
+gridStyle.VerticalAlternateFill = null;
+gridStyle.VerticalLinesHidden = true;
+
+gridStyle.ZPosition = TKChartGridZPosition.AboveSeries;
 ```
 
 <img src="../images/chart-grid-customization008.png"/>

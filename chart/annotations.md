@@ -26,6 +26,9 @@ TKChart provides the following types of annotations:
 ```Swift
 chart.addAnnotation(TKChartGridLineAnnotation(value: 80, forAxis: chart.yAxis))
 ```
+```C#
+chart.AddAnnotation (new TKChartGridLineAnnotation (new NSNumber (80), chart.YAxis));
+```
 
 The annotation visibility can be controlled by setting its <code>hidden</code> property.
 The annotation visual appearance can be changed by using its <code>style</code> property.
@@ -49,6 +52,10 @@ TKStroke *stroke = [TKStroke strokeWithColor:[UIColor redColor] width:0.5];
 let stroke = TKStroke(color: UIColor.redColor(), width:0.5)
 chart.addAnnotation(TKChartGridLineAnnotation(value: 80, forAxis: chart.yAxis, withStroke: stroke))
 ```
+```C#
+var stroke = new TKStroke (UIColor.Red, 0.5f);
+chart.AddAnnotation (new TKChartGridLineAnnotation (new NSNumber (80), chart.YAxis, stroke));
+```
 
 <img src="../images/chart-annotations001.png"/>
 
@@ -57,16 +64,22 @@ chart.addAnnotation(TKChartGridLineAnnotation(value: 80, forAxis: chart.yAxis, w
 The <code>TKChartBandAnnotation</code> is either horizontal or vertical strip, crossing its corresponding axis, specified by its <code>range</code> property.
 
 ```Objective-C
-  TKRange *range = [[TKRange alloc] initWithMinimum:@10 andMaximum:@40];
-  UIColor *color = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.4];
-  TKFill *fill = [TKSolidFill solidFillWithColor:color];
-  [chart addAnnotation:[[TKChartBandAnnotation alloc] initWithRange:range forAxis:chart.yAxis withFill:fill withStroke:nil]];
+TKRange *range = [[TKRange alloc] initWithMinimum:@10 andMaximum:@40];
+UIColor *color = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.4];
+TKFill *fill = [TKSolidFill solidFillWithColor:color];
+[chart addAnnotation:[[TKChartBandAnnotation alloc] initWithRange:range forAxis:chart.yAxis withFill:fill withStroke:nil]];
 ```
 ```Swift
 let range = TKRange(minimum: 10, andMaximum: 40)
-  let color = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.4)
-  let fill = TKSolidFill(color: color)
-  chart.addAnnotation(TKChartBandAnnotation(range: range, forAxis: chart.yAxis, withFill: fill, withStroke: nil))
+let color = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.4)
+let fill = TKSolidFill(color: color)
+chart.addAnnotation(TKChartBandAnnotation(range: range, forAxis: chart.yAxis, withFill: fill, withStroke: nil))
+```
+```C#
+var range = new TKRange (new NSNumber (10), new NSNumber (40));
+var color = new UIColor(1.0f, 0f, 0f, 0.4f);
+var fill = new TKSolidFill (color);
+chart.AddAnnotation(new TKChartBandAnnotation(range, chart.YAxis, fill, null));
 ```
 
 <img src="../images/chart-annotations002.png"/>
@@ -82,9 +95,11 @@ The TKChartCrossLineAnnotation is a point annotation which represents two crossi
 ```Objective-C
 [chart addAnnotation:[[TKChartCrossLineAnnotation alloc] initWithX:@900 Y:@60 forSeries:chart.series[0]]];
 ```
-
 ```Swift
 chart.addAnnotation(TKChartCrossLineAnnotation(x: 900, y: 60, forSeries: chart.series()[0] as TKChartSeries))
+```
+```C#
+chart.AddAnnotation (new TKChartCrossLineAnnotation (new NSNumber (900), new NSNumber (60), chart.Series [0]));
 ```
 
 <img src="../images/chart-annotations003.png"/>
@@ -117,6 +132,17 @@ let bottomBalloon = TKChartBalloonAnnotation(text: "bottom aligned", x: "Family 
 bottomBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentBottom
 chart.addAnnotation(bottomBalloon)
 ```
+```C#
+var leftBalloon = new TKChartBalloonAnnotation (new NSString ("NearBy"), new NSNumber (58), chart.Series [0]);
+leftBalloon.Text = "left aligned";
+leftBalloon.Style.HorizontalAlign = TKChartBalloonHorizontalAlignment.Left;
+leftBalloon.Style.VerticalAlign = TKChartBalloonVerticalAlignment.Center;
+chart.AddAnnotation (leftBalloon);
+
+var bottomBalloon = new TKChartBalloonAnnotation ("bottom aligned", new NSString ("Family Store"), new NSNumber (59), chart.Series [0]);
+bottomBalloon.Style.VerticalAlign = TKChartBalloonVerticalAlignment.Bottom;
+chart.AddAnnotation (bottomBalloon);
+```
 
 <img src="../images/chart-annotations004.png"/>
 
@@ -141,6 +167,17 @@ let balloon = TKChartBalloonAnnotation(x: "NearBy", y: 58, forSeries: chart.seri
 balloon.attributedText = attributedText
 chart.addAnnotation(balloon)
 ```
+```C#
+var paragraphStyle = NSParagraphStyle.Default.MutableCopy() as NSMutableParagraphStyle;
+paragraphStyle.Alignment = UITextAlignment.Center;
+NSMutableDictionary attributes = new NSMutableDictionary ();
+attributes.SetValueForKey (UIColor.White, UIStringAttributeKey.ForegroundColor);
+var attributedText = new NSMutableAttributedString ("Important milestone:\n $55000", attributes);
+attributedText.AddAttribute (UIStringAttributeKey.ForegroundColor, UIColor.Yellow, new NSRange (22, 6));
+var balloon = new TKChartBalloonAnnotation (new NSString ("NearBy"), new NSNumber (58), chart.Series [0]);
+balloon.AttributedText = attributedText;
+chart.AddAnnotation (balloon);
+```
 
 Almost every aspect of the balloon can be controlled by accessing the <code>style</code> property of the annotation. For example, the <code>arrowSize</code> and the <code>cornerRadius</code>:
 
@@ -153,6 +190,11 @@ balloon.style.fill = [[TKLinearGradientFill alloc] initWithColors:@[[UIColor gra
 balloon.style.arrowSize = CGSizeMake(20, 20)
 balloon.style.cornerRadius = 0
 balloon.style.fill = TKLinearGradientFill(colors: [UIColor.grayColor(), UIColor.blueColor()])
+```
+```C#
+balloon.Style.ArrowSize = new SizeF (20f, 20f);
+balloon.Style.CornerRadius = 0f;
+balloon.Style.Fill = new TKLinearGradientFill (new UIColor[] { UIColor.Gray, UIColor.Blue }, new PointF(0, 0), new PointF(1, 1));
 ```
 
 <img src="../images/chart-annotations005.png"/>
@@ -174,6 +216,13 @@ let imageView = UIImageView(image: image)
 imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height)
 imageView.alpha = 0.7
 chart.addAnnotation(TKChartViewAnnotation(view: imageView, x: "Perfecto", y: 55, forSeries: chart.series()[0] as TKChartSeries))
+```
+```C#
+var image = new UIImage ("logo.png");
+var imageView = new UIImageView (image);
+imageView.Bounds = new RectangleF (0, 0, image.Size.Width, image.Size.Height);
+imageView.Alpha = 0.7f;
+chart.AddAnnotation (new TKChartViewAnnotation (imageView, new NSString ("Perfecto"), new NSNumber (55), chart.Series [0]));
 ```
 
 <img src="../images/chart-annotations006.png"/>

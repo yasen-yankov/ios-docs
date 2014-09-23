@@ -56,3 +56,19 @@ override func viewDidAppear(animated: Bool) {
     animator.addBehavior(collisions)
 }
 ```
+```C#
+var animator = new UIDynamicAnimator (chart);
+var points = chart.VisualPointsForSeries (chart.Series [0]);
+var collisions = new UICollisionBehavior (points);
+collisions.TranslatesReferenceBoundsIntoBoundary = true;
+
+var gravity = new UIGravityBehavior (points);
+gravity.GravityDirection = new MonoTouch.CoreGraphics.CGVector(0.0f, 2.0f);
+
+var dynamic = new UIDynamicItemBehavior (points);
+dynamic.Elasticity = 0.5f;
+
+animator.AddBehavior (dynamic);
+animator.AddBehavior (gravity);
+animator.AddBehavior (collisions);
+```

@@ -17,6 +17,9 @@ chart.legend.hidden = NO;
 ```Swift
 chart.legend().hidden = false
 ```
+```C#
+chart.Legend.Hidden = false;
+```
 
 You can alter the position and offset origin of legend by setting its position:
 
@@ -24,7 +27,10 @@ You can alter the position and offset origin of legend by setting its position:
 chart.legend.style.position = TKChartLegendPositionBottom;
 ```
 ```Swift
-chart.legend().style.position = TKChartLegendPositionBottom
+chart.legend().style.position = TKChartLegendPosition.Bottom
+```
+```C#
+chart.Legend.Style.Position = TKChartLegendPosition.Bottom;
 ```
 
 <img src="../images/chart-legend001.png"/>
@@ -39,9 +45,14 @@ chart.legend.style.offsetOrigin = TKChartLegendOffsetOriginTopLeft;
 chart.legend.style.offset = UIOffsetMake(10, 10);
 ```
 ```Swift
-chart.legend().style.position = TKChartLegendPositionFloating
-chart.legend().style.offsetOrigin = TKChartLegendOffsetOriginTopLeft
+chart.legend().style.position = TKChartLegendPosition.Floating
+chart.legend().style.offsetOrigin = TKChartLegendOffsetOrigin.TopLeft
 chart.legend().style.offset = UIOffsetMake(10, 10)
+```
+```C#
+chart.Legend.Style.Position = TKChartLegendPosition.Floating;
+chart.Legend.Style.OffsetOrigin = TKChartLegendOffsetOrigin.TopLeft;
+chart.Legend.Style.Offset = new UIOffset(10, 10);
 ```
 
 <img src="../images/chart-legend002.png"/>
@@ -57,6 +68,10 @@ chart.legend.showTitle = YES;
 ```Swift
 chart.legend().titleLabel.text = "Companies"
 chart.legend().showTitle = true
+```
+```C#
+chart.Legend.TitleLabel.Text = "Companies";
+chart.Legend.ShowTitle = true;
 ```
 
 <img src="../images/chart-legend003.png"/>
@@ -86,6 +101,12 @@ let legendView = TKChartLegendView(chart: chart)
 legendView.frame = CGRectMake(20, 20, 320, 100)
 self.view.addSubview(legendView)
 legendView.reloadItems()
+```
+```C#
+var legendView = new TKChartLegendView (chart);
+legendView.Frame = new RectangleF (20, 20, 320, 100);
+this.View.AddSubview(legendView);
+legendView.ReloadItems ();
 ```
 
 <img src="../images/chart-legend004.png"/>

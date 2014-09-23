@@ -25,6 +25,9 @@ TKSolidFill *fill = [[TKSolidFill alloc] initWithColor:[UIColor redColor]];
 ```Swift
 let fill = TKSolidFill(color: UIColor.redColor())
 ```
+```C#
+var fill = new TKSolidFill (UIColor.Red);
+```
 
 or a shorter form in Objective C:
 
@@ -44,6 +47,9 @@ TKSolidFill *fill = [TKSolidFill solidFillWithColor:[UIColor redColor] cornerRad
 ```Swift
 let fill = TKSolidFill(color: UIColor.redColor(), cornerRadius: 5.0)
 ```
+```C#
+var fill = new TKSolidFill (UIColor.Red, 5.0f);
+```
 
 This results in columns looking like this:
 
@@ -58,6 +64,10 @@ fill.corners = UIRectCornerTopLeft | UIRectCornerBottomRight;
 ```Swift
 let fill = TKSolidFill(color: UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.5), cornerRadius: 8.0)
 fill.corners = UIRectCorner.TopLeft | UIRectCorner.BottomRight
+```
+```C#
+var fill = new TKSolidFill (new UIColor (1.0f, 0.0f, 0.0f, 0.5f), 8.0f);
+fill.Corners = UIRectCorner.TopLeft | UIRectCorner.BottomRight;
 ```
 
 There you get:
@@ -81,6 +91,15 @@ let fill = TKLinearGradientFill(colors: [UIColor(red: 0.0, green: 1.0, blue: 0.0
         UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.6),
         UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.6)])
 ```
+```C#
+var fill = new TKLinearGradientFill (new UIColor[] {
+    new UIColor (0.0f, 1.0f, 0.0f, 0.6f),
+    new UIColor (1.0f, 0.0f, 0.0f, 0.6f),
+    new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
+}, 
+    new PointF(0, 0), 
+    new PointF(1, 1));
+```
 
 <img src="../images/chart-custom-drawing004.png"/>
 
@@ -102,6 +121,16 @@ let fill = TKLinearGradientFill(colors: [UIColor(red: 0.0, green: 1.0, blue: 0.0
         locations: [0.6, 0.8, 1.0],
         startPoint: CGPointMake(0, 0),
         endPoint: CGPointMake(1, 1))
+```
+```C#
+var fill = new TKLinearGradientFill (new UIColor[] {
+    new UIColor (0.0f, 1.0f, 0.0f, 0.6f),
+    new UIColor (1.0f, 0.0f, 0.0f, 0.6f),
+    new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
+},
+    new NSObject[] { new NSNumber(0.6), new NSNumber(0.8), new NSNumber(1.0) },
+    new PointF(0, 0), 
+    new PointF(1, 1));
 ```
 
 Warning: All coordinates for locations, startPoint and endPoint parameters are relative to the size of drawing surface. The values of locations array must be monotonically increasing.
@@ -130,7 +159,18 @@ let fill = TKRadialGradientFill(
         startRadius: 0.7,
         endCenter: CGPointMake(0, 1),
         endRadius: 0.3,
-        radiusType: TKGradientRadiusTypeRectMax)
+        radiusType: TKGradientRadiusType.RectMax)
+```
+```C#
+var fill = new TKRadialGradientFill (new UIColor[] { 
+    new UIColor (0.0f, 1.0f, 0.0f, 0.7f),
+    new UIColor (1.0f, 0.0f, 0.0f, 0.0f) 
+},
+    new PointF (0.5f, 0.5f),
+    0.7f,
+    new PointF (0, 1),
+    0.3f,
+    TKGradientRadiusType.RectMax);
 ```
 
 The resulting ghost column chart looks like this:
@@ -149,6 +189,10 @@ fill.resizingMode = TKImageFillResizingModeTile;
 let fill = TKImageFill(image: UIImage(named: "pattern1"), cornerRadius: 4.0)
 fill.resizingMode = TKImageFillResizingModeTile
 ```
+```C#
+var fill = new TKImageFill (new UIImage ("pattern1.png"), 4.0f);
+fill.ResizingMode = TKImageFillResizingMode.Tile;
+```
 
 <img src="../images/chart-custom-drawing007.png"/>
 
@@ -165,6 +209,9 @@ TKImageFill *fill = [TKImageFill imageFillWithImage:[UIImage imageNamed:@"buildi
 ```Swift
 let fill = TKImageFill(image: UIImage(named: "building1"), cornerRadius: 4.0)
 ```
+```C#
+var fill = new TKImageFill (new UIImage ("building1.png"), 4.0f);
+```
 
 <img src="../images/chart-custom-drawing009.png"/>
 
@@ -178,6 +225,11 @@ fill.resizingMode = TKImageFillResizingModeNone;
 ```Swift
 let fill = TKImageFill(image: UIImage(named: "pattern2").resizableImageWithCapInsets(UIEdgeInsetsMake(10, 10, 10, 10)))
 fill.resizingMode = TKImageFillResizingModeNone
+```
+```C#
+UIImage image = new UIImage ("pattern2.png");
+var fill = new TKImageFill (image.CreateResizableImage (new UIEdgeInsets (10, 10, 10, 10)));
+fill.ResizingMode = TKImageFillResizingMode.None;
 ```
 
 <img src="../images/chart-custom-drawing010.png"/>
@@ -193,6 +245,9 @@ TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor]];
 ```Swift
 let stroke = TKStroke(color: UIColor.blueColor())
 ```
+```C#
+var stroke = new TKStroke (UIColor.Blue);
+```
 
 With rounded corners:
 
@@ -201,6 +256,10 @@ TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blueColor] width:1.f corne
 ```
 ```Swift
 let stroke = TKStroke(color: UIColor.blueColor(), width: 1.0, cornerRadius: 5.0)
+```
+```c#
+var stroke = new TKStroke (UIColor.Blue, 1.0f);
+stroke.CornerRadius = 5.0f;
 ```
 
 With dash pattern:
@@ -212,6 +271,11 @@ stroke.dashPattern = @[@2, @2, @5, @2];
 ```Swift
 let stroke = TKStroke(color: UIColor.blueColor(), width: 1.0, cornerRadius: 5.0)
 stroke.dashPattern = [2, 2, 5, 2]
+```
+```C#
+var stroke = new TKStroke (UIColor.Blue, 1.0f);
+stroke.CornerRadius = 5.0f;
+stroke.DashPattern = new NSNumber[] { new NSNumber(2), new NSNumber(2), new NSNumber(5), new NSNumber(2) };
 ```
 
 You can fill a stroke with a gradient:
@@ -228,6 +292,15 @@ let fill = TKLinearGradientFill(colors: [UIColor(red: 0.0, green: 1.0, blue: 0.0
         UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.6),
         UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.6)])
 let stroke = TKStroke(fill: fill, width: 1.0, cornerRadius: 5.0)
+```
+```C#
+var fill = new TKLinearGradientFill (new UIColor[] {
+    new UIColor (0.0f, 1.0f, 0.0f, 0.6f),
+    new UIColor (1.0f, 0.0f, 0.0f, 0.6f),
+    new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
+}, new PointF(0, 0), new PointF(1, 1));
+var stroke = new TKStroke (fill, 1.0f);
+stroke.CornerRadius = 5.0f;
 ```
 
 Or combine most of it in one place:
@@ -250,6 +323,17 @@ let stroke = TKStroke(fill: fill, width: 1.0, cornerRadius: 5.0)
 stroke.dashPattern = [2, 2, 5, 2]
 stroke.corners = UIRectCorner.TopRight | UIRectCorner.BottomLeft
 ```
+```C#
+var fill = new TKLinearGradientFill(new UIColor[] {
+    new UIColor (0.0f, 1.0f, 0.0f, 0.6f),
+    new UIColor (1.0f, 0.0f, 0.0f, 0.6f),
+    new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
+}, new PointF(0, 0), new PointF(1, 1));
+var stroke = new TKStroke (fill, 1.0f);
+stroke.CornerRadius = 5.0f;
+stroke.DashPattern = new NSNumber[] { new NSNumber(2), new NSNumber(2), new NSNumber(5), new NSNumber(2) };
+stroke.Corners = UIRectCorner.TopRight | UIRectCorner.BottomLeft;
+```
 
 And here is the result of all samples:
 
@@ -269,6 +353,9 @@ series.style.palette = [TKChartPalette new];
 ```Swift
 series.style.palette = TKChartPalette()
 ```
+```C#
+series.Style.Palette = new TKChartPalette();
+```
 
 </code>TKChartPalette</code> is a collection of <code>TKChartPaletteItem</code> instances. Every item contains information about drawing the item at its index. By default, a palette item index addresses the order in which you add series. For example, you may have a palette with red and blue fills and two <code>TKChartColumnSeries</code> using this palette. The first series you add will be red and the second blue. However, <code>TKChartPieSeries</code> by default uses another mode when every palette item is used to display a data point at its index. You can explicitly set how you distribute a palette items using:
 
@@ -276,7 +363,10 @@ series.style.palette = TKChartPalette()
 series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
 ```
 ```Swift
-series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex
+series.style.paletteMode = TKChartSeriesStylePaletteMode.UseItemIndex
+```
+```C#
+series.Style.PaletteMode = TKChartSeriesStylePaletteMode.UseItemIndex;
 ```
 
 or
@@ -285,7 +375,10 @@ or
 series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex; 
 ```
 ```Swift
-series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex
+series.style.paletteMode = TKChartSeriesStylePaletteMode.UseSeriesIndex
+```
+```C#
+series.Style.PaletteMode = TKChartSeriesStylePaletteMode.UseSeriesIndex;
 ```
 
 Whenever <code>TKChartPalette</code> runs out of colors (because there are more series or more data points than <code>TKChartPaletteItem</code> items inside) it starts over effectively cycling through its items.
@@ -322,8 +415,24 @@ series.style.palette.addPaletteItem(TKChartPaletteItem(fill: blueFill))
 let greenFill = TKSolidFill(color: UIColor.greenColor())
 series.style.palette.addPaletteItem(TKChartPaletteItem(fill: greenFill))
 
-series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex
+series.style.paletteMode = TKChartSeriesStylePaletteMode.UseItemIndex
 chart.addSeries(series)
+```
+```C#
+var series = new TKChartColumnSeries (gdpInPoundsPoints.ToArray());
+series.Style.Palette = new TKChartPalette ();
+
+var redFill = new TKSolidFill (UIColor.Red);
+series.Style.Palette.AddPaletteItem (new TKChartPaletteItem (redFill));
+
+var blueFill = new TKSolidFill (UIColor.Blue);
+series.Style.Palette.AddPaletteItem (new TKChartPaletteItem (blueFill));
+
+var greenFill = new TKSolidFill (UIColor.Green);
+series.Style.Palette.AddPaletteItem (new TKChartPaletteItem (greenFill));
+
+series.Style.PaletteMode = TKChartSeriesStylePaletteMode.UseItemIndex;
+chart.AddSeries (series);
 ```
 
 As you see we are using <code>TKChartSeriesStylePaletteModeUseItemIndex</code> palette mode and the result is:
@@ -336,7 +445,10 @@ Here the palette items are used to color the different data points. Since palett
 series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
 ```
 ```Swift
-series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex
+series.style.paletteMode = TKChartSeriesStylePaletteMode.UseItemIndex
+```
+```C#
+series.Style.PaletteMode = TKChartSeriesStylePaletteMode.UseItemIndex;
 ```
 
 or change it to:
@@ -345,7 +457,10 @@ or change it to:
 series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex;
 ```
 ```Swift
-series.style.paletteMode = TKChartSeriesStylePaletteModeUseSeriesIndex
+series.style.paletteMode = TKChartSeriesStylePaletteMode.UseSeriesIndex
+```
+```C#
+series.Style.PaletteMode = TKChartSeriesStylePaletteMode.UseSeriesIndex;
 ```
 
 you will get:
@@ -374,6 +489,11 @@ let paletteItem1 = TKChartPaletteItem(fill: TKSolidFill(color: UIColor.redColor(
 let paletteItem2 = TKChartPaletteItem(stroke: TKStroke(color: UIColor.blueColor()))
 let plaetteItem3 = TKChartPaletteItem(stroke: TKStroke(color: UIColor.blueColor()), andFill: TKSolidFill(color: UIColor.redColor()))
 ```
+```C#
+var paletteItem1 = new TKChartPaletteItem (new TKSolidFill (UIColor.Red));
+var paletteItem2 = new TKChartPaletteItem(new TKStroke(UIColor.Blue));
+var plaetteItem3 = new TKChartPaletteItem(new TKStroke(UIColor.Blue), new TKSolidFill(UIColor.Red));
+```
 
 then you can add an item to a palette using code like:
 
@@ -382,6 +502,9 @@ then you can add an item to a palette using code like:
 ```
 ```Swift
 series.style.palette.addPaletteItem(paletteItem1)
+```
+```C#
+series.Style.Palette.AddPaletteItem (paletteItem1);
 ```
 
 When you initialize a palette item with stroke and fill the stroke is always drawn last.
@@ -404,6 +527,16 @@ stroke1.insets = UIEdgeInsetsMake(1, 1, 1, 1)
 let stroke2 = TKStroke(color: UIColor.blackColor(), width: 1.0, cornerRadius: 2.0)
 series.style.palette.addPaletteItem(TKChartPaletteItem(drawables: [redFill, stroke1, stroke2]))
 ```
+```C#
+series.Style.Palette = new TKChartPalette ();
+var redFill = new TKSolidFill (UIColor.Red, 2.0f);
+var stroke1 = new TKStroke (UIColor.Yellow, 1.0f);
+stroke1.CornerRadius = 2.0f;
+stroke1.Insets = new UIEdgeInsets (1, 1, 1, 1);
+var stroke2 = new TKStroke (UIColor.Black, 1.0f);
+stroke2.CornerRadius = 2.0f;
+series.Style.Palette.AddPaletteItem(new TKChartPaletteItem(new TKDrawing[] { redFill, stroke1, stroke2 }));
+```
 
 here you create a palette item with red fill and two borders. The sample also shows another powerful feature: insets. Insets can be applied to both fills and strokes. Here is the final result:
 
@@ -425,7 +558,10 @@ here you create a palette item with red fill and two borders. The sample also sh
 series.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeRhombus andSize:CGSizeMake(15.f, 15.f)];
 ```
 ```Swift
-series.style.pointShape = TKPredefinedShape(type: TKShapeTypeRhombus, andSize: CGSizeMake(15, 15))
+series.style.pointShape = TKPredefinedShape(type: TKShapeType.Rhombus, andSize: CGSizeMake(15, 15))
+```
+```C#
+series.Style.PointShape = new TKPredefinedShape (TKShapeType.Rhombus, new SizeF (15, 15));
 ```
 
 series.style.pointShape also applies to line and area series in case you need to show shapes on data points.
@@ -433,6 +569,5 @@ series.style.pointShape also applies to line and area series in case you need to
 ### Customizing pie series###
 
 TKChartPieSeries always use <code>series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;</code> If you have strokes with insets, only insets.top value will be used and will be applied relatively to the outer radius of the pie chart slices.
-
 
 @warning Customization is a very powerful feature of TKChart. However, we recommend using that feature at an acceptable rate. Using too many fills and strokes may affect performance. Combining all features like a dashed stroke with gradient plus several semi transparent fills will draw much slower than a simple solid color fill.
