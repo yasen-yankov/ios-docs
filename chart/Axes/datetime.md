@@ -77,7 +77,15 @@ var date2003 = this.DateWithYear (2003, 12, 31);
 periodXAxis.Range = new TKRange(date2001, date2003);
 ```
 
-You can define the axis categories to be years by changing the interval unit property:
+You can define the axis categories by changing the interval unit property to one of the following values:
+*TKChartDateTimeAxisIntervalUnitSeconds* - The majorTickInterval is measured in seconds.
+*TKChartDateTimeAxisIntervalUnitMinutes* - The majorTickInterval is measured in minutes.
+*TKChartDateTimeAxisIntervalUnitHours* - The majorTickInterval is measured in hours.
+*TKChartDateTimeAxisIntervalUnitDays* - The majorTickInterval is measured in days.
+*TKChartDateTimeAxisIntervalUnitWeeks* - The majorTickInterval is measured in weeks.
+*TKChartDateTimeAxisIntervalUnitMonths*  - The majorTickInterval is measured in months.
+*TKChartDateTimeAxisIntervalUnitYears* - The majorTickInterval is measured in years.
+*TKChartDateTimeAxisIntervalUnitCustom* - The majorTickInterval is measured in ticks.
 
 ```Objective-C
 periodXAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnitYears;
