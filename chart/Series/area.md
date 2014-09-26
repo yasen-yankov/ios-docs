@@ -44,8 +44,8 @@ for var i = 0; i < categories.count; ++i {
     pointsWithCategoriesAndValues2.append(TKChartDataPoint(x: categories[i], y: values2[i]))
 }
 
-chart.addSeries(TKChartAreaSeries(pointsWithCategoriesAndValues))
-chart.addSeries(TKChartAreaSeries(pointsWithCategoriesAndValues2))
+chart.addSeries(TKChartAreaSeries(items:pointsWithCategoriesAndValues))
+chart.addSeries(TKChartAreaSeries(items:pointsWithCategoriesAndValues2))
 ```
 ```C#
 var pointsWithCategoriesAndValues = new List<TKChartDataPoint> ();
