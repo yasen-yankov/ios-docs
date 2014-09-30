@@ -42,6 +42,19 @@ lineSeries.style.pointLabelStyle.shadowColor = UIColor.blackColor()
 lineSeries.style.pointLabelStyle.shadowOffset = CGSizeMake(2, 1)
 ```
 ```C#
+lineSeries.Style.PointLabelStyle.TextHidden = false;
+lineSeries.Style.PointLabelStyle.LayoutMode = TKChartPointLabelLayoutMode.Manual;
+lineSeries.Style.PointLabelStyle.LabelOffset = new UIOffset (0, -20);
+lineSeries.Style.PointLabelStyle.Insets = new UIEdgeInsets (-1, -5, -1, -5);
+lineSeries.Style.PointLabelStyle.Font = UIFont.SystemFontOfSize (10);
+lineSeries.Style.PointLabelStyle.TextAlignment = UITextAlignment.Center;
+lineSeries.Style.PointLabelStyle.ClipMode = TKChartPointLabelClipMode.Visible;
+lineSeries.Style.PointLabelStyle.TextColor = UIColor.White;
+lineSeries.Style.PointLabelStyle.Fill = new TKSolidFill (new UIColor (108f / 255f, 181f / 255f, 205f / 255f, 1f));
+lineSeries.Style.PointLabelStyle.Stroke = new TKStroke (UIColor.Black);
+lineSeries.Style.PointLabelStyle.BlurRadius = 1.5f;
+lineSeries.Style.PointLabelStyle.ShadowColor = UIColor.Black;
+lineSeries.Style.PointLabelStyle.ShadowOffset = new SizeF (2, 1);
 ```
 
 <img src="../../images/chart-point-labels-customization001.png" />
@@ -70,6 +83,15 @@ func chart(chart: TKChart!, labelForDataPoint dataPoint: TKChartData!, inSeries 
 }
 ```
 ```C#
+public override TKChartPointLabel LabelForDataPoint (TKChart chart, TKChartData dataPoint, TKChartSeries series, uint dataIndex)
+			{
+				TKChartDataPoint point = (TKChartDataPoint)dataPoint;
+				if (series.Index == selectedSeriesIndex && dataIndex == selectedDataPointIndex) {
+					return new MyPointLabel (dataPoint, series.Style.PointLabelStyle, String.Format ("{0}", point.DataYValue));
+				}
+
+				return new TKChartPointLabel (dataPoint, series.Style.PointLabelStyle, String.Format ("{0}", point.DataXValue));
+			}
 ```
 
 <img src="../../images/chart-point-labels-customization002.png" />
