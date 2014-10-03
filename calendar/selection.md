@@ -36,6 +36,12 @@ func calendar(calendar: TKCalendar!, didSelectDate date: NSDate!) {
     // Here you can perform the desired action when the selection is changed.
 }
 ```
+```C#
+public override void DidSelectDate (TKCalendar calendar, NSDate date)
+{
+	// Here you can perform the desired action when the selection is changed.
+}
+```
 
 You can prevent <code>TKCalendar</code> from selecting specific date by handling the <code>calendar:shouldSelectDate:</code>
 
@@ -53,6 +59,12 @@ func calendar(calendar: TKCalendar!, shouldSelectDate date: NSDate!) -> Bool {
     return TKCalendar.isDate(NSDate(), equalToDate: date, withComponents: NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit, withCalendar: self.calendarView.calendar)
 }
 ```
+```C#
+public override bool ShouldSelectDate (TKCalendar calendar, NSDate date)
+{
+	return !TKCalendar.IsDate (NSDate.Now, date, NSCalendarUnit.Day | NSCalendarUnit.Month | NSCalendarUnit.Year, calendar.Calendar);
+}
+```
 
 Furthermore, the <code>calendar:didDeselectDate:</code> is called when using multiple selection to notify for unselected dates:
 
@@ -65,5 +77,11 @@ Furthermore, the <code>calendar:didDeselectDate:</code> is called when using mul
 ```Swift
 func calendar(calendar: TKCalendar!, didDeselectedDate date: NSDate!) {
     NSLog("deselected: %@", date)
+}
+```
+```C#
+public override void DidDeselectedDate (TKCalendar calendar, NSDate date)
+{
+	Console.WriteLine (String.Format ("deselected: {0}", date));
 }
 ```

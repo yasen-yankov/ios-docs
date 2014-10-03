@@ -26,7 +26,11 @@ presenter.columns = 3;
 ```
 ```Swift
 let presenter: TKCalendarYearPresenter = calendarView.presenter() as TKCalendarYearPresenter
-    presenter.columns = 3
+presenter.columns = 3
+```
+```C#
+TKCalendarYearPresenter presenter = (TKCalendarYearPresenter)calendarView.Presenter;
+presenter.Columns = 3;
 ```
 
 You can determine whether a view change occurred by implementing <code>TKCalendarDelegate</code> protocol:
@@ -42,6 +46,12 @@ func calendar(calendar: TKCalendar!, didChangedViewModeFrom previousViewMode: TK
     // Here you can perform the desired action when the selection is changed
 }
 ```
+```C#
+public override void DidChangedViewModeFrom (TKCalendar calendar, TKCalendarViewMode previousViewMode, TKCalendarViewMode viewMode)
+{
+	// Here you can perform the desired action when the selection is changed.
+}
+```
 
 ## Single month view mode ##
 
@@ -55,6 +65,9 @@ calendarView.viewMode = TKCalendarViewModeMonth;
 ```Swift
 calendarView.viewMode = TKCalendarViewModeMonth
 ```
+```C#
+calendarView.ViewMode = TKCalendarViewMode.Month;
+```
 
 In this mode <code>TKCalendar</code> renders a single month and allows switching to a different month with a swipe gesture. This transition can be customized with different transition effects. More about this is available in this help article: [Transition effects](view-transitions)
 
@@ -65,6 +78,9 @@ calendarView.allowPinchZoom = YES;
 ```
 ```Swift
 calendarView.allowPinchZoom = true
+```
+```C#
+calendarView.AllowPinchZoom = true;
 ```
 
 Dates can be selected according to the <code>selectionMode</code> property. Details about selection are available in the dedicated help article about selection: [Selection](selection)
@@ -85,6 +101,12 @@ monthPresenter.style().rowSpacing = 2
 monthPresenter.style().columnSpacing = 2
 monthPresenter.titleHidden = true
 ```
+```C#
+TKCalendarMonthPresenter monthPresenter = (TKCalendarMonthPresenter)calendarView.Presenter;
+monthPresenter.Style.RowSpacing = 2;
+monthPresenter.Style.ColumnSpacing = 2;
+monthPresenter.TitleHidden = true;
+```
 
 ## Single week view mode ##
 
@@ -97,6 +119,9 @@ calendarView.viewMode = TKCalendarViewModeWeek;
 ```
 ```Swift
 calendarView.viewMode = TKCalendarViewModeWeek
+```
+```C#
+calendarView.ViewMode = TKCalendarViewMode.Week;
 ```
 
 This view mode is similar to the previous one, but it displays only one week. The presenter class for this view mode is <code>TKCalendarWeekPresenter</code>, it inherits from <code>TKCalendarMonthPresenter</code> and allows the same customization and behavior features.
@@ -112,6 +137,9 @@ calendarView.viewMode = TKCalendarViewModeYear;
 ```
 ```Swift
 calendarView.viewMode = TKCalendarViewModeYear
+```
+```C#
+calendarView.ViewMode = TKCalendarViewMode.Year;
 ```
 
 This view mode displays a list of years with their months and dates. The user can select months by tapping on them.
@@ -130,6 +158,9 @@ calendarView.viewMode = TKCalendarViewModeMonthNames;
 ```Swift
 calendarView.viewMode = TKCalendarViewModeMonthNames
 ```
+```C#
+calendarView.ViewMode = TKCalendarViewMode.MonthNames;
+```
 
 The month names view is used together with the month view mode when the <code>allowPinchZoom</code> option is turned on. It allows for selecting a different month faster. Use pinch-in/out gesture to switch between single month/year numbers view mode.
 
@@ -147,6 +178,9 @@ calendarView.viewMode = TKCalendarViewModeYearNumbers;
 ```Swift
 calendarView.viewMode = TKCalendarViewModeYearNumbers
 ```
+```C#
+calendarView.ViewMode = TKCalendarViewMode.YearNumbers;
+```
 
 The year numbers view is used together with the month view mode when the <code>allowPinchZoom</code> option is turned on. It allows for selecting a different year faster.
 
@@ -163,6 +197,9 @@ calendarView.viewMode = TKCalendarViewModeFlow;
 ```
 ```Swift
 calendarView.viewMode = TKCalendarViewModeFlow
+```
+```C#
+calendarView.ViewMode = TKCalendarViewMode.Flow;
 ```
 
 The flow view displays months with single dates. Single cells are represented by the <code>TKCalendarCell</code> class and allow customization by handling the <code>calendar:viewForCellOfKind</code> method.
@@ -186,6 +223,10 @@ TKCalendarYearViewController *controller = [TKCalendarYearViewController new];
 let controller = TKCalendarYearViewController()
 self.navigationController?.pushViewController(controller, animated: true)
 ```
+```C#
+TKCalendarYearViewController controller = new TKCalendarYearViewController ();
+this.NavigationController.PushViewController (controller, true);
+```
 
 The <code>contentView</code> property of <code>TKCalendarYearViewController</code> contains the presented <code>TKCalendar</code> object instance. Use its properties and methods to customize the calendar. For example, the following code navigates to the current date:
 
@@ -194,4 +235,7 @@ The <code>contentView</code> property of <code>TKCalendarYearViewController</cod
 ```
 ```Swift
 controller.contentView().navigateToDate(NSDate(), animated: false)
+```
+```C#
+controller.ContentView.NavigateToDate (NSDate.Now, false);
 ```

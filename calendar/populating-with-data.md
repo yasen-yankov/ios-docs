@@ -35,6 +35,26 @@ func calendar(calendar: TKCalendar!, eventsForDate date: NSDate!) -> [AnyObject]
     return self.evets.filteredArrayUsingPredicate(predicate)
 }
 ```
+```C#
+public override TKCalendarEvent[] EventsForDate (TKCalendar calendar, NSDate date)
+{
+	NSDateComponents components = calendar.Calendar.Components (NSCalendarUnit.Year | NSCalendarUnit.Month | NSCalendarUnit.Day, date);
+	components.Hour = 23;
+	components.Minute = 59;
+	components.Second = 59;
+	NSDate endDate = calendar.Calendar.DateFromComponents (components);
+	List<TKCalendarEvent> filteredEvents = new List<TKCalendarEvent> ();
+	for (int i = 0; i < this.main.Events.Count; i++) {
+		TKCalendarEvent ev = this.main.Events [i];
+		if (ev.StartDate.SecondsSinceReferenceDate <= endDate.SecondsSinceReferenceDate && 
+			ev.EndDate.SecondsSinceReferenceDate >= date.SecondsSinceReferenceDate) {
+			filteredEvents.Add (ev);
+		}
+	}
+
+	return filteredEvents.ToArray ();
+}
+```
 
 In most cases <code>TKCalendar</code> accesses events stored on the device where the application executes. In this scenario the *EventKit* framework should be used. <code>TKCalendar</code> provides a helper data source class which loads the events from device by using the *EventKit API*.
 
@@ -71,6 +91,10 @@ class ViewController: UIViewController, TKCalendarEventKitDataSourceDelegate
 //..
 dataSource.delegate = self
 ```
+```C#
+//..
+dataSource.Delegate = new EventKitDataSourceDelegate ();
+```
 
 In order to import only events from calendars local for the device, handle the <code>shouldImportEventsFromCalendar:</code> method:
 
@@ -80,6 +104,25 @@ In order to import only events from calendars local for the device, handle the <
 	if (calendar.type == EKCalendarTypeLocal)
     	return YES;
     return NO;
+}
+```
+```Swift
+func shouldImportEventsFromCalendar(calendar: EKCalendar!) -> Bool {
+    var a = calendar.type
+    if calendar.type.value == EKCalendarTypeLocal.value {
+        return true
+    }
+    return false
+}
+```
+```C#
+public override bool ShouldImportEventsFromCalendar (MonoTouch.EventKit.EKCalendar calendar)
+{
+	if (calendar.Type == EKCalendarType.Local) {
+		return true;
+	}
+
+	return false;
 }
 ```
 

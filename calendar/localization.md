@@ -23,6 +23,12 @@ calendar.firstWeekday = 2
 let calendarView = TKCalendar(frame: self.view.bounds)
 calendarView.calendar = calendar
 ```
+```C#
+NSCalendar calendar = new NSCalendar (NSCalendarType.Gregorian);
+calendar.FirstWeekDay = 2;
+TKCalendar calendarView = new TKCalendar (this.View.Bounds);
+calendarView.Calendar = calendar;
+```
 
 <img src="../images/calendar-localization002.png"/>
 
@@ -34,6 +40,9 @@ calendarView.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSChinese
 ```Swift
 calendarView.calendar = NSCalendar(calendarIdentifier: NSChineseCalendar)
 ```
+```C#
+calendarView.Calendar = new NSCalendar (NSCalendarType.Chinese);
+```
 
 Month names and week day names are provided by the <code>locale</code> property. Use the following code to customize the current locale:
 
@@ -43,6 +52,9 @@ calendarView.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
 ```Swift
 calendarView.locale = NSLocale(localeIdentifier: "ru_RU")
 ```
+```C#
+calendarView.Locale = new NSLocale ("ru_RU");
+```
 
 After modifying the locale you should call the <code>update:</code> method for the presenter:
 
@@ -51,6 +63,9 @@ After modifying the locale you should call the <code>update:</code> method for t
 ```
 ```Swift
 calendarView.presenter().update(false)
+```
+```C#
+calendarView.Presenter.Update (false);
 ```
 
 <img src="../images/calendar-localization003.png"/>

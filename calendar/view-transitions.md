@@ -20,6 +20,10 @@ presenter.transitionMode = TKCalendarTransitionModeFold;
 let presenter = calendarView.presenter() as TKCalendarMonthPresenter
 presenter.transitionMode = TKCalendarTransitionModeFold
 ```
+```C#
+TKCalendarMonthPresenter presenter = (TKCalendarMonthPresenter)calendarView.Presenter;
+presenter.TransitionMode = TKCalendarTransitionMode.Fold;
+```
 
 The following options can be applied on transitions:
 
@@ -31,6 +35,9 @@ presenter.transitionIsVertical = YES;
 ```Swift
 presenter.transitionIsVertical = true
 ```
+```C#
+presenter.TransitionIsVertical = true;
+```
 
 The <code>transitionIsReverse</code> changes the forward/backward direction of the transition, thus changing its effect.
 
@@ -40,6 +47,9 @@ presenter.transitionIsReverse = YES;
 ```Swift
 presenter.transitionIsReverse = true
 ```
+```C#
+presenter.TransitionIsReverse = true;
+```
 
 Finally the transition duration can be customized by setting the <code>transitionDuration</code> property:
 
@@ -48,4 +58,7 @@ presenter.transitionDuration = 2.;
 ```
 ```Swift
 presenter.transitionDuration = 2.0
+```
+```C#
+presenter.TransitionDuration = 2.0;
 ```

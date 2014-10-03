@@ -16,6 +16,9 @@ There are two methods in <code>TKCalendar</code> used to navigate forward/backwa
 ```Swift
 calendarView.navigateForward(false)
 ```
+```C#
+calendarView.NavigateForward (false);
+```
 
 The calendar will not allow navigating to a date outside of the allowed period, specified by the <code>minDate</code> and <code>maxDate</code> properties:
 
@@ -27,6 +30,10 @@ calendarView.maxDate = maxDate;
 calendarView.minDate = minDate
 calendarView.maxDate = maxDate
 ```
+```C#
+calendarView.MinDate = minDate;
+calendarView.MaxDate = maxDate;;
+```
 
 The <code>navigateToDate:animated:</code> method is used to navigate to specific date within the allowed period:
 
@@ -35,6 +42,9 @@ The <code>navigateToDate:animated:</code> method is used to navigate to specific
 ```
 ```Swift
 calendarView.navigateToDate(NSDate(), animated: true)
+```
+```C#
+calendarView.NavigateToDate (NSDate.Now, true);
 ```
 
 You can determine whether a navigation occurred by implementing <code>TKCalendarDelegate</code> protocol:
@@ -50,6 +60,12 @@ func calendar(calendar: TKCalendar!, didNavigateToDate date: NSDate!) {
     // Here you can perform the desired action when navigation occured
 }
 ```
+```C#
+public override void DidNavigateToDate (TKCalendar calendar, NSDate date)
+{
+	// Here you can perform the desired action when navigation occured
+}
+```
 
 You should implement the <code>calendar:willNavigateToDate:</code> method if you want to be notified before this action occurs:
 
@@ -62,5 +78,11 @@ You should implement the <code>calendar:willNavigateToDate:</code> method if you
 ```Swift
 func calendar(calendar: TKCalendar!, willNavigateToDate date: NSDate!) {
     // Here you can perform the desired action when navigations occured
+}
+```
+```C#
+public override void WillNavigateToDate (TKCalendar calendar, NSDate date)
+{
+	// Here you can perform the desired action when navigation occured
 }
 ```

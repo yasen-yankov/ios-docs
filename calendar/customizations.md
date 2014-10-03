@@ -24,6 +24,10 @@ calendar.theme = [TKCalendarIPadTheme new];
 let calendar = TKCalendar(frame: self.view.bounds)
 calendar.theme = TKCalendarIPadTheme()
 ```
+```C#
+TKCalendar calendar = new TKCalendar (this.View.Bounds);
+calendar.Theme = new TKCalendarIPadTheme ();
+```
 
 <code>TKCalendar</code> uses presenter classes to render different view modes. They all inherit from <code>UIView</code> and contain subviews with settings that can be changed. Most useful settings are grouped in a style property in the presenter class:
 
@@ -39,29 +43,78 @@ presenter.style().titleCellHeight = 40
 presenter.style().backgroundColor = UIColor.redColor()
 presenter.headerIsSticky = true
 ```
+```C#
+TKCalendarMonthPresenter presenter = (TKCalendarMonthPresenter)calendar.Presenter;
+presenter.Style.TitleCellHeight = 40;
+presenter.Style.BackgroundColor = UIColor.Red;
+presenter.HeaderIsSticky = true;
+```
 
 There are cases when specific cells must have custom design based on the cell state (e.g. today, weekend, selected). This can be dobe by adopging the <code>TKCalendarDelegate</code> protocol and implementing its <code>calendar:upateVisualsForCell:</code> method:
-
-    - (void)calendar:(TKCalendar*)calendar updateVisualsForCell:(TKCalendarCell*)cell;
-    {
-        if ([cell isKindOfClass:[TKCalendarDayCell class]]) {
-            TKCalendarDayCell *dayCell = (TKCalendarDayCell*)cell;
-            if (dayCell.state & TKCalendarDayStateToday) {
-                cell.style.textColor = [UIColor colorWithRed:0.0039 green:0.5843 blue:0.5529 alpha:1.0000];
-            }
+```Objective-C
+- (void)calendar:(TKCalendar*)calendar updateVisualsForCell:(TKCalendarCell*)cell;
+{
+    if ([cell isKindOfClass:[TKCalendarDayCell class]]) {
+        TKCalendarDayCell *dayCell = (TKCalendarDayCell*)cell;
+        if (dayCell.state & TKCalendarDayStateToday) {
+            cell.style.textColor = [UIColor colorWithRed:0.0039 green:0.5843 blue:0.5529 alpha:1.0000];
         }
     }
+}
+```
+```Swift
+func calendar(calendar: TKCalendar!, updateVisualsForCell cell: TKCalendarCell!) {
+    if cell.isKindOfClass(TKCalendarDayCell) {
+        let dayCell: TKCalendarDayCell = cell as TKCalendarDayCell
+        var a:Int = dayCell.state.toRaw()
+        if (dayCell.state.toRaw() & TKCalendarDayState.Today.toRaw()) != 0 {
+            cell.style().textColor = UIColor(red: 0.0039, green: 0.5843, blue: 0.5529, alpha: 1.0000)
+        }
+    }
+}
+```
+```C#
+public override void UpdateVisualsForCell (TKCalendar calendar, TKCalendarCell cell)
+{
+	if (cell is TKCalendarDayCell) {
+		TKCalendarDayCell dayCell = (TKCalendarDayCell)cell;
+		if ((dayCell.State & TKCalendarDayState.Today) != 0) {
+			cell.Style.TextColor = new UIColor (0.0039f, 0.5843f, 0.5529f, 1.0f);
+		}
+	}
+}
+```
 
 The cell can be replaced with a custom one for more complex scenarios. This can be done by implementing the <code>calendar:viewForCellOfKind:</code> method of <code>TKCalendarDelegate</code> protocol:
-
-	- (TKCalendarCell *)calendar:(TKCalendar *)calendar viewForCellOfKind:(TKCalendarCellType)cellType
-	{
-    	if (cellType == TKCalendarCellTypeDay) {
-        	CustomCell *cell = [CustomCell new];
-        	return cell;
-    	}
-    	return nil;
+```Objective-C
+- (TKCalendarCell *)calendar:(TKCalendar *)calendar viewForCellOfKind:(TKCalendarCellType)cellType
+{
+   	if (cellType == TKCalendarCellTypeDay) {
+       	CustomCell *cell = [CustomCell new];
+       	return cell;
+   	}
+   	return nil;
+}
+```
+```Swift
+func calendar(calendar: TKCalendar!, viewForCellOfKind cellType: TKCalendarCellType) -> TKCalendarCell! {
+    if cellType == TKCalendarCellType.Day {
+        let cell = CustomCell()
+        return cell
+    }
+    return nil
+}
+```
+```C#
+public override TKCalendarCell ViewForCellOfKind (TKCalendar calendar, TKCalendarCellType cellType)
+{
+	if (cellType == TKCalendarCellType.Day) {
+		CustomCell cell = new CustomCell ();
+		return cell;
 	}
+	return null;
+}
+```
 
 The following is the implementation of the <code>CustomCell</code> class:
 
@@ -91,6 +144,39 @@ The following is the implementation of the <code>CustomCell</code> class:
 	}
 
 	@end
+```Swift
+class CustomCell: TKCalendarDayCell {
+    override func updateVisuals() {
+        super.updateVisuals()
+        
+        if self.state.toRaw() & TKCalendarDayState.Today.toRaw() != 0 {
+            self.label.textColor = UIColor.redColor()
+        }
+        else {
+            self.label.textColor = UIColor.blueColor()
+        }
+    }
+}
+```
+```C#
+public class CustomCell : TKCalendarDayCell
+{
+	public CustomCell ()
+	{
+	}
+
+	public override void UpdateVisuals ()
+	{
+		base.UpdateVisuals ();
+
+		if ((this.State & TKCalendarDayState.Today) != 0) {
+			this.Label.TextColor = UIColor.Red;
+		} else {
+			this.Label.TextColor = UIColor.Blue;
+		}
+	}
+}
+```
 
 The result is presented below:
 

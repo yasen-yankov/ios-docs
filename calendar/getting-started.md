@@ -54,6 +54,11 @@ let calendarView = TKCalendar(frame: self.view.bounds)
 calendarView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
 self.view.addSubview(calendarView)
 ```
+```C#
+TKCalendar calendarView = new TKCalendar (this.View.Bounds);
+calendarView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+this.View.AddSubview (calendarView);
+```
 
 This code creates a new instance of <code>TKCalendar</code> and adds it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the calendar when the device is rotated in landscape mode.
 
@@ -93,6 +98,24 @@ for i in 0..<10 {
     self.events.addObject(event)
 }
 ```
+```C#
+this.Events = new List<TKCalendarEvent> ();
+NSCalendar calendar = NSCalendar.CurrentCalendar;
+NSDate date = NSDate.Now;
+Random r = new Random ();
+for (int i = 0; i < 10; i++) {
+	TKCalendarEvent ev = new TKCalendarEvent ();
+	ev.Title = "Sample event";
+	NSDateComponents components = calendar.Components (NSCalendarUnit.Day | NSCalendarUnit.Month | NSCalendarUnit.Year, date);
+	int random = r.Next () % 20;
+	components.Day += random > 10 ? 20 - random : -random;
+	ev.StartDate = calendar.DateFromComponents (components);
+	components.Hour += 2;
+	ev.EndDate = calendar.DateFromComponents (components);
+	ev.EventColor = UIColor.Red;
+	this.Events.Add (ev);
+}
+```
 
 This code will add 10 events with random dates to an array named <code>events</code>. The <code>arc4random</code> method is being used to create the random dates. The code also assigns a title and a color to the events.
 
@@ -103,6 +126,9 @@ Now let's add this random data to the calendar and present it. In order to do th
 ```
 ```Swift
 class ViewController: UIViewController, TKCalendarDataSource
+```
+```C#
+class CalendarDelegate : TKCalendarDelegate
 ```
 
 And we should implement its <code>calendar:eventsForDate:</code> method:
@@ -130,6 +156,25 @@ func calendar(calendar: TKCalendar!, eventsForDate date: NSDate!) -> [AnyObject]
     return self.events.filteredArrayUsingPredicate(predicate)
 }
 ```
+```C#
+public override TKCalendarEvent[] EventsForDate (TKCalendar calendar, NSDate date)
+{
+	NSDateComponents components = calendar.Calendar.Components (NSCalendarUnit.Day | NSCalendarUnit.Month | NSCalendarUnit.Year, date);
+	components.Hour = 23;
+	components.Minute = 59;
+	components.Second = 59;
+	NSDate endDate = calendar.Calendar.DateFromComponents (components);
+	List<TKCalendarEvent> filteredEvents = new List<TKCalendarEvent> ();
+	for (int i = 0; i < this.main.Events.Count; i++) {
+		TKCalendarEvent ev = this.main.Events [i];
+		if (ev.StartDate.SecondsSinceReferenceDate <= endDate.SecondsSinceReferenceDate && 
+			ev.EndDate.SecondsSinceReferenceDate >= date.SecondsSinceReferenceDate) {
+			filteredEvents.Add (ev);
+		}
+	}
+	return filteredEvents.ToArray ();
+}
+```
 
 Here, the predicate is used to filter the events array by date. Do not forget to assign the <code>dataSource</code> property of <code>TKCalendar</code>:
 
@@ -138,6 +183,9 @@ calendarView.dataSource = self;
 ```
 ```Swift
 calendarView.dataSource = self
+```
+```C#
+calendarView.DataSource = new CalendarDataSource (this);
 ```
 
 For information about populating <code>TKCalendar</code> with EventKit events, please refer to the following article: [Populating with data](populating-with-data)
@@ -151,6 +199,10 @@ calendarView.maxDate = [TKCalendar dateWithYear:2016 month:12 day:31 withCalenda
 ```Swift
 calendarView.minDate = TKCalendar.dateWithYear(2010, month: 1, day: 1, withCalendar: nil)
 calendarView.maxDate = TKCalendar.dateWithYear(2016, month: 12, day: 31, withCalendar: nil)
+```
+```C#
+calendarView.MinDate = TKCalendar.DateWithYear (2010, 1, 1, null);
+calendarView.MaxDate = TKCalendar.DateWithYear (2016, 12, 31, null);
 ```
 
 By default, <code>TKCalendar</code> displays the current date, use the <code>navigateToDate:animated</code> method to display a different date:
@@ -171,6 +223,14 @@ components.day = 1
 let newDate = self.calendarView.calendar.dateFromComponents(components)
 self.calendarView.navigateToDate(newDate, animated: false)
 ```
+```C#
+NSDateComponents newComponents = new NSDateComponents();
+newComponents.Year = 2015;
+newComponents.Month = 5;
+newComponents.Day = 1;
+NSDate newDate = this.CalendarView.Calendar.DateFromComponents (newComponents);
+this.CalendarView.NavigateToDate (newDate, true);
+```
 
 <code>TKCalendar</code> sends different notifications. For example, in order to be notified when a date was selected, override the <code>calendar:didSelectDate:</code> method of <code>TKCalendarDelegate</code> protocol:
 
@@ -183,6 +243,12 @@ self.calendarView.navigateToDate(newDate, animated: false)
 ```Swift
 func calendar(calendar: TKCalendar!, didSelectDate date: NSDate!) {
     NSLog("%@", date)
+}
+```
+```C#
+public override void DidSelectDate (TKCalendar calendar, NSDate date)
+{
+	Console.WriteLine ("{0}", date);
 }
 ```
 
@@ -317,6 +383,99 @@ class ViewController: UIViewController, TKCalendarDataSource, TKCalendarDelegate
     }
 }
 ```
+```C#
+public class CalendarGettingStarted : UIViewController
+{
+	public TKCalendar CalendarView {
+		get;
+		set;
+	}
+
+	public List<TKCalendarEvent> Events {
+		get;
+		set;
+	}
+
+	public CalendarGettingStarted ()
+	{
+	}
+
+	public override void ViewDidLoad ()
+	{
+		base.ViewDidLoad ();
+
+		TKCalendar calendarView = new TKCalendar (this.View.Bounds);
+		calendarView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+		calendarView.DataSource = new CalendarDataSource (this);
+		calendarView.Delegate = new CalendarDelegate ();
+		calendarView.MinDate = TKCalendar.DateWithYear (2010, 1, 1, null);
+		calendarView.MaxDate = TKCalendar.DateWithYear (2016, 12, 31, null);
+		this.View.AddSubview (calendarView);
+		this.CalendarView = calendarView;
+
+		this.Events = new List<TKCalendarEvent> ();
+		NSCalendar calendar = NSCalendar.CurrentCalendar;
+		NSDate date = NSDate.Now;
+		Random r = new Random ();
+		for (int i = 0; i < 10; i++) {
+			TKCalendarEvent ev = new TKCalendarEvent ();
+			ev.Title = "Sample event";
+			NSDateComponents components = calendar.Components (NSCalendarUnit.Day | NSCalendarUnit.Month | NSCalendarUnit.Year, date);
+			int random = r.Next () % 20;
+			components.Day += random > 10 ? 20 - random : -random;
+			ev.StartDate = calendar.DateFromComponents (components);
+			components.Hour += 2;
+			ev.EndDate = calendar.DateFromComponents (components);
+			ev.EventColor = UIColor.Red;
+			this.Events.Add (ev);
+		}
+
+		NSDateComponents newComponents = new NSDateComponents();
+		newComponents.Year = 2015;
+		newComponents.Month = 5;
+		newComponents.Day = 1;
+		NSDate newDate = this.CalendarView.Calendar.DateFromComponents (newComponents);
+		this.CalendarView.NavigateToDate (newDate, true);
+		calendarView.ViewMode = TKCalendarViewMode.Year;
+	}
+
+	class CalendarDataSource : TKCalendarDataSource
+	{
+		CalendarGettingStarted main;
+		public CalendarDataSource(CalendarGettingStarted main)
+		{
+			this.main = main;
+		}
+
+		public override TKCalendarEvent[] EventsForDate (TKCalendar calendar, NSDate date)
+		{
+			NSDateComponents components = calendar.Calendar.Components (NSCalendarUnit.Day | NSCalendarUnit.Month | NSCalendarUnit.Year, date);
+			components.Hour = 23;
+			components.Minute = 59;
+			components.Second = 59;
+			NSDate endDate = calendar.Calendar.DateFromComponents (components);
+			List<TKCalendarEvent> filteredEvents = new List<TKCalendarEvent> ();
+			for (int i = 0; i < this.main.Events.Count; i++) {
+				TKCalendarEvent ev = this.main.Events [i];
+				if (ev.StartDate.SecondsSinceReferenceDate <= endDate.SecondsSinceReferenceDate && 
+					ev.EndDate.SecondsSinceReferenceDate >= date.SecondsSinceReferenceDate) {
+					filteredEvents.Add (ev);
+				}
+			}
+
+			return filteredEvents.ToArray ();
+		}
+	}
+
+	class CalendarDelegate : TKCalendarDelegate
+	{
+		public override void DidSelectDate (TKCalendar calendar, NSDate date)
+		{
+			Console.WriteLine ("{0}", date);
+		}
+	}
+}
+```
 
 You can easily change the way data is presented in chart by changing the view mode property:
 
@@ -325,6 +484,9 @@ calendarView.viewMode = TKCalendarViewModeYear;
 ```
 ```Swift
 calendarView.viewMode = TKCalendarViewModeYear
+```
+```C#
+calendarView.ViewMode = TKCalendarViewMode.Year;
 ```
 
 All view modes are desctibed in the following article:
