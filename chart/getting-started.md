@@ -241,12 +241,4 @@ chart.addSeries(TKChartColumnSeries(items: randomNumericData))
 chart.AddSeries (new TKChartColumnSeries (randomNumericData.ToArray ()));
 ```
 
-For more information about series types, please refer to the following articles:
-
-- [Area](series/area)
-- [Bar](series/bar)
-- [Column](series/column)
-- [Line](series/line)
-- [Pie](series/pie)
-- [Scatter](series/scatter)
-- [Point Customization](series/point-customization)
+For more information about series types, please refer to the following articles: [Chart Structure](structure).

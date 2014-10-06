@@ -130,11 +130,17 @@ Find further details about chart axes in [this article](axes/axes).
 
 Series define how data should be visually presented on the plot area. Each series has a collection of data points, which it displays according to the series type. <code>TKChart</code> supports several series out of the box. These include: bar, column, line, area, scatter and pie. The base class for all series in <code>TKChart</code> is <code>TKChartSeries</code>.
 
-- [TKChartColumnSeries](series/column) is used to present points as columns (vertical rectangles).
-- [TKChartBarSeries](series/bar) is used to present points as bars (horizontal rectangles).
-- [TKChartLineSeries](series/line) is used to present points as line/spline.
 - [TKChartAreaSeries](series/area) is used to present points in filled areas.
-- [TKChartPieSeries](series/pie) is used to present data as pie or donut.
+- [TKChartBubbleSeries](series/bubble) is used to present points of various size.
+- [TKChartCandlestickSeries](series/candlestick) and [TKChartOhlcSeries](series/ohlc) are used to present stock market data.
+- [Financial indicators](series/candlestick) are used to present calculated summary of stock market data.
+- [TKChartBarSeries](series/bar) is used to present points as bars (horizontal rectangles).
+- [TKChartColumnSeries](series/column) is used to present points as columns (vertical rectangles).
+- [TKChartDonutSeries](series/donut) is used to present data as a pie.
+- [TKChartSplineSeries](series/spline) is used to present points as a spline.
+- [TKChartSplineAreaSeries](series/area) is used to present points in filled areas having a spline line at the top.
+- [TKChartLineSeries](series/line) is used to present points as line/spline.
+- [TKChartPieSeries](series/pie) is used to present data as pie.
 - [TKChartScatterSeries](series/scatter) is used to present data as separate points.
 
 When <code>TKChart</code> contains more than one series of type bar or column, it clusters the series in groups. You can choose also to show the same information as stacked bars/columns. This is done by setting the <code>stackInfo</code> property of the series:

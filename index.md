@@ -14,7 +14,7 @@ Here are the available UI for iOS component at a glance:
 
 TKChart main features include:
 
-- Various series types: bar, column, line, spline, area, pie, donut, scatter, financial series and indicators.
+- Various series types: bar, column, line, spline, area, pie, donut, scatter, bubble, financial series and indicators.                   
 - Stacking of bar, column, line and area series including stack 100 mode.
 - Pan/Zoom and selection functionality.
 - Animations that use the CoreAnimations and UIKit dynamics.
