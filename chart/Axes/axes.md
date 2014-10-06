@@ -98,7 +98,7 @@ xAxis.Style.BackgroundFill = new TKSolidFill (UIColor.LightGray);
 
 <img src="../../images/chart-axes-types001.png"/>
 
-# Configure Axes Ticks Appearance#
+## Configure Axes Ticks Appearance##
 
 In numeric/date-time axes you can specify the interval between axis ticks by setting the <code>majorTickInterval</code> and <code>minorTickInterval</code> properties:
 
