@@ -44,6 +44,19 @@ self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 self.window!.rootViewController = feedbackController
 self.window!.makeKeyAndVisible()
 ```
+```C#
+ViewController mainViewController = new ViewController (this.CreateExamples());
+UINavigationController navigationController = new UINavigationController (mainViewController);
+navigationController.NavigationBar.Translucent = false;
+
+TKFeedbackController feedbackController = new TKFeedbackController ();
+feedbackController.DataSource = new TKPlatformFeedbackSource ("58cb0070-f612-11e3-b9fc-1234567890", "developer@telerik.com");
+feedbackController.ContentController = navigationController;
+
+this.Window = new UIWindow(UIScreen.MainScreen.Bounds)
+this.View.Window.RootViewController = feedbackController;
+this.View.Window.MakeKeyAndVisible ();
+```
 
 
 Once integrated, the Feedback component offers the following functionality from within the app running on the user’s device:
