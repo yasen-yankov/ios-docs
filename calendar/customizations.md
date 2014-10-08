@@ -51,6 +51,7 @@ presenter.HeaderIsSticky = true;
 ```
 
 There are cases when specific cells must have custom design based on the cell state (e.g. today, weekend, selected). This can be dobe by adopging the <code>TKCalendarDelegate</code> protocol and implementing its <code>calendar:upateVisualsForCell:</code> method:
+
 ```Objective-C
 - (void)calendar:(TKCalendar*)calendar updateVisualsForCell:(TKCalendarCell*)cell;
 {
@@ -86,6 +87,7 @@ public override void UpdateVisualsForCell (TKCalendar calendar, TKCalendarCell c
 ```
 
 The cell can be replaced with a custom one for more complex scenarios. This can be done by implementing the <code>calendar:viewForCellOfKind:</code> method of <code>TKCalendarDelegate</code> protocol:
+
 ```Objective-C
 - (TKCalendarCell *)calendar:(TKCalendar *)calendar viewForCellOfKind:(TKCalendarCellType)cellType
 {
@@ -118,32 +120,34 @@ public override TKCalendarCell ViewForCellOfKind (TKCalendar calendar, TKCalenda
 
 The following is the implementation of the <code>CustomCell</code> class:
 
-	@interface CustomCell : TKCalendarDayCell
-	@end
+```Objective-C
+@interface CustomCell : TKCalendarDayCell
+@end
 
-	@implementation CustomCell
+@implementation CustomCell
 
-	- (instancetype)initWithFrame:(CGRect)frame
-	{
-    	self = [super initWithFrame:frame];
-    	if (self) {
-    	}
-    	return self;
-	}
+- (instancetype)initWithFrame:(CGRect)frame
+{
+  	self = [super initWithFrame:frame];
+  	if (self) {
+  	}
+  	return self;
+}
 
-	- (void)updateVisuals
-	{
-    	[super updateVisuals];
+- (void)updateVisuals
+{
+  	[super updateVisuals];
 
-  	    if (self.state & TKCalendarDayStateToday) {
-    	    self.label.textColor = [UIColor redColor];
-   	    }
-   	    else {
-   	    	self.label.textColor = [UIColor blueColor];
-   	    }
-	}
+	    if (self.state & TKCalendarDayStateToday) {
+  	    self.label.textColor = [UIColor redColor];
+ 	    }
+ 	    else {
+ 	    	self.label.textColor = [UIColor blueColor];
+ 	    }
+}
 
-	@end
+@end
+```
 ```Swift
 class CustomCell: TKCalendarDayCell {
     override func updateVisuals() {
