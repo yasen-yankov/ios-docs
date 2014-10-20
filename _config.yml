@@ -5,8 +5,6 @@ url: "http://docs.telerik.com/devtools/ios"
 exclude: [README.md,Gemfile,Gemfile.lock]
 navigation:
 ## List your directory names and order here, like this:
-    DataSync:
-        title: "DataSync (Beta)"
     Chart/Axes:
         position: 3
     Chart/Series:
