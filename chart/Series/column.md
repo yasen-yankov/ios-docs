@@ -277,3 +277,23 @@ chart.AddSeries(series);
 Note that the value should be between 0 and 1, where a value of 0 means that a bar would take the entire space between two ticks, while a value of 1 means the bar will have zero width as all the space should appear as a gap.
 
 <img src="../../images/chart-series-column006.png"/>
+
+If you need to limit the width of the columns you can set the series <code>maxColumnWidth</code> and <code>minColumnWidth</code> properties. These properties allow you to have required minimum and possible maximum width for your series.
+```Objective-C
+TKChartColumnSeries *series = [[TKChartColumnSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+series.minColumnWidth = @20;
+series.maxColumnWidth = @50;
+[chart addSeries:series];
+```
+```Swift
+let series = TKChartColumnSeries(items: pointsWithCategoriesAndValues)
+series.minColumnWidth = 20
+series.maxColumnWidth = 50
+chart.addSeries(series)
+```
+```C#
+var series = new TKChartColumnSeries (pointsWithCategoriesAndValues.ToArray ());
+series.MinColumnWidth = 20;
+series.MaxColumnWidth = 50;
+chart.AddSeries(series);
+```

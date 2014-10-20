@@ -301,3 +301,23 @@ chart.AddSeries (series);
 Note that the value should be between 0 and 1, where a value of 0 means that a bar would take the entire space between two ticks, while a value of 1 means the bar will have zero width as all the space should appear as a gap.
 
 <img src="../../images/chart-series-bar006.png"/>
+
+It is also possible to limit the height of the bar using <code>maxBarHeight</code> and <code>minBarHeight</code> properies.
+```Objective-C
+TKChartBarSeries *series = [[TKChartBarSeries alloc] initWithItems:pointsWithCategoriesAndValues];
+series.minBarHeight = @20;
+series.maxBarHeight = @50;
+[chart addSeries:series];
+```
+```Swift
+let series = TKChartBarSeries(items: pointsWithCategoriesAndValues)
+series.minBarHeight = 20
+series.maxBarHeight = 50
+chart.addSeries(series)
+```
+```C#
+var series = new TKChartBarSeries (pointsWithCategoriesAndValues.ToArray ());
+series.MinBarHeight = 20;
+series.MaxBarHeight = 50;
+chart.AddSeries(series);
+```
