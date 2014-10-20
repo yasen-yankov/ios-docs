@@ -54,46 +54,45 @@ chart.Legend.Style.Position = TKChartLegendPosition.Right;
 
 Pie series can be customized using the following properties:
 
-The <code>labelDisplayMode</code> property controls whether to show labels and the label style. The possible choices are:
+The <code>labelDisplayMode</code> property controls whether to show labels inside ot outside the pie series. The possible choices are:
 
-- <code>TKChartPieSeriesLabelDisplayModeValue</code> - labels show the slice value.
-- <code>TKChartPieSeriesLabelDisplayModePercentage</code> - labels show the slice value in percentage.
-- <code>TKChartPieSeriesLabelDisplayModeName</code> - labels show the slice name.
+- <code>TKChartPieSeriesLabelDisplayModeInside</code> - labels are displayed inside the pie.
+- <code>TKChartPieSeriesLabelDisplayModeOutside</code> - labels are displayed outside the pie.
 
-Another interesting options that can be used to customize pie labels are <code>labelFormat</code> and <code>labelFormatter</code> properties. For example, you can use the <code>labelFormatter</code> property in order to format labels as percents:
+Another interesting options that can be used to customize pie labels are <code>stringFormat</code> and <code>formatter</code> properties. For example, you can use the <code>formatter</code> property in order to show slice values as text:
 
 ```Objective-C
-series.labelDisplayMode = TKChartPieSeriesLabelDisplayModeValue;
+series.labelDisplayMode = TKChartPieSeriesLabelDisplayModeInside;
 
 NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
 [numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
-series.labelFormatter = numberFormatter;
+series.style.pointLabelStyle.formatter = numberFormatter;
 ```
 ```Swift
-series.labelDisplayMode = TKChartPieSeriesLabelDisplayMode.Value
+series.labelDisplayMode = TKChartPieSeriesLabelDisplayMode.Isnide
     
 var  numberFormatter = NSNumberFormatter()
 numberFormatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-series.labelFormatter = numberFormatter
+series.style.pointLabelStyle.formatter = numberFormatter
 ```
 ```C#
-series.LabelDisplayMode = TKChartPieSeriesLabelDisplayMode.Value;
+series.LabelDisplayMode = TKChartPieSeriesLabelDisplayMode.Inside;
 
 var numberFormatter = new NSNumberFormatter ();
 numberFormatter.NumberStyle = NSNumberFormatterStyle.SpellOut;
-series.LabelFormatter = numberFormatter;
+series.Style.PointLabelStyle.Formatter = numberFormatter;
 ```
 
-The same can be done also with the labelFormat property:
+Or use stringFormat property to format slice values as percents:
 
 ```Objective-C
-series.labelFormat = @"%.0f %%";
+series.style.pointLabelStyle.stringFormat = @"%.0f %%";
 ``` 
 ```Swift
-series.labelFormat = "%.0f %%"
+series.style.pointLabelStyle.stringFormat = "%.0f %%"
 ```
 ```C#
-	series.LabelFormat = "%.0f %%";
+	series.Style.PointLabelStyle.StringFormat = "%.0f %%";
 ```
 
 <img src="../../images/chart-series-pie002.png"/>
