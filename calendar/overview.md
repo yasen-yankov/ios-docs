@@ -4,7 +4,7 @@ page_title: Calendar Overview
 position: 1
 ---
 
-# Chart Series: Area
+# Calendar Overview
 
 <code>TKCalendar</code> is a highly customizable calendar component that offers different view modes, animations, great performance and customization options. Its EventKit data source helper allows for easy importing of events from the device.
 
