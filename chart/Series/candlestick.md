@@ -33,7 +33,7 @@ let openPrices = [100, 125, 69, 99, 140, 125]
 let closePrices = [85, 65, 135, 120, 80, 136]
 let lowPrices = [50, 60, 65, 55, 75, 90]
 let highPrices = [129, 142, 141, 123, 150, 161]
-var dateNow = NSDate.date()
+var dateNow = NSDate()
 var financialDataPoints = [TKChartFinancialDataPoint]()
    
 for var i = 0; i < openPrices.count; ++i {

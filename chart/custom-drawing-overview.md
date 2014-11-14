@@ -223,7 +223,7 @@ TKImageFill *fill = [TKImageFill imageFillWithImage:
 fill.resizingMode = TKImageFillResizingModeNone;
 ```
 ```Swift
-let fill = TKImageFill(image: UIImage(named: "pattern2").resizableImageWithCapInsets(UIEdgeInsetsMake(10, 10, 10, 10)))
+let fill = TKImageFill(image: UIImage(named: "pattern2")!.resizableImageWithCapInsets(UIEdgeInsetsMake(10, 10, 10, 10)))
 fill.resizingMode = TKImageFillResizingModeNone
 ```
 ```C#

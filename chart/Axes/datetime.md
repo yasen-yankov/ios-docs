@@ -54,7 +54,7 @@ func dateWithYear(year: Int, month: Int, day: Int) -> NSDate{
       components.year = year
       components.month = month
       components.day = day
-      return calendar.dateFromComponents(components)
+      return calendar!.dateFromComponents(components)!
   }
   
   let date2001 = self.dateWithYear(2001, month: 12, day: 31)

@@ -291,7 +291,7 @@ You can also use grid's background to set an image:
 gridStyle.backgroundFill = [TKSolidFill solidFillWithColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"telerik_logo"]]];
 ```
 ```Swift
-gridStyle.backgroundFill = TKSolidFill(color: UIColor(patternImage: UIImage(named: "telerk_logo")))
+gridStyle.backgroundFill = TKSolidFill(color: UIColor(patternImage: UIImage(named: "telerk_logo")!))
 ```
 ```C#
 gridStyle.BackgroundFill = new TKSolidFill(UIColor.FromPatternImage(new UIImage("telerk_logo.png")));

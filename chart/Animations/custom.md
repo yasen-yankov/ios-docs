@@ -69,7 +69,7 @@ func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState
             let animation = CAKeyframeAnimation(keyPath: keyPath)
             animation.duration = 0.1 * Double(i + 1)
             animation.values = [oldY, oldY, point.y]
-            animation.keyTimes = [0, Double(i / (i + 1.0)), 1]
+            animation.keyTimes = [0.0, Double(i) / (Double(i) + 1.0), 1.0]
             animations.append(animation)
             duration = animation.duration
         }
@@ -175,15 +175,15 @@ func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState
         var keyPath = pointKeyPath + ".distanceFromCenter"
         var animation = CAKeyframeAnimation(keyPath: keyPath)
         animation.values = [50, 50, 0]
-        animation.keyTimes = [0, i / (i + 1.0), 1]
-        animation.duration = 0.5 * Double(i + 1.0)
+        animation.keyTimes = [0.0, Double(i) / (Double(i) + 1.0), 1.0]
+        animation.duration = CFTimeInterval(0.5 * Double(i) + 1.0)
         animations.append(animation)
         
-        keyPath = NSString(format: "%@.opacity", pointKeyPath)
+        keyPath = pointKeyPath + ".opacity"
         animation = CAKeyframeAnimation(keyPath: keyPath)
-        animation.values = [0, 0, 1]
-        animation.keyTimes = [0, i / (i + 1.0), 1]
-        animation.duration = 0.5 * Double(i + 1.0)
+        animation.values = [0, 0, 1.0]
+        animation.keyTimes = [0.0, Double(i) / (Double(i) + 1.0), 1.0]
+        animation.duration = CFTimeInterval(0.5 * Double(i) + 1.0)
         animations.append(animation)
         
         duration = animation.duration

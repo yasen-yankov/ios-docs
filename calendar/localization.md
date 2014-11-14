@@ -18,7 +18,7 @@ TKCalendar *calendarView = [[TKCalendar alloc] initWithFrame:self.view.bounds];
 calendarView.calendar = calendar;
 ```
 ```Swift
-let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
 calendar.firstWeekday = 2
 let calendarView = TKCalendar(frame: self.view.bounds)
 calendarView.calendar = calendar

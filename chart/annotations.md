@@ -211,7 +211,7 @@ imageView.alpha = 0.7;
 [chart addAnnotation:[[TKChartViewAnnotation alloc] initWithView:imageView X:@"Perfecto" Y:@55 forSeries:chart.series[0]]];
 ```
 ```Swift
-let image = UIImage(named: "logo")
+let image = UIImage(named: "logo")!
 let imageView = UIImageView(image: image)
 imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height)
 imageView.alpha = 0.7

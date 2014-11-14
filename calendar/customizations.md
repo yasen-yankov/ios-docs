@@ -67,8 +67,8 @@ There are cases when specific cells must have custom design based on the cell st
 func calendar(calendar: TKCalendar!, updateVisualsForCell cell: TKCalendarCell!) {
     if cell.isKindOfClass(TKCalendarDayCell) {
         let dayCell: TKCalendarDayCell = cell as TKCalendarDayCell
-        var a:Int = dayCell.state.toRaw()
-        if (dayCell.state.toRaw() & TKCalendarDayState.Today.toRaw()) != 0 {
+        var a:Int = dayCell.state.rawValue
+        if (dayCell.state.rawValue & TKCalendarDayState.Today.rawValue != 0 {
             cell.style().textColor = UIColor(red: 0.0039, green: 0.5843, blue: 0.5529, alpha: 1.0000)
         }
     }
@@ -153,7 +153,7 @@ class CustomCell: TKCalendarDayCell {
     override func updateVisuals() {
         super.updateVisuals()
         
-        if self.state.toRaw() & TKCalendarDayState.Today.toRaw() != 0 {
+        if self.state.rawValue & TKCalendarDayState.Today.rawValue != 0 {
             self.label.textColor = UIColor.redColor()
         }
         else {

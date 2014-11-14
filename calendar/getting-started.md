@@ -153,7 +153,7 @@ func calendar(calendar: TKCalendar!, eventsForDate date: NSDate!) -> [AnyObject]
     components.second = 59
     let endDate = self.calendarView.calendar.dateFromComponents(components)
     let predicate = NSPredicate(format: "(startDate <= %@) AND (endDate >= %@)", endDate!, date)
-    return self.events.filteredArrayUsingPredicate(predicate)
+    return self.events.filteredArrayUsingPredicate(predicate!)
 }
 ```
 ```C#
