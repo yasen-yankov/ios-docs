@@ -12,11 +12,11 @@ Here is an example of a donut chart:
 
 ```Objective-C
 NSMutableArray *pointsWithValueAndName = [[NSMutableArray alloc] init];
-[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@20 name:@"Google"]];
-[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@30 name:@"Apple"]];
-[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@10 name:@"Microsoft"]];
-[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@5 name:@"IBM"]];
-[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithValue:@8 name:@"Oracle"]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithName:@"Google" value:@20]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithName:@"Apple" value:@30]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithName:@"Microsoft" value:@10]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithName:@"IBM" value:@5]];
+[pointsWithValueAndName addObject:[[TKChartDataPoint alloc] initWithName:@"Oracle" value:@8]];
 
 TKChartDonutSeries *series = [[TKChartDonutSeries alloc] initWithItems:pointsWithValueAndName];
 series.innerRadius = 0.5;
@@ -27,11 +27,11 @@ chart.legend.style.position = TKChartLegendPositionRight;
 ```
 ```Swift
 var pointsWithValueAndName = [TKChartDataPoint]()
-pointsWithValueAndName.append(TKChartDataPoint(value: 20, name: "Google"))
-pointsWithValueAndName.append(TKChartDataPoint(value: 30, name: "Apple"))
-pointsWithValueAndName.append(TKChartDataPoint(value: 10, name: "Microsoft"))
-pointsWithValueAndName.append(TKChartDataPoint(value: 5, name: "IBM"))
-pointsWithValueAndName.append(TKChartDataPoint(value: 8, name: "Oracle"))
+pointsWithValueAndName.append(TKChartDataPoint(name: "Google", value: 20))
+pointsWithValueAndName.append(TKChartDataPoint(name: "Apple", value: 30))
+pointsWithValueAndName.append(TKChartDataPoint(name: "Microsoft", value: 10))
+pointsWithValueAndName.append(TKChartDataPoint(name: "IBM", value: 5))
+pointsWithValueAndName.append(TKChartDataPoint(name: "Oracle", value: 8))
    
 let series = TKChartDonutSeries(items: pointsWithValueAndName)
 series.innerRadius = 0.5
