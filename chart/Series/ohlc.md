@@ -80,7 +80,7 @@ xAxis.MajorTickInterval = 1;
 If you want to customize the appearance of ohlc series, you should implement the **TKChartDelegate** protocol as shown below::
 
 ```Objective-C
-- (TKChartPaletteItem *)chart:(TKChart *)chart paletteItemForSeries:(TKChartSeries *)series atIndex:(NSUInteger)index
+- (TKChartPaletteItem *)chart:(TKChart *)chart paletteItemForSeries:(TKChartSeries *)series atIndex:(NSInteger)index
 {
     id<TKChartData> dataPoint = [series dataPointAtIndex:index];
     TKStroke *stroke;
@@ -95,8 +95,8 @@ If you want to customize the appearance of ohlc series, you should implement the
 }
 ```
 ```Swift
-func chart(chart: TKChart!, paletteItemForSeries series: TKChartSeries!, atIndex index: UInt) -> TKChartPaletteItem {
-    var dataPoint = series.dataPointAtIndex(index)
+func chart(chart: TKChart!, paletteItemForSeries series: TKChartSeries!, atIndex index: Int) -> TKChartPaletteItem {
+    var dataPoint = series.dataPointAtIndex(UInt(index))
     
     var stroke: TKStroke
     if dataPoint?.close!().doubleValue < dataPoint?.open!().doubleValue {
@@ -112,9 +112,9 @@ func chart(chart: TKChart!, paletteItemForSeries series: TKChartSeries!, atIndex
 ```C#
 class ChartDelegate: TKChartDelegate
 {
-    public override TKChartPaletteItem PaletteItemForSeries (TKChart chart, TKChartSeries series, uint index)
+    public override TKChartPaletteItem PaletteItemForSeries (TKChart chart, TKChartSeries series, int index)
     {
-        var dataPoint = series.DataPointAtIndex (index);
+        var dataPoint = series.DataPointAtIndex ((uint)index);
         TKStroke stroke = null;
         if (dataPoint.Close.DoubleValue < dataPoint.Open.DoubleValue) {
             stroke = new TKStroke (UIColor.Red);

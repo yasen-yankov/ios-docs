@@ -80,7 +80,7 @@ xAxis.MajorTickInterval = 1.0;
 If you want to customize the appearance of cthe andlestick series, you should implement the**TKChartDelegate** protocol as shown below:
 
 ```Objective-C
-- (TKChartPaletteItem *)chart:(TKChart *)chart paletteItemForSeries:(TKChartSeries *)series atIndex:(NSUInteger)index
+- (TKChartPaletteItem *)chart:(TKChart *)chart paletteItemForSeries:(TKChartSeries *)series atIndex:(NSInteger)index
 {
     id<TKChartData> dataPoint = [series dataPointAtIndex:index];
     TKStroke *stroke = [TKStroke strokeWithColor:[UIColor blackColor]];
@@ -96,8 +96,8 @@ If you want to customize the appearance of cthe andlestick series, you should im
 }
 ```
 ```Swift
-func chart(chart: TKChart!, paletteItemForSeries series: TKChartSeries!, atIndex index: UInt) -> TKChartPaletteItem {
-    var dataPoint = series.dataPointAtIndex(index)
+func chart(chart: TKChart!, paletteItemForSeries series: TKChartSeries!, atIndex index: Int) -> TKChartPaletteItem {
+    var dataPoint = series.dataPointAtIndex(UInt(index))
     
     var stroke = TKStroke(color: UIColor.blackColor())
     var fill = TKSolidFill()
@@ -110,12 +110,12 @@ func chart(chart: TKChart!, paletteItemForSeries series: TKChartSeries!, atIndex
     var paletteItem = TKChartPaletteItem(stroke: stroke, andFill: fill)
     return paletteItem
 }
-```
+```C#
 class ChartDelegate: TKChartDelegate
 {
-    public override TKChartPaletteItem PaletteItemForSeries (TKChart chart, TKChartSeries series, uint index)
+    public override TKChartPaletteItem PaletteItemForSeries (TKChart chart, TKChartSeries series, int index)
     {
-        var dataPoint = series.DataPointAtIndex (index);
+        var dataPoint = series.DataPointAtIndex ((uint)index);
         var stroke = new TKStroke (UIColor.Black);
         var fill = new TKSolidFill ();
         if (dataPoint.Close.DoubleValue < dataPoint.Open.DoubleValue) {
