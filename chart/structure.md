@@ -287,11 +287,11 @@ class ChartDelegate: TKChartDelegate
 {
     Random r = new Random ();
 
-    public override MonoTouch.CoreAnimation.CAAnimation AnimationForSeries (TKChart chart, TKChartSeries series, TKChartSeriesRenderState state, RectangleF rect)
+    public override CAAnimation AnimationForSeries (TKChart chart, TKChartSeries series, TKChartSeriesRenderState state, CGRect rect)
     {
         var duration = 0.0;
         var animations = new List<CAAnimation> ();
-        for (int i=0; i<state.Points.Count; i++) {
+        for (int i=0; i<(int)state.Points.Count; i++) {
             var pointKeyPath = state.AnimationKeyPathForPointAtIndex ((uint)i);
             var keyPath = pointKeyPath + ".x";
             var point = state.Points.ObjectAtIndex((uint)i) as TKChartVisualPoint;

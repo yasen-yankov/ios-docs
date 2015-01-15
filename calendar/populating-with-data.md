@@ -116,7 +116,7 @@ func shouldImportEventsFromCalendar(calendar: EKCalendar!) -> Bool {
 }
 ```
 ```C#
-public override bool ShouldImportEventsFromCalendar (MonoTouch.EventKit.EKCalendar calendar)
+public override bool ShouldImportEventsFromCalendar (EventKit.EKCalendar calendar)
 {
 	if (calendar.Type == EKCalendarType.Local) {
 		return true;

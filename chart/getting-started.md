@@ -59,7 +59,7 @@ chart.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.F
 self.view.addSubview(chart)
 ```
 ```C#
-var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -15, -15));
+var chart = new TKChart (CGRect.Inflate (this.View.Bounds, -15, -15));
 chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 this.View.AddSubview (chart);
 ```

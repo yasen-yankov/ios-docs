@@ -188,7 +188,7 @@ chart.reloadData()
 xAxis.Style.LabelStyle.Font = UIFont.SystemFontOfSize (10);
 xAxis.Style.LabelStyle.TextColor = UIColor.Blue;
 xAxis.Style.LabelStyle.ShadowColor = UIColor.Gray;
-xAxis.Style.LabelStyle.ShadowOffset = new SizeF (1f, 1f);
+xAxis.Style.LabelStyle.ShadowOffset = new CGSize (1f, 1f);
 chart.ReloadData ();
 ```
 
@@ -271,7 +271,7 @@ xAxis.Title = "X-Axis";
 xAxis.Style.TitleStyle.TextColor = UIColor.Blue;
 xAxis.Style.TitleStyle.Font = UIFont.BoldSystemFontOfSize (11);
 xAxis.Style.TitleStyle.ShadowColor = UIColor.Gray;
-xAxis.Style.TitleStyle.ShadowOffset = new SizeF (2f, 2f);
+xAxis.Style.TitleStyle.ShadowOffset = new CGSize (2f, 2f);
 xAxis.Style.TitleStyle.Alignment = TKChartAxisTitleAlignment.RightOrBottom;
 chart.ReloadData ();
 ```

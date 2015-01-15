@@ -100,7 +100,7 @@ class ChartDelegate: TKChartDelegate
 		// Here you can perform the desired action when the selection is changed.
 	}
 
-	public override void PointSelected (TKChart chart, TKChartData point, TKChartSeries series, int index)
+	public override void PointSelected (TKChart chart, TKChartData point, TKChartSeries series, nint index)
 	{
 		// Here you can perform the desired action when the selection is changed.
 	}
@@ -110,7 +110,7 @@ class ChartDelegate: TKChartDelegate
 		// Here you can perform the desired action when the selection is changed.
 	}
 
-	public override void PointDeselected (TKChart chart, TKChartData point, TKChartSeries series, int index)
+	public override void PointDeselected (TKChart chart, TKChartData point, TKChartSeries series, nint index)
 	{
 		// Here you can perform the desired action when the selection is changed.
 	}
