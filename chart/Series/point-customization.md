@@ -56,7 +56,7 @@ areaSeries.style.shapePalette = palette
 chart.addSeries(areaSeries)
 ```
 ```C#
-areaSeries.Style.PointShape = new TKPredefinedShape (TKShapeType.Circle, new SizeF (8, 8));
+areaSeries.Style.PointShape = new TKPredefinedShape (TKShapeType.Circle, new CGSize (8, 8));
 var paletteItem = new TKChartPaletteItem ();
 paletteItem.Fill = new TKSolidFill (UIColor.Red);
 var palette = new TKChartPalette ();

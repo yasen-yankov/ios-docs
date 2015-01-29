@@ -104,7 +104,7 @@ legendView.reloadItems()
 ```
 ```C#
 var legendView = new TKChartLegendView (chart);
-legendView.Frame = new RectangleF (20, 20, 320, 100);
+legendView.Frame = new CGRect (20, 20, 320, 100);
 this.View.AddSubview(legendView);
 legendView.ReloadItems ();
 ```

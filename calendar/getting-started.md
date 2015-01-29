@@ -157,16 +157,16 @@ func calendar(calendar: TKCalendar!, eventsForDate date: NSDate!) -> [AnyObject]
 }
 ```
 ```C#
-public override TKCalendarEvent[] EventsForDate (TKCalendar calendar, NSDate date)
+public override TKCalendarEventProtocol[] EventsForDate (TKCalendar calendar, NSDate date)
 {
 	NSDateComponents components = calendar.Calendar.Components (NSCalendarUnit.Day | NSCalendarUnit.Month | NSCalendarUnit.Year, date);
 	components.Hour = 23;
 	components.Minute = 59;
 	components.Second = 59;
 	NSDate endDate = calendar.Calendar.DateFromComponents (components);
-	List<TKCalendarEvent> filteredEvents = new List<TKCalendarEvent> ();
+	List<TKCalendarEventProtocol> filteredEvents = new List<TKCalendarEventProtocol> ();
 	for (int i = 0; i < this.main.Events.Count; i++) {
-		TKCalendarEvent ev = this.main.Events [i];
+		TKCalendarEventProtocol ev = this.main.Events [i];
 		if (ev.StartDate.SecondsSinceReferenceDate <= endDate.SecondsSinceReferenceDate && 
 			ev.EndDate.SecondsSinceReferenceDate >= date.SecondsSinceReferenceDate) {
 			filteredEvents.Add (ev);
@@ -447,16 +447,16 @@ public class CalendarGettingStarted : UIViewController
 			this.main = main;
 		}
 
-		public override TKCalendarEvent[] EventsForDate (TKCalendar calendar, NSDate date)
+		public override TKCalendarEventProtocol[] EventsForDate (TKCalendar calendar, NSDate date)
 		{
 			NSDateComponents components = calendar.Calendar.Components (NSCalendarUnit.Day | NSCalendarUnit.Month | NSCalendarUnit.Year, date);
 			components.Hour = 23;
 			components.Minute = 59;
 			components.Second = 59;
 			NSDate endDate = calendar.Calendar.DateFromComponents (components);
-			List<TKCalendarEvent> filteredEvents = new List<TKCalendarEvent> ();
+			List<TKCalendarEventProtocol> filteredEvents = new List<TKCalendarEventProtocol> ();
 			for (int i = 0; i < this.main.Events.Count; i++) {
-				TKCalendarEvent ev = this.main.Events [i];
+				TKCalendarEventProtocol ev = this.main.Events [i];
 				if (ev.StartDate.SecondsSinceReferenceDate <= endDate.SecondsSinceReferenceDate && 
 					ev.EndDate.SecondsSinceReferenceDate >= date.SecondsSinceReferenceDate) {
 					filteredEvents.Add (ev);

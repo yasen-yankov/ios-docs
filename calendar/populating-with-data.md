@@ -36,16 +36,16 @@ func calendar(calendar: TKCalendar!, eventsForDate date: NSDate!) -> [AnyObject]
 }
 ```
 ```C#
-public override TKCalendarEvent[] EventsForDate (TKCalendar calendar, NSDate date)
+public override TKCalendarEventProtocol[] EventsForDate (TKCalendar calendar, NSDate date)
 {
 	NSDateComponents components = calendar.Calendar.Components (NSCalendarUnit.Year | NSCalendarUnit.Month | NSCalendarUnit.Day, date);
 	components.Hour = 23;
 	components.Minute = 59;
 	components.Second = 59;
 	NSDate endDate = calendar.Calendar.DateFromComponents (components);
-	List<TKCalendarEvent> filteredEvents = new List<TKCalendarEvent> ();
+	List<TKCalendarEventProtocol> filteredEvents = new List<TKCalendarEventProtocol> ();
 	for (int i = 0; i < this.main.Events.Count; i++) {
-		TKCalendarEvent ev = this.main.Events [i];
+		TKCalendarEventProtocol ev = this.main.Events [i];
 		if (ev.StartDate.SecondsSinceReferenceDate <= endDate.SecondsSinceReferenceDate && 
 			ev.EndDate.SecondsSinceReferenceDate >= date.SecondsSinceReferenceDate) {
 			filteredEvents.Add (ev);
@@ -116,7 +116,7 @@ func shouldImportEventsFromCalendar(calendar: EKCalendar!) -> Bool {
 }
 ```
 ```C#
-public override bool ShouldImportEventsFromCalendar (MonoTouch.EventKit.EKCalendar calendar)
+public override bool ShouldImportEventsFromCalendar (EventKit.EKCalendar calendar)
 {
 	if (calendar.Type == EKCalendarType.Local) {
 		return true;
