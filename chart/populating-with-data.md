@@ -109,7 +109,7 @@ public class PopulatingWithData: UIViewController
     {
         base.ViewDidLoad ();
 
-        var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -10, -10));
+        var chart = new TKChart (CGRect.Inflate (this.View.Bounds, -10, -10));
         this.View.AddSubview (chart);
         chart.DataSource = new ChartDataSource ();
         chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
@@ -119,17 +119,16 @@ public class PopulatingWithData: UIViewController
     {
         Random r = new Random();
 
-        public override uint NumberOfSeries (TKChart chart)
+        public override nuint NumberOfSeries (TKChart chart)
         {
             return 1;
         }
-
-        public override uint PointsInSeries (TKChart chart, uint seriesIndex)
+        public override nuint PointsInSeries (TKChart chart, nuint seriesIndex)
         {
             return 10;
         }
 
-        public override TKChartSeries GetSeries (TKChart chart, uint index)
+        public override TKChartSeries GetSeries (TKChart chart, nuint index)
         {
             var series = chart.DequeueReusableSeriesWithIdentifier ("series1") as TKChartSeries;
             if (series == null) {
@@ -139,7 +138,7 @@ public class PopulatingWithData: UIViewController
             return series;
         }
 
-        public override TKChartData GetPoint (TKChart chart, uint dataIndex, uint seriesIndex)
+        public override TKChartData GetPoint (TKChart chart, nuint dataIndex, nuint seriesIndex)
         {
             var point = new TKChartDataPoint (new NSNumber (dataIndex), new NSNumber(r.Next (100)));
             return point;
@@ -190,7 +189,7 @@ let series = TKChartColumnSeries(items: dataPoints)
 chart.addSeries(series)
 ```
 ```C#
-var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -10, -10));
+var chart = new TKChart (CGRect.Inflate (this.View.Bounds, -10, -10));
 this.View.AddSubview (chart);
 chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
@@ -248,7 +247,7 @@ chart.addSeries(TKChartScatterSeries(items: dataPoints, forKeys: ["dataXValue": 
 chart.endUpdates()
 ```
 ```C#
-var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -10, -10));
+var chart = new TKChart (CGRect.Inflate (this.View.Bounds, -10, -10));
 this.View.AddSubview (chart);
 chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 

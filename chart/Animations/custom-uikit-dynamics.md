@@ -63,7 +63,7 @@ var collisions = new UICollisionBehavior (points);
 collisions.TranslatesReferenceBoundsIntoBoundary = true;
 
 var gravity = new UIGravityBehavior (points);
-gravity.GravityDirection = new MonoTouch.CoreGraphics.CGVector(0.0f, 2.0f);
+gravity.GravityDirection = new CGVector(0.0f, 2.0f);
 
 var dynamic = new UIDynamicItemBehavior (points);
 dynamic.Elasticity = 0.5f;

@@ -53,7 +53,7 @@ chart.trackball.line.style.pointShape = shape
 ```
 ```C#
 var color = UIColor.Red;
-var size = new SizeF (20, 20);
+var size = new CGSize (20, 20);
 var shape = new TKPredefinedShape (TKShapeType.Rhombus, size);
 chart.Trackball.Line.Style.VerticalLineStroke = new TKStroke (color, 2.0f);
 chart.Trackball.Line.Style.PointShapeFill = new TKSolidFill (color);

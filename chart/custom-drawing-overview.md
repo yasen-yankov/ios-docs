@@ -97,8 +97,8 @@ var fill = new TKLinearGradientFill (new UIColor[] {
     new UIColor (1.0f, 0.0f, 0.0f, 0.6f),
     new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
 }, 
-    new PointF(0, 0), 
-    new PointF(1, 1));
+    new CGPoint(0, 0), 
+    new CGPoint(1, 1));
 ```
 
 <img src="../images/chart-custom-drawing004.png"/>
@@ -129,8 +129,8 @@ var fill = new TKLinearGradientFill (new UIColor[] {
     new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
 },
     new NSObject[] { new NSNumber(0.6), new NSNumber(0.8), new NSNumber(1.0) },
-    new PointF(0, 0), 
-    new PointF(1, 1));
+    new CGPoint(0, 0), 
+    new CGPoint(1, 1));
 ```
 
 Warning: All coordinates for locations, startPoint and endPoint parameters are relative to the size of drawing surface. The values of locations array must be monotonically increasing.
@@ -166,9 +166,9 @@ var fill = new TKRadialGradientFill (new UIColor[] {
     new UIColor (0.0f, 1.0f, 0.0f, 0.7f),
     new UIColor (1.0f, 0.0f, 0.0f, 0.0f) 
 },
-    new PointF (0.5f, 0.5f),
+    new CGPoint (0.5f, 0.5f),
     0.7f,
-    new PointF (0, 1),
+    new CGPoint (0, 1),
     0.3f,
     TKGradientRadiusType.RectMax);
 ```
@@ -298,7 +298,7 @@ var fill = new TKLinearGradientFill (new UIColor[] {
     new UIColor (0.0f, 1.0f, 0.0f, 0.6f),
     new UIColor (1.0f, 0.0f, 0.0f, 0.6f),
     new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
-}, new PointF(0, 0), new PointF(1, 1));
+}, new CGPoint(0, 0), new CGPoint(1, 1));
 var stroke = new TKStroke (fill, 1.0f);
 stroke.CornerRadius = 5.0f;
 ```
@@ -328,7 +328,7 @@ var fill = new TKLinearGradientFill(new UIColor[] {
     new UIColor (0.0f, 1.0f, 0.0f, 0.6f),
     new UIColor (1.0f, 0.0f, 0.0f, 0.6f),
     new UIColor (0.0f, 0.0f, 1.0f, 0.6f)
-}, new PointF(0, 0), new PointF(1, 1));
+}, new CGPoint(0, 0), new CGPoint(1, 1));
 var stroke = new TKStroke (fill, 1.0f);
 stroke.CornerRadius = 5.0f;
 stroke.DashPattern = new NSNumber[] { new NSNumber(2), new NSNumber(2), new NSNumber(5), new NSNumber(2) };
@@ -561,7 +561,7 @@ series.style.pointShape = [TKPredefinedShape shapeWithType:TKShapeTypeRhombus an
 series.style.pointShape = TKPredefinedShape(type: TKShapeType.Rhombus, andSize: CGSizeMake(15, 15))
 ```
 ```C#
-series.Style.PointShape = new TKPredefinedShape (TKShapeType.Rhombus, new SizeF (15, 15));
+series.Style.PointShape = new TKPredefinedShape (TKShapeType.Rhombus, new CGSize (15, 15));
 ```
 
 series.style.pointShape also applies to line and area series in case you need to show shapes on data points.

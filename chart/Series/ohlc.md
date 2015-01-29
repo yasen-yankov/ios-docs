@@ -112,7 +112,7 @@ func chart(chart: TKChart!, paletteItemForSeries series: TKChartSeries!, atIndex
 ```C#
 class ChartDelegate: TKChartDelegate
 {
-    public override TKChartPaletteItem PaletteItemForSeries (TKChart chart, TKChartSeries series, int index)
+    public override TKChartPaletteItem PaletteItemForSeries (TKChart chart, TKChartSeries series, nint index)
     {
         var dataPoint = series.DataPointAtIndex ((uint)index);
         TKStroke stroke = null;

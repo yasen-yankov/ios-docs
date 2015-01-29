@@ -192,9 +192,9 @@ balloon.style.cornerRadius = 0
 balloon.style.fill = TKLinearGradientFill(colors: [UIColor.grayColor(), UIColor.blueColor()])
 ```
 ```C#
-balloon.Style.ArrowSize = new SizeF (20f, 20f);
+balloon.Style.ArrowSize = new CGSize (20f, 20f);
 balloon.Style.CornerRadius = 0f;
-balloon.Style.Fill = new TKLinearGradientFill (new UIColor[] { UIColor.Gray, UIColor.Blue }, new PointF(0, 0), new PointF(1, 1));
+balloon.Style.Fill = new TKLinearGradientFill (new UIColor[] { UIColor.Gray, UIColor.Blue }, new CGPoint(0, 0), new CGPoint(1, 1));
 ```
 
 <img src="../images/chart-annotations005.png"/>
@@ -220,7 +220,7 @@ chart.addAnnotation(TKChartViewAnnotation(view: imageView, x: "Perfecto", y: 55,
 ```C#
 var image = new UIImage ("logo.png");
 var imageView = new UIImageView (image);
-imageView.Bounds = new RectangleF (0, 0, image.Size.Width, image.Size.Height);
+imageView.Bounds = new CGRect (0, 0, image.Size.Width, image.Size.Height);
 imageView.Alpha = 0.7f;
 chart.AddAnnotation (new TKChartViewAnnotation (imageView, new NSString ("Perfecto"), new NSNumber (55), chart.Series [0]));
 ```
