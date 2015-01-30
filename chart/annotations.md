@@ -201,7 +201,7 @@ balloon.Style.Fill = new TKLinearGradientFill (new UIColor[] { UIColor.Gray, UIC
 
 ### Layer and view annotations###
 
-The <code>TKChartLayerAnnotation</code> and <code>TKChartViewAnnotations</code> are also point annotations. Those allow positioning a layer or a view inside the chart. The following code will position an image named *img* at the center of the chart:
+The <code>TKChartLayerAnnotation</code> and <code>TKChartViewAnnotations</code> are also point annotations. Those allow positioning a layer or a view inside the chart. The following code will position an image named *img* at the center of the chart: test
 
 ```Objective-C
 UIImage *image = [UIImage imageNamed:@"logo"];
