@@ -36,18 +36,24 @@ TKCalendarMonthPresenter *presenter = (TKCalendarMonthPresenter*)calendar.presen
 presenter.style.titleCellHeight = 40;
 presenter.style.backgroundColor = [UIColor redColor];
 presenter.headerIsSticky = YES;
+presenter.style.monthNameTextEffect = TKCalendarTextEffectLowercase;
+[presenter update:NO];
 ```
 ```Swift
 let presenter = calendar.presenter() as TKCalendarMonthPresenter
 presenter.style().titleCellHeight = 40
 presenter.style().backgroundColor = UIColor.redColor()
 presenter.headerIsSticky = true
+presenter.style().monthNameTextEffect = TKCalendarTextEffect.Lowercase
+presenter.update(false)
 ```
 ```C#
 TKCalendarMonthPresenter presenter = (TKCalendarMonthPresenter)calendar.Presenter;
 presenter.Style.TitleCellHeight = 40;
 presenter.Style.BackgroundColor = UIColor.Red;
 presenter.HeaderIsSticky = true;
+presenter.Style.MonthNameTextEffect = TKCalendarTextEffect.Lowercase;
+presenter.Update(false);
 ```
 
 There are cases when specific cells must have custom design based on the cell state (e.g. today, weekend, selected). This can be dobe by adopging the <code>TKCalendarDelegate</code> protocol and implementing its <code>calendar:upateVisualsForCell:</code> method:
