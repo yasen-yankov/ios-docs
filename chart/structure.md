@@ -222,7 +222,7 @@ Series appearance can be changed by using the <code>style</code> property.
 
 <code>TKChart</code> is an interactive component that supports gestures like touch, pan and rotate. The main actions that are supported are selection and pan/zoom interaction.
 
-The <code>allowPan</code> and <code>allowZoom</code> properties of TKChartSeries should be set to *YES* in order to allow pan/zoom functionality.
+The <code>allowPan</code> and <code>allowZoom</code> properties of TKChartAxis should be set to *YES* in order to allow pan/zoom functionality.
 
 The <code>selectionMode</code> property of TKChartSeries should be set to <code>TKChartSelectionModeSeries</code> or <code>TKChartSelectionModeDataPoint</code> in order to allow selection for the specified series.
 
