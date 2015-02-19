@@ -12,7 +12,7 @@ This quick start tutorial demonstrates how to create a simple iOS application wi
 
 ## Prerequisites
 
-In order to start using <code>TKSideDrawer</code>, you have first to install the latest version of Telerik UI for iOS. You can download it from: [http://www.telerik.com/download/ios-ui](http://www.telerik.com/download/ios-ui). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you trough the installation process. When done, it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using <code>TKSideDrawer</code>.
+In order to start using <code>TKSideDrawer</code>, you have to first install the latest version of Telerik UI for iOS. You can download it from: [http://www.telerik.com/download/ios-ui](http://www.telerik.com/download/ios-ui). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you through the installation process. When done, it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using <code>TKSideDrawer</code>.
 
 <img src="../images/chart-overview003.png"/>
 
@@ -42,7 +42,7 @@ Open your **ViewController.m** file and add a reference to the chart header file
 
 If you are writing Swift, add the same line in your bridging header.
 
-If you are using Xamarin, add a reference to TelerikUI.dll in your project and use the using directive:
+If you are using Xamarin, add a reference to TelerikUI.dll in your project and use the <code>using</code> directive:
 
     using TelerikUI;
     
@@ -64,9 +64,11 @@ Type the following code in your **AppDelegate.m** <code>application:didFinishLau
 	this.Window.RootViewController = sideDrawerController;
 ```
 
-This code creates an instance of <code>TKSideDrawerController</code> and sets it as a root view controller. <code>TKSideDrawerController</code> is a containter controller that has <code>TKSideDrawer</code> instance which will be used by its content controllers.
+This code creates an instance of <code>TKSideDrawerController</code> and sets it as a root view controller. <code>TKSideDrawerController</code> is a containter controller that has an <code>TKSideDrawer</code> instance embedded inside. The instance is then used by the content controllers of the TKSideDrawerController.
 
-The next step is to add items to our side drawer. When <code>TKSideDrawerController</code> is used you can get its <code>TKSideDrawer</code> using the <code>sideDrawer</code> property in the <code>UIViewController</code> category that we have created or by invoking <code>TKSideDrawer</code> class method <code>findSideDrawerForViewController:</code>.
+The next step is to add items to our side drawer. You can get the <code>TKSideDrawer</code> instance from the <code>TKSideDrawerController</code> using the <code>sideDrawer</code> property. This property is exposed at a special <code>UIViewController</code> category serving the <code>TKSideDrawer</code> purposes. 
+
+Or, instead of using the <code>sideDrawer</code> property, you can call the <code>TKSideDrawer</code> class method <code>findSideDrawerForViewController:</code>.
 
 Type the following code in the <code>viewDidLoad</code> method of the content controller:
 
@@ -149,7 +151,6 @@ Here is the full code of this example:
 	class AppDelegate: UIResponder, UIApplicationDelegate {
 
     	var window: UIWindow?
-
 
     	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: 	AnyObject]?) -> Bool {
         	// Override point for customization after application launch.
@@ -258,7 +259,7 @@ Here is the full code of this example:
 
 ## Attaching TKSideDrawer to UIViewController
 
-<code>TKSideDrawer</code> can be attached to your view contrllers without <code>TKSideDrawerController</code>. In such scenario you should initialize <code>TKSideDrawer</code> and set its view controller and its hostview. Type the code below in your <code>viewDidLoad</code> method:
+<code>TKSideDrawer</code> can be attached to your view controllers without <code>TKSideDrawerController</code>. In such a scenario, you should initialize <code>TKSideDrawer</code> and set its view controller and its hostview. Type the code below in your <code>viewDidLoad</code> method:
 
 ```Objective-C
 

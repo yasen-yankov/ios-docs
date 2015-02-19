@@ -10,7 +10,7 @@ position: 4
 
 <code>TKSideDrawer</code> allows customizing almost every aspect of its visual appearance. This article demonstrates some of the customization techniques that can be used with it.
 
-Most useful settings for changing the visual appearance of <code>TKSideDrawer</code> are grouped in its <code>style</code> property.
+The most useful settings for changing the visual appearance of <code>TKSideDrawer</code> are grouped in its <code>style</code> property.
 
 ```Objective-C
 	self.sideDrawer.style.headerHeight = 64;
@@ -36,7 +36,7 @@ Most useful settings for changing the visual appearance of <code>TKSideDrawer</c
 	SideDrawer.Style.ShadowRadius = 5;
 ```
 
-There are cases when you may need to update the styles of specific TKSideDrawer items like the text color or if a separator should be drawn. This can be done by adopting the <code>TKSideDrawerDelegate</code> protocol and implementing its <code>sideDrawer:updateVisualsForItem:inSection:</code> method.
+There are cases when you may need to update the styles of specific TKSideDrawer items like the text color. Or, you may need to show a separator. This can be done by adopting the <code>TKSideDrawerDelegate</code> protocol and implementing its <code>sideDrawer:updateVisualsForItem:inSection:</code> method.
 
 ```Objective-C
 - (void)sideDrawer:(TKSideDrawer *)sideDrawer updateVisualsForItem:(NSInteger)itemIndex inSection:(NSInteger)sectionIndex
@@ -97,7 +97,8 @@ public override void UpdateVisualsForSection (TKSideDrawer sideDrawer, int secti
 }
 ```
 ## Custom content
-In some scenarios you may need to use custom views for <code>TKSideDrawer</code> header or footer. <code>TKSideDrawer</code> properties <code>headerView</code> and <code>footerView</code> inherit from <code>UIView</code> allowing you to use the view that best suit your needs:
+
+In some scenarios you may need to use custom views for <code>TKSideDrawer</code> header or footer. The <code>TKSideDrawer</code> properties <code>headerView</code> and <code>footerView</code> inherit from <code>UIView</code> allowing you to use the view that best suit your needs:
 
 ```Objective-C
 self.sideDrawer.headerView = [[SideDrawerHeaderView alloc] init];

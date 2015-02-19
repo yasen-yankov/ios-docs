@@ -7,7 +7,7 @@ position: 7
 
 This help topic demonstrates how you can make your charts more interactive by enabling a selection behavior.
 
-## Configure##
+## Configure ##
 
 You can alter the selection mode for each series by altering the series <code>selectionMode</code> property with the following value:
 
