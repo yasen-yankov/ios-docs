@@ -32,8 +32,6 @@ The default value of the <code>allowsMultipleSelection</code> property is <code>
 	listView.allowsMultipleSelection = false
 ```
 
-
-
 ## Multiple selection mode##
 
 <img src="../images/listview-selection002.png"/>
