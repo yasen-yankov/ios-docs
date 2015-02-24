@@ -115,17 +115,29 @@ The <code>TKListViewDelegate</code> protocol provides a few handy delegate metho
 ```
 Bellow you can find some details on how you can use the delegate methods from TKListViewDelegate.
 
-## Responding to user triggered cell selection
+## Responding to user triggered cell selection / deselection
 
-If you need to perform a specific action after user selects a cell you can use the following methods from TKListViewDelegate protocol:
+If you need to perform a specific action after user selects or deselects a cell you can use the following methods from TKListViewDelegate protocol:
 
 ```Objective-C
-	//assuming your view controller adopts the TKListViewdelegate protocol
-    _listView.delegate = self;
+- (void)listView:(TKListView *)listView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Did select item at row: %i in section: %i", indexPath.row,indexPath.section);
+}
+
+- (void)listView:(TKListView *)listView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+        NSLog(@"Did deselect item at row: %i in section: %i", indexPath.row,indexPath.section);
+}
 ```
 ```Swift
-	//assuming your view controller adopts the TKListViewdelegate protocol
-	listView.delegate = self
+func listView(listView: TKListView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+	println("Did select item at row: \(indexPath.row )  in section \(indexPath.section)")
+	}
+    
+    func listView(listView: TKListView!, didDeselectItemAtIndexPath indexPath: NSIndexPath!){
+    println("Did deselect item at row: \(indexPath.row )  in section \(indexPath.section)")
+    }
 ```
 
 
