@@ -101,7 +101,32 @@ To deselected a cell programatically:
 	listView.deselectItemAtIndexPath(indexPath, animated: false)
 ```
 
+## TKListViewDelegate methods
+
+The <code>TKListViewDelegate</code> protocol provides a few handy delegate methods to be used to control and respond to selection events triggered by user. In order to take advantage of these methods you should set the delegate proeprty of <code>TKListView</code> to a class adopting the <code>TKListViewDelegate</code> protocol. For example:
+
+```Objective-C
+	//assuming your view controller adopts the TKListViewdelegate protocol
+    _listView.delegate = self;
+```
+```Swift
+	//assuming your view controller adopts the TKListViewdelegate protocol
+	listView.delegate = self
+```
+Bellow you can find some details on how you can use the delegate methods from TKListViewDelegate.
+
 ## Responding to user triggered cell selection
+
+If you need to perform a specific action after user selects a cell you can use the following methods from TKListViewDelegate protocol:
+
+```Objective-C
+	//assuming your view controller adopts the TKListViewdelegate protocol
+    _listView.delegate = self;
+```
+```Swift
+	//assuming your view controller adopts the TKListViewdelegate protocol
+	listView.delegate = self
+```
 
 
 
