@@ -76,3 +76,33 @@ In order to disable selection you need to set the <code>_listView.selectionBehav
 ```Swift
 	listView.selectionBehavior = TKListViewSelectionBehavior.None
 ```
+## Programatically selecting items##
+
+Cells can be selected programatically as well.
+
+```Objective-C
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+	[_listView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+```
+```Swift
+	let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+	listView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.None)
+```
+## Programatically deselecting items##
+
+To deselected a cell programatically:
+
+```Objective-C
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+	[_listView deselectItemAtIndexPath:indexPath animated:false];
+```
+```Swift
+	let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+	listView.deselectItemAtIndexPath(indexPath, animated: false)
+```
+
+## Responding to user triggered cell selection
+
+
+
+
