@@ -19,5 +19,5 @@ This is the place where you get information which item was reordered from what p
 
 <snippet>
 
-*In case you are using TKDataSource you may set it as delegate for TKListVie. With such setup you will not need to reorder your data manually .TKDataSource will handle that for you.
+*In case you are using TKDataSource you may set it as delegate for TKListView. With such setup you will not need to reorder your data manually .TKDataSource will handle that for you.
 <snippet> 
