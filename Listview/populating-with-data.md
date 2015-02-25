@@ -29,6 +29,30 @@ The following example shows how to initialise TKDataSource with data and feed th
         self.view.addSubview(listView)
         
 ```
+```C#
+this.sampleArrayOfStrings = NSArray.FromStrings (new String [] {
+				"Kristina Wolfe",
+				"Freda Curtis",
+				"Jeffery Francis",
+				"Eva Lawson",
+				"Emmett Santos",
+				"Theresa Bryan",
+				"Jenny Fuller",
+				"Terrell Norris",
+				"Eric Wheeler",
+				"Julius Clayton",
+				"Alfredo Thornton",
+				"Roberto Romero",
+				"Orlando Mathis",
+				"Eduardo Thomas",
+				"Harry Douglas"
+			});
+
+this.dataSource = new TKDataSource (sampleArrayOfStrings);
+TKListView listView = new TKListView (this.View.Bounds);
+listView.WeakDataSource = this.dataSource;
+this.View.AddSubview (listView);
+```
 
 ## Populating with data using TKListViewDataSource protocol##
 
@@ -77,14 +101,6 @@ First we need to set the datasource property of TKListView to a class adopting t
         self.view.addSubview(listView)
     }
     
-    func listView(listView: TKListView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
-        println("Did select item at row: \(indexPath.row )  in section \(indexPath.section)")
-    }
-    
-    func listView(listView: TKListView!, didDeselectItemAtIndexPath indexPath: NSIndexPath!) {
-        println("Did deselect item at row: \(indexPath.row )  in section \(indexPath.section)")
-    }
-    
     func  listView(listView: TKListView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> TKListViewCell! {
         let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)  as TKListViewCell
         
@@ -102,7 +118,57 @@ First we need to set the datasource property of TKListView to a class adopting t
     }
 
 ```
+```C#
+this.sampleArrayOfStrings = NSArray.FromStrings (new String [] { 
+				"Kristina Wolfe",
+				"Freda Curtis",
+				"Jeffery Francis",
+				"Eva Lawson",
+				"Emmett Santos",
+				"Theresa Bryan",
+				"Jenny Fuller",
+				"Terrell Norris",
+				"Eric Wheeler",
+				"Julius Clayton",
+				"Alfredo Thornton",
+				"Roberto Romero",
+				"Orlando Mathis",
+				"Eduardo Thomas",
+				"Harry Douglas"
+});
+				
+TKListView listView = new TKListView (this.View.Bounds);
+listView.RegisterClassForCell (new Class (typeof(TKListViewCell)), "cell");
+listView.DataSource = new ListViewDataSource (this);
 
+this.View.AddSubview (listView);
+
+class ListViewDataSource: TKListViewDataSource
+{
+	ViewController owner;
+
+	public ListViewDataSource(ViewController owner)
+	{
+		this.owner = owner;
+	}
+
+	public override int NumberOfItemsInSection (TKListView listView, int section)	{
+		return (int)this.owner.sampleArrayOfStrings.Count;
+	}
+
+	public override int NumberOfSectionsInListView (TKListView listView)
+	{
+		return 1;
+	}
+
+	public override TKListViewCell CellForItem (TKListView listView, NSIndexPath indexPath)
+	{
+		TKListViewCell cell = listView.DequeueReusableCell ("cell", indexPath) as TKListViewCell;
+		cell.TextLabel.Text = this.owner.sampleArrayOfStrings.GetItem<NSString> ((uint)indexPath.Row);
+		return cell;
+	}
+}
+```
 
 
 
