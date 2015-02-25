@@ -88,7 +88,7 @@ this.dataSource.DisplayKey = "Name";
 this.dataSource.ValueKey = "Value";
 ```
 
-In most scenarios this is not enough because the cell appearance should be customized. In this case you can mplement the <code>initCell</code> block from <code>TKDataSourceTableViewSettings</code> class:
+In the majority of the scenarios you will also need to customize the cells. In this case you can implement the <code>initCell</code> block from <code>TKDataSourceTableViewSettings</code> class:
 
 ```Objective-C
 [self.dataSource.settings.tableView initCell:^(UITableView *tableView, NSIndexPath *indexPath, UITableViewCell *cell, id item) {
@@ -106,7 +106,7 @@ this.dataSource.Settings.TableView.InitCell ((UITableView tableView, NSIndexPath
 });
 ```
 
-If this is not enough you can create your custom cells by using the <code>createCell</code> block function:
+If this is not enough to achieve to look you want, you can create your custom cells by using the <code>createCell</code> block function:
 
 ```Objective-C
 [self.dataSource.settings.tableView createCell:^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath, id item) {
@@ -160,7 +160,7 @@ this.dataSource.Group ((NSObject item) => {
 
 <img>
 
-<code>TKDataSource</code> integrates well with <code>UICollectionView</code> too. Just set the <code>dataSource</code> property and prepare the collection view:
+<code>TKDataSource</code> integrates well with <code>UICollectionView</code>. Just set the <code>dataSource</code> property and prepare the collection view:
 
 ```Objective-C
 UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
@@ -231,7 +231,7 @@ collectionView.RegisterClassForCell (typeof(TKCollectionViewCell), "cell");
 
 <img>
 
-Just like the build-in <code>UICollectionView</code> it is easy to use <code>TKListView</code> with <code>TKDataSource</code>:
+You can also easily use <code>TKListView</code> with <code>TKDataSource</code>:
 
 ```Objective-C
 TKListView *listView = [[TKListView alloc] initWithFrame:self.view.bounds];
@@ -301,7 +301,7 @@ listView.RegisterClassForCell(new ObjCRuntime.Class(typeof(TKCollectionViewCell)
 
 <img>
 
-In order to present data in <code>TKChart</code> you need to set the <code>displayKey</code> and <code>valueKey</code> properties. The <code>displayKey</code> defines the x-axis values, and the <code>valueKey</code> defines the y-axis values:
+In order to present data in <code>TKChart</code>, you need to set the <code>displayKey</code> and <code>valueKey</code> properties. The <code>displayKey</code> defines the x-axis values, and the <code>valueKey</code> defines the y-axis values:
 
 ```Objective-C
 self.dataSource.displayKey = @"name";

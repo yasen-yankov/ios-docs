@@ -1,12 +1,12 @@
 ---
-title: Consuming Data
-page_title: DataSource Consuming Data
+title: Populating with Data
+page_title: Populating DataSource with Data
 position: 3
 ---
 
-# DataSource: Consuming Data
+# DataSource: Populating with Data
 
-TKDataSource can consume data comming from various sources. 
+TKDataSource can consume data coming from various sources. 
 
 <img chart>
 
@@ -31,7 +31,7 @@ TKDataSource dataSource = new TKDataSource ();
 dataSource.ItemSource = items;
 ```
 
-It supports also arrays with business objects. In this scenario you can use <code>displayKey</code> and <code>valueKey</code> properties to define how to present the data:
+It also supports arrays of business objects. In this scenario you can use <code>displayKey</code> and <code>valueKey</code> properties to define how to present the data:
 
 ```Objective-C
 @interface DataSourceItem : NSObject
@@ -122,7 +122,7 @@ dataSource.Enumerate ((NSObject item) => {
 
 ```
 
-If a greater precision is necessary you can implement the <code>formatText</code> block to define how the data will be presented:
+If a greater precision is necessary, you can implement the <code>formatText</code> block to define how the data will be presented:
 
 ```Objective-C
 [dataSource formatText:^NSString *(id item, TKDataSourceGroup *group) {
@@ -193,7 +193,7 @@ TKDataSource dataSource = new TKDataSource();
 dataSource.LoadDataFromJSONResource ("PhotosWithNames", "json", "photos");
 ```
 
-It can load also data comming from a web service. The following code downloads a JSON formatted data from a web service, groups its items and presents the result in TKChart:
+It can load also data coming from a web service. The following code downloads a JSON formatted data from a web service, groups its items and presents the result in TKChart:
 
 ```Objective-C
 TKChart *chart = [[TKChart alloc] initWithFrame:self.view.bounds];

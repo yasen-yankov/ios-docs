@@ -50,7 +50,7 @@ dataSource.Sort ((NSObject obj1, NSObject obj2) => {
 dataSource.Group ((NSObject obj) => { return NSObject.FromObject( ((NSNumber)obj).Int32Value % 2 == 0 ); });
 ```
 
-The block API is not restricted by sorting, filtering, and grouping. A range of functional methods like <code>map</code>, <code>reduce</code> and <code>enumerate</code> are also available:
+The block API is not limited to sorting, filtering, and grouping. A range of functional methods like <code>map</code>, <code>reduce</code> and <code>enumerate</code> are also available:
 
 ```Objective-C
 TKDataSource *dataSource = [[TKDataSource alloc] initWithArray:@[ @10, @5, @12, @13, @7, @44 ]];
@@ -161,7 +161,9 @@ dataSource.SortWithKey ("value", true);
 dataSource.GroupWithKey ("group");
 ```
 
-All methods mentioned above execute when called and operate directly on the current <code>items</code> view in <code>TKDataSource</code>. <code>TKDataSource</code> extends its API by supporting three collections with sorting, filtering and group descriptors. The descriptors API supports both code blocks and queries with property names. This allows specifying the data shaping operations before loading the data. In this scenario all descriptors will be applied after data is loaded in <code>TKDataSource</code> by setting the <code>itemSource</code> property or by calling a method. The following code demonstrates this API:
+All the methods mentioned above execute immediately when called. They operate directly on the current <code>items</code> view in <code>TKDataSource</code>. <code>TKDataSource</code> extends its API by supporting three collections with sorting, filtering and group descriptors. 
+
+The descriptors API supports both code blocks and queries with property names. This allows for specifying the data shaping operations before loading the data. In this scenario all descriptors are applied after the data is actually loaded in <code>TKDataSource</code>. This data-loading operation can happen on setting the <code>itemSource</code> property. The following code demonstrates this API:
 
 ```Objective-C
 TKDataSource *dataSource = [TKDataSource new];
@@ -194,7 +196,7 @@ dataSource.AddGroupDescriptor (new TKDataSourceGroupDescriptor ("group"));
 dataSource.ItemSource = items;
 ```
 
-You can modify descriptor collections by using the coreesponding add and remove methods. You can reaplly all descriptors when data has changed by calling the <code>reloadData</code> method:
+You can modify descriptor collections by using the corresponding add and remove methods. You can reaplly all descriptors when data has changed by calling the <code>reloadData</code> method:
 
 ```Objective-C
 [dataSource reloadData];
@@ -205,9 +207,3 @@ dataSource.reloadData()
 ```C#
 dataSource.ReloadData();
 ```
-
-
-
-
-
-
