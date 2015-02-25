@@ -48,19 +48,62 @@ There are two ways to implement grouping with TKListView - manually implementing
         dataSource?.itemSource = items
         dataSource?.groupWithKey("group")
         dataSource?.displayKey = "name"
-        let listView = TKListView(frame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40))
+        let listView = TKListView(frame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40))        
         listView.dataSource = dataSource
         listView.layout.headerReferenceSize = CGSizeMake(200, 22)
         self.view.addSubview(listView)
     }
-```
+``	listView.AllowsMultipleSelection = false;`
 ```C#
 
 ```
 
 ## Displaying grouped data using a TKListViewDataSource delegate methods##
 
+
+
 ```Objective-C
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    _groups= @[@[@"John",@"Abby"],@[@"Smith",@"Peter",@"Paula"]];
+    
+
+    TKListView *_listView = [[TKListView alloc] initWithFrame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40)];
+    [_listView registerClass:[TKListViewCell class] forCellWithReuseIdentifier:@"cell"];
+    
+    [_listView registerClass:[TKListViewHeaderCell class] forSupplementaryViewOfKind:TKListViewElementKindSectionHeader withReuseIdentifier:@"header"];
+    _listView.dataSource = self;
+    _listView.layout.headerReferenceSize = CGSizeMake(200, 22);
+
+    [self.view addSubview:_listView];
+}
+
+-(NSInteger) numberOfSectionsInListView:(TKListView *)listView
+{
+    return _groups.count;
+}
+
+-(NSInteger) listView:(TKListView *)listView numberOfItemsInSection:(NSInteger)section
+{
+    return ((NSArray*)_groups[section]).count;
+}
+
+-(TKListViewCell*) listView:(TKListView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TKListViewCell *cell = [listView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = _groups[indexPath.section][indexPath.row];
+    
+    return cell;
+}
+
+-(TKListViewReusableCell*) listView:(TKListView *)listView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    TKListViewReusableCell *headerCell = [listView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
+    headerCell.textLabel.text = [NSString stringWithFormat:@"Group %li",indexPath.section];
+    return headerCell;
+}
 
 ```
 ```Swift
