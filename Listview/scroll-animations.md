@@ -14,7 +14,6 @@ TKListView may animate items on scrolling. It provides several animations effect
 
 
 To add animation behavior for cells use the <code>TKListViewCellAppearBehavior</code> property. 
-<snippets>
 
 ```Objective-C
 
