@@ -33,6 +33,45 @@ The following example shows how to initialise TKDataSource with data and feed th
 ## Populating with data using TKListViewDataSource protocol##
 
 Alternatively TKListView may be populated with data by manually implementing several methods from the TKListViewDataSource protocol. This way requires a bit more code but gives more flexibility.
-<snippets>
+First we need to set the datasource property of TKListView to a class adopting the TKListViewDatasource protocol. In the sample code bellow it is our view controller.
+
+```Objective-C
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    _sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", @"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando Mathis",@"Eduardo Thomas",@"Harry Douglas"];
+    
+    TKListView *_listView = [[TKListView alloc] initWithFrame: self.view.bounds];
+    [_listView registerClass:[TKListViewCell class] forCellWithReuseIdentifier:@"cell"];
+    _listView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _listView.dataSource = self;
+    
+    [self.view addSubview:_listView];
+}
+
+-(NSInteger)listView:(TKListView *)listView numberOfItemsInSection:(NSInteger)section  {
+    return _sampleArrayOfStrings.count;
+}
+
+-(NSInteger)numberOfSectionsInListView:(TKListView *)listView
+{
+    return 1;
+}
+
+- (TKListViewCell *)listView:(TKListView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TKListViewCell *cell = [listView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = _sampleArrayOfStrings[indexPath.row];
+    
+    return cell;
+}
+
+```
+```Swift
+
+```
+
+
+
 
 
