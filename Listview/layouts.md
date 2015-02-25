@@ -26,23 +26,23 @@ In wrap layout cells are distributed evenly in rows or columns according to the 
 
 ```Swift
 
-        listView.insets = UIEdgeInsetsMake(4, 4, 0, 4)
-        let layout = TKListViewWrapLayout()
-        layout.minimumLineSpacing = 4
-        layout.minimumInteritemSpacing = 4
-        layout.itemSize = CGSizeMake(100, 100)
-        listView.layout = layout
+     listView.insets = UIEdgeInsetsMake(4, 4, 0, 4)
+     let layout = TKListViewWrapLayout()
+     layout.minimumLineSpacing = 4
+     layout.minimumInteritemSpacing = 4
+     layout.itemSize = CGSizeMake(100, 100)
+     listView.layout = layout
         
 ```
 
 ```C#
             
-            this.ListView.Insets = new UIEdgeInsets (4, 4, 0, 4);
-			TKListViewWrapLayout layout = new TKListViewWrapLayout ();
-			layout.MinimumLineSpacing = 4;
-			layout.MinimumInteritemSpacing = 4;
-			layout.ItemSize = new CGSize (100f, 100f);
-			this.ListView.Layout = layout;
+      this.ListView.Insets = new UIEdgeInsets (4, 4, 0, 4);
+	  TKListViewWrapLayout layout = new TKListViewWrapLayout ();
+	  layout.MinimumLineSpacing = 4;
+	  layout.MinimumInteritemSpacing = 4;
+	  layout.ItemSize = new CGSize (100f, 100f);
+	  this.ListView.Layout = layout;
 ```
 
 ##Columns layout##
