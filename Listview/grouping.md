@@ -55,9 +55,23 @@ In case you need more flexibility you may implement grouping manualy as follows.
         listView.layout.headerReferenceSize = CGSizeMake(200, 22)
         self.view.addSubview(listView)
     }
-``	listView.AllowsMultipleSelection = false;`
 ```C#
+NSMutableArray items = new NSMutableArray ();
+items.Add (new DSItem ("John", 50f, "A"));
+items.Add (new DSItem ("Abby", 33f, "A"));
+items.Add (new DSItem ("Smith", 42f, "B"));
+items.Add (new DSItem ("Peter", 28f, "B"));
+items.Add (new DSItem ("Paula", 25f, "B"));
 
+this.dataSource = new TKDataSource ();
+this.dataSource.ItemSource = items;
+this.dataSource.GroupWithKey ("Group");
+dataSource.DisplayKey = "Name";
+
+TKListView listView = new TKListView (new CGRect (20, 20, this.View.Bounds.Size.Width - 40, this.View.Bounds.Size.Height - 40));
+listView.WeakDataSource = dataSource;
+listView.Layout.HeaderReferenceSize = new CGSize (200, 22);
+this.View.AddSubview (listView);
 ```
 
 ## Displaying grouped data using a TKListViewDataSource delegate methods##
@@ -145,5 +159,51 @@ In case you need more flexibility you may implement grouping manualy as follows.
     }
 ```
 ```C#
+groups = new NSMutableArray ();
+groups.Add (NSArray.FromStrings (new string[] { "John", "Abby" }));
+groups.Add(NSArray.FromStrings (new string[] { "Smith", "Peter", "Paula" }));
+
+TKListView listView = new TKListView (new CGRect (20, 20, this.View.Bounds.Size.Width - 40, this.View.Bounds.Size.Height - 40));
+listView.RegisterClassForCell (new Class (typeof(TKListViewCell)), "cell");
+
+listView.RegisterClassForSupplementaryView (new Class (typeof(TKListViewHeaderCell)), new NSString("header"), new NSString("header"));
+listView.DataSource = new ListViewDataSource (this);
+listView.Layout.HeaderReferenceSize = new CGSize (200, 22);
+
+this.View.AddSubview (listView);
+
+class ListViewDataSource : TKListViewDataSource
+{
+	ListViewGroups owner;
+
+	public ListViewDataSource (ListViewGroups owner)
+	{
+		this.owner = owner;
+	}
+
+	public override int NumberOfSectionsInListView (TKListView listView)
+	{
+		return (int)this.owner.groups.Count;
+	}
+
+	public override int NumberOfItemsInSection (TKListView listView, int section)
+	{
+		return (int)this.owner.groups.GetItem<NSArray>((uint)section).Count;
+	}
+
+	public override TKListViewCell CellForItem (TKListView listView, NSIndexPath indexPath)
+	{
+		TKListViewCell cell = listView.DequeueReusableCell("cell", indexPath) as TKListViewCell;
+		cell.TextLabel.Text = this.owner.groups.GetItem<NSArray> ((uint)indexPath.Section).GetItem<NSString> ()(uint)indexPath.Row);
+		return cell;
+	}
+
+	public override TKListViewReusableCell ViewForSupplementaryElementOfKind (TKListView listView, string kind, NSIndexPath indexPath)
+	{
+		TKListViewReusableCell headerCell = listView.DequeueReusableSupplementaryView(kind, "header", indexPath) as TKListViewReusableCell;
+		headerCell.TextLabel.Text = String.Format ("Group {0}", indexPath.Section);
+		return headerCell;
+	}
+}
 
 ```
