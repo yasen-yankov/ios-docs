@@ -31,6 +31,9 @@ The default value of the <code>allowsMultipleSelection</code> property is <code>
 ```Swift
 	listView.allowsMultipleSelection = false
 ```
+```C#
+	listView.AllowsMultipleSelection = false;
+```
 
 ## Multiple selection mode##
 
@@ -44,6 +47,9 @@ _listView.allowsMultipleSelection = YES;
 ```Swift
 	listView.allowsMultipleSelection = true	
 ```
+```C#
+	this.listView.AllowsMultipleSelection = true;
+```
 
 ## Selection on press##
 
@@ -54,6 +60,9 @@ By default TKListView will allow user to select on press.
 ```
 ```Swift
 	listView.selectionBehavior = TKListViewSelectionBehavior.Press
+```
+```C#
+	listView.SelectionBehavior = TKListViewSelectionBehavior.Press;
 ```
 
 ## Selection on hold (long press)##
@@ -66,6 +75,9 @@ In this mode a long-press gesture is required in order to select a cell.
 ```Swift
 	listView.selectionBehavior = TKListViewSelectionBehavior.LongPress
 ```
+```C#
+	listView.SelectionBehavior = TKListViewSelectionBehavior.LongPress;
+```
 ## Disable selection##
 In order to disable selection you need to set the <code>_listView.selectionBehavior</code> property to  <code>TKListViewSelectionBehaviorNone</code>
 ```Objective-C
@@ -73,6 +85,9 @@ In order to disable selection you need to set the <code>_listView.selectionBehav
 ```
 ```Swift
 	listView.selectionBehavior = TKListViewSelectionBehavior.None
+```
+```C#
+	listView.SelectionBehavior = TKListViewSelectionBehavior.None;
 ```
 ## Programatically selecting items##
 
@@ -86,6 +101,10 @@ Cells can be selected programatically as well.
 	let indexPath = NSIndexPath(forRow: 1, inSection: 0)
 	listView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.None)
 ```
+```C#
+	NSIndexPath indexPath = NSIndexPath.FromRowSection (1, 0);
+	this.listView.SelectItem (indexPath, false, UICollectionViewScrollPosition.None);
+```
 ## Programatically deselecting items##
 
 To deselected a cell programatically:
@@ -97,6 +116,10 @@ To deselected a cell programatically:
 ```Swift
 	let indexPath = NSIndexPath(forRow: 1, inSection: 0)
 	listView.deselectItemAtIndexPath(indexPath, animated: false)
+```
+```C#
+	NSIndexPath indexPath = NSIndexPath.FromRowSection (1, 0);
+	listView.DeselectItem (indexPath, false);
 ```
 
 ## TKListViewDelegate methods
@@ -110,6 +133,10 @@ The <code>TKListViewDelegate</code> protocol provides a few handy delegate metho
 ```Swift
 	//assuming your view controller adopts the TKListViewdelegate protocol
 	listView.delegate = self
+```
+```C#
+	//assuming your view controller adopts the TKListViewdelegate protocol
+	listView.Delegate = new ListViewDelegate (this);
 ```
 Bellow you can find some details on how you can use the delegate methods from TKListViewDelegate.
 
@@ -137,7 +164,18 @@ func listView(listView: TKListView!, didSelectItemAtIndexPath indexPath: NSIndex
     println("Did deselect item at row: \(indexPath.row )  in section \(indexPath.section)")
     }
 ```
+```C#
+public override void DidSelectItemAtIndexPath (TKListView listView, NSIndexPath indexPath)
+{
+				
+	Console.WriteLine ("Did select item at row {0} in section {1}", indexPath.Row, indexPath.Section);
+}
 
+public override void DidDeselectItemAtIndexPath (TKListView listView, NSIndexPath indexPath)
+{
+	Console.WriteLine("Did deselect item at row {0} in section {1}", indexPath.Row, indexPath.Section);
+}
+```
 
 
 
