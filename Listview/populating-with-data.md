@@ -43,11 +43,10 @@ First we need to set the datasource property of TKListView to a class adopting t
     
     TKListView *_listView = [[TKListView alloc] initWithFrame: self.view.bounds];
     [_listView registerClass:[TKListViewCell class] forCellWithReuseIdentifier:@"cell"];
-    _listView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _listView.dataSource = self;
     
     [self.view addSubview:_listView];
-}
+
 
 -(NSInteger)listView:(TKListView *)listView numberOfItemsInSection:(NSInteger)section  {
     return _sampleArrayOfStrings.count;
@@ -68,6 +67,39 @@ First we need to set the datasource property of TKListView to a class adopting t
 
 ```
 ```Swift
+ override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
+        let listView = TKListView(frame:  self.view.bounds)
+        listView.registerClass(TKListViewCell.self, forCellWithReuseIdentifier: "cell")
+        listView.dataSource = self
+        listView.selectionBehavior = TKListViewSelectionBehavior.None
+        self.view.addSubview(listView)
+    }
+    
+    func listView(listView: TKListView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+        println("Did select item at row: \(indexPath.row )  in section \(indexPath.section)")
+    }
+    
+    func listView(listView: TKListView!, didDeselectItemAtIndexPath indexPath: NSIndexPath!) {
+        println("Did deselect item at row: \(indexPath.row )  in section \(indexPath.section)")
+    }
+    
+    func  listView(listView: TKListView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> TKListViewCell! {
+        let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)  as TKListViewCell
+        
+        cell.textLabel.text = self.sampleArrayOfStrings[indexPath.row] as NSString
+        
+        return cell
+    }
+    
+    func listView(listView: TKListView!, numberOfItemsInSection section: Int) -> Int {
+        return self.sampleArrayOfStrings.count
+    }
+    
+    func numberOfSectionsInListView(listView: TKListView!) -> Int {
+        return 1
+    }
 
 ```
 
