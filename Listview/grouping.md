@@ -55,7 +55,7 @@ There are two ways to implement grouping with TKListView - manually implementing
     }
 ```
 ```C#
-	listView.AllowsMultipleSelection = false;
+
 ```
 
 ## Displaying grouped data using a TKListViewDataSource delegate methods##
