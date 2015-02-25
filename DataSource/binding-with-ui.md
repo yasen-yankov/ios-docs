@@ -14,13 +14,14 @@ position: 5
 - TKChart
 - TKCalendar
 
-This article will describe how to bind <code>TKDataSource</code> and customize those controls.
+This article describes how to bind <code>TKDataSource</code> and customize those controls.
 
+<br>
 **UITableView**
 
-<img>
+<img src="../images/datasource-binding-with-ui001.png"/>
 
-Setting the <code>dataSource</code> property is enough in order to present data in <code>UITableView</code>. <code>TKDataSource</code> will take care of the implementation of all <code>UITableViewDataSource</code> methods:
+Setting the <code>dataSource</code> property is enough in order to present data in <code>UITableView</code>. <code>TKDataSource</code> will take care of the implementation of all methods in <code>UITableViewDataSource</code> protocol:
 
 ```Objective-C
 self.dataSource = [[TKDataSource alloc] initWithArray:@[ @10, @5, @12, @13, @7, @44 ]];
@@ -60,6 +61,8 @@ NSMutableArray *items = [NSMutableArray new];
 self.dataSource.displayKey = @"name";
 self.dataSource.valueKey = @"value";
 self.dataSource.itemSource = items;
+
+NSLog(@"%@", [self.dataSource textFromItem:self.dataSource.items[0] inGroup:nil]);
 ```
 ```Swift
 var items = [DataSourceItem]()
@@ -92,6 +95,7 @@ In the majority of the scenarios you will also need to customize the cells. In t
 
 ```Objective-C
 [self.dataSource.settings.tableView initCell:^(UITableView *tableView, NSIndexPath *indexPath, UITableViewCell *cell, id item) {
+    cell.textLabel.text = [self.dataSource textFromItem:item inGroup:nil];
     cell.backgroundColor = [UIColor redColor];
 }];
 ```
@@ -112,7 +116,7 @@ If this is not enough to achieve to look you want, you can create your custom ce
 [self.dataSource.settings.tableView createCell:^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath, id item) {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"cell"];
     }
     return cell;
 }];
@@ -121,7 +125,7 @@ If this is not enough to achieve to look you want, you can create your custom ce
 self.dataSource?.settings.tableView.createCell { (UITableView tableView, NSIndexPath indexPath, AnyObject item) -> UITableViewCell in
     var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell?
     if cell == nil {
-        cell = UITableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:"cell")
+        cell = UITableViewCell(style:UITableViewCellStyle.Value2, reuseIdentifier:"cell")
     }
     return cell!
 }
@@ -130,7 +134,7 @@ self.dataSource?.settings.tableView.createCell { (UITableView tableView, NSIndex
 this.dataSource.Settings.TableView.CreateCell ((UITableView tableView, NSIndexPath indexPath, NSObject item) => {
 	UITableViewCell cell = tableView.DequeueReusableCell("cell");
 	if (cell == null) {
-		cell = new UITableViewCell(UITableViewCellStyle.Value1, "cell");
+		cell = new UITableViewCell(UITableViewCellStyle.Value2, "cell");
 	}
 	return cell;
 });
@@ -156,9 +160,10 @@ this.dataSource.Group ((NSObject item) => {
 });
 ```
 
+<br>
 **UICollectionView**
 
-<img>
+<img src="../images/datasource-binding-with-ui002.png"/>
 
 <code>TKDataSource</code> integrates well with <code>UICollectionView</code>. Just set the <code>dataSource</code> property and prepare the collection view:
 
@@ -199,11 +204,8 @@ Use the collection view settings class and its <code>initCell</code> in case you
 [self.dataSource.settings.collectionView initCell:^(UICollectionView *collectionView, NSIndexPath *indexPath, UICollectionViewCell *cell, id item) {
     TKCollectionViewCell *tkcell = (TKCollectionViewCell*)cell;
     tkcell.label.text = [self.dataSource textFromItem:item inGroup:nil];
+    tkcell.backgroundColor = [UIColor yellowColor];
 }];
-
-//...
-
-[collectionView registerClass:[DSCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 ```
 ```Swift
 self.dataSource?.settings.collectionView.initCell({ (UICollectionView collectionView, NSIndexPath indexPath,
@@ -211,25 +213,18 @@ self.dataSource?.settings.collectionView.initCell({ (UICollectionView collection
     let tkCell = cell as TKCollectionViewCell
     tkCell.label.text = self.dataSource?.textFromItem(item, inGroup: nil)
 })
-
-//...
-
-collectionView.registerClass(TKCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 ```
 ```C#
 this.dataSource.Settings.CollectionView.InitCell ((UICollectionView collection, NSIndexPath indexPath, UICollectionViewCell cell, NSObject item) => {
 	var tkCell = cell as TKCollectionViewCell;
 	tkCell.Label.Text = this.dataSource.TextFromItem(item, null);
 });
-
-//...
-
-collectionView.RegisterClassForCell (typeof(TKCollectionViewCell), "cell");
 ```
 
+<br>
 **TKListView**
 
-<img>
+<img src="../images/datasource-binding-with-ui003.png"/>
 
 You can also easily use <code>TKListView</code> with <code>TKDataSource</code>:
 
@@ -297,13 +292,24 @@ this.dataSource.Settings.ListView.InitCell ((TKListView list2, NSIndexPath index
 listView.RegisterClassForCell(new ObjCRuntime.Class(typeof(TKCollectionViewCell)), "cell");
 ```
 
+<br>
 **TKChart**
 
-<img>
+<img src="../images/datasource-binding-with-ui004.png"/>
 
 In order to present data in <code>TKChart</code>, you need to set the <code>displayKey</code> and <code>valueKey</code> properties. The <code>displayKey</code> defines the x-axis values, and the <code>valueKey</code> defines the y-axis values:
 
 ```Objective-C
+NSMutableArray *items = [NSMutableArray new];
+
+[items addObject:[[DataSourceItem alloc] initWithName:@"John" value:50 group:@"A"]];
+[items addObject:[[DataSourceItem alloc] initWithName:@"Abby" value:33 group:@"A"]];
+[items addObject:[[DataSourceItem alloc] initWithName:@"Paula" value:33 group:@"A"]];
+
+[items addObject:[[DataSourceItem alloc] initWithName:@"John" value:42 group:@"B"]];
+[items addObject:[[DataSourceItem alloc] initWithName:@"Abby" value:28 group:@"B"]];
+[items addObject:[[DataSourceItem alloc] initWithName:@"Paula" value:25 group:@"B"]];
+
 self.dataSource.displayKey = @"name";
 self.dataSource.valueKey = @"value";
 self.dataSource.itemSource = items;
@@ -337,33 +343,30 @@ this.View.AddSubview(chart);
 In order to present different series the data should be grouped. When this is done the <code>createSeries</code> method can be used to customize the series that should be created:
 
 ```Objective-C
+[self.dataSource groupWithKey:@"group"];
+
 [self.dataSource.settings.chart createSeries:^TKChartSeries *(TKDataSourceGroup *group) {
     TKChartColumnSeries *series = [TKChartColumnSeries new];
-    series.selectionMode = TKChartSeriesSelectionModeDataPoint;
-    series.style.paletteMode = TKChartSeriesStylePaletteModeUseItemIndex;
     return series;
 }];
 ```
 ```Swift
 self.dataSource?.settings.chart.createSeries({ (TKDataSourceGroup group) -> TKChartSeries! in
     let series = TKChartColumnSeries()
-    series.selectionMode = TKChartSeriesSelectionMode.DataPoint
-    series.style.paletteMode = TKChartSeriesStylePaletteMode.UseItemIndex
     return series
 })
 ```
 ```C#
 this.dataSource.Settings.Chart.CreateSeries ((TKDataSourceGroup group) => {
 	var series = new TKChartColumnSeries();
-	series.SelectionMode = TKChartSeriesSelectionMode.DataPoint;
-	series.Style.PaletteMode = TKChartSeriesStylePaletteMode.UseItemIndex;
 	return series;
 });
 ```
 
+<br>
 **TKCalendar**
 
-<img>
+<img src="../images/datasource-binding-with-ui005.png"/>
 
 <code>TKDataSource</code> is able to represent your data as calendar events. In this scenario you should set the <code>startDateKey</code> and <code>endDateKey</code> properties:
 

@@ -157,6 +157,8 @@ this.dataSource = dataSource;
 <br>
 Here is the full code of this example:
 
+<img src="../images/datasource-getting-started002.png"/>
+
 ```Objective-C
 {
     TKDataSource *_dataSource;
@@ -264,8 +266,8 @@ public override void ViewDidLoad ()
 You can easily switch the UI control used to present data coming from <code>TKDataSource</code>. It supports the most common data enabled UI controls, so you can use it the same way with <code>UICollectionView</code>, <code>TKChart</code>, <code>TKListView</code>, or <code>TKCalendar</code>. The following article demonstates how to initialize and customize the UI controls supported by <code>TKDataSource</code>:
 [Binding with UI controls](binding-with-ui)
 
-<code>TKDataSource</code> supports also different data inputs. This article demonstrates how to load data coming from files or a web service.
-[Loading with data](loading-with-data)
+<code>TKDataSource</code> supports also different data inputs. This article demonstrates how to load data comming from files or a web service.
+[Loading with data](populating-with-data)
 
 Data shaping operations are described in detail in this article:
 [Data shaping operations](data-shaping)
