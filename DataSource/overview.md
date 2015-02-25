@@ -23,7 +23,7 @@ TKDataSource supports the following data shaping operations:
 - filtering
 - grouping
 
-For your convenience TKDataSource implements three differnet APIs for data shaping operations.
+For your convenience TKDataSource provides three differnet APIs for data shaping operations.
 
 **Presenting data**
 

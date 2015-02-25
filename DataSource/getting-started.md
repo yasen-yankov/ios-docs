@@ -55,7 +55,16 @@ TKDataSource *dataSource = [[TKDataSource alloc] initWithArray:@[ @10, @5, @12, 
 let dataSource = TKDataSource(array: [ 10, 5, 12, 13, 7, 44 ])
 ```
 ```C#
-void
+NSObject[] array = new NSObject[] {
+    NSObject.FromObject (10),
+    NSObject.FromObject (5),
+    NSObject.FromObject (12),
+    NSObject.FromObject (13),
+    NSObject.FromObject (7),
+    NSObject.FromObject (44)
+};
+
+TKDataSource dataSource = new TKDataSource (array);
 ```
 
 <br>
@@ -88,7 +97,17 @@ dataSource.sort {
 dataSource.group { ($0 as Int) % 2 == 0 }
 ```
 ```C#
-void
+dataSource.Filter ((NSObject obj) => { return ((NSNumber)obj).Int32Value > 5; });
+
+dataSource.Sort ((NSObject obj1, NSObject obj2) => {
+    int a = ((NSNumber)obj1).Int32Value;
+    int b = ((NSNumber)obj2).Int32Value;
+    if (a<b) return NSComparisonResult.Descending;
+    else if (a>b) return NSComparisonResult.Ascending;
+    return NSComparisonResult.Same;
+});
+
+dataSource.Group ((NSObject obj) => { return NSObject.FromObject( ((NSNumber)obj).Int32Value % 2 == 0 ); });
 ```
 
 <br>
@@ -101,7 +120,7 @@ void
 dataSource.enumerate { println($0) }
 ```
 ```C#
-void
+dataSource.Enumerate ((NSObject obj) => { Console.WriteLine(obj); });
 ```
 
 <br>
@@ -118,56 +137,127 @@ self.view.addSubview(tableView)
 tableView.dataSource = dataSource
 ```
 ```C#
-void
+UITableView tableView = new UITableView (this.View.Bounds);
+tableView.DataSource = dataSource;
+this.View.Add (tableView);
+```
+
+Note that the <code>dataSource</code> property of <code>UITableView</code> is weak and you should assign the <code>dataSource</code> instance to a class variable in order to persist its value!
+
+```Objective-C
+_dataSource = dataSource;
+```
+```Swift
+self.dataSource = dataSource
+```
+```C#
+this.dataSource = dataSource;
 ```
 
 <br>
 Here is the full code of this example:
 
 ```Objective-C
-TKDataSource *dataSource = [[TKDataSource alloc] initWithArray:@[ @10, @5, @12, @13, @7, @44 ]];
-
-[dataSource filter:^BOOL(id item) { return [item intValue] > 5; }];
-
-[dataSource sort:^NSComparisonResult(id obj1, id obj2) {
-    int a = [obj1 intValue];
-    int b = [obj2 intValue];
-    if (a < b) { return NSOrderedAscending; }
-    else if (a > b) { return NSOrderedDescending; }
-    return NSOrderedSame;
-}];
-
-[dataSource group:^id(id item) { return @([item intValue] % 2 == 0); }];
-
-[dataSource enumerate:^(id item) { NSLog(@"%d", [item intValue]); }];
-
-UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-tableView.dataSource = dataSource;
-[self.view addSubview:tableView];
-```
-```Swift
-let dataSource = TKDataSource(array: [ 10, 5, 12, 13, 7, 44 ])
-
-dataSource.filter { $0 as Int > 5 }
-
-dataSource.sort {
-    let a = $0 as Int
-    let b = $1 as Int
-    if a < b { return NSComparisonResult.OrderedDescending }
-    else if a > b { return NSComparisonResult.OrderedAscending }
-    return NSComparisonResult.OrderedSame
+{
+    TKDataSource *_dataSource;
 }
 
-dataSource.group { ($0 as Int) % 2 == 0 }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    TKDataSource *dataSource = [[TKDataSource alloc] initWithArray:@[ @10, @5, @12, @13, @7, @44 ]];
+    
+    [dataSource filter:^BOOL(id item) { return [item intValue] > 5; }];
 
-dataSource.enumerate { println($0) }
+    [dataSource sort:^NSComparisonResult(id obj1, id obj2) {
+        int a = [obj1 intValue];
+        int b = [obj2 intValue];
+        if (a < b) { return NSOrderedAscending; }
+        else if (a > b) { return NSOrderedDescending; }
+        return NSOrderedSame;
+    }];
+    
+    [dataSource group:^id(id item) { return @([item intValue] % 2 == 0); }];
+ 
+    [dataSource enumerate:^(id item) { NSLog(@"%d", [item intValue]); }];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = dataSource;
+    [self.view addSubview:tableView];
+    
+    _dataSource = dataSource;
+}
+```
+```Swift
+var dataSource: TKDataSource?
 
-let tableView = UITableView(frame: self.view.bounds)
-self.view.addSubview(tableView)
-tableView.dataSource = dataSource
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    // Do any additional setup after loading the view.
+    
+    let dataSource = TKDataSource(array: [ 10, 5, 12, 13, 7, 44 ])
+    
+    dataSource.filter { $0 as Int > 5 }
+    
+    dataSource.sort {
+        let a = $0 as Int
+        let b = $1 as Int
+        if a < b { return NSComparisonResult.OrderedDescending }
+        else if a > b { return NSComparisonResult.OrderedAscending }
+        return NSComparisonResult.OrderedSame
+    }
+    
+    dataSource.group { ($0 as Int) % 2 == 0 }
+    
+    dataSource.enumerate { println($0) }
+    
+    let tableView = UITableView(frame: self.view.bounds)
+    self.view.addSubview(tableView)
+    tableView.dataSource = dataSource
+    
+    self.dataSource = dataSource
+}
 ```
 ```C#
-void
+TKDataSource dataSource;
+
+public override void ViewDidLoad ()
+{
+    base.ViewDidLoad();
+
+    NSObject[] array = new NSObject[] {
+        NSObject.FromObject (10),
+        NSObject.FromObject (5),
+        NSObject.FromObject (12),
+        NSObject.FromObject (13),
+        NSObject.FromObject (7),
+        NSObject.FromObject (44)
+    };
+
+    TKDataSource dataSource = new TKDataSource (array);
+
+    dataSource.Filter ((NSObject obj) => { return ((NSNumber)obj).Int32Value > 5; });
+
+    dataSource.Sort ((NSObject obj1, NSObject obj2) => {
+        int a = ((NSNumber)obj1).Int32Value;
+        int b = ((NSNumber)obj2).Int32Value;
+        if (a<b) return NSComparisonResult.Descending;
+        else if (a>b) return NSComparisonResult.Ascending;
+        return NSComparisonResult.Same;
+    });
+
+    dataSource.Group ((NSObject obj) => { return NSObject.FromObject( ((NSNumber)obj).Int32Value % 2 == 0 ); });
+
+    dataSource.Enumerate ((NSObject obj) => { Console.WriteLine(obj); });
+
+    UITableView tableView = new UITableView (this.View.Bounds);
+    tableView.DataSource = dataSource;
+    this.View.Add (tableView);
+
+    this.dataSource = dataSource;
+}
 ```
 
 <br>
