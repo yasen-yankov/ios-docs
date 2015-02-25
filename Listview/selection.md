@@ -1,7 +1,7 @@
 ---
 title: Selection
 page_title: ListView selection
-position: 2
+position: 5
 ---
 
 # ListView: Selection

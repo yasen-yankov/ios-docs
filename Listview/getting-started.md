@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 page_title: ListView Getting Started
-position: 1
+position: 2
 ---
 
 # ListView: Getting Started
