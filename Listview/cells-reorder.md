@@ -45,6 +45,13 @@ func listView(listView: TKListView!, didReorderItemFromIndexPath originalIndexPa
 
 ```
 
+```C#
+public override void DidReorderItemFromIndexPath (TKListView listView, NSIndexPath originalIndexPath, NSIndexPath targetIndexPath)
+{
+	Console.WriteLine("Item moved to section:{0} row:{1}", targetIndexPath.Section, targetIndexPath.Row);
+}
+```
+
 *In case you are using TKDataSource you may set it as delegate for TKListView. With such setup you will not need to reorder your data manually .TKDataSource will handle that for you.
 
 ```Objective-C
