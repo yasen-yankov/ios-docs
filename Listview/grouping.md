@@ -168,7 +168,7 @@ groups.Add(NSArray.FromStrings (new string[] { "Smith", "Peter", "Paula" }));
 TKListView listView = new TKListView (new CGRect (20, 20, this.View.Bounds.Size.Width - 40, this.View.Bounds.Size.Height - 40));
 listView.RegisterClassForCell (new Class (typeof(TKListViewCell)), "cell");
 
-listView.RegisterClassForSupplementaryView (new Class (typeof(TKListViewHeaderCell)), new NSString("header"), new NSString("header"));
+listView.RegisterClassForSupplementaryView (new Class (typeof(TKListViewHeaderCell)), TKListViewElementKindSectionKey.Header, new NSString("header"));
 listView.DataSource = new ListViewDataSource (this);
 listView.Layout.HeaderReferenceSize = new CGSize (200, 22);
 
@@ -196,11 +196,11 @@ class ListViewDataSource : TKListViewDataSource
 	public override TKListViewCell CellForItem (TKListView listView, NSIndexPath indexPath)
 	{
 		TKListViewCell cell = listView.DequeueReusableCell("cell", indexPath) as TKListViewCell;
-		cell.TextLabel.Text = this.owner.groups.GetItem<NSArray> ((uint)indexPath.Section).GetItem<NSString> ()(uint)indexPath.Row);
+		cell.TextLabel.Text = this.owner.groups.GetItem<NSArray> ((uint)indexPath.Section).GetItem<NSString> ((uint)indexPath.Row);
 		return cell;
 	}
 
-	public override TKListViewReusableCell ViewForSupplementaryElementOfKind (TKListView listView, string kind, NSIndexPath indexPath)
+	public override TKListViewReusableCell ViewForSupplementaryElementOfKind (TKListView listView, NSString kind, NSIndexPath indexPath)
 	{
 		TKListViewReusableCell headerCell = listView.DequeueReusableSupplementaryView(kind, "header", indexPath) as TKListViewReusableCell;
 		headerCell.TextLabel.Text = String.Format ("Group {0}", indexPath.Section);

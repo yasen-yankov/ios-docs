@@ -61,11 +61,11 @@ layout.columnsCount = 2
 layout.cellAlignment = TKListViewCellAlignment.Center
 listView.layout = layout        
 ```
-```C#
-this.ListView.Insets = UIEdgeInsets.Zero;
-TKListViewColumnsLayout layout = new TKListViewColumnsLayout ();
-layout.ItemSize = new CGSize (100f, 100f);
-layout.ColumnsCount = 2;
-layout.CellAlignment = TKListViewCellAlignmentCenter;
-this.ListView.Layout = layout;
+```C#   
+    this.ListView.Insets = UIEdgeInsets.Zero;
+	TKListViewColumnsLayout layout = new TKListViewColumnsLayout ();
+	layout.ItemSize = new CGSize (100f, 100f);
+	layout.ColumnsCount = 2;
+	layout.CellAlignment = TKListViewCellAlignment.Center;
+	this.ListView.Layout = layout;
 ```
