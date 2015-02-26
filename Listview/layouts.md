@@ -42,6 +42,7 @@ this.ListView.Layout = layout;
 ## Columns layout##
 
 The columns layout allows for distributing cells in a fixed number of columns and aligning the cells (left, right, center and justify) within the columns.
+
 <img src="../images/listview-layouts002.png"/>
 
 ```Objective-C

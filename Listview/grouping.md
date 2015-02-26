@@ -7,9 +7,11 @@ position: 4
 # ListView: Grouping 
 ListView may be set up to display items in groups divided visually by section headers and footers.
 There are two ways to implement grouping with TKListView - manually implementing the required methods of the TKListViewDataSource delegate or using TKDataSource and let it do the dirty work for you.
+
 <img src="../images/listview-grouping001.png"/>
 
 ## Displaying grouped data using TKDataSource##
+
 In case you need more flexibility you may implement grouping manualy as follows.
 
 ```Objective-C
@@ -76,10 +78,7 @@ listView.WeakDataSource = dataSource;
 listView.Layout.HeaderReferenceSize = new CGSize (200, 22);
 this.View.AddSubview (listView);
 ```
-
-## Displaying grouped data using a TKListViewDataSource delegate methods##
-
-
+## Displaying grouped data using a TKListViewDataSource delegate methods ##
 
 ```Objective-C
 - (void)viewDidLoad

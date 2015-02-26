@@ -8,7 +8,7 @@ position: 3
 
 TKDataSource can consume data coming from various sources. 
 
-<img chart>
+<img width="300" src="../images/datasource-populating-with-data001.png"/>
 
 The simplest way to load data in <code>TKDataSource</code> is to use an array with numbers or strings:
 
@@ -27,8 +27,7 @@ items.Add (new NSString ("Bannana"));
 items.Add (new NSString ("Orange"));
 items.Add (new NSString("Cherry"));
 
-TKDataSource dataSource = new TKDataSource ();
-dataSource.ItemSource = items;
+TKDataSource dataSource = new TKDataSource (items);
 ```
 
 It also supports arrays of business objects. In this scenario you can use <code>displayKey</code> and <code>valueKey</code> properties to define how to present the data:
@@ -41,6 +40,8 @@ It also supports arrays of business objects. In this scenario you can use <code>
 @property (nonatomic) CGFloat value;
 
 @end
+
+//...
 
 NSMutableArray *items = [NSMutableArray new];
 [items addObject:[[DataSourceItem alloc] initWithName:@"John" value:50]];
@@ -131,11 +132,10 @@ If a greater precision is necessary, you can implement the <code>formatText</cod
 }];
 ```
 ```Swift
-	dataSource.formatText { (DataSourceItem item, TKDataSourceGroup group) -> String! in
-	    let name = item.name
-	    let points = item.points
-	    return "\(name) has \(points) points"
-	}
+dataSource.formatText { (AnyObject item, TKDataSourceGroup group) -> String! in
+    let dsItem = item as DataSourceItem
+    return "\(dsItem.name) has \(dsItem.value) points"
+}
 ```
 ```C#
 dataSource.FormatText ((NSObject item, TKDataSourceGroup group) => {

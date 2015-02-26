@@ -114,13 +114,36 @@ dataSource.Group ((NSObject obj) => { return NSObject.FromObject( ((NSNumber)obj
 <code>TKDataSource</code> is an independent component and you can use it without connecting it to a UI control. To show the result just iterate the items:
 
 ```Objective-C
-[dataSource enumerate:^(id item) { NSLog(@"%d", [item intValue]); }];
+[dataSource enumerate:^(id item) {
+    if ([item isKindOfClass:[TKDataSourceGroup class]]) {
+        NSLog(@"Group: %@", ((TKDataSourceGroup*)item).key);
+    }
+    else {
+        NSLog(@"%d", [item intValue]);
+    }
+}];
 ```
 ```Swift
-dataSource.enumerate { println($0) }
+dataSource.enumerate {
+    if $0.isKindOfClass(TKDataSourceGroup) {
+        let group = $0 as TKDataSourceGroup
+        println("Group: \(group.key)")
+    }
+    else {
+        println($0)
+    }
+}
 ```
 ```C#
-dataSource.Enumerate ((NSObject obj) => { Console.WriteLine(obj); });
+dataSource.Enumerate ((NSObject obj) => {
+    if (obj is TKDataSourceGroup) {
+        var group = obj as TKDataSourceGroup;
+        Console.WriteLine("Group: {0}", group.Key);
+    }
+    else {
+        Console.WriteLine(obj);
+    }
+});
 ```
 
 <br>
@@ -182,7 +205,14 @@ Here is the full code of this example:
     
     [dataSource group:^id(id item) { return @([item intValue] % 2 == 0); }];
  
-    [dataSource enumerate:^(id item) { NSLog(@"%d", [item intValue]); }];
+    [dataSource enumerate:^(id item) {
+        if ([item isKindOfClass:[TKDataSourceGroup class]]) {
+            NSLog(@"Group: %@", ((TKDataSourceGroup*)item).key);
+        }
+        else {
+            NSLog(@"%d", [item intValue]);
+        }
+    }];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.dataSource = dataSource;
@@ -213,7 +243,15 @@ override func viewDidLoad() {
     
     dataSource.group { ($0 as Int) % 2 == 0 }
     
-    dataSource.enumerate { println($0) }
+    dataSource.enumerate {
+        if $0.isKindOfClass(TKDataSourceGroup) {
+            let group = $0 as TKDataSourceGroup
+            println("Group: \(group.key)")
+        }
+        else {
+            println($0)
+        }
+    }
     
     let tableView = UITableView(frame: self.view.bounds)
     self.view.addSubview(tableView)
@@ -252,7 +290,15 @@ public override void ViewDidLoad ()
 
     dataSource.Group ((NSObject obj) => { return NSObject.FromObject( ((NSNumber)obj).Int32Value % 2 == 0 ); });
 
-    dataSource.Enumerate ((NSObject obj) => { Console.WriteLine(obj); });
+    dataSource.Enumerate ((NSObject obj) => {
+        if (obj is TKDataSourceGroup) {
+            var group = obj as TKDataSourceGroup;
+            Console.WriteLine("Group: {0}", group.Key);
+        }
+        else {
+            Console.WriteLine(obj);
+        }
+    });
 
     UITableView tableView = new UITableView (this.View.Bounds);
     tableView.DataSource = dataSource;

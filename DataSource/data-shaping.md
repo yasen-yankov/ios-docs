@@ -156,9 +156,9 @@ items.Add (new DataSourceItem () { Name = "Paula", Value = 25, Group = "B" });
 
 TKDataSource dataSource = new TKDataSource ();
 dataSource.ItemSource = items;
-dataSource.FilterWithQuery ("value > 30");
-dataSource.SortWithKey ("value", true);
-dataSource.GroupWithKey ("group");
+dataSource.FilterWithQuery ("Value > 30");
+dataSource.SortWithKey ("Value", true);
+dataSource.GroupWithKey ("Group");
 ```
 
 All the methods mentioned above execute immediately when called. They operate directly on the current <code>items</code> view in <code>TKDataSource</code>. <code>TKDataSource</code> extends its API by supporting three collections with sorting, filtering and group descriptors. 
@@ -187,9 +187,9 @@ dataSource.itemSource = items
 ```
 ```C#
 TKDataSource dataSource = new TKDataSource ();
-dataSource.AddFilterDescriptor (new TKDataSourceFilterDescriptor ("value > 30"));
-dataSource.AddSortDescriptor (new TKDataSourceSortDescriptor ("value", true));
-dataSource.AddGroupDescriptor (new TKDataSourceGroupDescriptor ("group"));
+dataSource.AddFilterDescriptor (new TKDataSourceFilterDescriptor ("Value > 30"));
+dataSource.AddSortDescriptor (new TKDataSourceSortDescriptor ("Value", true));
+dataSource.AddGroupDescriptor (new TKDataSourceGroupDescriptor ("Group"));
 
 // ...
 
