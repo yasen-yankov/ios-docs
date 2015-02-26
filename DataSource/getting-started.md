@@ -180,7 +180,7 @@ this.dataSource = dataSource;
 <br>
 Here is the full code of this example:
 
-<img src="../images/datasource-getting-started002.png"/>
+<img width="300" src="../images/datasource-getting-started002.png"/>
 
 ```Objective-C
 {
