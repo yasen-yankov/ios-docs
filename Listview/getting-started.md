@@ -42,92 +42,104 @@ Open your <code>ViewController.m</code> file and add a reference to Telerik UI h
 
 If you are writing Swift, add the same line in your bridging header.
 
-Type the following code in <code>viewDidLoad</code> method of your view controller:
+In the <code>viewDidLoad</code> method of your view controller prepare a small array of sample data to be presented in <code>TKListView</code>. 
 
 ```Objective-C
-    [super viewDidLoad];
-    _sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", @"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando Mathis",@"Eduardo Thomas",@"Harry Douglas"];
+[super viewDidLoad];
+
+_sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", @"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando Mathis",@"Eduardo Thomas",@"Harry Douglas"];
     
-    _dataSource = [[TKDataSource alloc] initWithArray:_sampleArrayOfStrings];
-    
-    TKListView *_listView = [[TKListView alloc] initWithFrame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40)];
-    _listView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _listView.dataSource = _dataSource;
-    
-    [self.view addSubview:_listView];
 ```
 ```Swift
-        super.viewDidLoad()
-        self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
-        dataSource = TKDataSource(array:sampleArrayOfStrings)
-        let listView = TKListView(frame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40))
-        listView.dataSource = dataSource
-        self.view.addSubview(listView)
-```
+super.viewDidLoad()
 
+self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
+        
+```
 ```C#
-base.ViewDidLoad ();
-			NSString[] simpleArrayOfStrings = new NSString[] { new NSString("Kristina Wolfe"),
-				new NSString("Freda Curtis"),
-				new NSString("Jeffery Francis"),
-				new NSString("Eva Lawson"),
-				new NSString("Emmett Santos"), 
-				new NSString("Theresa Bryan"), 
-				new NSString("Jenny Fuller"), 
-				new NSString("Terrell Norris"),
-				new NSString("Eric Wheeler"), 
-				new NSString("Julius Clayton"), 
-				new NSString("Alfredo Thornton"), 
-				new NSString("Roberto Romero"),
-				new NSString("Orlando Mathis"),
-				new NSString("Eduardo Thomas"),
-				new NSString("Harry Douglas")
-			};
-			TKDataSource dataSource = new TKDataSource(simpleArrayOfStrings);
-			listView.Frame = new CGRect (20, 20, this.View.Bounds.Size.Width-40,this.View.Bounds.Size.Height-40);
-            this.listView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
-			this.listView.WeakDataSource = dataSource;
-			this.View.AddSubview(this.listView);
-			
+base.ViewDidLoad();
 
+NSString[] simpleArrayOfStrings = new NSString[] { new NSString("Kristina Wolfe"),
+	new NSString("Freda Curtis"),
+	new NSString("Jeffery Francis"),
+	new NSString("Eva Lawson"),
+	new NSString("Emmett Santos"), 
+	new NSString("Theresa Bryan"), 
+	new NSString("Jenny Fuller"), 
+	new NSString("Terrell Norris"),
+	new NSString("Eric Wheeler"), 
+	new NSString("Julius Clayton"), 
+	new NSString("Alfredo Thornton"), 
+	new NSString("Roberto Romero"),
+	new NSString("Orlando Mathis"),
+	new NSString("Eduardo Thomas"),
+	new NSString("Harry Douglas")
+};
+			
 ```
 
-This code prepares a small array of sample data to be presented in <code>TKListView</code>. Then we create an instance of the TKDataSourceClass. We use that instance to feed our data to <code>TKListView</code>. We create a new instance of <code>TKListView</code> and add it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the list view when the device is rotated in landscape mode. So far we have got the following view: 
+Next, create an instance of [<code>TKDataSource<code>](../datasource/getting-started). This components is used to feed our data to <code>TKListView</code>. 
 
+```Objective-C
+_dataSource = [[TKDataSource alloc] initWithArray:_sampleArrayOfStrings];
+```
+```Swift
+dataSource = TKDataSource(array:sampleArrayOfStrings)
+```
+```C#
+TKDataSource dataSource = new TKDataSource(simpleArrayOfStrings);
+```
+
+Then create a new instance of <code>TKListView</code> and add it as a subview of the ViewController's main view. The <code>autoresizingMask</code> property is set in order to allow correct resizing of the list view when the device is rotated in landscape mode. 
+
+```Objective-C
+TKListView *_listView = [[TKListView alloc] initWithFrame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40)];
+_listView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+_listView.dataSource = _dataSource;
+[self.view addSubview:_listView];
+```
+```Swift
+let listView = TKListView(frame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40))
+listView.dataSource = dataSource
+self.view.addSubview(listView)
+```
+```C#
+listView.Frame = new CGRect (20, 20, this.View.Bounds.Size.Width-40,this.View.Bounds.Size.Height-40);
+this.listView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+this.listView.WeakDataSource = dataSource;
+this.View.AddSubview(this.listView);			
+```
+
+So far we have got the following view: 
 
 <img src="../images/listview-gettingstarted001.png"/>
 
 Now lets enable multiple selection: 
 
 ```Objective-C
-	_listView.allowsMultipleSelection = YES;
+_listView.allowsMultipleSelection = YES;
 ```
-
 ```Swift
-	listView.allowsMultipleSelection = true
+listView.allowsMultipleSelection = true
 ```
-
 ```C#
-   this.listView.AllowsMultipleSelection = true;
-
+this.listView.AllowsMultipleSelection = true;
 ```
 
-After runnuing this samlple code we may try to select a few items such as:
+To see the result, after running this sample, select to select a few items:
 <img src="../images/listview-gettingstarted002.png"/>
 
 
 Adding a single line of code should allow the user to reorder items by dragging a handle.
 
 ```Objective-C
-	_listView.allowsCellReorder = YES;
+_listView.allowsCellReorder = YES;
 ```
-
 ```Swift
-	listView.allowsCellReorder = true;
+listView.allowsCellReorder = true;
 ```
-
 ```C#
-    this.listView.AllowsCellReorder = true;
+this.listView.AllowsCellReorder = true;
 ```
 
 <img src="../images/listview-gettingstarted003.png"/>
@@ -160,7 +172,6 @@ And here is the full code of our view controller
 }
 
 ```
-
 ```Swift
 class ViewController: UIViewController {
     var dataSource: TKDataSource?
@@ -177,7 +188,6 @@ class ViewController: UIViewController {
     }
 }
 ```
-
 ```C#
 
 TKListView listView = new TKListView();
@@ -210,5 +220,3 @@ TKListView listView = new TKListView();
 		}
 		
 ```
-
-

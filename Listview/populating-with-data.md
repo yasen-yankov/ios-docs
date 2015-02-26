@@ -13,42 +13,44 @@ TKDataSource contains implementation of the TKListViewDataSource protocol that y
 
 The following example shows how to initialise TKDataSource with data and feed that data to TKListView.
 ```Objective-C
-    _sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", @"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando Mathis",@"Eduardo Thomas",@"Harry Douglas"];
+_sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", @"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando Mathis",@"Eduardo Thomas",@"Harry Douglas"];
     
-    _dataSource = [[TKDataSource alloc] initWithArray:_sampleArrayOfStrings];
+_dataSource = [[TKDataSource alloc] initWithArray:_sampleArrayOfStrings];
     
-    TKListView *_listView = [[TKListView alloc] initWithFrame: self.view.bounds];
-    _listView.dataSource = _dataSource;
-    [self.view addSubview:_listView];
+TKListView *_listView = [[TKListView alloc] initWithFrame: self.view.bounds];
+_listView.dataSource = _dataSource;
+[self.view addSubview:_listView];
 ```
 ```Swift
-        self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
-        dataSource = TKDataSource(array:sampleArrayOfStrings)
-        let listView = TKListView(frame: self.view.bounds)
-        listView.dataSource = dataSource
-        self.view.addSubview(listView)
-        
+self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
+
+dataSource = TKDataSource(array:sampleArrayOfStrings)
+
+let listView = TKListView(frame: self.view.bounds)
+listView.dataSource = dataSource
+self.view.addSubview(listView)
 ```
 ```C#
 this.sampleArrayOfStrings = NSArray.FromStrings (new String [] {
-				"Kristina Wolfe",
-				"Freda Curtis",
-				"Jeffery Francis",
-				"Eva Lawson",
-				"Emmett Santos",
-				"Theresa Bryan",
-				"Jenny Fuller",
-				"Terrell Norris",
-				"Eric Wheeler",
-				"Julius Clayton",
-				"Alfredo Thornton",
-				"Roberto Romero",
-				"Orlando Mathis",
-				"Eduardo Thomas",
-				"Harry Douglas"
-			});
+	"Kristina Wolfe",
+	"Freda Curtis",
+	"Jeffery Francis",
+	"Eva Lawson",
+	"Emmett Santos",
+	"Theresa Bryan",
+	"Jenny Fuller",
+	"Terrell Norris",
+	"Eric Wheeler",
+	"Julius Clayton",
+	"Alfredo Thornton",
+	"Roberto Romero",
+	"Orlando Mathis",
+	"Eduardo Thomas",
+	"Harry Douglas"
+});
 
 this.dataSource = new TKDataSource (sampleArrayOfStrings);
+
 TKListView listView = new TKListView (this.View.Bounds);
 listView.WeakDataSource = this.dataSource;
 this.View.AddSubview (listView);
@@ -62,79 +64,79 @@ First we need to set the datasource property of TKListView to a class adopting t
 ```Objective-C
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    _sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", @"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando Mathis",@"Eduardo Thomas",@"Harry Douglas"];
-    
-    TKListView *_listView = [[TKListView alloc] initWithFrame: self.view.bounds];
-    [_listView registerClass:[TKListViewCell class] forCellWithReuseIdentifier:@"cell"];
-    _listView.dataSource = self;
-    
-    [self.view addSubview:_listView];
+	[super viewDidLoad];
 
+	_sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva 	Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", 	@"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando 	Mathis",@"Eduardo Thomas",@"Harry Douglas"];
+    
+	TKListView *_listView = [[TKListView alloc] initWithFrame: self.view.bounds];
+	[_listView registerClass:[TKListViewCell class] forCellWithReuseIdentifier:@"cell"];
+	_listView.dataSource = self;
+
+	[self.view addSubview:_listView];
+}
 
 -(NSInteger)listView:(TKListView *)listView numberOfItemsInSection:(NSInteger)section  {
-    return _sampleArrayOfStrings.count;
+	return _sampleArrayOfStrings.count;
 }
 
 -(NSInteger)numberOfSectionsInListView:(TKListView *)listView
 {
-    return 1;
+	return 1;
 }
 
 - (TKListViewCell *)listView:(TKListView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    TKListViewCell *cell = [listView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = _sampleArrayOfStrings[indexPath.row];
+	TKListViewCell *cell = [listView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+	cell.textLabel.text = _sampleArrayOfStrings[indexPath.row];
     
-    return cell;
+	return cell;
 }
 
 ```
 ```Swift
- override func viewDidLoad() {
-        super.viewDidLoad()
-        self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
-        let listView = TKListView(frame:  self.view.bounds)
-        listView.registerClass(TKListViewCell.self, forCellWithReuseIdentifier: "cell")
-        listView.dataSource = self
-        listView.selectionBehavior = TKListViewSelectionBehavior.None
-        self.view.addSubview(listView)
-    }
+override func viewDidLoad() {
+	super.viewDidLoad()
+	self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
+	let listView = TKListView(frame:  self.view.bounds)
+	listView.registerClass(TKListViewCell.self, forCellWithReuseIdentifier: "cell")
+	listView.dataSource = self
+	listView.selectionBehavior = TKListViewSelectionBehavior.None
+	self.view.addSubview(listView)
+}
     
-    func  listView(listView: TKListView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> TKListViewCell! {
-        let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)  as TKListViewCell
+func  listView(listView: TKListView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> TKListViewCell! {
+	let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)  as TKListViewCell
         
-        cell.textLabel.text = self.sampleArrayOfStrings[indexPath.row] as NSString
+	cell.textLabel.text = self.sampleArrayOfStrings[indexPath.row] as NSString
         
-        return cell
-    }
+	return cell
+}
     
-    func listView(listView: TKListView!, numberOfItemsInSection section: Int) -> Int {
-        return self.sampleArrayOfStrings.count
-    }
-    
-    func numberOfSectionsInListView(listView: TKListView!) -> Int {
-        return 1
-    }
+func listView(listView: TKListView!, numberOfItemsInSection section: Int) -> Int {
+	return self.sampleArrayOfStrings.count
+}
 
+func numberOfSectionsInListView(listView: TKListView!) -> Int {
+	return 1
+}
 ```
 ```C#
 this.sampleArrayOfStrings = NSArray.FromStrings (new String [] { 
-				"Kristina Wolfe",
-				"Freda Curtis",
-				"Jeffery Francis",
-				"Eva Lawson",
-				"Emmett Santos",
-				"Theresa Bryan",
-				"Jenny Fuller",
-				"Terrell Norris",
-				"Eric Wheeler",
-				"Julius Clayton",
-				"Alfredo Thornton",
-				"Roberto Romero",
-				"Orlando Mathis",
-				"Eduardo Thomas",
-				"Harry Douglas"
+	"Kristina Wolfe",
+	"Freda Curtis",
+	"Jeffery Francis",
+	"Eva Lawson",
+	"Emmett Santos",
+	"Theresa Bryan",
+	"Jenny Fuller",
+	"Terrell Norris",
+	"Eric Wheeler",
+	"Julius Clayton",
+	"Alfredo Thornton",
+	"Roberto Romero",
+	"Orlando Mathis",
+	"Eduardo Thomas",
+	"Harry Douglas"
 });
 				
 TKListView listView = new TKListView (this.View.Bounds);
@@ -169,7 +171,3 @@ class ListViewDataSource: TKListViewDataSource
 	}
 }
 ```
-
-
-
-

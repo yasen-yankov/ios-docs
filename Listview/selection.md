@@ -6,18 +6,21 @@ position: 5
 
 # ListView: Selection
 
-TKListView supports different selection modes and two different gestures to trigger cell selection. Those include:
+TKListView supports different selection modes:
 
 - Single selection
 - Multiple selection
+
+The end-user can use different gestures to trigger cell selection:
+
 - Selection on press.
 - Selection on hold (long press).
 
-Additionaly TKListView provides a few methods to programatically control selection state as well as delegate methods to react to user interactions related to selection.
+Additionaly, TKListView provides a few methods to programmatically control the selection state as well as delegate methods to react to user interactions related to selection.
 
-This article describes the selection API of TKListView in details.
+This article describes the selection API of TKListView in detail.
 
-The <code>allowsMultipleSelection</code> property of <code>TKListView</code> allows defines whether the user is allowed to select multiple items at the same time. It also affects the default appearance of selected items.
+The <code>allowsMultipleSelection</code> property of <code>TKListView</code> defines whether the user is allowed to select multiple items at the same time. It also affects the default appearance of the selected items.
 
 ## Single seletion mode ##
 
@@ -26,13 +29,13 @@ The <code>allowsMultipleSelection</code> property of <code>TKListView</code> all
 The default value of the <code>allowsMultipleSelection</code> property is <code>NO (false)</code> 
 
 ```Objective-C
-	_listView.allowsMultipleSelection = NO;
+_listView.allowsMultipleSelection = NO;
 ```
 ```Swift
-	listView.allowsMultipleSelection = false
+listView.allowsMultipleSelection = false
 ```
 ```C#
-	listView.AllowsMultipleSelection = false;
+listView.AllowsMultipleSelection = false;
 ```
 
 ## Multiple selection mode##
@@ -45,10 +48,10 @@ Set the <code>allowsMultipleSelection</code> property to <code>YES (true)</code>
 _listView.allowsMultipleSelection = YES;
 ```
 ```Swift
-	listView.allowsMultipleSelection = true	
+listView.allowsMultipleSelection = true	
 ```
 ```C#
-	this.listView.AllowsMultipleSelection = true;
+this.listView.AllowsMultipleSelection = true;
 ```
 
 ## Selection on press##
@@ -56,13 +59,13 @@ _listView.allowsMultipleSelection = YES;
 By default TKListView will allow user to select on press.
 
 ```Objective-C
-    _listView.selectionBehavior = TKListViewSelectionBehaviorPress;
+_listView.selectionBehavior = TKListViewSelectionBehaviorPress;
 ```
 ```Swift
-	listView.selectionBehavior = TKListViewSelectionBehavior.Press
+listView.selectionBehavior = TKListViewSelectionBehavior.Press
 ```
 ```C#
-	listView.SelectionBehavior = TKListViewSelectionBehavior.Press;
+listView.SelectionBehavior = TKListViewSelectionBehavior.Press;
 ```
 
 ## Selection on hold (long press)##
@@ -70,79 +73,80 @@ By default TKListView will allow user to select on press.
 In this mode a long-press gesture is required in order to select a cell.
 
 ```Objective-C
-	_listView.selectionBehavior = TKListViewSelectionBehaviorLongPress;
+_listView.selectionBehavior = TKListViewSelectionBehaviorLongPress;
 ```
 ```Swift
-	listView.selectionBehavior = TKListViewSelectionBehavior.LongPress
+listView.selectionBehavior = TKListViewSelectionBehavior.LongPress
 ```
 ```C#
-	listView.SelectionBehavior = TKListViewSelectionBehavior.LongPress;
+listView.SelectionBehavior = TKListViewSelectionBehavior.LongPress;
 ```
 ## Disable selection##
-In order to disable selection you need to set the <code>_listView.selectionBehavior</code> property to  <code>TKListViewSelectionBehaviorNone</code>
+
+In order to disable the selection, you need to set the <code>_listView.selectionBehavior</code> property to <code>TKListViewSelectionBehaviorNone</code>:
 ```Objective-C
-    _listView.selectionBehavior = TKListViewSelectionBehaviorNone;
+_listView.selectionBehavior = TKListViewSelectionBehaviorNone;
 ```
 ```Swift
-	listView.selectionBehavior = TKListViewSelectionBehavior.None
+listView.selectionBehavior = TKListViewSelectionBehavior.None
 ```
 ```C#
-	listView.SelectionBehavior = TKListViewSelectionBehavior.None;
+listView.SelectionBehavior = TKListViewSelectionBehavior.None;
 ```
 ## Programatically selecting items##
 
 Cells can be selected programatically as well.
 
 ```Objective-C
-	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-	[_listView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+[_listView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
 ```
 ```Swift
-	let indexPath = NSIndexPath(forRow: 1, inSection: 0)
-	listView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.None)
+let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+listView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.None)
 ```
 ```C#
-	NSIndexPath indexPath = NSIndexPath.FromRowSection (1, 0);
-	this.listView.SelectItem (indexPath, false, UICollectionViewScrollPosition.None);
+NSIndexPath indexPath = NSIndexPath.FromRowSection (1, 0);
+this.listView.SelectItem (indexPath, false, UICollectionViewScrollPosition.None);
 ```
-## Programatically deselecting items##
+## Programmatically deselecting items##
 
-To deselected a cell programatically:
+To deselected a cell programatically, you should call the <code>deselectItemAtIndexPath</code> method giving the indexPath of the cell:
 
 ```Objective-C
-	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-	[_listView deselectItemAtIndexPath:indexPath animated:false];
+NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+[_listView deselectItemAtIndexPath:indexPath animated:false];
 ```
 ```Swift
-	let indexPath = NSIndexPath(forRow: 1, inSection: 0)
-	listView.deselectItemAtIndexPath(indexPath, animated: false)
+let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+listView.deselectItemAtIndexPath(indexPath, animated: false)
 ```
 ```C#
-	NSIndexPath indexPath = NSIndexPath.FromRowSection (1, 0);
-	listView.DeselectItem (indexPath, false);
+NSIndexPath indexPath = NSIndexPath.FromRowSection (1, 0);
+listView.DeselectItem (indexPath, false);
 ```
 
 ## TKListViewDelegate methods
 
-The <code>TKListViewDelegate</code> protocol provides a few handy delegate methods to be used to control and respond to selection events triggered by user. In order to take advantage of these methods you should set the delegate proeprty of <code>TKListView</code> to a class adopting the <code>TKListViewDelegate</code> protocol. For example:
+The <code>TKListViewDelegate</code> protocol provides a few handy delegate methods to be used to control and respond to selection events triggered by user. In order to take advantage of these methods, you should set the delegate proeprty of <code>TKListView</code> to a class adopting the <code>TKListViewDelegate</code> protocol. For example:
 
 ```Objective-C
-	//assuming your view controller adopts the TKListViewdelegate protocol
-    _listView.delegate = self;
+//assuming your view controller adopts the TKListViewdelegate protocol
+_listView.delegate = self;
 ```
 ```Swift
-	//assuming your view controller adopts the TKListViewdelegate protocol
-	listView.delegate = self
+//assuming your view controller adopts the TKListViewdelegate protocol
+listView.delegate = self
 ```
 ```C#
-	//assuming your view controller adopts the TKListViewdelegate protocol
-	listView.Delegate = new ListViewDelegate (this);
+//assuming your view controller adopts the TKListViewdelegate protocol
+listView.Delegate = new ListViewDelegate (this);
 ```
 Bellow you can find some details on how you can use the delegate methods from TKListViewDelegate.
 
 ## Responding to user triggered cell selection / deselection
 
-If you need to perform a specific action after user selects or deselects a cell you can use the following methods from TKListViewDelegate protocol:
+If you need to perform a specific action after the user selects or deselects a cell, you can use the following methods from the TKListViewDelegate protocol:
 
 ```Objective-C
 - (void)listView:(TKListView *)listView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -176,6 +180,3 @@ public override void DidDeselectItemAtIndexPath (TKListView listView, NSIndexPat
 	Console.WriteLine("Did deselect item at row {0} in section {1}", indexPath.Row, indexPath.Section);
 }
 ```
-
-
-
