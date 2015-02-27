@@ -77,7 +77,7 @@ You can configure the speed of the transition setting the <code>transitionDurati
 ```
 
 ```Swift
-	self.sidedrawer.transitionDuration = 0.2
+	self.sideDrawer.transitionDuration = 0.2
 ```
 
 ```C#
@@ -91,7 +91,7 @@ You can create a custom transition by sublcassing <code>TKSideDrawerTransition</
 <img src="../images/sidedrawer-transitions002.png"/>
 
 ```Objective-C
-	self.sideDrawer.transitionManager = [[ScaleContentTransition alloc] initWithSideDrawer:sideDrawer];
+	self.sideDrawer.transitionManager = [[ScaleContentTransition alloc] initWithSideDrawer:self.sideDrawer];
 ```
 
 ```Swift

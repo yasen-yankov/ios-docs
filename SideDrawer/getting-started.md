@@ -100,12 +100,13 @@ Here is the full code of this example:
 
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary 	*)launchOptions {
     	// Override point for customization after application launch.
-    
+    	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     	ViewController *main = [[ViewController alloc] init];
     	TKSideDrawerController *sideDrawerController = [[TKSideDrawerController alloc] initWithContent:main];
     	[self.window setRootViewController:sideDrawerController];
     
+   	 	[self.window makeKeyAndVisible];
     	return YES;
 	}
 
@@ -154,11 +155,13 @@ Here is the full code of this example:
 
     	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: 	AnyObject]?) -> Bool {
         	// Override point for customization after application launch.
-        
+        	self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        	
         	let main = ViewController()
         	let sideDrawerController = TKSideDrawerController(content: main)
         	self.window?.rootViewController = sideDrawerController
-        
+        	
+        	self.window?.makeKeyAndVisible()
         	return true
     	}
 
@@ -210,10 +213,14 @@ Here is the full code of this example:
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
+			this.Window = new UIWindow(UIScreen.MainScreen.Bounds);
+			
 			ViewController main = new ViewController ();
 			TKSideDrawerController sideDrawerController = new TKSideDrawerController (main);
 			this.Window.RootViewController = sideDrawerController;
-
+	
+			this.Window.MakeKeyAndVisible();
+			
 			return true;
 		}
 
