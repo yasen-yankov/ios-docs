@@ -40,6 +40,11 @@ Open your **ViewController.m** file and add a reference to the chart header file
 
     #import <TelerikUI/TelerikUI.h>
 
+Note that starting with Xcode 6 Apple doesn't generate the precompiled headers file automatically. That is why you should add references to Foundation and UIKit frameworks before importing TelerikUI:
+
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+
 If you are writing Swift, add the same line in your bridging header.
 
 If you are using Xamarin, add a reference to TelerikUI.dll in your project and use the using directive:

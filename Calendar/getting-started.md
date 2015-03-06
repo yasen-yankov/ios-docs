@@ -40,6 +40,11 @@ Open your <code>ViewController.m</code> file and add a reference to Telerik UI h
 
     #import <TelerikUI/TelerikUI.h>
 
+Note that starting with Xcode 6 Apple doesn't generate the precompiled headers file automatically. That is why you should add references to Foundation and UIKit frameworks before importing TelerikUI:
+
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    
 If you are writing Swift, add the same line in your bridging header.
 
 Type the following code in <code>viewDidLoad</code> method:

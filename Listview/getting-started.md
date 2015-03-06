@@ -40,6 +40,11 @@ Open your <code>ViewController.m</code> file and add a reference to Telerik UI h
 
     #import <TelerikUI/TelerikUI.h>
 
+Note that starting with Xcode 6 Apple doesn't generate the precompiled headers file automatically. That is why you should add references to Foundation and UIKit frameworks before importing TelerikUI:
+
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+
 If you are writing Swift, add the same line in your bridging header.
 
 In the <code>viewDidLoad</code> method of your view controller prepare a small array of sample data to be presented in <code>TKListView</code>. 
