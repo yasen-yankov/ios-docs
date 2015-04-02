@@ -14,7 +14,7 @@ This quick start tutorial demonstrates how to create a simple iOS application wi
 
 In order to start using <code>TKChart</code>, you have first to install the latest version Telerik UI for iOS. You can download it from: [www.telerik.com](http://www.telerik.com). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you trough the installation process. When done it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using TKChart.
 
-<img src="../images/chart-overview003.png"/>
+<img src="../images/getting-started001.png"/>
 
 ## Setting up the project
 
@@ -26,9 +26,9 @@ After installing <code>TKChart</code>, you can proceed with the following steps:
     <li>Give your project a name and click <i>Next</i>.</li>
     <li>Complete the process of creating a project by specifying the location for your project and clicking <i>Create</i>.</li>
     <li>Scroll down to the <i>Linked Frameworks and Libraries</i> section in your project settings and click on the <i>"+"</i> button. <br/>
-    <img src="../images/chart-overview004.png"/></li>
+    <img src="../images/getting-started002.png"/></li>
     <li>Type <i>telerik</i> in the popup, select the <i>TelerikUI.framework</i> and click <i>Add</i>. <br/>
-    <img src="../images/chart-overview005.png"/></li>
+    <img src="../images/getting-started003.png"/></li>
     <li>This is it, now you are ready to start working with Telerik Chart.</li>
 </ol>
 
