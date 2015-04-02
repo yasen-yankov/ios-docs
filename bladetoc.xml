@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <Contents>
+    <Section Title="Xamarin.iOS" URL="xamarin.ios" >
 	<Section Title="AppFeedback" URL="appfeedback" />
 	<Section Title="Calendar" URL="calendar" />
 	<Section Title="Chart" URL="chart" >
