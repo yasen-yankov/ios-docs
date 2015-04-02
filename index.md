@@ -10,7 +10,7 @@ Telerik UI for iOS suite delivers functionalities, built with performance in min
 
 Here are the available UI for iOS component at a glance:
 
-**TKChart** is a versatile charting component that offers full customization, great performance and intuitive object model. Its API allows creating complex charts with stunning animations and appearance.
+**Chart** is a versatile charting component that offers full customization, great performance and intuitive object model. Its API allows creating complex charts with stunning animations and appearance.
 
 TKChart main features include:
 
@@ -23,7 +23,7 @@ TKChart main features include:
 <img src="images/chart-overview001.png"/>
 
 
-**TKCalendar** is a calendar control that features week, month and year views as well as multiple dates selection and flexible API for customization. TKCalendar main features include:
+**Calendar** is a calendar control that features week, month and year views as well as multiple dates selection and flexible API for customization. TKCalendar main features include:
 
 - Week, Month and Year Views.
 - Support for Events - custom or provided by the EventKit.
@@ -33,7 +33,42 @@ TKChart main features include:
 
 <img src="images/calendar-overview001.png"/>
 
-**TKFeedbackController** enables your end-users to provide feedback inside your app by simply shaking their device or navigating to the feedback option. Once invoked, the component will automatically take a screenshot and prompt users to point to their issue and provide a comment. The users can then track the feedback they've submitted, viewing its status or supplying additional comments. The component's seamless integration with AppFeedback (a part of the Telerik Platform) allows for organizing and reviewing all feedback items, assigning those to members in your Telerik Platform workspace and responding directly to users. The end result is actionable feedback, and easy interaction between your users and team members.
 
-<img src="images/appfeedback-details-comments-list-ios.png"/>
-The **DataSync** (Beta) component is a powerful new solution for synchronizing application data across all devices and the cloud. Its smart syncing algorithms taking place on the device will ensure that the changes made to data while offline, will be synced with the cloud once your app is connected again. On the cloud side, the data-sync framework is backed up by Telerik BaaS. On the device (client) side, the data-sync provides a lightweight ORM that allows you to model your data in SQLite.
+
+**ListView** provides the most frequently used functionalities associated with a ListView scenario in one framework, eliminating the overhead of integrating multiple solutions from different authors. To make working with data easier for developers, the control works seamlessly with the **DataSource** control, which serves as a mediator between the raw data that needs to be displayed and the UI component. Here are the features at a glance:
+
+- Different layouts
+	- Single column
+	- Multiple columns
+- UI virtualization
+- Pull-to-refresh
+- Load-on-demand
+- Displaying data in groups
+- Items swipe behavior
+- Items reorder behavior
+- Item animations
+- Single/multiple selection on tap/hold
+
+<img src="images/calendar-overview001.png"/>
+
+
+**SideDrawer** helps you add extra space to your application. It extends the popular slide-out design pattern which is mainly associated with navigational purposes. The control is highly customizable and allows developers to embed any type of content inside the sliding panel. The SideDrawer feature set includes:
+
+- Different transition modes:
+	- Push
+	- Reveal
+	- Reverse slide out
+	- Slide along
+	- Slide in on top
+	- Scale up
+	- Fade in
+- Support for custom content
+- Section headers
+- Ability to appear from all four edges
+- Ability to appear on swipe or button click
+
+<img src="images/calendar-overview001.png"/>
+
+**AppFeedback** enables your end-users to provide feedback inside your app by simply shaking their device or navigating to the feedback option. Once invoked, the component will automatically take a screenshot and prompt users to point to their issue and provide a comment. The users can then track the feedback they've submitted, viewing its status or supplying additional comments. The component's seamless integration with AppFeedback (a part of the Telerik Platform) allows for organizing and reviewing all feedback items, assigning those to members in your Telerik Platform workspace and responding directly to users. The end result is actionable feedback, and easy interaction between your users and team members.
+
+<img src="images/calendar-overview001.png"/>
