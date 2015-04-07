@@ -8,7 +8,7 @@ position: .2
 iOS development with Xamarin (hence Telerik UI for iOS) requires:
 
 - A Mac running OS X Mountain Lion or above.
-- Latest version of XCode and iOS SDK installed from the [https://itunes.apple.com/us/app/xcode/id497799835?mt=12](App Store).
+- Latest version of XCode and iOS SDK installed from the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 Xamarin.iOS (hence Telerik UI for Xamarin.iOS) works with any of the following setups:
 

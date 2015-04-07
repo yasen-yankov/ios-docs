@@ -3,18 +3,69 @@ title: Getting Started
 position: .2
 ---
 
-# Chart: Getting Started
+# UI for iOS: Getting Started
 
 =======
-This quick start tutorial demonstrates how to create a simple iOS application with TKChart.
+This tutorial demonstrates how to create a simple iOS application with Telerik UI for iOS and its Chart for iOS.
 
-<img src="../images/chart-overview002.png"/>
+<img src="images/chart-overview002.png"/>
 
-## Prerequisites
+## Downloading UI for iOS
 
-In order to start using <code>TKChart</code>, you have first to install the latest version Telerik UI for iOS. You can download it from: [www.telerik.com](http://www.telerik.com). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you trough the installation process. When done it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using TKChart.
+In order to use Chart for iOS, you have to download and install the latest version Telerik UI for iOS as shown below.
 
-<img src="../images/getting-started001.png"/>
+
+### Trial version
+
+You can download the Trial version of UI for iOS from [http://www.telerik.com/download/ios-ui](http://www.telerik.com/download/ios-ui). Clicking the Download installer button will download the installation package - Telerik UI for iOS.pkg. 
+
+### Paid version
+
+If you have already purchased UI for iOS, DevCraft Ultimate or Telerik Platform Professional/Business, you should first log in to your Telerik account and follow the steps below:
+
+#### UI for iOS purchase
+
+1. Go to *Products & Subscriptions >> UI for iOS*.
+  
+  <img src="images/getting-started001.png"/>
+2. Click the *Download Installer and other resources* button.
+  
+  <img src="images/getting-started002.png"/>
+3. Download the *Automatic Installation* file.
+  
+  <img src="images/getting-started003.png"/>
+
+#### DevCraft Ultimate purchase
+
+1. Go to *Products & Subscriptions >> DevCraft Ultimate*.
+  
+  <img src="images/getting-started004.png"/>
+2. Click the *Download Installer and other resources* button.
+  
+  <img src="images/getting-started005.png"/>
+3. Find the *UI for iOS* box from the list of available products and click the *Download* button to download the installer.
+  
+  <img src="images/getting-started006.png"/>
+
+##### Telerik Platform Professional/Business purchase
+
+1. Go to *Products & Subscriptions >> Telerik Platform*.
+  
+  <img src="images/getting-started007.png"/>
+2. Click the *Download Installer and other resources* button.
+  
+  <img src="images/getting-started008.png"/>
+3. Find the *UI for iOS* box from the list of available products and click the *Download* button to download the installer.
+  
+  <img src="images/getting-started006.png"/>
+
+
+
+## Installing UI for iOS
+
+Double-click the installer file that you have just downloaded and the installer will guide you through the installation process. When done it will open the newly created folder in your Documents folder. 
+  <img src="images/getting-started009.png"/>
+
 
 ## Setting up the project
 
@@ -26,9 +77,9 @@ After installing <code>TKChart</code>, you can proceed with the following steps:
     <li>Give your project a name and click <i>Next</i>.</li>
     <li>Complete the process of creating a project by specifying the location for your project and clicking <i>Create</i>.</li>
     <li>Scroll down to the <i>Linked Frameworks and Libraries</i> section in your project settings and click on the <i>"+"</i> button. <br/>
-    <img src="../images/getting-started002.png"/></li>
+    <img src="images/getting-started010.png"/></li>
     <li>Type <i>telerik</i> in the popup, select the <i>TelerikUI.framework</i> and click <i>Add</i>. <br/>
-    <img src="../images/getting-started003.png"/></li>
+    <img src="images/getting-started011.png"/></li>
     <li>This is it, now you are ready to start working with Telerik Chart.</li>
 </ol>
 
