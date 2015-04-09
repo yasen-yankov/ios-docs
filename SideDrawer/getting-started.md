@@ -270,22 +270,22 @@ Here is the full code of this example:
 
 ## Attaching TKSideDrawer to UIViewController
 
-<code>TKSideDrawer</code> can be attached to your view controllers without <code>TKSideDrawerController</code>. In such a scenario, you should initialize <code>TKSideDrawer</code> and set its view controller and its hostview. Type the code below in your <code>viewDidLoad</code> method:
+<code>TKSideDrawer</code> can be attached to your view controllers without <code>TKSideDrawerController</code>. In such a scenario, you should initialize <code>TKSideDrawerView</code> that should be added as subview to your UIViewController's view and use its <code>mainView</code> property to set up the content of the view.
 
 ```Objective-C
 
-	UIView *hostview = [[UIView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:hostview];
+	_sideDrawerView = [[TKSideDrawerView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_sideDrawerView];
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 	self.view.frame.size.width, 64)];
     UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"Getting Started"];
-    UIBarButtonItem *showSideDrawerButton = [[UIBarButtonItem alloc] initWithTitle:@"show" style:UIBarButtonItemStylePlain target:self action:@selector(showSideDrawer)];
+    UIBarButtonItem *showSideDrawerButton = [[UIBarButtonItem alloc] initWithTitle:@"show" 	style:UIBarButtonItemStylePlain target:self action:@selector(showSideDrawer)];
     navItem.leftBarButtonItem = showSideDrawerButton;
     navBar.items = @[navItem];
-    [hostview addSubview:navBar];
+    [_sideDrawerView.mainView addSubview:navBar];
     
-    _sideDrawer = [[TKSideDrawer alloc] initWithViewController:self hostview:hostview];
-    TKSideDrawerSection *section = [_sideDrawer addSectionWithTitle:nil];
+    TKSideDrawerSection *section = [_sideDrawerView.sideDrawer addSectionWithTitle:nil];
     [section addItemWithTitle:@"item 1"];
     [section addItemWithTitle:@"item 2"];
     [section addItemWithTitle:@"item 3"];
@@ -294,18 +294,17 @@ Here is the full code of this example:
 
 ```Swift
 
-	let hostview = UIView(frame: self.view.bounds)
-    self.view.addSubview(hostview)
+	let sideDrawerView = TKSideDrawerView(frame: self.view.bounds)
+    self.view.addSubview(sideDrawerView)
      
     let navBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width, 64))
     let navItem = UINavigationItem(title: "Getting Started")
     let showSideDrawerButton = UIBarButtonItem(image: UIImage(named: "menu"), style: UIBarButtonItemStyle.Plain, target: self, action: "showSideDrawer")
     navItem.leftBarButtonItem = showSideDrawerButton
     navBar.items = [navItem]
-    hostview.addSubview(navBar)
+    sideDrawerView.mainView.addSubview(navBar)
         
-    sidedrawer = TKSideDrawer(viewController: self, hostview: hostview)
-    let section = sidedrawer!.addSectionWithTitle("Section")
+    let section = sideDrawerView.sideDrawer.addSectionWithTitle("Section")
     section.addItemWithTitle("Item 1")
     section.addItemWithTitle("Item 2")
     section.addItemWithTitle("Item 3")
@@ -314,22 +313,19 @@ Here is the full code of this example:
 
 ```C#
 
-	UIView hostview = new UIView (this.View.Bounds);
-	this.View.AddSubview (hostview);
+	TKSideDrawerView sideDrawerView = new TKSideDrawerView (this.View.Bounds);
+	this.View.AddSubview (sideDrawerView);
 
 	UINavigationBar navBar = new UINavigationBar (new CGRect (0, 0, this.View.Frame.Size.Width, 64));
 	UINavigationItem navItem = new UINavigationItem ("Getting Started");
 	UIBarButtonItem showSideDrawerButton = new UIBarButtonItem ("show", UIBarButtonItemStyle.Plain, this, new Selector ("ShowSideDrawer"));
 	navItem.LeftBarButtonItem = showSideDrawerButton;
 	navBar.Items = new UINavigationItem[]{ navItem };
-	hostview.AddSubview (navBar);
+	sideDrawerView.MainView.AddSubview (navBar);
 
-	this.SideDrawer = new TKSideDrawer (this, hostview);
-	TKSideDrawerSection section = this.SideDrawer.AddSection ("Section");
+	TKSideDrawerSection section = sideDrawerView.SideDrawer.AddSection ("Section");
 	section.AddItem ("Item 1");
 	section.AddItem ("Item 2");
 	section.AddItem ("Item 3");
 
 ```
-
-Note that in this case if the side drawer's hostview is the same as its superview <code>TKSideDrawer</code> will insert a view at the bottom of your hierarchy, which will be used as hostview.
