@@ -21,7 +21,7 @@ There the Trial version of the UI for Xamarin.iOS wrappers is contained in the T
 
 If you have already purchased UI for Xamarin.iOS, UI for Xamarin Cross-Platform or DevCraft Ultimate, you can download the wrappers following the steps below:
 
-1. Go to *Your Account >> Products & Subscriptions >> UI for Xamarin.iOS / UI for Xamarin Cross-Platform / DevCraft Ultimate*. 
+1. Go to *Your Account >> Products & Subscriptions >> UI for Xamarin.iOS / UI for Xamarin Cross-Platform / DevCraft Ultimate*. <br>
 <img src="../images/getting-started-xamarin002.png"/>
 2. Click the blue button *Download installers and Other Resources*. 
 <img src="../images/getting-started-xamarin003.png"/> 

@@ -47,7 +47,7 @@ If you have already purchased UI for iOS, DevCraft Ultimate or Telerik Platform 
   
   <img src="images/getting-started006.png"/>
 
-##### Telerik Platform Professional/Business purchase
+#### Telerik Platform Professional/Business purchase
 
 1. Go to *Products & Subscriptions >> Telerik Platform*.
   
