@@ -40,7 +40,7 @@ presenter.style.monthNameTextEffect = TKCalendarTextEffectLowercase;
 [presenter update:NO];
 ```
 ```Swift
-let presenter = calendar.presenter() as TKCalendarMonthPresenter
+let presenter = calendar.presenter() as! TKCalendarMonthPresenter
 presenter.style().titleCellHeight = 40
 presenter.style().backgroundColor = UIColor.redColor()
 presenter.headerIsSticky = true
@@ -72,7 +72,7 @@ There are cases when specific cells must have custom design based on the cell st
 ```Swift
 func calendar(calendar: TKCalendar!, updateVisualsForCell cell: TKCalendarCell!) {
     if cell.isKindOfClass(TKCalendarDayCell) {
-        let dayCell: TKCalendarDayCell = cell as TKCalendarDayCell
+        let dayCell: TKCalendarDayCell = cell as! TKCalendarDayCell
         var a:Int = dayCell.state.rawValue
         if (dayCell.state.rawValue & TKCalendarDayState.Today.rawValue != 0 {
             cell.style().textColor = UIColor(red: 0.0039, green: 0.5843, blue: 0.5529, alpha: 1.0000)

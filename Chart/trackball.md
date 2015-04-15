@@ -93,7 +93,7 @@ chart.delegate = self
 //...
 func chart(chart: TKChart!, trackballDidTrackSelection selection: [AnyObject]!) {
     if selection.count > 0 {
-        let value: AnyObject! = (selection[0] as TKChartSelectionInfo).dataPoint().dataXValue()
+        let value: AnyObject! = (selection[0] as! TKChartSelectionInfo).dataPoint().dataXValue()
         let str = "Pos=\(value)"
         chart.trackball.tooltip.text = str
     }

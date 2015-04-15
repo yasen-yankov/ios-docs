@@ -147,14 +147,14 @@ func listView(listView: TKListView!, numberOfItemsInSection section: Int) -> Int
 }
 
 func listView(listView: TKListView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> TKListViewCell! {
-	let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as TKListViewCell
+	let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! TKListViewCell
     cell.textLabel.text = groups[indexPath.section][indexPath.row]
         
     return cell
 }
     
 func listView(listView: TKListView!, viewForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: NSIndexPath!) -> TKListViewReusableCell! {
-	let headerCell = listView.dequeueReusableSupplementaryViewOfKind(TKListViewElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as TKListViewHeaderCell
+	let headerCell = listView.dequeueReusableSupplementaryViewOfKind(TKListViewElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! TKListViewHeaderCell
 	headerCell.textLabel.text = "Group \(indexPath.section)"
 	
 	return headerCell

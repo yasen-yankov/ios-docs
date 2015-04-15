@@ -89,17 +89,17 @@ TKDataSource dataSource = new TKDataSource (array);
 [dataSource group:^id(id item) { return @([item intValue] % 2 == 0); }];
 ```
 ```Swift
-dataSource.filter { $0 as Int > 5 }
+dataSource.filter { $0 as! Int > 5 }
 
 dataSource.sort {
-    let a = $0 as Int
-    let b = $1 as Int
+    let a = $0 as! Int
+    let b = $1 as! Int
     if a < b { return NSComparisonResult.OrderedDescending }
     else if a > b { return NSComparisonResult.OrderedAscending }
     return NSComparisonResult.OrderedSame
 }
 
-dataSource.group { ($0 as Int) % 2 == 0 }
+dataSource.group { ($0 as! Int) % 2 == 0 }
 ```
 ```C#
 dataSource.Filter ((NSObject obj) => { return ((NSNumber)obj).Int32Value > 5; });
@@ -131,7 +131,7 @@ dataSource.Group ((NSObject obj) => { return NSObject.FromObject( ((NSNumber)obj
 ```Swift
 dataSource.enumerate {
     if $0.isKindOfClass(TKDataSourceGroup) {
-        let group = $0 as TKDataSourceGroup
+        let group = $0 as! TKDataSourceGroup
         println("Group: \(group.key)")
     }
     else {

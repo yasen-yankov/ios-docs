@@ -17,7 +17,7 @@ TKCalendarMonthPresenter *presenter = (TKCalendarMonthPresenter*)calendarView.pr
 presenter.transitionMode = TKCalendarTransitionModeFold;
 ```
 ```Swift
-let presenter = calendarView.presenter() as TKCalendarMonthPresenter
+let presenter = calendarView.presenter() as! TKCalendarMonthPresenter
 presenter.transitionMode = TKCalendarTransitionModeFold
 ```
 ```C#

@@ -267,7 +267,7 @@ func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState
     for i in 0..<state.points.count() {
         let pointKeyPath = state.animationKeyPathForPointAtIndex(i)
         let keyPath = pointKeyPath + ".x"
-        let point: TKChartVisualPoint = state.points[i] as TKChartVisualPoint
+        let point: TKChartVisualPoint = state.points[i] as! TKChartVisualPoint
         let animation = CABasicAnimation(keyPath: keyPath)
         animation.duration = Double(arc4random_uniform(100)) / 100.0
         animation.fromValue = 0

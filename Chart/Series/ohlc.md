@@ -44,7 +44,7 @@ for var i = 0; i < openPrices.count; ++i {
 let ohlcSeries = TKChartOhlcSeries(items: financialDataPoints)
 chart.addSeries(ohlcSeries)
     
-let xAxis = chart.xAxis as TKChartDateTimeAxis
+let xAxis = chart.xAxis as! TKChartDateTimeAxis
 xAxis.minorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.Days
 xAxis.setPlotMode(TKChartAxisPlotMode.BetweenTicks)
 xAxis.majorTickInterval = 1
