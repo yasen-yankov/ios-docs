@@ -6,13 +6,13 @@ exclude: [README.md,Gemfile,Gemfile.lock]
 navigation:
 ## List your directory names and order here, like this:
     Chart/Axes:
-        position: 3
-    Chart/Series:
-        position: 4
-    Chart/Animations:
         position: 5
-    Chart/PointLabels:
+    Chart/Series:
         position: 6
+    Chart/Animations:
+        position: 7
+    Chart/PointLabels:
+        position: 8
 
 ## The application virtual path
 baseurl: /devtools/ios

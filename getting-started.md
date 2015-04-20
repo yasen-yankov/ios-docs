@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-position: .2
+position: .3
 ---
 
 # UI for iOS: Getting Started

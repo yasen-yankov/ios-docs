@@ -1,6 +1,6 @@
 ---
 title: Grid Customization
-position: 8
+position: 12
 ---
 
 # Chart: Grid Customization

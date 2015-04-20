@@ -1,6 +1,6 @@
 ---
 title: Structure
-position: .3
+position: .4
 ---
 
 # Chart: Structure
