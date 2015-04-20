@@ -41,7 +41,7 @@ The approach below shows how you can apply a fall down animation to the visual p
 override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     let animator = UIDynamicAnimator(referenceView: chart)
-    let points = chart.visualPointsForSeries(chart.series()[0] as TKChartSeries)
+    let points = chart.visualPointsForSeries(chart.series()[0] as! TKChartSeries)
     let collisions = UICollisionBehavior(items: points)
     collisions.translatesReferenceBoundsIntoBoundary = true
     

@@ -139,7 +139,7 @@ If this is not enough to achieve to look you want, you can create your custom ce
 ```
 ```Swift
 self.dataSource?.settings.tableView.createCell { (UITableView tableView, NSIndexPath indexPath, AnyObject item) -> UITableViewCell in
-    var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell?
+    var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell?
     if cell == nil {
         cell = UITableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:"cell")
     }
@@ -227,7 +227,7 @@ Use the collection view settings class and its <code>initCell</code> in case you
 ```Swift
 self.dataSource?.settings.collectionView.initCell({ (UICollectionView collectionView, NSIndexPath indexPath,
     UICollectionViewCell cell, AnyObject item) -> Void in
-    let tkCell = cell as TKCollectionViewCell
+    let tkCell = cell as! TKCollectionViewCell
     tkCell.label.text = self.dataSource?.textFromItem(item, inGroup: nil)
     tkCell.backgroundColor = UIColor.yellowColor()
 })
@@ -285,12 +285,12 @@ The <code>initCell</code> and <code>createCell</code> methods can be used to cus
 ```
 ```Swift
 self.dataSource?.settings.listView.createCell({ (TKListView listView, NSIndexPath indexPath, AnyObject item) -> TKListViewCell! in
-    return listView.dequeueReusableCellWithReuseIdentifier("myCustomCell", forIndexPath:indexPath) as TKListViewCell
+    return listView.dequeueReusableCellWithReuseIdentifier("myCustomCell", forIndexPath:indexPath) as! TKListViewCell
 })
 
 self.dataSource?.settings.listView.initCell({ (TKListView listView, NSIndexPath indexPath, TKListViewCell cell, AnyObject item) -> Void in
     cell.textLabel.text = self.dataSource?.textFromItem(item, inGroup:nil)
-    (cell.backgroundView as TKView).fill = TKSolidFill(color: UIColor(white: 0.1, alpha: 0.1))
+    (cell.backgroundView as! TKView).fill = TKSolidFill(color: UIColor(white: 0.1, alpha: 0.1))
 })
 
 //...

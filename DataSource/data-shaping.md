@@ -74,15 +74,15 @@ NSNumber *maxValue = [dataSource reduce:@0 with:^id(id item, id value) {
 let dataSource = TKDataSource(array: [ 10, 5, 12, 13, 7, 44 ])
 
 dataSource.map { (AnyObject item) -> AnyObject! in
-    return (item as Int) * 10
+    return (item as! Int) * 10
 }
 
 let maxValue = dataSource.reduce(0, with: { (AnyObject item, AnyObject value) -> AnyObject! in
-    let a = item as Int
-    let b = value as Int
+    let a = item as! Int
+    let b = value as! Int
     if a>b { return a }
     return b
-}) as Int
+}) as! Int
 
 dataSource.enumerate { (AnyObject item) -> Void in
     println(item)

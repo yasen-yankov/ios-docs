@@ -14,7 +14,22 @@ TKDataSource contains implementation of the TKListViewDataSource protocol that y
 The following example shows how to initialise TKDataSource with data and feed that data to TKListView.
 
 ```Objective-C
-_sampleArrayOfStrings =@[@"Kristina Wolfe",@"Freda Curtis",@"Jeffery Francis",@"Eva Lawson",@"Emmett Santos", @"Theresa	Bryan", @"Jenny Fuller", @"Terrell Norris", @"Eric Wheeler", @"Julius Clayton", @"Alfredo Thornton", @"Roberto Romero",@"Orlando Mathis",@"Eduardo Thomas",@"Harry Douglas"];
+_sampleArrayOfStrings =@[
+	@"Kristina Wolfe",
+	@"Freda Curtis",
+	@"Jeffery Francis",
+	@"Eva Lawson",
+	@"Emmett Santos",
+	@"Theresa Bryan", 
+	@"Jenny Fuller", 
+	@"Terrell Norris", 
+	@"Eric Wheeler", 
+	@"Julius Clayton", 
+	@"Alfredo Thornton", 
+	@"Roberto Romero",
+	@"Orlando Mathis",
+	@"Eduardo Thomas",
+	@"Harry Douglas"];
     
 _dataSource = [[TKDataSource alloc] initWithArray:_sampleArrayOfStrings];
     
@@ -23,8 +38,23 @@ _listView.dataSource = _dataSource;
 [self.view addSubview:_listView];
 ```
 ```Swift
-self.sampleArrayOfStrings = ["Kristina Wolfe","Freda Curtis","Jeffery Francis","Eva Lawson","Emmett Santos", "Theresa Bryan", "Jenny Fuller", "Terrell Norris", "Eric Wheeler", "Julius Clayton", "Alfredo Thornton", "Roberto Romero","Orlando Mathis","Eduardo Thomas","Harry Douglas"]
-
+self.sampleArrayOfStrings = [
+    "Kristina Wolfe",
+    "Freda Curtis",
+    "Jeffery Francis",
+    "Eva Lawson",
+    "Emmett Santos",
+    "Theresa Bryan",
+    "Jenny Fuller",
+    "Terrell Norris",
+    "Eric Wheeler",
+    "Julius Clayton",
+    "Alfredo Thornton",
+    "Roberto Romero",
+    "Orlando Mathis",
+    "Eduardo Thomas",
+    "Harry Douglas"]
+        
 dataSource = TKDataSource(array:sampleArrayOfStrings)
 
 let listView = TKListView(frame: self.view.bounds)
@@ -106,9 +136,9 @@ override func viewDidLoad() {
 }
     
 func  listView(listView: TKListView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> TKListViewCell! {
-	let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)  as TKListViewCell
+	let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)  as! TKListViewCell
         
-	cell.textLabel.text = self.sampleArrayOfStrings[indexPath.row] as NSString
+	cell.textLabel.text = self.sampleArrayOfStrings[indexPath.row]
         
 	return cell
 }

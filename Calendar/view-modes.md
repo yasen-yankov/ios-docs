@@ -25,7 +25,7 @@ TKCalendarYearPresenter *presenter = (TKCalendarYearPresenter*)calendarView.pres
 presenter.columns = 3;
 ```
 ```Swift
-let presenter: TKCalendarYearPresenter = calendarView.presenter() as TKCalendarYearPresenter
+let presenter: TKCalendarYearPresenter = calendarView.presenter() as! TKCalendarYearPresenter
 presenter.columns = 3
 ```
 ```C#
@@ -96,7 +96,7 @@ monthPresenter.style.columnSpacing = 2;
 monthPresenter.titleHidden = YES;
 ```
 ```Swift
-let monthPresenter = calendarView.presenter() as TKCalendarMonthPresenter
+let monthPresenter = calendarView.presenter() as! TKCalendarMonthPresenter
 monthPresenter.style().rowSpacing = 2
 monthPresenter.style().columnSpacing = 2
 monthPresenter.titleHidden = true

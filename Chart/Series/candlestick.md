@@ -66,7 +66,7 @@ for (int i = 0; i < openPrices.Length; ++i) {
 var candlestickSeries = new TKChartCandlestickSeries (financialDataPoints.ToArray ());
 chart.AddSeries (candlestickSeries);
 
-var xAxis = chart.XAxis as TKChartDateTimeAxis;
+var xAxis = chart.XAxis as! TKChartDateTimeAxis;
 xAxis.MinorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.Days;
 xAxis.PlotMode = TKChartAxisPlotMode.BetweenTicks;
 xAxis.MajorTickInterval = 1.0;

@@ -1,6 +1,6 @@
 ---
 title: Populating with Data
-position: 5
+position: 9
 ---
 
 # Chart: Populating with Data
@@ -85,12 +85,12 @@ class DataSourceDelegate: UIViewController, TKChartDataSource {
         return 1
     }
 
-    func chart(chart: TKChart!, numberOfDataPointsForSeriesAtIndex seriesIndex: Int) -> Int {
+    func chart(chart: TKChart!, numberOfDataPointsForSeriesAtIndex seriesIndex: UInt) -> UInt {
         return 10
     }
 
 
-    func chart(chart: TKChart!, dataPointAtIndex dataIndex: Int, forSeriesAtIndex seriesIndex: Int) -> TKChartData! {
+    func chart(chart: TKChart!, dataPointAtIndex dataIndex: UInt, forSeriesAtIndex seriesIndex: UInt) -> TKChartData! {
         var point = TKChartDataPoint(x: dataIndex, y: Int(arc4random_uniform(100)))
         return point
     }   

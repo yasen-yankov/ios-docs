@@ -1,6 +1,6 @@
 ---
 title: Annotations
-position: 9
+position: 13
 ---
 
 # Chart: Annotations
@@ -96,7 +96,7 @@ The TKChartCrossLineAnnotation is a point annotation which represents two crossi
 [chart addAnnotation:[[TKChartCrossLineAnnotation alloc] initWithX:@900 Y:@60 forSeries:chart.series[0]]];
 ```
 ```Swift
-chart.addAnnotation(TKChartCrossLineAnnotation(x: 900, y: 60, forSeries: chart.series()[0] as TKChartSeries))
+chart.addAnnotation(TKChartCrossLineAnnotation(x: 900, y: 60, forSeries: chart.series()[0] as! TKChartSeries))
 ```
 ```C#
 chart.AddAnnotation (new TKChartCrossLineAnnotation (new NSNumber (900), new NSNumber (60), chart.Series [0]));
@@ -122,13 +122,13 @@ bottomBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentBottom;
 [chart addAnnotation:bottomBalloon];
 ```
 ```Swift
-let leftBalloon = TKChartBalloonAnnotation(x: "NearBy", y: 58, forSeries: chart.series()[0] as TKChartSeries)
+let leftBalloon = TKChartBalloonAnnotation(x: "NearBy", y: 58, forSeries: chart.series()[0] as! TKChartSeries)
 leftBalloon.text = "left aligned"
 leftBalloon.style.horizontalAlign = TKChartBalloonHorizontalAlignmentLeft
 leftBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentCenter
 chart.addAnnotation(leftBalloon)    
 
-let bottomBalloon = TKChartBalloonAnnotation(text: "bottom aligned", x: "Family Store", y: 59, forSeries: chart.series()[0] as TKChartSeries)
+let bottomBalloon = TKChartBalloonAnnotation(text: "bottom aligned", x: "Family Store", y: 59, forSeries: chart.series()[0] as! TKChartSeries)
 bottomBalloon.style.verticalAlign = TKChartBalloonVerticalAlignmentBottom
 chart.addAnnotation(bottomBalloon)
 ```
@@ -158,12 +158,12 @@ balloon.attributedText = attributedText;
 [chart addAnnotation:balloon];
 ```
 ```Swift
-var paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+var paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
 paragraphStyle.alignment = NSTextAlignment.Center
 var attributedText = NSMutableAttributedString(string: "Important milestone:\n $55000",
         attributes: [NSForegroundColorAttributeName:UIColor.whiteColor(), NSParagraphStyleAttributeName:paragraphStyle,])
 attributedText.addAttribute(NSForegroundColorAttributeName, value: UIColor.yellowColor(), range: NSMakeRange(22, 6))
-let balloon = TKChartBalloonAnnotation(x: "NearBy", y: 58, forSeries: chart.series()[0] as TKChartSeries)
+let balloon = TKChartBalloonAnnotation(x: "NearBy", y: 58, forSeries: chart.series()[0] as! TKChartSeries)
 balloon.attributedText = attributedText
 chart.addAnnotation(balloon)
 ```
@@ -215,7 +215,7 @@ let image = UIImage(named: "logo")!
 let imageView = UIImageView(image: image)
 imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height)
 imageView.alpha = 0.7
-chart.addAnnotation(TKChartViewAnnotation(view: imageView, x: "Perfecto", y: 55, forSeries: chart.series()[0] as TKChartSeries))
+chart.addAnnotation(TKChartViewAnnotation(view: imageView, x: "Perfecto", y: 55, forSeries: chart.series()[0] as! TKChartSeries))
 ```
 ```C#
 var image = new UIImage ("logo.png");

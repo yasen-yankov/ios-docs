@@ -1,6 +1,6 @@
 ---
 title: Legend
-position: 6
+position: 10
 ---
 
 # Chart: Legend

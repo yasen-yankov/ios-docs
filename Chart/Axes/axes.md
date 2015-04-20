@@ -109,7 +109,7 @@ yAxis.minorTickInterval = 3;
 yAxis.style.majorTickStyle.ticksHidden = NO;
 ```
 ```Swift
-let yAxis = chart.yAxis as TKChartNumericAxis
+let yAxis = chart.yAxis as! TKChartNumericAxis
 yAxis.majorTickInterval = 20
 yAxis.minorTickInterval = 3
 yAxis.style.majorTickStyle.ticksHidden = false

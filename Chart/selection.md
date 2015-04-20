@@ -1,6 +1,6 @@
 ---
 title: Selection
-position: 7
+position: 11
 ---
 
 # Chart: Selection
@@ -32,11 +32,11 @@ for (TKChartSelectionInfo *info in chart.selectedPoints) {
 }
 ```
 ```Swift
-for series in chart.selectedSeries() as [TKChartSeries] {
+for series in chart.selectedSeries() as! [TKChartSeries] {
     println("selected series at index: \(series.index)")
 }
 
-for info in chart.selectedPoints() as [TKChartSelectionInfo] {
+for info in chart.selectedPoints() as! [TKChartSelectionInfo] {
     NSLog("selected point at index \(info.dataPointIndex) from series \(info.series.index)")
 }
 ```
@@ -135,7 +135,7 @@ series.expandRadius = 1.2
 
 override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    chart.select(TKChartSelectionInfo(series: chart.series()[0] as TKChartSeries, dataPointIndex: 0))
+    chart.select(TKChartSelectionInfo(series: chart.series()[0] as! TKChartSeries, dataPointIndex: 0))
 }
 ```
 ```C#

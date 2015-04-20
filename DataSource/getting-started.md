@@ -14,7 +14,7 @@ This quick start tutorial demonstrates how to create a simple iOS application wi
 
 In order to start using <code>TKDataSource</code>, you have to first install the latest version of Telerik UI for iOS. You can download it from: [http://www.telerik.com/download/ios-ui](http://www.telerik.com/download/ios-ui). The file that you should download is the installation package - Telerik UI for iOS.pkg. Just double click the package icon and the installer will guide you through the installation process. When done, it will open the newly created folder in your Documents folder. This folder contains everything necessary in order to start using <code>TKDataSource</code>.
 
-<img src="../images/chart-overview003.png"/>
+<img src="../images/getting-started001.png"/>
 
 ## Setting up the project
 
@@ -26,9 +26,9 @@ After installing Telerik UI, you can proceed with the following steps:
     <li>Give your project a name and click <i>Next</i>.</li>
     <li>Complete the process of creating a project by specifying the location for your project and clicking <i>Create</i>.</li>
     <li>Scroll down to the <i>Linked Frameworks and Libraries</i> section in your project settings and click on the <i>"+"</i> button. <br/>
-    <img src="../images/chart-overview004.png"/></li>
+    <img src="../images/getting-started002.png"/></li>
     <li>Type <i>telerik</i> in the popup, select the <i>TelerikUI.framework</i> and click <i>Add</i>. <br/>
-    <img src="../images/chart-overview005.png"/></li>
+    <img src="../images/getting-started003.png"/></li>
     <li>This is it, now you are ready to start working with Telerik Chart.</li>
 </ol>
 
@@ -39,6 +39,10 @@ Now that our project is created and the TelerikUI.framework is added, we can sta
 Open your **ViewController.m** file and add a reference to the chart header file:
 
     #import <TelerikUI/TelerikUI.h>
+
+Note that starting with Xcode 6 Apple doesn't generate the precompiled headers file automatically. That is why you should add import the UIKit framework before importing TelerikUI:
+
+    #import <UIKit/UIKit.h>
 
 If you are writing Swift, add the same line in your bridging header.
 
@@ -84,17 +88,17 @@ TKDataSource dataSource = new TKDataSource (array);
 [dataSource group:^id(id item) { return @([item intValue] % 2 == 0); }];
 ```
 ```Swift
-dataSource.filter { $0 as Int > 5 }
+dataSource.filter { $0 as! Int > 5 }
 
 dataSource.sort {
-    let a = $0 as Int
-    let b = $1 as Int
+    let a = $0 as! Int
+    let b = $1 as! Int
     if a < b { return NSComparisonResult.OrderedDescending }
     else if a > b { return NSComparisonResult.OrderedAscending }
     return NSComparisonResult.OrderedSame
 }
 
-dataSource.group { ($0 as Int) % 2 == 0 }
+dataSource.group { ($0 as! Int) % 2 == 0 }
 ```
 ```C#
 dataSource.Filter ((NSObject obj) => { return ((NSNumber)obj).Int32Value > 5; });
@@ -126,7 +130,7 @@ dataSource.Group ((NSObject obj) => { return NSObject.FromObject( ((NSNumber)obj
 ```Swift
 dataSource.enumerate {
     if $0.isKindOfClass(TKDataSourceGroup) {
-        let group = $0 as TKDataSourceGroup
+        let group = $0 as! TKDataSourceGroup
         println("Group: \(group.key)")
     }
     else {

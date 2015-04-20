@@ -51,8 +51,8 @@ There are cases when you may need to update the styles of specific TKSideDrawer 
 
 ```Swift
 func sideDrawer(sideDrawer: TKSideDrawer!, updateVisualsForItem itemIndex: Int, inSection sectionIndex: Int) {
-   	let section = sideDrawer.sections()[sectionIndex] as TKSideDrawerSection
-   	let item = section.items()[itemIndex] as TKSideDrawerItem
+   	let section = sideDrawer.sections()[sectionIndex] as! TKSideDrawerSection
+   	let item = section.items()[itemIndex] as! TKSideDrawerItem
     item.style.contentInsets = UIEdgeInsetsMake(0, -5, 0, 0)
     item.style.separatorColor = TKSolidFill(color: UIColor(white: 1, alpha: 0.5))
     item.style.textColor = UIColor.whiteColor()
@@ -82,7 +82,7 @@ If needed you can easily update the visual styles of the sections. This is done 
 
 ```Swift
 func sideDrawer(sideDrawer: TKSideDrawer!, updateVisualsForSection sectionIndex: Int) {
-    let section = sideDrawer.sections()[sectionIndex] as TKSideDrawerSection
+    let section = sideDrawer.sections()[sectionIndex] as! TKSideDrawerSection
     section.style.textColor = UIColor.whiteColor()
     section.style.contentInsets = UIEdgeInsetsMake(0, -15, 0, 0)
 }

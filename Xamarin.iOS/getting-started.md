@@ -15,45 +15,48 @@ This tutorial demonstrates how to get started with the Telerik UI for Xamarin.iO
 
 #### Trial version
 
-There the Trial version of the UI for Xamarin.iOS wrappers is contained in the Trial package of the UI for Xamarin Cross-Platform product. You can download a Trial of UI for Xamarin Cross-Platform at [http://www.telerik.com/download/xamarin-ui](http://www.telerik.com/download/xamarin-ui).
+The Trial version of the UI for Xamarin.iOS wrappers is contained in the Trial package of the UI for Xamarin Cross-Platform product. You can download a Trial of UI for Xamarin Cross-Platform at [http://www.telerik.com/download/xamarin-ui](http://www.telerik.com/download/xamarin-ui).
+>>>>>>> development
 
 #### Paid version
 
 If you have already purchased UI for Xamarin.iOS, UI for Xamarin Cross-Platform or DevCraft Ultimate, you can download the wrappers following the steps below:
 
-1. Go to *Your Account >> Products & Subscriptions >> UI for Xamarin.iOS / UI for Xamarin Cross-Platform / DevCraft Ultimate*. <br>
-<img src="../images/getting-started-xamarin002.png"/>
+1. Go to *Your Account >> Products & Subscriptions >> UI for Xamarin.iOS / UI for Xamarin Cross-Platform / DevCraft Ultimate*. 
+<br><img src="../images/getting-started-xamarin002.png"/>
 2. Click the blue button *Download installers and Other Resources*. 
-<img src="../images/getting-started-xamarin003.png"/> 
+<br><img src="../images/getting-started-xamarin003.png"/> 
 	- If you have reached the blue button using your UI for Xamarin.iOS / UI for Xamarin Cross-Platform license, go to step 3
 	- If you have reached the blue button using your DevCraft Ultimate, go to step 4. 
-3. Clicking the blue button will open the list of files available for download. Download the *Manual Installation* file of UI for Xamarin.iOS / UI for Xamarin Cross-Platform respectively.
-<img src="../images/getting-started-xamarin005.png"/>
+3. Clicking the blue button will open the list of files available for download. Download the *Manual Installation* file of UI for Xamarin.iOS / UI for Xamarin Cross-Platform respectively (skip step 4).
+<br><img src="../images/getting-started-xamarin005.png"/>
 4. Clicking the blue button will open the list of products available with the DevCraft Ultimate license. Find the *UI for Xamarin Cross-Platform* product and click the *Download* button. This will download the *Manual Installation* file.
-<br/><img src="../images/getting-started-xamarin004.png"/>
+<br><img src="../images/getting-started-xamarin004.png"/>
 
 ## Unpacking the UI for Xamarin.iOS wrappers
 
 #### UI for Xamarin Cross-Platform
 
-The UI for Xamarin Cross-Platform products gives you access to a zip file that contains the Xamarin.iOS wrappers, Xamarin.Android wrappers, UI for Windows Phone, Xamarin.Forms controls and a Demo app for these Xamarin.Forms controls. Extract the contents of the zip file to a convenient place, preferably in *C:\Program Files\Telerik\UI for Xamarin\* if you are on Windows or in *Documents\Telerik\UI for Xamarin\* if you are on Mac. After you extract the contents, you can find the Xamarin.iOS assembly at Binaries\iOS\Telerik.Xamarin.iOS.dll
+The UI for Xamarin Cross-Platform products gives you access to a zip file that contains the Xamarin.iOS wrappers, Xamarin.Android wrappers, UI for Windows Phone, Xamarin.Forms controls and a Demo app for these Xamarin.Forms controls. Extract the contents of the zip file to a convenient place, preferably in *C:\Program Files\Telerik\UI for Xamarin\* if you are on Windows, or in *Documents\Telerik\UI for Xamarin\* if you are on Mac. After you extract the contents, you can find the UI for Xamarin.iOS assembly at Binaries\iOS\Telerik.Xamarin.iOS.dll
 
 #### UI for Xamarin.iOS
 
-The UI for Xamarin.iOS products gives you access to a zip file that contains the Xamarin.iOS wrappers and a Demo app for these wrappers. Extract the contents of the zip file to a convenient place, preferably in *C:\Program Files\Telerik\UI for Xamarin\* if you are on Windows or in *Documents\Telerik\UI for Xamarin\* if you are on Mac. The Telerik.Xamarin.iOS.dll assembly that contains the Xamarin.iOS wrappers is directly available at the top level  directory of the zip contents. 
+The UI for Xamarin.iOS products gives you access to a zip file that contains the Xamarin.iOS wrappers and a Demo app for these wrappers. Extract the contents of the zip file to a convenient place, preferably in *C:\Program Files\Telerik\UI for Xamarin\* if you are on Windows or in *Documents\Telerik\UI for Xamarin\* if you are on Mac. The Telerik.Xamarin.iOS.dll assembly that contains the Xamarin.iOS wrappers is directly available at the top level directory of the zip contents. 
 
 ## Setting up the project
 
-After downloading and unpacking the UI for Xamarin.iOS wrappers, you can proceed with the steps below to create a new project. You can develop a Xamarin.iOS application with both Visual Studio / Xamarin Studio
-
-
+After downloading and unpacking the UI for Xamarin.iOS wrappers, you can proceed with the steps below to create a new project. You can develop a Xamarin.iOS application with both Visual Studio / Xamarin Studio.
+>>>>>>> development
 
 - Open Visual Studio / Xamarin Studio and create a new project:
 
 	- For Visual Studio: *File >> New Project, then Templates >> Visual C# >> iOS >> iPhone >> Single View App (iOS)*
-<img src="../images/getting-started-xamarin006.png"/>
+<br><img src="../images/getting-started-xamarin006.png"/>
 	- For Xamarin Studio: *File >> New >> Solution, then C# >> Unified API >> iPhone >> Single View Application*
-<img src="../images/getting-started-xamarin007.png"/>
+<br><img src="../images/getting-started-xamarin007.png"/>
+
+## Using UI for Xamarin.iOS
+
 
 - Add a reference to the Telerik.Xamarin.iOS assembly:
 <img src="../images/getting-started-xamarin008.png"/>
@@ -100,12 +103,14 @@ After downloading and unpacking the UI for Xamarin.iOS wrappers, you can proceed
 	chart.AddSeries(new TKChartLineSeries(randomNumericData.ToArray()));
 	chart.AddSeries(new TKChartLineSeries(randomNumericData2.ToArray()));
 	```
+
+	The <code>TKChartLineSeries</code> tells the chart to present its data in the form of line charts and initialize it with the already created points.
 	
 	For more information about populating TKChart with data, please refer to the following article:
 
-- [Populating with Data](http://docs.telerik.com/devtools/ios/Chart/populating-with-data)
-
-	The TKChartLineSeries tells the chart to present its data in the form of line charts and initialize it with the already created points.
+	- [Populating with Data](http://docs.telerik.com/devtools/ios/Chart/populating-with-data)
+	
+<br>
 
 - Let's add a title and a legend to our chart. We can do so by setting the corresponding properties to <code>false</code>:
 	```C#

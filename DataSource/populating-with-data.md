@@ -133,7 +133,7 @@ If a greater precision is necessary, you can implement the <code>formatText</cod
 ```
 ```Swift
 dataSource.formatText { (AnyObject item, TKDataSourceGroup group) -> String! in
-    let dsItem = item as DataSourceItem
+    let dsItem = item as! DataSourceItem
     return "\(dsItem.name) has \(dsItem.value) points"
 }
 ```
@@ -159,7 +159,7 @@ let dictionary:NSDictionary = [ "John": 50, "Abby": 33, "Smith": 42, "Peter": 28
 let dataSource = TKDataSource(itemSource: dictionary)
 dataSource.sortWithKey("", ascending: true)
 dataSource.filter { (String name) -> Bool in
-    return (dictionary.objectForKey(name) as Int) > 30
+    return (dictionary.objectForKey(name) as! Int) > 30
 }
 ```
 ```C#

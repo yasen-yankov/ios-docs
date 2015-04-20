@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-position: .2
+position: .3
 ---
 
 # UI for iOS: Getting Started
@@ -47,7 +47,11 @@ If you have already purchased UI for iOS, DevCraft Ultimate or Telerik Platform 
   
   <img src="images/getting-started006.png"/>
 
+<<<<<<< HEAD
 #### Telerik Platform Professional/Business purchase
+=======
+##### Telerik Platform Professional/Business purchase
+>>>>>>> development
 
 1. Go to *Products & Subscriptions >> Telerik Platform*.
   

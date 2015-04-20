@@ -62,7 +62,7 @@ func chart(chart: TKChart!, animationForSeries series: TKChartSeries!, withState
     for i in 0 ..< state.points.count() {
         let pointKeyPath = state.animationKeyPathForPointAtIndex(i)
         let keyPath = pointKeyPath + ".y"
-        let point = state.points[i] as TKChartVisualPoint
+        let point = state.points[i] as! TKChartVisualPoint
         let oldY = rect.size.height
         
         if i > 0 {

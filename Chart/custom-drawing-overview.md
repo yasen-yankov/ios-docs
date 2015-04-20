@@ -1,6 +1,6 @@
 ---
 title: Custom Drawing
-position: 9
+position: 14
 ---
 
 # Chart: Custom Drawing
