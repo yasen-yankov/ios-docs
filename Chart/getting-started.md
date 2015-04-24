@@ -212,7 +212,7 @@ public class ChartGettingStarted: UIViewController
     {
         base.ViewDidLoad ();
 
-        var chart = new TKChart (RectangleF.Inflate (this.View.Bounds, -15, -15));
+        var chart = new TKChart (CGRect.Inflate (this.View.Bounds, -15, -15));
         chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
         this.View.AddSubview (chart);
 
