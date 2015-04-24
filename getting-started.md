@@ -47,11 +47,7 @@ If you have already purchased UI for iOS, DevCraft Ultimate or Telerik Platform 
   
   <img src="images/getting-started006.png"/>
 
-<<<<<<< HEAD
 #### Telerik Platform Professional/Business purchase
-=======
-##### Telerik Platform Professional/Business purchase
->>>>>>> development
 
 1. Go to *Products & Subscriptions >> Telerik Platform*.
   
@@ -163,7 +159,7 @@ chart.AddSeries (new TKChartLineSeries (randomNumericData.ToArray ()));
 
 For more information about populating TKChart with data, please refer to the following article:
 
-- [Populating with Data](populating-with-data)
+- [Populating with Data](chart/populating-with-data)
 
 The TKChartLineSeries tells the chart to present its data as a line chart and initializes it with the already created points.
 
@@ -199,8 +195,8 @@ chart.AllowAnimations = true;
 
 For more information about customizing animations, please refer to the following articles:
 
-- [Custom Animations](animations/custom)
-- [Custom UIKit Dynamics Animations](animations/custom-uikit-dynamics)
+- [Custom Animations](chart/animations/custom)
+- [Custom UIKit Dynamics Animations](chart/animations/custom-uikit-dynamics)
 
 Here is the full code of this example:
 
@@ -300,4 +296,4 @@ chart.addSeries(TKChartColumnSeries(items: randomNumericData))
 chart.AddSeries (new TKChartColumnSeries (randomNumericData.ToArray ()));
 ```
 
-For more information about series types, please refer to the following articles: [Chart Structure](structure).
+For more information about series types, please refer to the following articles: [Chart Structure](chart/structure).
