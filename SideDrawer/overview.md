@@ -8,7 +8,7 @@ position: 1
 
 The SideDrawer for iOS steps on the popular navigation pattern where you can access all your application screens from a single sliding menu. Polished effects and transitions are two major advantages of Telerik SideDrawer which are available out-of-the-box. The control is highly customizable and slides in from all four sides of the screen. What also distinguishes the Telerik SideDrawer control is that its items’ content is not limited to navigation options; it can serve arbitrary content. 
 
-<img src="../images/sidedrawer-gettingstarted001.png"/>
+<img src="../images/sidedrawer-overview001.png"/>
 
 **Transition modes**
 
