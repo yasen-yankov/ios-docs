@@ -26,7 +26,6 @@ listView.CellBufferSize = 5;
 ```
 
 
-
 After a cell buffer size is set you should implement the <code>TKListViewDelgate</code> method <code>listView:shouldLoadMoreDataAtIndexPath:</code> to determine if more data should be loaded. After the data is loaded you should notify the ListView by calling its <code>didLoadDataOnDemand</code> method:
 
 ```Objective-C

@@ -175,34 +175,34 @@ class ViewController: UIViewController {
 }
 ```
 ```C#
-
 TKListView listView = new TKListView();
-	public override void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
-			NSString[] simpleArrayOfStrings = new NSString[] { new NSString("Kristina Wolfe"),
-				new NSString("Freda Curtis"),
-				new NSString("Jeffery Francis"),
-				new NSString("Eva Lawson"),
-				new NSString("Emmett Santos"), 
-				new NSString("Theresa Bryan"), 
-				new NSString("Jenny Fuller"), 
-				new NSString("Terrell Norris"),
-				new NSString("Eric Wheeler"), 
-				new NSString("Julius Clayton"), 
-				new NSString("Alfredo Thornton"), 
-				new NSString("Roberto Romero"),
-				new NSString("Orlando Mathis"),
-				new NSString("Eduardo Thomas"),
-				new NSString("Harry Douglas")
-			};
-			TKDataSource dataSource = new TKDataSource(simpleArrayOfStrings);
-			listView.Frame = new CGRect (20, 20, this.View.Bounds.Size.Width-40,this.View.Bounds.Size.Height-40);
-			this.listView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
-			this.listView.WeakDataSource = dataSource;
-			this.listView.AllowsMultipleSelection = true;
-			this.listView.AllowsCellReorder = true;
-			this.View.AddSubview(this.listView);
-		}
+
+public override void ViewDidLoad ()
+{
+	base.ViewDidLoad ();
+	NSString[] simpleArrayOfStrings = new NSString[] { new NSString("Kristina Wolfe"),
+		new NSString("Freda Curtis"),
+		new NSString("Jeffery Francis"),
+		new NSString("Eva Lawson"),
+		new NSString("Emmett Santos"), 
+		new NSString("Theresa Bryan"), 
+		new NSString("Jenny Fuller"), 
+		new NSString("Terrell Norris"),
+		new NSString("Eric Wheeler"), 
+		new NSString("Julius Clayton"), 
+		new NSString("Alfredo Thornton"), 
+		new NSString("Roberto Romero"),
+		new NSString("Orlando Mathis"),
+		new NSString("Eduardo Thomas"),
+		new NSString("Harry Douglas")
+	};
+	TKDataSource dataSource = new TKDataSource(simpleArrayOfStrings);
+	listView.Frame = new CGRect (20, 20, this.View.Bounds.Size.Width-40,this.View.Bounds.Size.Height-40);
+	this.listView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+	this.listView.WeakDataSource = dataSource;
+	this.listView.AllowsMultipleSelection = true;
+	this.listView.AllowsCellReorder = true;
+	this.View.AddSubview(this.listView);
+}
 		
 ```
