@@ -16,7 +16,6 @@ This tutorial demonstrates how to get started with the Telerik UI for Xamarin.iO
 #### Trial version
 
 The Trial version of the UI for Xamarin.iOS wrappers is contained in the Trial package of the UI for Xamarin Cross-Platform product. You can download a Trial of UI for Xamarin Cross-Platform at [http://www.telerik.com/download/xamarin-ui](http://www.telerik.com/download/xamarin-ui).
->>>>>>> development
 
 #### Paid version
 
@@ -46,7 +45,6 @@ The UI for Xamarin.iOS products gives you access to a zip file that contains the
 ## Setting up the project
 
 After downloading and unpacking the UI for Xamarin.iOS wrappers, you can proceed with the steps below to create a new project. You can develop a Xamarin.iOS application with both Visual Studio / Xamarin Studio.
->>>>>>> development
 
 - Open Visual Studio / Xamarin Studio and create a new project:
 

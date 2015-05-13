@@ -8,7 +8,7 @@ position: 2
 
 This quick start tutorial demonstrates how to create a simple iOS application with <code>TKSideDrawer</code>.
 
-<img src="../images/sidedrawer-gettingstarted001.png"/>
+<img src="../images/sidedrawer-customizations001.png"/>
 
 ## Prerequisites
 

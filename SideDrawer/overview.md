@@ -27,7 +27,7 @@ These transitions can be combined with the SideDrawer’s ability to slide from 
 
 **Support for custom content**
 
-Normally, SideDrawer will display a list of your menu items. However, you may want something more unusual for your app. Therefore, you can use the menu surface as a generic container and instead of the standard menu items put a content entirely of your choice. For example, at screenshot on the right you can see how we have inserted a UIView with a UIImageView instead of menu items.
+Normally, SideDrawer will display a list of your menu items. However, you may want something more unusual for your app. Therefore, you can use the menu surface as a generic container and instead of the standard menu items put a content entirely of your choice.
 
 
 **Sections**
