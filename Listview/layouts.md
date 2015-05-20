@@ -15,26 +15,23 @@ In wrap layout cells are distributed evenly in rows or columns according to the 
 <img src="../images/listview-layouts001.png"/>
 
 ```Objective-C
-_listView.insets = UIEdgeInsetsMake(4, 4, 0, 4);
-TKListViewWrapLayout *layout = [TKListViewWrapLayout new];
-layout.minimumLineSpacing = 4;
-layout.minimumInteritemSpacing = 4;
+_listView.contentInset = UIEdgeInsetsMake(4, 4, 0, 4);
+TKListViewLinearLayout *layout = [TKListViewLinearLayout new];
+layout.itemSpacing = 4;
 layout.itemSize = CGSizeMake(100, 100);
 _listView.layout = layout;
 ```
 ```Swift
-listView.insets = UIEdgeInsetsMake(4, 4, 0, 4)
-let layout = TKListViewWrapLayout()
-layout.minimumLineSpacing = 4
-layout.minimumInteritemSpacing = 4
+listView.contentInset = UIEdgeInsetsMake(4, 4, 0, 4)
+let layout = TKListViewLinearLayout()
+layout.itemSpacing = 4
 layout.itemSize = CGSizeMake(100, 100)
 listView.layout = layout
 ```
 ```C#
-this.ListView.Insets = new UIEdgeInsets (4, 4, 0, 4);
-TKListViewWrapLayout layout = new TKListViewWrapLayout ();
-layout.MinimumLineSpacing = 4;
-layout.MinimumInteritemSpacing = 4;
+this.ListView.ContentInset = new UIEdgeInsets (4, 4, 0, 4);
+TKListViewLinearLayout layout = new TKListViewLinearLayout ();
+layout.ItemSpacing = 4;
 layout.ItemSize = new CGSize (100f, 100f);
 this.ListView.Layout = layout;
 ```
@@ -46,26 +43,29 @@ The columns layout allows for distributing cells in a fixed number of columns an
 <img src="../images/listview-layouts002.png"/>
 
 ```Objective-C
-_listView.insets = UIEdgeInsetsZero;
-TKListViewColumnsLayout *layout = [TKListViewColumnsLayout new];
+_listView.contentInset = UIEdgeInsetsZero;
+TKListViewGridLayout *layout = [TKListViewGridLayout new];
 layout.itemSize = CGSizeMake(100, 100);
-layout.columnsCount = 2;
-layout.cellAlignment = TKListViewCellAlignmentCenter;
+layout.lineSpacing = 4;
+layout.spanCount = 2;
+layout.itemAlignment = TKListViewItemAlignmentCenter;
 _listView.layout = layout;
 ```
 ```Swift
-listView.insets = UIEdgeInsetsZero
-let layout = TKListViewColumnsLayout()
+listView.contentInset = UIEdgeInsetsZero
+let layout = TKListViewGridLayout()
 layout.itemSize = CGSizeMake(100, 100)
-layout.columnsCount = 2
-layout.cellAlignment = TKListViewCellAlignment.Center
+layout.lineSpacing = 4
+layout.spanCount = 2
+layout.itemAlignment = TKListViewItemAlignment.Center
 listView.layout = layout        
 ```
 ```C#   
-    this.ListView.Insets = UIEdgeInsets.Zero;
-	TKListViewColumnsLayout layout = new TKListViewColumnsLayout ();
-	layout.ItemSize = new CGSize (100f, 100f);
-	layout.ColumnsCount = 2;
-	layout.CellAlignment = TKListViewCellAlignment.Center;
-	this.ListView.Layout = layout;
+this.ListView.ContentInset = UIEdgeInsets.Zero;
+TKListViewGridLayout layout = new TKListViewGridLayout ();
+layout.ItemSize = new CGSize (100f, 100f);
+layout.LineSpacing = 4;
+layout.SpanCount = 2;
+layout.ItemAlignment = TKListViewItemAlignment.Center;
+this.ListView.Layout = layout;
 ```

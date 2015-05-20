@@ -33,7 +33,8 @@ In case you need more flexibility you may implement grouping manualy as follows.
 
     TKListView *_listView = [[TKListView alloc] initWithFrame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40)];
     _listView.dataSource = dataSource;
-    _listView.layout.headerReferenceSize = CGSizeMake(200, 22);
+    TKListViewLinearLayout *layout = (TKListViewLinearLayout*)_listView.layout;
+    layout.headerReferenceSize = CGSizeMake(200, 22);
 
     [self.view addSubview:_listView];
 }
@@ -56,7 +57,8 @@ override func viewDidLoad() {
     dataSource?.displayKey = "name"
     let listView = TKListView(frame: CGRectMake(20, 20, self.view.bounds.size.width-40,self.view.bounds.size.height-40))        
     listView.dataSource = dataSource
-    listView.layout.headerReferenceSize = CGSizeMake(200, 22)
+    let layout = listView.layout as! TKListViewLinearLayout
+    layout.headerReferenceSize = CGSizeMake(200, 22)
     self.view.addSubview(listView)
 }
 ```
