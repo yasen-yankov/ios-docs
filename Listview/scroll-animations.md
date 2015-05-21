@@ -24,22 +24,6 @@ let layout = listView.layout as! TKListViewLinearLayout
 layout.itemAppearAnimation = TKListViewItemAnimation.FadeIn
 ```
 ```C#
-this.listView.CellAppearBehavior = new TKListViewCellScaleInBehavior ();
-```
-
-## Combining cell animation behaviors 
-
-Animation behaviors may be combined as follows : 
-
-```Objective-C
-self.listView.cellAppearBehavior = [[TKListViewCellFadeInBehavior alloc] init];
-[self.listView.cellAppearBehavior addChildBehavior:[[TKListViewCellScaleInBehavior alloc] init]];
-```
-```Swift
-self.listView.cellAppearBehavior = TKListViewCellFadeInBehavior()
-self.listView.cellAppearBehavior.addChildBehavior(TKListViewCellScaleInBehavior())
-```
-```C#
-this.listView.CellAppearBehavior = new TKListViewCellFadeInBehavior ();
-this.listView.CellAppearBehavior.AddChildBehavior (new TKListViewCellScaleInBehavior ());
+var layout = this.listView.Layout as TKListViewLinearLayout;
+layout.ItemAppearAnimation = TKListViewItemAnimation.FadeIn;
 ```

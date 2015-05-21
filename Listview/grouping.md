@@ -77,8 +77,10 @@ dataSource.DisplayKey = "Name";
 
 TKListView listView = new TKListView (new CGRect (20, 20, this.View.Bounds.Size.Width - 40, this.View.Bounds.Size.Height - 40));
 listView.WeakDataSource = dataSource;
-listView.Layout.HeaderReferenceSize = new CGSize (200, 22);
 this.View.AddSubview (listView);
+
+var layout = listView.Layout as TKListViewLinearLayout;
+layout.HeaderReferenceSize = new CGSize (200, 22);
 ```
 ## Displaying grouped data using a TKListViewDataSource delegate methods ##
 
