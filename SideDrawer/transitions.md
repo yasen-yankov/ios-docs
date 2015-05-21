@@ -73,15 +73,15 @@ The default transition is *SlideInOnTop*. In order to change the transition type
 You can configure the speed of the transition setting the <code>transitionDuration</code> property of <code>TKSideDrawer</code>:
 
 ```Objective-C
-	self.sideDrawer.transitionDuration = .2;
+self.sideDrawer.transitionDuration = .2;
 ```
 
 ```Swift
-	self.sideDrawer.transitionDuration = 0.2
+self.sideDrawer.transitionDuration = 0.2
 ```
 
 ```C#
-	this.SideDrawer.TransitionDuration = 0.2f;
+this.SideDrawer.TransitionDuration = 0.2f;
 ```
 
 ## Using Custom Transitions
@@ -91,16 +91,16 @@ You can create a custom transition by sublcassing <code>TKSideDrawerTransition</
 <img src="../images/sidedrawer-transitions002.png"/>
 
 ```Objective-C
-	self.sideDrawer.transitionManager = [[ScaleContentTransition alloc] initWithSideDrawer:self.sideDrawer];
+self.sideDrawer.transitionManager = [[ScaleContentTransition alloc] initWithSideDrawer:self.sideDrawer];
 ```
 
 ```Swift
-	sideDrawer.transitionManager = ScaleContentTransition(sideDrawer: sideDrawer)
+sideDrawer.transitionManager = ScaleContentTransition(sideDrawer: sideDrawer)
 ```
 
 ```C#
-	ScaleContentTransition transition = new ScaleContentTransition (this.SideDrawer);
-	this.SideDrawer.TransitionManager = transition;
+ScaleContentTransition transition = new ScaleContentTransition (this.SideDrawer);
+this.SideDrawer.TransitionManager = transition;
 ```
 
 

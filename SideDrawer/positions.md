@@ -13,13 +13,13 @@ position: 3
 In order to change the postion of <code>TKSideDrawer</code>, you should set its <code>position</code> property:
 
 ```Objective-C
-	self.sideDrawer.position = TKSideDrawerPositionRight;
+self.sideDrawer.position = TKSideDrawerPositionRight;
 ```
 
 ```Swift
-	self.sideDrawer.position = TKSideDrawerPosition.Right
+self.sideDrawer.position = TKSideDrawerPosition.Right
 ```
 
 ```C#
-	this.SideDrawer.Position = TKSideDrawerPosition.Right;
+this.SideDrawer.Position = TKSideDrawerPosition.Right;
 ```

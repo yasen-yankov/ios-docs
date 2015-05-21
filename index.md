@@ -49,7 +49,7 @@ TKChart main features include:
 - Item animations
 - Single/multiple selection on tap/hold
 
-<img src="images/calendar-overview001.png"/>
+<img src="images/listview-overview001.png"/>
 
 
 **SideDrawer** helps you add extra space to your application. It extends the popular slide-out design pattern which is mainly associated with navigational purposes. The control is highly customizable and allows developers to embed any type of content inside the sliding panel. The SideDrawer feature set includes:
@@ -67,8 +67,13 @@ TKChart main features include:
 - Ability to appear from all four edges
 - Ability to appear on swipe or button click
 
-<img src="images/calendar-overview001.png"/>
+<img src="images/sidedrawer-overview001.png"/>
+
+
+**TKDataSource** is a non-visual component that consumes data from various sources. It supports data shaping operations like sorting, filterign and grouping. It adopts the most used data enabled UI controls in iOS: UITableView and UICollectionView to automate the presentation of its data. TKDataSource works perfecltly with TKListView, TKChart and TKCalendar too.
+
+<img width="500" src="images/datasource-getting-started001.png"/>
 
 **AppFeedback** enables your end-users to provide feedback inside your app by simply shaking their device or navigating to the feedback option. Once invoked, the component will automatically take a screenshot and prompt users to point to their issue and provide a comment. The users can then track the feedback they've submitted, viewing its status or supplying additional comments. The component's seamless integration with AppFeedback (a part of the Telerik Platform) allows for organizing and reviewing all feedback items, assigning those to members in your Telerik Platform workspace and responding directly to users. The end result is actionable feedback, and easy interaction between your users and team members.
 
-<img src="images/calendar-overview001.png"/>
+<img src="images/appfeedback-details-comments-list-ios.png"/>

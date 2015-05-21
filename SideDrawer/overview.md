@@ -8,7 +8,7 @@ position: 1
 
 The SideDrawer for iOS steps on the popular navigation pattern where you can access all your application screens from a single sliding menu. Polished effects and transitions are two major advantages of Telerik SideDrawer which are available out-of-the-box. The control is highly customizable and slides in from all four sides of the screen. What also distinguishes the Telerik SideDrawer control is that its items’ content is not limited to navigation options; it can serve arbitrary content. 
 
-<img src="../images/sidedrawer-gettingstarted001.png"/>
+<img src="../images/sidedrawer-overview001.png"/>
 
 **Transition modes**
 
@@ -27,7 +27,7 @@ These transitions can be combined with the SideDrawer’s ability to slide from 
 
 **Support for custom content**
 
-Normally, SideDrawer will display a list of your menu items. However, you may want something more unusual for your app. Therefore, you can use the menu surface as a generic container and instead of the standard menu items put a content entirely of your choice. For example, at screenshot on the right you can see how we have inserted a UIView with a UIImageView instead of menu items.
+Normally, SideDrawer will display a list of your menu items. However, you may want something more unusual for your app. Therefore, you can use the menu surface as a generic container and instead of the standard menu items put a content entirely of your choice.
 
 
 **Sections**

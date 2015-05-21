@@ -8,6 +8,8 @@ position: 1
 
 <code>TKCalendar</code> is a highly customizable calendar component that offers different view modes, animations, great performance and customization options. Its EventKit data source helper allows for easy importing of events from the device.
 
+<img src="../images/calendar-overview001.png"/>
+
 <code>TKCalendar</code> main features include:
 
 - Different view modes: week, month, year, month names, year numbers, flow.
@@ -17,4 +19,4 @@ position: 1
 - Overriding the default calendar appearance with themes and custom cells.
 - Localization.
 
-<img src="../images/calendar-overview001.png"/>
+
