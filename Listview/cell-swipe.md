@@ -52,8 +52,62 @@ listView.cellSwipeTreshold = 30
 listView.CellSwipeTreshold = 30;
 ```
 
-
 Use the <code>cellSwipeAnimationDuration</code> property to set the cell swipe animation duration 
+
+Add the content that should be visible when swipe is applied to the backgroundView of TKListViewCell:
+
+```Objective-C
+- (TKListViewCell *)listView:(TKListView *)listView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TKListViewCell *cell = (TKListViewCell*)[listView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+
+    if (cell.swipeBackgroundView.subviews.count == 0) {
+        
+        CGSize size = cell.frame.size;
+        
+        UIButton *bTrash = [[UIButton alloc] initWithFrame:CGRectMake(size.width - 60, 0, 60, size.height)];
+        [bTrash setTitle:@"Trash" forState:UIControlStateNormal];
+        [bTrash setBackgroundColor:[UIColor redColor]];
+        [cell.swipeBackgroundView addSubview:bTrash];
+    }
+
+    return cell;
+}
+```
+```Swift
+func listView(listView: TKListView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> TKListViewCell! {
+    let cell = listView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as! TKListViewCell
+    
+    if cell.swipeBackgroundView.subviews.count == 0 {
+        
+        let size = cell.frame.size;
+        
+        let bTrash = UIButton(frame:CGRectMake(size.width - 60, 0, 60, size.height))
+        bTrash.setTitle("Trash", forState:UIControlState.Normal)
+        bTrash.backgroundColor = UIColor.redColor()
+        cell.swipeBackgroundView.addSubview(bTrash)
+    }
+    
+    return cell;
+}
+```
+```C#
+public override TKListViewCell CellForItem (TKListView listView, NSIndexPath indexPath)
+{
+    var cell = listView.DequeueReusableCell("cell", indexPath) as TKListViewCell;
+
+    if (cell.SwipeBackgroundView.Subviews.Length == 0) 
+    {
+        var size = cell.Frame.Size;
+        var bTrash = new UIButton (new CGRect (size.Width - 60, 0, 60, size.Height));
+        bTrash.SetTitle ("Trash", UIControlState.Normal);
+        bTrash.BackgroundColor = UIColor.Red;
+        cell.SwipeBackgroundView.AddSubview (bTrash);
+    }
+
+    return cell;
+}
+```
 
 ## Responding to swipe interactions##
 In order to respond programmatically to a swipe gesture performed by user, you will need to implement one or more of the following methods from the TKListViewDelegate protocol.
