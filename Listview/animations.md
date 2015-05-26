@@ -12,7 +12,7 @@ TKListView supports threee predefined item animations: fade-in, slide-in and sca
 - when removing an item
 - when an item appears when scrolling
 
-<img src="../images/listview-scroll-animations001.png" />
+<img src="../images/listview-animations001.png" />
 
 Animations are controlled by setting properties of TKListViewLinearLayout class. The animation duration is controlled by setting the animationDuration property:
 
