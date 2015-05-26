@@ -7,6 +7,8 @@ position: .1
 
 TKChart is a versatile charting component that offers full customization, great performance and intuitive object model. Its API allows creating complex charts with stunning animations and appearance.
 
+<img src="../images/chart-overview001.png"/>
+
 TKChart main features include:
 
 - Various series types: bar, column, line, spline, area, pie, donut, scatter, bubble, financial series and indicators.    
@@ -16,5 +18,3 @@ TKChart main features include:
 - Multiple axes.
 - Annotations.
 - Trackball.
-
-<img src="../images/chart-overview001.png"/>

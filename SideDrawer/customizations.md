@@ -13,36 +13,36 @@ position: 4
 The most useful settings for changing the visual appearance of <code>TKSideDrawer</code> are grouped in its <code>style</code> property.
 
 ```Objective-C
-	self.sideDrawer.style.headerHeight = 64;
-    self.sideDrawer.fill = [TKSolidFill solidFillWithColor:TKRGBA(28, 171, 241, 0.5)];
-    self.sideDrawer.style.shadowMode = TKSideDrawerShadowModeHostview;
-    self.sideDrawer.style.shadowOffset = CGSizeMake(-2, -0.5);
-    self.sideDrawer.style.shadowRadius = 5;
+self.sideDrawer.style.headerHeight = 64;
+self.sideDrawer.fill = [TKSolidFill solidFillWithColor:TKRGBA(28, 171, 241, 0.5)];
+self.sideDrawer.style.shadowMode = TKSideDrawerShadowModeHostview;
+self.sideDrawer.style.shadowOffset = CGSizeMake(-2, -0.5);
+self.sideDrawer.style.shadowRadius = 5;
 ```
 
 ```Swift
-	sideDrawer.style.headerHeight = 64
-    sideDrawer.fill = TKSolidFill(color: UIColor(red: 28 / 255.0, green: 171/255.0, blue: 241/255.0, alpha:0.5))
-    sideDrawer.style.shadowMode = TKSideDrawerShadowMode.Hostview
-    sideDrawer.style.shadowOffset = CGSizeMake(-2, -0.5)
-    sideDrawer.style.shadowRadius = 5
+sideDrawer.style.headerHeight = 64
+sideDrawer.fill = TKSolidFill(color: UIColor(red: 28 / 255.0, green: 171/255.0, blue: 241/255.0, alpha:0.5))
+sideDrawer.style.shadowMode = TKSideDrawerShadowMode.Hostview
+sideDrawer.style.shadowOffset = CGSizeMake(-2, -0.5)
+sideDrawer.style.shadowRadius = 5
 ```
 
 ```C#
-	SideDrawer.Style.HeaderHeight = 64;
-	SideDrawer.Fill = new TKSolidFill (new UIColor (28.0f / 255.0f, 171.0f / 255.0f, 241.0f / 255.0f, 0.5f));
-	SideDrawer.Style.ShadowMode = TKSideDrawerShadowMode.Hostview;
-	SideDrawer.Style.ShadowOffset = new CGSize (-2f, -0.5f);
-	SideDrawer.Style.ShadowRadius = 5;
+SideDrawer.Style.HeaderHeight = 64;
+SideDrawer.Fill = new TKSolidFill (new UIColor (28.0f / 255.0f, 171.0f / 255.0f, 241.0f / 255.0f, 0.5f));
+SideDrawer.Style.ShadowMode = TKSideDrawerShadowMode.Hostview;
+SideDrawer.Style.ShadowOffset = new CGSize (-2f, -0.5f);
+SideDrawer.Style.ShadowRadius = 5;
 ```
 
 There are cases when you may need to update the styles of specific TKSideDrawer items like the text color. Or, you may need to show a separator. This can be done by adopting the <code>TKSideDrawerDelegate</code> protocol and implementing its <code>sideDrawer:updateVisualsForItem:inSection:</code> method.
 
 ```Objective-C
-- (void)sideDrawer:(TKSideDrawer *)sideDrawer updateVisualsForItem:(NSInteger)itemIndex inSection:(NSInteger)sectionIndex
+- (void)sideDrawer:(TKSideDrawer *)sideDrawer updateVisualsForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    TKSideDrawerSection *section = sideDrawer.sections[sectionIndex];
-    TKSideDrawerItem *item = section.items[itemIndex];
+    TKSideDrawerSection *section = sideDrawer.sections[indexPath.section];
+    TKSideDrawerItem *item = section.items[indexPath.item];
     item.style.contentInsets = UIEdgeInsetsMake(0, -5, 0, 0);
     item.style.separatorColor = [TKSolidFill solidFillWithColor:[UIColor colorWithWhite:1 alpha:0.5]];
     item.style.textColor = [UIColor whiteColor];
@@ -50,9 +50,9 @@ There are cases when you may need to update the styles of specific TKSideDrawer 
 ```
 
 ```Swift
-func sideDrawer(sideDrawer: TKSideDrawer!, updateVisualsForItem itemIndex: Int, inSection sectionIndex: Int) {
-   	let section = sideDrawer.sections()[sectionIndex] as! TKSideDrawerSection
-   	let item = section.items()[itemIndex] as! TKSideDrawerItem
+func sideDrawer(sideDrawer: TKSideDrawer!, updateVisualsForItemAtIndexPath indexPath: NSIndexPath!) {
+    let section = sideDrawer.sections()[indexPath.section] as! TKSideDrawerSection
+    let item = section.items()[indexPath.item] as! TKSideDrawerItem
     item.style.contentInsets = UIEdgeInsetsMake(0, -5, 0, 0)
     item.style.separatorColor = TKSolidFill(color: UIColor(white: 1, alpha: 0.5))
     item.style.textColor = UIColor.whiteColor()
