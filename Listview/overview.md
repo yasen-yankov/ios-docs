@@ -14,13 +14,13 @@ The Telerik ListView for iOS provides the most frequently used functionalities a
 
 The features at a glance are: 
 
-- Different Layout Modes
-- UI Virtualization
+
+- Cells Swipe
+- Cells Reordering
 - Pull-to-refresh
 - Load-on-demand
-- Selection
-- Cells Reorder
-- Cells Swipe
+- Different Layout Modes
+- Single/Multiple Selection
 - Grouping
 
 
