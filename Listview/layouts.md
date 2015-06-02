@@ -6,7 +6,7 @@ position: 6
 
 # ListView: Layouts
 
-TKListView provides the same layout mechanism as UICollectionView. There are three implemented layouts and you can also create your own by inheriting from UICollectionViewLayout class. However, all list view features will be available only when using a layout which inherits from TKListViewLinearLayout.
+TKListView provides the same layout mechanism as UICollectionView. There are three additionally implemented layouts and you can also create your own by inheriting from UICollectionViewLayout class. However, all list view features will be available only when using a layout which inherits from TKListViewLinearLayout.
 
 ## Getting started##
 
@@ -110,7 +110,7 @@ ListView.Layout = layout;
 
 ## Staggered layout##
 
-The staggered layout lays out items in a staggered grid formation. The It supports horizontal & vertical layout as well as an ability to align cells. It inherits from TKListViewGridLayout. 
+The staggered layout lays out items in a staggered grid formation. It supports horizontal & vertical layout as well as an ability to align cells. It inherits from TKListViewGridLayout. 
 
 <img src="../images/listview-layouts003.png"/>
 
